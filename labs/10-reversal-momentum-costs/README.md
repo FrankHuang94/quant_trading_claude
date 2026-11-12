@@ -100,6 +100,7 @@ less impact per dollar traded.
   over: at \$100M it is 19.5% of gross book a year, vs 1.3% for momentum. With square-root impact, capacity scales roughly with the
   universe's dollar volume. This universe trades about \$36B a day, a small fraction of US equity
   volume, so read the dollar figures as relative, not absolute.
+
 - **Momentum's worst month** ended 2020-02-27 (synthetic dates): **-3.7%** of gross, a -2.9 sd
   month. The market rose 5.5% after falling 28% over the trailing year. The book's beta going in
   was -0.19 per \$1 long plus \$1 short. The loss splits into **-2.6% from sector and style tilts**,

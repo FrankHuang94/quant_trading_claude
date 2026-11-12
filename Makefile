@@ -49,4 +49,4 @@ sources:
 	$(PY) scripts/build_sources.py
 
 lint:
-	npx --yes markdownlint-cli2@0.17.2 "docs/**/*.md" "*.md" "labs/**/*.md"
+	npx --yes markdownlint-cli2@0.15.0 "docs/**/*.md" "*.md" "labs/**/*.md"

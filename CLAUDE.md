@@ -243,6 +243,7 @@ forward links into 02–03, then `## Related pages` and `## Sources`.
 ## 5. Pseudocode and labs
 
 ### 5.1 Pseudocode rules
+
 - Mandatory in every card (`## The algorithm`) and every dossier (`## Signals and algorithms under the hood`).
 - Readable Python, commented, no imports beyond numpy/pandas conventions (`np`, `pd`). Cards ≤ 40
   non-blank lines; dossiers 10–25 lines.
@@ -251,7 +252,7 @@ forward links into 02–03, then `## Related pages` and `## Sources`.
 
 ### 5.2 Labs: layout and API
 
-```
+```text
 labs/
   common/
     utils.py      # setup(), save_fig(), write_results(), annualized_sharpe(), max_drawdown()
@@ -333,6 +334,7 @@ Each lab README must include the section **"What this toy misses vs the real wor
 - [Verified] Avellaneda, M. & Stoikov, S. (2008). "High-frequency trading in a limit order book." *Quantitative Finance* 8(3), 217–224. <https://doi.org/10.1080/14697680701381228> (accessed 2026-11)
 - [Reported] Financial Times (2025-01-15). "Headline here." <https://www.ft.com/...> (accessed 2026-11)
 ```
+
 Tag first, then author/org, (date), title, venue, `<URL>`, `(accessed YYYY-MM)`. Prefer DOI or the
 publisher/regulator URL; SSRN/arXiv are fine for papers.
 

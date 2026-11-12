@@ -31,7 +31,7 @@ Supporting modules: [00 Start here](docs/00-start-here/the-big-picture.md) ·
 
 ## Repository layout
 
-```
+```text
 docs/        the knowledge base (MkDocs Material site)
 labs/        20 Python labs on synthetic data (labs/common/simulate.py is the market simulator)
 scripts/     content checks: templates, word counts, glossary links, strategy x algorithm matrix

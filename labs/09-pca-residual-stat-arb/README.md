@@ -122,6 +122,7 @@ s-score uses a 60-day OU fit, so it picks up only about a third of that edge.
 
   Capacity looks tiny because every position is executed in one day against a median ADV of about
   \$56M, and the book makes about 5,000 round trips a year.
+
 - **Number of PCA factors** (gross / net Sharpe at \$10M; IC of -s): 1 factor 2.26 / 1.06
   (0.0137); 5 factors 1.78 / 0.13 (0.0136); 15 factors 2.98 / 0.63 (0.0131); 30 factors 2.38 / -0.38
   (0.0110). With 30 factors, the 60-day regression fits 31 parameters to 60 observations. It
