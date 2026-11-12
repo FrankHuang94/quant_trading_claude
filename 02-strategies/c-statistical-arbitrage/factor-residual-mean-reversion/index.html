@@ -5960,8 +5960,8 @@
 <td>2.75%</td>
 </tr>
 <tr>
-<td>s-score, with X = −3.6%, centered m = +0.4%</td>
-<td>(−3.6% − 0.4%) / 2.75%</td>
+<td>s-score: X today is 0 (the intercept makes residuals sum to zero); centered m = +4.0%</td>
+<td>(0 − 4.0%) / 2.75%</td>
 <td>−1.45 → buy $100k, hedge factors</td>
 </tr>
 <tr>
@@ -6199,7 +6199,7 @@ R_{it} = \beta_{i0} + \sum_{j=1}^{k} \beta_{ij} F_{jt} + \epsilon_{it} .
 <div class="arithmatex">\[
 \kappa = -252 \ln b, \qquad m = \frac{a}{1-b}, \qquad \sigma_{eq} = \frac{\sigma}{\sqrt{2\kappa}} = \sqrt{\frac{\operatorname{Var}(\zeta)}{1-b^2}}, \qquad s = \frac{X - m}{\sigma_{eq}} .
 \]</div>
-<p>A&amp;L require <span class="arithmatex">\(\kappa &gt; 252/30 \approx 8.4\)</span>. With a residual drift <span class="arithmatex">\(\alpha\)</span>, they define <span class="arithmatex">\(s_{mod} = s - \alpha/(\kappa\,\sigma_{eq})\)</span> and found it changed little.</p>
+<p>A&amp;L require <span class="arithmatex">\(\kappa &gt; 252/30 \approx 8.4\)</span>. Because the regression has an intercept, the residuals sum to zero over the window, so <span class="arithmatex">\(X_{60} = 0\)</span> and <span class="arithmatex">\(s = -m/\sigma_{eq}\)</span>: a stock is cheap when its fitted equilibrium sits above today's level. A&amp;L (and Lab 09) subtract the cross-sectional mean of <span class="arithmatex">\(m\)</span>. With a residual drift <span class="arithmatex">\(\alpha\)</span>, they define <span class="arithmatex">\(s_{mod} = s - \alpha/(\kappa\,\sigma_{eq})\)</span> and found it changed little.</p>
 <p><strong>Break-even cost.</strong> Gross return <span class="arithmatex">\(g\)</span> per year and dollars traded <span class="arithmatex">\(T\)</span> per dollar of capital give break-even cost <span class="arithmatex">\(c^* \approx g/T\)</span>. Lab 09: <span class="arithmatex">\(10.7\% / 107 \approx 10\)</span> bps.</p>
 </details>
 <h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link">&para;</a></h2>

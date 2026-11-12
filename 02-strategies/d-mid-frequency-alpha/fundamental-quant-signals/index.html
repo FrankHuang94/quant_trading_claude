@@ -5966,7 +5966,7 @@
 </tbody>
 </table>
 <h2 id="worked-example-with-numbers">Worked example with numbers<a class="headerlink" href="#worked-example-with-numbers" title="Permanent link">&para;</a></h2>
-<p>Illustrative: two semiconductor-equipment firms, same price and same trailing earnings of $100M.</p>
+<p>Illustrative: two semiconductor-equipment firms, same market capitalization and same trailing earnings of $100M.</p>
 <table>
 <thead>
 <tr>
@@ -5987,14 +5987,14 @@
 <td>130</td>
 </tr>
 <tr>
-<td>Average total assets</td>
-<td>1,000</td>
-<td>1,000</td>
+<td>Total assets, now vs a year ago</td>
+<td>1,000 vs 800</td>
+<td>1,000 vs 950</td>
 </tr>
 <tr>
-<td>Accruals / assets</td>
-<td>(100 − 40)/1,000 = <strong>+6.0%</strong></td>
-<td>(100 − 130)/1,000 = <strong>−3.0%</strong></td>
+<td>Accruals / average assets</td>
+<td>(100 − 40)/900 = <strong>+6.7%</strong></td>
+<td>(100 − 130)/975 = <strong>−3.1%</strong></td>
 </tr>
 <tr>
 <td>Revenue − COGS</td>
@@ -6002,14 +6002,9 @@
 <td>300</td>
 </tr>
 <tr>
-<td>Gross profitability</td>
+<td>Gross profitability (÷ current assets)</td>
 <td><strong>32%</strong></td>
 <td><strong>30%</strong></td>
-</tr>
-<tr>
-<td>Total assets, now vs a year ago</td>
-<td>1,000 vs 800</td>
-<td>1,000 vs 950</td>
 </tr>
 <tr>
 <td>Asset growth</td>
@@ -6039,7 +6034,7 @@
 <a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    <span class="n">raw</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
 <a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>        <span class="s2">"value"</span><span class="p">:</span>   <span class="n">s</span><span class="o">.</span><span class="n">book_equity</span> <span class="o">/</span> <span class="n">mcap</span><span class="p">,</span>                          <span class="c1"># B/M</span>
 <a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>        <span class="s2">"gp"</span><span class="p">:</span>      <span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">revenue</span> <span class="o">-</span> <span class="n">s</span><span class="o">.</span><span class="n">cogs</span><span class="p">)</span> <span class="o">/</span> <span class="n">s</span><span class="o">.</span><span class="n">total_assets</span><span class="p">,</span>           <span class="c1"># Novy-Marx</span>
-<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>        <span class="s2">"accrual"</span><span class="p">:</span> <span class="o">-</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">net_income</span> <span class="o">-</span> <span class="n">s</span><span class="o">.</span><span class="n">cfo</span><span class="p">)</span> <span class="o">/</span> <span class="n">s</span><span class="o">.</span><span class="n">total_assets</span><span class="p">,</span>        <span class="c1"># Sloan, sign flipped</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>        <span class="s2">"accrual"</span><span class="p">:</span> <span class="o">-</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">net_income</span> <span class="o">-</span> <span class="n">s</span><span class="o">.</span><span class="n">cfo</span><span class="p">)</span> <span class="o">/</span> <span class="p">((</span><span class="n">s</span><span class="o">.</span><span class="n">total_assets</span> <span class="o">+</span> <span class="n">s</span><span class="o">.</span><span class="n">total_assets_lag</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">),</span>  <span class="c1"># Sloan, flipped</span>
 <a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>        <span class="s2">"invest"</span><span class="p">:</span>  <span class="o">-</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">total_assets</span> <span class="o">/</span> <span class="n">s</span><span class="o">.</span><span class="n">total_assets_lag</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span>      <span class="c1"># asset growth, flipped</span>
 <a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>    <span class="p">})</span>
 <a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>    <span class="k">return</span> <span class="n">raw</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">sector</span><span class="p">)</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">sector_z</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># then neutralize (D3)</span>

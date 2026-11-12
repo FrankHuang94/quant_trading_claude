@@ -5883,7 +5883,7 @@
 </tr>
 <tr>
 <td>Typical Sharpe (gross vs net)</td>
-<td>PEAD: ~4.2% per 60 days top-minus-bottom decile, gross, 1974–1985 academic backtest <code>[Reported]</code>; near zero in non-microcaps since 2006 <code>[Verified]</code> (Martineau 2022), contested. Merger arbitrage: ~4% a year excess return, 1963–1998 academic study <code>[Reported]</code></td>
+<td>PEAD: ~4.2% per 60 days top-minus-bottom decile, gross, 1974–1985 academic backtest <code>[Reported]</code>; near zero in non-microcaps since 2006 <code>[Verified]</code> (Martineau 2022), contested. Merger arbitrage: ~4% a year excess, net of transaction costs, 1963–1998 academic study <code>[Verified]</code></td>
 </tr>
 <tr>
 <td>Turnover</td>
@@ -6028,14 +6028,14 @@
 <li>Chordia et al. (2009): drift concentrates in illiquid stocks; costs absorb most paper profits <code>[Reported]</code>.</li>
 <li>Martineau (2022): no drift in large stocks since 2006, recently none in microcaps; prices now absorb surprises on the day <code>[Verified]</code>.</li>
 <li>Subrahmanyam (2025) notes two 2025 papers reporting strong PEAD (t-statistics above 14) and attributes the disagreement to research design <code>[Reported]</code>. Evidence is mixed; no verdict here.</li>
-<li>Mitchell &amp; Pulvino (2001): merger arbitrage earned ~4% a year excess, with returns resembling short index puts in down markets <code>[Reported]</code>.</li>
+<li>Mitchell &amp; Pulvino (2001): 4,750 mergers, 1963–1998: ~4% a year excess after transaction costs; returns track the market only in sharp declines, like a short index put <code>[Verified]</code>.</li>
 </ul>
 <h2 id="capacity-crowding-and-decay">Capacity, crowding and decay<a class="headerlink" href="#capacity-crowding-and-decay" title="Permanent link">&para;</a></h2>
 <p>Drift lives where costs are highest, so capacity is small. Decay is central: the reaction moved into the first minutes, shifting edge to whoever parses releases and calls fastest (<a href="../nlp-and-llm-signals/">NLP and LLM signals</a>).</p>
 <h2 id="how-it-fails">How it fails<a class="headerlink" href="#how-it-fails" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Gap risk.</strong> On 3 February 2022 Meta fell roughly a quarter in one session after earnings <code>[Reported]</code>.</li>
-<li><strong>Deal breaks.</strong> In October 2014 AbbVie walked away from Shire after US anti-inversion rules changed, inflicting heavy losses on arbitrageurs <code>[Reported]</code>.</li>
+<li><strong>Gap risk.</strong> On 3 February 2022 Meta fell 26% in one session after earnings, erasing over $230B of market value <code>[Reported]</code>.</li>
+<li><strong>Deal breaks.</strong> In October 2014 AbbVie abandoned its $55B Shire deal after new US anti-inversion rules; merger-arbitrage funds lost and de-risked other deals <code>[Reported]</code>.</li>
 <li><strong>Timing bugs.</strong> Misdated releases create fictitious backtest drift.</li>
 </ul>
 <h2 id="textbook-vs-how-its-done-today">Textbook vs how it's done today<a class="headerlink" href="#textbook-vs-how-its-done-today" title="Permanent link">&para;</a></h2>
@@ -6151,8 +6151,11 @@ P_0 = \frac{p \, O + (1-p) \, B}{(1+r)^{T}} \;\Rightarrow\; p = \frac{P_0 (1+r)^
 <li>[Reported] So, E. C. &amp; Wang, S. (2014). "News-Driven Return Reversals: Liquidity Provision Ahead of Earnings Announcements." <em>Journal of Financial Economics</em> 114(1), 20–35. <a href="https://doi.org/10.1016/j.jfineco.2014.07.003">https://doi.org/10.1016/j.jfineco.2014.07.003</a> (accessed 2026-11)</li>
 <li>[Reported] Savor, P. &amp; Wilson, M. (2016). "Earnings Announcements and Systematic Risk." <em>Journal of Finance</em> 71(1), 83–138. <a href="https://doi.org/10.1111/jofi.12361">https://doi.org/10.1111/jofi.12361</a> (accessed 2026-11)</li>
 <li>[Reported] Livnat, J. &amp; Mendenhall, R. R. (2006). "Comparing the Post-Earnings Announcement Drift for Surprises Calculated from Analyst and Time Series Forecasts." <em>Journal of Accounting Research</em> 44(1), 177–205. <a href="https://doi.org/10.1111/j.1475-679X.2006.00196.x">https://doi.org/10.1111/j.1475-679X.2006.00196.x</a> (accessed 2026-11)</li>
-<li>[Reported] Mitchell, M. &amp; Pulvino, T. (2001). "Characteristics of Risk and Return in Risk Arbitrage." <em>Journal of Finance</em> 56(6), 2135–2175. <a href="https://doi.org/10.1111/0022-1082.00401">https://doi.org/10.1111/0022-1082.00401</a> (accessed 2026-11)</li>
+<li>[Verified] Mitchell, M. &amp; Pulvino, T. (2001). "Characteristics of Risk and Return in Risk Arbitrage." <em>Journal of Finance</em> 56(6), 2135–2175. <a href="https://doi.org/10.1111/0022-1082.00401">https://doi.org/10.1111/0022-1082.00401</a> (accessed 2026-11)</li>
 <li>[Reported] Frazzini, A. &amp; Lamont, O. A. (2007). "The Earnings Announcement Premium and Trading Volume." NBER Working Paper 13090. <a href="https://www.nber.org/papers/w13090">https://www.nber.org/papers/w13090</a> (accessed 2026-11)</li>
+<li>[Reported] Bloomberg (2022-02-03). "Meta Erases $251 Billion in Value, Biggest Wipeout in History." <a href="https://www.bloomberg.com/news/articles/2022-02-03/meta-set-for-200-billion-wipeout-among-worst-in-market-history">https://www.bloomberg.com/news/articles/2022-02-03/meta-set-for-200-billion-wipeout-among-worst-in-market-history</a> (accessed 2026-11)</li>
+<li>[Reported] BioSpace (2014-10-16). "AbbVie Board Officially Abandons $55 Billion Shire Merger." <a href="https://www.biospace.com/abbvie-board-officially-abandons-55-billion-b-shire-b-merger">https://www.biospace.com/abbvie-board-officially-abandons-55-billion-b-shire-b-merger</a> (accessed 2026-11)</li>
+<li>[Reported] Reuters (2014-11-13). "Scuttled deals worth $580 billion put hedge funds on back foot" (syndicated copy). <a href="https://vcpost.com/articles/31741/20141113/scuttled-deals-worth-580-billion-put-hedge-funds-back-foot.htm">https://vcpost.com/articles/31741/20141113/scuttled-deals-worth-580-billion-put-hedge-funds-back-foot.htm</a> (accessed 2026-11)</li>
 </ul>
 
 
