@@ -1,0 +1,137 @@
+{
+  "lab": "06-options-mm-delta-hedging",
+  "smoke": false,
+  "seed": 7,
+  "n_days": 2016,
+  "n_trades": 398,
+  "trade_every_days": 5,
+  "units": "$ per short straddle contract (1 call + 1 put, 100 shares each)",
+  "mean_premium_usd": 500.057525,
+  "mean_vega_usd_per_volpt": 24.23843,
+  "mean_atm30_iv": 0.203054,
+  "mean_rv30_fwd": 0.183912,
+  "mean_iv_minus_rv_volpts": 1.914264,
+  "share_days_iv_above_rv": 0.6462,
+  "implied_over_realized_variance_atm": 1.188363,
+  "implied_over_realized_variance_varswap": 1.263936,
+  "planted_variance_ratio": 1.25,
+  "smile_rmse_volpts": {
+    "quadratic": 0.504029,
+    "svi": 0.035174
+  },
+  "smile_wing_extrapolation_abs_err_volpts": {
+    "quadratic": 1.247172,
+    "svi": 0.118297
+  },
+  "attribution_mean_usd": {
+    "15 min": {
+      "quoted_edge": 13.06,
+      "theta": 262.61,
+      "gamma": -210.83,
+      "vega": -9.47,
+      "vanna": 7.59,
+      "volga": -7.61,
+      "delta_hedge_residual": 0.0,
+      "hedging_costs": -14.86,
+      "unexplained": -0.02,
+      "total": 40.47
+    },
+    "daily": {
+      "quoted_edge": 13.06,
+      "theta": 262.61,
+      "gamma": -210.83,
+      "vega": -9.47,
+      "vanna": 7.59,
+      "volga": -7.61,
+      "delta_hedge_residual": -4.37,
+      "hedging_costs": -3.6,
+      "unexplained": -0.02,
+      "total": 47.36
+    }
+  },
+  "attribution_sd_usd": {
+    "15 min": {
+      "quoted_edge": 1.71,
+      "theta": 152.55,
+      "gamma": 137.66,
+      "vega": 118.83,
+      "vanna": 25.87,
+      "volga": 4.89,
+      "delta_hedge_residual": 0.0,
+      "hedging_costs": 5.29,
+      "unexplained": 1.7,
+      "total": 113.72
+    },
+    "daily": {
+      "quoted_edge": 1.71,
+      "theta": 152.55,
+      "gamma": 137.66,
+      "vega": 118.83,
+      "vanna": 25.87,
+      "volga": 4.89,
+      "delta_hedge_residual": 57.97,
+      "hedging_costs": 0.99,
+      "unexplained": 1.7,
+      "total": 134.78
+    }
+  },
+  "mean_pnl_gross_usd_by_policy": {
+    "15 min": 55.33,
+    "hourly": 51.78,
+    "daily": 50.96,
+    "weekly": 53.19,
+    "band 0.05": 54.64,
+    "band 0.10": 54.93
+  },
+  "mean_pnl_net_usd_by_policy": {
+    "15 min": 40.47,
+    "hourly": 43.88,
+    "daily": 47.36,
+    "weekly": 51.41,
+    "band 0.05": 45.87,
+    "band 0.10": 49.08
+  },
+  "sd_pnl_usd_by_policy": {
+    "15 min": 113.66,
+    "hourly": 114.09,
+    "daily": 134.62,
+    "weekly": 215.29,
+    "band 0.05": 114.46,
+    "band 0.10": 116.75
+  },
+  "sd_delta_hedge_residual_usd_by_policy": {
+    "15 min": 0.0,
+    "hourly": 23.54,
+    "daily": 57.97,
+    "weekly": 164.87,
+    "band 0.05": 14.41,
+    "band 0.10": 27.79
+  },
+  "mean_hedging_costs_usd_by_policy": {
+    "15 min": -14.86,
+    "hourly": -7.9,
+    "daily": -3.6,
+    "weekly": -1.78,
+    "band 0.05": -8.76,
+    "band 0.10": -5.85
+  },
+  "rebalances_per_day_by_policy": {
+    "15 min": 26.0,
+    "hourly": 6.5,
+    "daily": 1.0,
+    "weekly": 0.2,
+    "band 0.05": 4.11,
+    "band 0.10": 1.54
+  },
+  "hedge_residual_sd_slope_vs_rebalances": -0.556991,
+  "max_abs_mean_delta_hedge_residual_in_se": 1.228699,
+  "theta_plus_gamma_minus_vol_spread_max_abs_usd": 0.0,
+  "r2_pnl_vs_classic_gamma_weighted_formula": 0.81801,
+  "r2_pnl_vs_vega_x_iv_minus_rv": 0.747293,
+  "mean_classic_formula_usd": 44.740904,
+  "mean_pnl_ex_edge_costs_15min_usd": 42.2731,
+  "share_trades_losing_daily_hedge": 0.349246,
+  "p05_trade_pnl_usd_daily_hedge": -183.000427,
+  "unexplained_sd_usd_15min": 1.696035,
+  "unexplained_sd_usd_without_vanna_volga_15min": 23.830389
+}
