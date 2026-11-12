@@ -19,9 +19,6 @@ All notable changes to this knowledge base. Dates are build dates (YYYY-MM-DD).
 - 20 labs on a synthetic market engine (`labs/common/simulate.py`, self-test 43/43); full run 246 s.
 - Module 01 (9 pages), the big picture, glossary seed (150 terms), labs catalog, Core Path.
 - Priority gate: seven reviewers re-read all 02-03 pages; 49 high-stakes claims fact-checked (20 corrected).
-
-### Added
-
-- 2026-11-12: Phase 0 scaffolding: build spec, conventions (CLAUDE.md), plan tracker, page tree with
+- Phase 0 scaffolding: build spec, conventions (CLAUDE.md), plan tracker, page tree with
   stubs, MkDocs Material config, content-check scripts (templates, matrix, glossary, word count,
   sources), lab utilities, CI and Pages workflows.
