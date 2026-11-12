@@ -131,8 +131,9 @@ and the shape of the P&L curve do not.
   (2017) documents much wider premiums for ETFs with illiquid or international holdings.
 - **NAV is never stale.** All 50 stocks close at the same moment, as liquid US large caps do. For
   international, bond or illiquid baskets, NAV is computed from stale or matrix prices, so the
-  measured "premium" is partly NAV error. That was the story of bond-ETF discounts in March 2020
-  (Haddad, Moreira & Muir 2021).
+  measured "premium" is partly NAV error. How much of the March 2020 bond-ETF discounts was stale
+  NAV is contested: issuers stressed stale bond prices, while Haddad, Moreira & Muir (2021) document
+  a genuine dislocation driven by forced selling in the underlying bonds.
 - **Fees, spreads and borrow are round, stylized numbers.** Real creation and redemption fees
   vary by issuer and basket. Some funds accept or require cash creations, with variable fees that
   pass the fund's own trading costs to the AP. Custom baskets let APs leave out illiquid or
