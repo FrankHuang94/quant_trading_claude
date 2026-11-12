@@ -30,6 +30,7 @@ walkthroughs) take priority until the Phase 6 gate passes.
   `scripts/kb.py:prose_words`), so the totals measure what a reader actually reads.
 - 2026-11-12: MkDocs anchor validation is set to `info` during the build because glossary anchors are
   verified by `scripts/check_glossary_links.py`; flip to `warn` in Phase 10.
+- 2026-11-12: Tag `v0.9-strategies-algorithms` was created locally on commit 4df00f2, but this build session's git access permits branch pushes only (tag push returned HTTP 403). The repository owner should push the tags (`git push origin v0.9-strategies-algorithms`, later `v1.0`) or create them in the GitHub UI.
 - 2026-11-12: Lab links in pages use absolute GitHub URLs (labs live outside `docs/`); lab plots are
   committed under `docs/assets/labs/` so the site can embed them.
 
