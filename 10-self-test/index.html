@@ -5394,6 +5394,59 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-quizzes" class="md-nav__link">
+    <span class="md-ellipsis">
+      The quizzes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-flashcards" class="md-nav__link">
+    <span class="md-ellipsis">
+      The flashcards
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-study-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      A study loop
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related pages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sources
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -5411,11 +5464,148 @@
 
 
 <h1 id="self-test">Self-test<a class="headerlink" href="#self-test" title="Permanent link">&para;</a></h1>
-<!-- STUB -->
-<div class="admonition note">
-<p class="admonition-title">Not yet written</p>
-<p>This page is scheduled for Phase 9 of the build. See <code>PLAN.md</code> in the repository.</p>
-</div>
+<blockquote>
+<p><strong>TL;DR</strong></p>
+<ul>
+<li>Ten quizzes, one per module. The two priority modules (strategies and algorithms) get about twice as many questions as the others.</li>
+<li><a href="flashcards.csv"><code>flashcards.csv</code></a> holds 425 cards, 69% of them on strategies and algorithms. Every answer ends with the path of the page that explains it.</li>
+<li>Use both in a loop: read a page, quiz yourself the same day, put misses into spaced repetition, and reread the linked page when a card keeps failing.</li>
+</ul>
+</blockquote>
+<p><strong>Level:</strong> Core · <strong>Read time:</strong> ~3 min · <strong>Last verified:</strong> 2026-11</p>
+<h2 id="the-quizzes">The quizzes<a class="headerlink" href="#the-quizzes" title="Permanent link">&para;</a></h2>
+<p>Each question is marked basic, informed or sharp, and its answer sits in a collapsed block that links to the page that explains it. Answer out loud or on paper before you open it; recall you had to work for is what sticks. A miss means reread the linked page, not just the answer. Take a module's quiz right after you finish the module, then again a week later.</p>
+<table>
+<thead>
+<tr>
+<th>Quiz</th>
+<th>Module</th>
+<th>Questions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="quiz-00-start-here/">Quiz 00</a></td>
+<td>Start here</td>
+<td>12</td>
+</tr>
+<tr>
+<td><a href="quiz-01-market-structure/">Quiz 01</a></td>
+<td>Market structure</td>
+<td>15</td>
+</tr>
+<tr>
+<td><a href="quiz-02-strategies/">Quiz 02 ★</a></td>
+<td>Strategies</td>
+<td>30</td>
+</tr>
+<tr>
+<td><a href="quiz-03-algorithms/">Quiz 03 ★</a></td>
+<td>Algorithms</td>
+<td>30</td>
+</tr>
+<tr>
+<td><a href="quiz-04-industry-and-firms/">Quiz 04</a></td>
+<td>Industry and firms</td>
+<td>15</td>
+</tr>
+<tr>
+<td><a href="quiz-05-infrastructure/">Quiz 05</a></td>
+<td>Infrastructure</td>
+<td>14</td>
+</tr>
+<tr>
+<td><a href="quiz-06-risk-and-regulation/">Quiz 06</a></td>
+<td>Risk and regulation</td>
+<td>14</td>
+</tr>
+<tr>
+<td><a href="quiz-07-conversation-playbook/">Quiz 07</a></td>
+<td>Conversation playbook</td>
+<td>15</td>
+</tr>
+<tr>
+<td><a href="quiz-08-calibration/">Quiz 08</a></td>
+<td>Calibration</td>
+<td>14</td>
+</tr>
+<tr>
+<td><a href="quiz-09-reference/">Quiz 09</a></td>
+<td>Reference</td>
+<td>12</td>
+</tr>
+</tbody>
+</table>
+<h2 id="the-flashcards">The flashcards<a class="headerlink" href="#the-flashcards" title="Permanent link">&para;</a></h2>
+<p><a href="flashcards.csv"><code>flashcards.csv</code></a> is UTF-8 with three columns, <code>front,back,tags</code>, and RFC 4180 quoting. Card types mix definitions, "why" questions, numbers, formulas and "spot the error" statements. Each back ends with a page path relative to <code>docs/</code>, such as <code>(02-strategies/a-liquidity-provision/equity-market-making.md)</code>.</p>
+<table>
+<thead>
+<tr>
+<th>First tag</th>
+<th>Cards</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>strategies</code></td>
+<td>134</td>
+<td>module 02</td>
+</tr>
+<tr>
+<td><code>algorithms</code></td>
+<td>159</td>
+<td>module 03, including walkthroughs</td>
+</tr>
+<tr>
+<td><code>market-structure</code>, <code>start-here</code></td>
+<td>41</td>
+<td>modules 01 and 00</td>
+</tr>
+<tr>
+<td><code>industry</code>, <code>infrastructure</code>, <code>risk-regulation</code>, <code>conversation</code>, <code>calibration</code></td>
+<td>69</td>
+<td>modules 04–08, including firm profiles</td>
+</tr>
+<tr>
+<td><code>reference</code></td>
+<td>22</td>
+<td>the <a href="../09-reference/glossary/">glossary</a></td>
+</tr>
+</tbody>
+</table>
+<p>Later tags name the topic (<code>market-making</code>, <code>stat-arb</code>, <code>portfolio</code>, <code>execution</code>) and the card type (<code>definition</code>, <code>why</code>, <code>number</code>, <code>formula</code>, <code>spot-the-error</code>, <code>failure</code>), so you can drill one slice, for example every <code>formula</code> card in <code>algorithms</code>.</p>
+<p><strong>Importing into Anki</strong> (<a href="https://docs.ankiweb.net/manual/importing/text-files">Anki manual</a>):</p>
+<ol>
+<li>Download the file and choose <strong>File → Import</strong>.</li>
+<li>Set the field separator to <strong>Comma</strong> and pick a Basic note type and a deck.</li>
+<li>Map column 1 to <strong>Front</strong>, column 2 to <strong>Back</strong> and column 3 to <strong>Tags</strong>.</li>
+<li>The first line (<code>front,back,tags</code>) is a header. If your Anki version imports it as a card, delete that one note in the browser.</li>
+</ol>
+<p>Any CSV-aware flashcard app or spreadsheet works the same way: first row is the header, three columns.</p>
+<h2 id="a-study-loop">A study loop<a class="headerlink" href="#a-study-loop" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>flowchart LR
+    R["Read a page&lt;br/&gt;(02-03 first)"] --&gt; Q["Same-day quiz"]
+    Q --&gt;|"miss"| RR["Reread the&lt;br/&gt;linked section"]
+    Q --&gt;|"hit"| F["Flashcards for&lt;br/&gt;that module's tags"]
+    RR --&gt; F
+    F --&gt; SR["Spaced review&lt;br/&gt;(daily, 10-15 min)"]
+    SR --&gt;|"card fails 3 times"| RR
+    SR --&gt; W["Retake the quiz&lt;br/&gt;a week later"]
+    W --&gt;|"below 80%"| R</code></pre>
+<p>On the <a href="../00-start-here/learning-paths/">Core Path</a>, quiz 02 and quiz 03 are the ones to retake until they feel easy. The flashcards' <code>number</code> cards double as a pre-meeting refresher alongside the <a href="../00-start-here/one-page-cheat-sheet/">one-page cheat sheet</a>.</p>
+<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../00-start-here/learning-paths/">Learning paths</a></li>
+<li><a href="../00-start-here/one-page-cheat-sheet/">One-page cheat sheet</a></li>
+<li><a href="../02-strategies/">Strategies: the map</a></li>
+<li><a href="../03-algorithms/">Algorithms: overview</a></li>
+<li><a href="../09-reference/glossary/">Glossary</a></li>
+</ul>
+<h2 id="sources">Sources<a class="headerlink" href="#sources" title="Permanent link">&para;</a></h2>
+<ul>
+<li>[Verified] Anki Docs. "Text Files" (Importing). <a href="https://docs.ankiweb.net/manual/importing/text-files">https://docs.ankiweb.net/manual/importing/text-files</a> (accessed 2026-11)</li>
+</ul>
 
 
 
