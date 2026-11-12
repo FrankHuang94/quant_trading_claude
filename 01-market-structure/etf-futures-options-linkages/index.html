@@ -880,6 +880,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    ETF, futures and options linkages
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -889,6 +900,97 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#one-exposure-four-wrappers" class="md-nav__link">
+    <span class="md-ellipsis">
+      One exposure, four wrappers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etfs-creation-redemption-and-the-arbitrage-band" class="md-nav__link">
+    <span class="md-ellipsis">
+      ETFs: creation, redemption and the arbitrage band
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#index-futures-fair-value-and-basis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Index futures: fair value and basis
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#who-leads-price-discovery-between-futures-and-cash" class="md-nav__link">
+    <span class="md-ellipsis">
+      Who leads: price discovery between futures and cash
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#options-parity-delta-hedging-and-the-0dte-debate" class="md-nav__link">
+    <span class="md-ellipsis">
+      Options: parity, delta hedging and the 0DTE debate
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters-for-strategies-algorithms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why this matters for strategies &amp; algorithms
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related pages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sources
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -5404,6 +5506,86 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#one-exposure-four-wrappers" class="md-nav__link">
+    <span class="md-ellipsis">
+      One exposure, four wrappers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etfs-creation-redemption-and-the-arbitrage-band" class="md-nav__link">
+    <span class="md-ellipsis">
+      ETFs: creation, redemption and the arbitrage band
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#index-futures-fair-value-and-basis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Index futures: fair value and basis
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#who-leads-price-discovery-between-futures-and-cash" class="md-nav__link">
+    <span class="md-ellipsis">
+      Who leads: price discovery between futures and cash
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#options-parity-delta-hedging-and-the-0dte-debate" class="md-nav__link">
+    <span class="md-ellipsis">
+      Options: parity, delta hedging and the 0DTE debate
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters-for-strategies-algorithms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why this matters for strategies &amp; algorithms
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related pages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sources
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -5421,11 +5603,110 @@
 
 
 <h1 id="etf-futures-and-options-linkages">ETF, futures and options linkages<a class="headerlink" href="#etf-futures-and-options-linkages" title="Permanent link">&para;</a></h1>
-<!-- STUB -->
-<div class="admonition note">
-<p class="admonition-title">Not yet written</p>
-<p>This page is scheduled for Phase 2 of the build. See <code>PLAN.md</code> in the repository.</p>
-</div>
+<blockquote>
+<p><strong>TL;DR</strong></p>
+<ul>
+<li>An ETF, its stock basket, the index future and index options are different wrappers on one exposure. Arbitrage keeps them within a few basis points of each other and passes flow from one to the next.</li>
+<li>ETF ↔ basket: authorized participants create and redeem shares in kind. The no-arbitrage band is the cost of trading the basket plus creation fees.</li>
+<li>Futures ↔ cash: fair value is spot times carry (financing minus dividends). The E-mini usually leads price discovery.</li>
+<li>Options ↔ stock: put-call parity ties calls to puts, and dealers' delta hedging pushes options flow into the underlying. 0DTE reached a record 66.2% of SPX options volume in July 2026 <code>[Verified]</code>. Whether its hedging amplifies or dampens intraday moves is still contested.</li>
+</ul>
+</blockquote>
+<p><strong>Level:</strong> Core · <strong>Read time:</strong> ~7 min · <strong>Last verified:</strong> 2026-11</p>
+<h2 id="one-exposure-four-wrappers">One exposure, four wrappers<a class="headerlink" href="#one-exposure-four-wrappers" title="Permanent link">&para;</a></h2>
+<p>The S&amp;P 500 can be held as 500 stocks, as an ETF such as SPY, as an E-mini future (ES), or synthetically through SPX or SPY options. Each wrapper has its own venue, costs, hours and investors. All four pay off on the same index, so a gap between them wider than trading costs is a near-riskless trade, and the fastest, cheapest firms close it. A large buy in one wrapper is quickly felt in the other three.</p>
+<pre class="mermaid"><code>flowchart LR
+    ETF["ETF shares&lt;br/&gt;(e.g. SPY)"] &lt;--&gt;|"create / redeem&lt;br/&gt;(authorized participants)"| BSK["Stock basket&lt;br/&gt;(500 names)"]
+    BSK &lt;--&gt;|"cash-and-carry&lt;br/&gt;(basis = carry)"| FUT["Index future&lt;br/&gt;(ES)"]
+    FUT &lt;--&gt;|"hedge substitute&lt;br/&gt;(futures usually lead)"| ETF
+    OPT["Index and ETF options&lt;br/&gt;(SPX, SPY)"] --&gt;|"dealer delta hedging"| FUT
+    OPT --&gt;|"dealer delta hedging"| ETF</code></pre>
+<h2 id="etfs-creation-redemption-and-the-arbitrage-band">ETFs: creation, redemption and the arbitrage band<a class="headerlink" href="#etfs-creation-redemption-and-the-arbitrage-band" title="Permanent link">&para;</a></h2>
+<p>An <a href="../../09-reference/glossary/#authorized-participant">authorized participant</a> (AP) is a broker-dealer with a contract with the fund. To <strong>create</strong>, it delivers the fund's published basket plus a small cash component and receives a <a href="../../09-reference/glossary/#creation-unit">creation unit</a> of new ETF shares. To <strong>redeem</strong>, it does the reverse. US equity ETFs mostly work <strong>in kind</strong>, which lets the fund shed low-basis shares without realizing capital gains. <strong>Cash creations</strong>, common for hard-to-trade assets, make the fund trade the securities itself and pass the cost back through a variable fee. SEC Rule 6c-11 (2019) allows custom baskets. It requires daily publication of holdings and disclosure of any premium or discount above 2% that lasts more than seven consecutive trading days <code>[Verified]</code>.</p>
+<p><strong>NAV</strong> is struck once a day from closing prices. The intraday indicative value (<strong>iNAV</strong>) is a slow public estimate, and Rule 6c-11 itself does not require it <code>[Verified]</code>. Professional desks compute their own fair value in real time from the basket, futures and correlated ETFs (see <a href="../../03-algorithms/f-market-making-and-hft-algorithms/fair-value-and-microprice/">fair value and microprice</a>).</p>
+<p><strong>Worked example (illustrative).</strong> The basket is worth $100.00 per ETF share. One creation unit is 50,000 shares, or $5.0M. Trading the basket costs about 3 bp and the creation fee is $500, about 1 bp. Arbitrage therefore starts once the premium or discount exceeds about ±4 bp. Suppose the ETF bid is $100.06, a 6 bp premium. The AP sells 50,000 ETF shares for $5,003,000, buys the basket for $5,000,000, pays $1,500 in trading costs and $500 to create, and delivers. Profit is $1,000, or 2 bp. In practice an ETF market maker rarely creates per trade. It hedges with futures or the basket, nets inventory through the day and creates or redeems at the close.</p>
+<pre class="mermaid"><code>sequenceDiagram
+    participant AP as Authorized participant
+    participant MKT as Stock market
+    participant FUND as ETF issuer
+    participant EXCH as ETF secondary market
+    AP-&gt;&gt;EXCH: Sell ETF shares at a premium
+    AP-&gt;&gt;MKT: Buy the creation basket
+    AP-&gt;&gt;FUND: Deliver basket plus cash component
+    FUND-&gt;&gt;AP: Issue a creation unit of new ETF shares
+    AP-&gt;&gt;EXCH: Deliver ETF shares to cover the sale</code></pre>
+<h2 id="index-futures-fair-value-and-basis">Index futures: fair value and basis<a class="headerlink" href="#index-futures-fair-value-and-basis" title="Permanent link">&para;</a></h2>
+<p>The E-mini S&amp;P 500 pays $50 times the index, expires quarterly and settles in cash. It trades nearly 23 hours a day on CME Globex <code>[Verified]</code>. Holding the basket costs financing and earns dividends, so the no-arbitrage futures price is</p>
+<div class="arithmatex">\[
+F = S \, e^{(r - q)T},
+\]</div>
+<p>and the <a href="../../09-reference/glossary/#basis">basis</a> <span class="arithmatex">\(F - S\)</span> is the net carry. With <span class="arithmatex">\(S\)</span> = 6,000, financing <span class="arithmatex">\(r\)</span> = 4.30%, dividend yield <span class="arithmatex">\(q\)</span> = 1.30% and <span class="arithmatex">\(T\)</span> = 0.25, fair value is 6,045.2 (illustrative). Suppose ES trades at 6,052. Desks restate that gap as the <strong>implied financing rate</strong>: about 4.75%, or 45 bp over the 4.30% financing rate <code>[Estimate]</code>. The futures are rich. An arbitrageur sells futures and buys the basket. Ten contracts capture 6.8 points × $50 × 10 = $3,400, before roughly <span class="arithmatex">\(600–\)</span>1,200 of basket trading costs. The implied financing spread moves with demand for leveraged long exposure and with dealers' balance-sheet costs. That makes it a traded quantity in its own right, not a constant <code>[Lore]</code>.</p>
+<h2 id="who-leads-price-discovery-between-futures-and-cash">Who leads: price discovery between futures and cash<a class="headerlink" href="#who-leads-price-discovery-between-futures-and-cash" title="Permanent link">&para;</a></h2>
+<p>Futures usually move first. One contract carries the whole index, needs low margin and has no short-sale restrictions. Hasbrouck (2003) found that the E-mini dominated price discovery for the S&amp;P 500 <code>[Reported]</code>. At the millisecond scale, Budish, Cramton and Shim (2015) showed that the ES-SPY correlation breaks down. They also found that the median life of an ES-SPY arbitrage opportunity fell from 97 ms in 2005 to 7 ms in 2011 <code>[Reported]</code>. That race is what <a href="../../02-strategies/b-speed-and-structural/latency-arbitrage/">latency arbitrage</a> competes in.</p>
+<p>Leadership is not absolute. On stock-specific news, the stock leads and the index follows. In the closing auction, the cash market sets the print. Overnight, futures are the only liquid venue, so the cash open catches up to them. That last asymmetry would shrink if 23-hour exchange trading in stocks launches as planned on Dec 6, 2026 (see <a href="../recent-changes/">recent changes</a>).</p>
+<h2 id="options-parity-delta-hedging-and-the-0dte-debate">Options: parity, delta hedging and the 0DTE debate<a class="headerlink" href="#options-parity-delta-hedging-and-the-0dte-debate" title="Permanent link">&para;</a></h2>
+<p><strong><a href="../../09-reference/glossary/#put-call-parity">Put-call parity</a></strong> for European options (such as SPX) is</p>
+<div class="arithmatex">\[
+C - P = S e^{-qT} - K e^{-rT}.
+\]</div>
+<p>Violations are arbitraged through the stock or the future. In single stocks, a persistent violation usually means the shares are expensive to borrow. A synthetic short (long put, short call) becomes the cheaper way to be short, so puts trade rich. Option prices therefore reveal the borrow fee (see <a href="../shorting-financing-and-settlement/">shorting, financing and settlement</a>).</p>
+<p><strong><a href="../../09-reference/glossary/#delta-hedging">Delta hedging</a></strong> is the second channel. Market makers neutralize delta in the underlying or the future, and <a href="../../09-reference/glossary/#gamma">gamma</a> makes that hedge trade along with the market. A dealer who is net short gamma buys as prices rise and sells as they fall, which amplifies moves. A dealer who is net long gamma does the opposite, which dampens them.</p>
+<p>Here is a first-order illustrative example. With 3 hours left, an at-the-money SPX 0DTE option at 15% volatility has a gamma of about 0.0104 per index point. Take a dealer net short 2,000 contracts. After a 1% move of 60 points, it must trade about $750M of index exposure, roughly 2,500 ES contracts.</p>
+<p><a href="../../09-reference/glossary/#0dte">0DTE</a> options were a record 66.2% of SPX volume in July 2026 <code>[Verified]</code>. Same-day index options averaged about 3.4M contracts a day in Q3 2026 <code>[Reported]</code>. The evidence on their effect cuts both ways:</p>
+<table>
+<thead>
+<tr>
+<th>View</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0DTE amplifies volatility</td>
+<td>Brogaard, Han and Won estimate that a one-standard-deviation rise in 0DTE volume goes with about 14% higher daily S&amp;P 500 volatility <code>[Reported]</code></td>
+</tr>
+<tr>
+<td>0DTE dampens or is neutral</td>
+<td>Dim, Eraker and Vilkov (2024) find that higher dealer open-interest gamma goes with <em>lower</em> intraday realized volatility, with no spillover to later periods <code>[Reported]</code>. Adams et al. argue that dealer hedging is mostly dampening <code>[Reported]</code></td>
+</tr>
+</tbody>
+</table>
+<p>The sign depends on net dealer positioning, which nobody observes directly. Neither view has won.</p>
+<h2 id="why-this-matters-for-strategies-algorithms">Why this matters for strategies &amp; algorithms<a class="headerlink" href="#why-this-matters-for-strategies-algorithms" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../../02-strategies/b-speed-and-structural/etf-and-index-arbitrage/">ETF and index arbitrage</a> and <a href="../../02-strategies/a-liquidity-provision/etf-market-making/">ETF market making</a> are the creation band and the basis turned into businesses.</li>
+<li><a href="../../02-strategies/b-speed-and-structural/lead-lag-and-cross-asset-arbitrage/">Lead-lag and cross-asset arbitrage</a> and <a href="../../02-strategies/b-speed-and-structural/latency-arbitrage/">latency arbitrage</a> trade the futures-lead structure.</li>
+<li><a href="../../02-strategies/a-liquidity-provision/options-market-making/">Options market making</a>, <a href="../../02-strategies/f-volatility-and-derivatives/volatility-risk-premium-and-vol-arb/">the volatility risk premium and vol arb</a>, and <a href="../../02-strategies/f-volatility-and-derivatives/dispersion-and-correlation-trading/">dispersion and correlation trading</a> depend on parity and hedging flows.</li>
+<li><a href="../../02-strategies/d-mid-frequency-alpha/flow-driven-strategies/">Flow-driven strategies</a> trade around predictable ETF and index flows.</li>
+<li>Algorithms:<ul>
+<li><a href="../../03-algorithms/f-market-making-and-hft-algorithms/fair-value-and-microprice/">Fair value and microprice</a> builds the real-time basket value.</li>
+<li><a href="../../03-algorithms/f-market-making-and-hft-algorithms/hedging-algorithms/">Hedging algorithms</a> choose between futures, ETF and basket.</li>
+<li><a href="../../03-algorithms/f-market-making-and-hft-algorithms/options-pricing-and-vol-surfaces-for-mm/">Options pricing and vol surfaces</a> uses parity-implied forwards and borrow.</li>
+<li><a href="../../03-algorithms/f-market-making-and-hft-algorithms/order-book-and-trade-flow-signals/">Order-book and trade-flow signals</a> uses futures moves as a leading feature.</li>
+</ul>
+</li>
+</ul>
+<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../fees-rebates-and-ticks/">Fees, rebates and ticks</a></li>
+<li><a href="../order-types-and-auctions/">Order types and auctions</a></li>
+<li><a href="../shorting-financing-and-settlement/">Shorting, financing and settlement</a></li>
+<li><a href="../../05-infrastructure/colocation-networks-and-the-speed-of-light/">Colocation, networks and the speed of light</a></li>
+<li><a href="../../03-algorithms/h-end-to-end-walkthroughs/walkthrough-etf-market-maker/">Walkthrough: a day at an ETF market maker</a></li>
+</ul>
+<h2 id="sources">Sources<a class="headerlink" href="#sources" title="Permanent link">&para;</a></h2>
+<ul>
+<li>[Verified] SEC (2019-09-25). "Exchange-Traded Funds." Final rule, Release No. 33-10695 (Rule 6c-11). <a href="https://www.sec.gov/rules/final/2019/33-10695.pdf">https://www.sec.gov/rules/final/2019/33-10695.pdf</a> (accessed 2026-11)</li>
+<li>[Verified] CME Group. "E-mini S&amp;P 500 Futures: Contract Specifications." <a href="https://www.cmegroup.com/markets/equities/sp/e-mini-sandp500.contractSpecs.html">https://www.cmegroup.com/markets/equities/sp/e-mini-sandp500.contractSpecs.html</a> (accessed 2026-11)</li>
+<li>[Verified] Cboe (2026-08). "Market Metrics That Matter: Derivatives July 2026 Volume Highlights." <a href="https://www.cboe.com/insights/posts/market-metrics-that-matter-derivatives-july-2026-volume-highlights">https://www.cboe.com/insights/posts/market-metrics-that-matter-derivatives-july-2026-volume-highlights</a> (accessed 2026-11)</li>
+<li>[Reported] Cboe (2026-10). "State of the Options Industry Q3 2026: Volume Growth Concentrated in Index and ETF Options." <a href="https://www.cboe.com/insights/posts/state-of-the-options-industry-q-3-2026-volume-growth-concentrated-in-index-and-etf-options">https://www.cboe.com/insights/posts/state-of-the-options-industry-q-3-2026-volume-growth-concentrated-in-index-and-etf-options</a> (accessed 2026-11)</li>
+<li>[Reported] Hasbrouck, J. (2003). "Intraday Price Formation in U.S. Equity Index Markets." <em>Journal of Finance</em> 58(6), 2375–2400. <a href="https://doi.org/10.1046/j.1540-6261.2003.00609.x">https://doi.org/10.1046/j.1540-6261.2003.00609.x</a> (accessed 2026-11)</li>
+<li>[Reported] Budish, E., Cramton, P. &amp; Shim, J. (2015). "The High-Frequency Trading Arms Race: Frequent Batch Auctions as a Market Design Response." <em>Quarterly Journal of Economics</em> 130(4), 1547–1621. <a href="https://doi.org/10.1093/qje/qjv027">https://doi.org/10.1093/qje/qjv027</a> (accessed 2026-11)</li>
+<li>[Reported] Dim, C., Eraker, B. &amp; Vilkov, G. (2024). "0DTEs: Trading, Gamma Risk and Volatility Propagation." SSRN Working Paper 4692190. <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4692190">https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4692190</a> (accessed 2026-11)</li>
+<li>[Reported] BNN Bloomberg (2023). "Zero-day options are reordering the way the stock market behaves" (coverage of Brogaard, Han &amp; Won). <a href="https://www.bnnbloomberg.ca/zero-day-options-are-reordering-the-way-the-stock-market-behaves-1.1921930">https://www.bnnbloomberg.ca/zero-day-options-are-reordering-the-way-the-stock-market-behaves-1.1921930</a> (accessed 2026-11)</li>
+<li>[Reported] Quantpedia. "Do S&amp;P500 0DTEs Options Increase Market Volatility?" (summary of Adams et al.). <a href="https://quantpedia.com/do-sp500-0dtes-options-increase-market-volatility/">https://quantpedia.com/do-sp500-0dtes-options-increase-market-volatility/</a> (accessed 2026-11)</li>
+<li>[Reported] Jones Day (2026-09). "NYSE and Nasdaq Move to 23-Hour Trading Day: Overnight Session Is an Evolution, But Not Yet a Revolution." <a href="https://www.jonesday.com/en/insights/2026/09/nyse-and-nasdaq-move-to-23hour-trading-day-overnight-session-is-an-evolution-but-not-yet-a-revolution">https://www.jonesday.com/en/insights/2026/09/nyse-and-nasdaq-move-to-23hour-trading-day-overnight-session-is-an-evolution-but-not-yet-a-revolution</a> (accessed 2026-11)</li>
+</ul>
 
 
 

@@ -859,6 +859,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Fees, rebates and ticks
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -868,6 +879,97 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-exchanges-pay-you-to-trade" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why exchanges pay you to trade
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ticks-tick-constrained-stocks-and-queues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ticks, tick-constrained stocks and queues
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-2024-amendments-status-as-of-2026-11" class="md-nav__link">
+    <span class="md-ellipsis">
+      The 2024 amendments (status as of 2026-11)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worked-example-a-market-makers-per-share-pl" class="md-nav__link">
+    <span class="md-ellipsis">
+      Worked example: a market maker's per-share P&amp;L
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rebate-capture-the-logic-and-its-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rebate capture: the logic and its limits
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters-for-strategies-algorithms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why this matters for strategies &amp; algorithms
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related pages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sources
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -5404,6 +5506,86 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-exchanges-pay-you-to-trade" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why exchanges pay you to trade
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ticks-tick-constrained-stocks-and-queues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ticks, tick-constrained stocks and queues
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-2024-amendments-status-as-of-2026-11" class="md-nav__link">
+    <span class="md-ellipsis">
+      The 2024 amendments (status as of 2026-11)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worked-example-a-market-makers-per-share-pl" class="md-nav__link">
+    <span class="md-ellipsis">
+      Worked example: a market maker's per-share P&amp;L
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rebate-capture-the-logic-and-its-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rebate capture: the logic and its limits
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters-for-strategies-algorithms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why this matters for strategies &amp; algorithms
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related pages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sources
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -5421,11 +5603,198 @@
 
 
 <h1 id="fees-rebates-and-ticks">Fees, rebates and ticks<a class="headerlink" href="#fees-rebates-and-ticks" title="Permanent link">&para;</a></h1>
-<!-- STUB -->
-<div class="admonition note">
-<p class="admonition-title">Not yet written</p>
-<p>This page is scheduled for Phase 2 of the build. See <code>PLAN.md</code> in the repository.</p>
-</div>
+<blockquote>
+<p><strong>TL;DR</strong></p>
+<ul>
+<li>Maker-taker exchanges pay the resting order up to about 0.29¢ a share and charge the taker up to the 0.30¢ cap. Inverted venues do the reverse. Fee-adjusted, the real price grid is finer than the penny.</li>
+<li>In tick-constrained stocks, liquidity competes on queue position, not price. There the rebate can be a third or more of a market maker's gross margin.</li>
+<li>The SEC's 2024 package (half-penny tick, 0.10¢ fee cap, round lots by price tier) is only partly live. Round lots took effect Nov 3, 2025. The tick and fee-cap changes are deferred to Nov 1, 2027 and under review (as of 2026-11).</li>
+<li>Rule 612 bans sub-penny <em>quotes</em> at $1 and above, not sub-penny <em>executions</em>.</li>
+</ul>
+</blockquote>
+<p><strong>Level:</strong> Core · <strong>Read time:</strong> ~6 min · <strong>Last verified:</strong> 2026-11</p>
+<h2 id="why-exchanges-pay-you-to-trade">Why exchanges pay you to trade<a class="headerlink" href="#why-exchanges-pay-you-to-trade" title="Permanent link">&para;</a></h2>
+<p>A <strong>maker</strong> posts a resting limit order. A <strong>taker</strong> removes it with a marketable order. Under <a href="../../09-reference/glossary/#maker-taker">maker-taker</a> pricing, the exchange charges the taker an <a href="../../09-reference/glossary/#access-fee">access fee</a>, passes most of it to the maker as a rebate and keeps the rest. <a href="../../09-reference/glossary/#inverted-venue">Inverted</a> (taker-maker) venues charge the maker and pay the taker.</p>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Maker</th>
+<th>Taker</th>
+<th>Published example (stocks ≥ $1)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Maker-taker</td>
+<td>earns tiered rebate</td>
+<td>pays fee, capped at $0.0030</td>
+<td>Nasdaq: top displayed-add rebates <span class="arithmatex">\(0.0029–\)</span>0.00295; remove fee $0.0030 <code>[Verified]</code></td>
+</tr>
+<tr>
+<td>Inverted</td>
+<td>pays fee</td>
+<td>earns small rebate</td>
+<td>Cboe BYX: add fee $0.0020 (tiers to $0.0013); remove rebate $0.0002 <code>[Verified]</code></td>
+</tr>
+<tr>
+<td>Flat / most ATSs</td>
+<td>small fee or none</td>
+<td>small fee</td>
+<td>varies by venue</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The economic price is the quoted price adjusted for the fee.</strong> Lifting a $50.00 offer costs $50.0030 all-in on a maker-taker venue. On an inverted venue it costs about $49.9998. A bid resting at $49.99 on the inverted venue really pays $49.992, which is 0.2¢ better than its quote without any sub-penny quoting. So takers sweep inverted venues first, and makers who pay to post there are buying a place at the front of the queue. A <a href="../../03-algorithms/e-execution-algorithms/smart-order-routing/">smart order router</a> therefore ranks venues by fee-adjusted price and fill probability, not by the displayed price.</p>
+<pre class="mermaid"><code>flowchart LR
+    subgraph MT["Maker-taker venue"]
+        T1["Taker pays 0.30 cents"] --&gt; X1["Exchange keeps about 0.01 cents"]
+        X1 --&gt; M1["Maker earns about 0.29 cents"]
+    end
+    subgraph INV["Inverted venue"]
+        M2["Maker pays 0.13-0.20 cents"] --&gt; X2["Exchange keeps the difference"]
+        X2 --&gt; T2["Taker earns about 0.02 cents"]
+    end
+    MT --&gt; R["Router compares fee-adjusted prices&lt;br/&gt;and fill odds across venues"]
+    INV --&gt; R</code></pre>
+<h2 id="ticks-tick-constrained-stocks-and-queues">Ticks, tick-constrained stocks and queues<a class="headerlink" href="#ticks-tick-constrained-stocks-and-queues" title="Permanent link">&para;</a></h2>
+<p>Rule 612, the <strong>sub-penny rule</strong>, bars displaying, ranking or accepting orders in increments finer than $0.01 for stocks priced at $1.00 or more. Below $1 the increment is $0.0001 <code>[Verified]</code>. Executions are not covered: midpoint pegs fill at half-pennies, and wholesalers give retail orders fractions of a cent of improvement (see <a href="../venues-and-retail-flow/">venues and retail flow</a>).</p>
+<p>What matters is the <a href="../../09-reference/glossary/#tick-size">tick size</a> relative to price. One cent is 10 bp of a $10 stock and 0.2 bp of a $500 stock. A stock is <strong><a href="../../09-reference/glossary/#tick-constrained-stock">tick-constrained</a></strong> when the spread market makers would quote if they could is narrower than one tick. These are usually low-priced, low-volatility, heavily traded names. In them:</p>
+<ol>
+<li><strong>The spread stays pinned at one tick.</strong> Improving the price would cross the other side.</li>
+<li><strong>Displayed depth piles up.</strong> With 400,000 shares at the bid and 25,000 shares a minute trading there, a newly joined order waits about 16 minutes (illustrative).</li>
+<li><strong>Time priority becomes the asset.</strong> Orders at the front fill on ordinary flow. Orders at the back fill mainly when an informed trader clears the whole level, so they bear more <a href="../../09-reference/glossary/#adverse-selection">adverse selection</a>. That is why <a href="../../03-algorithms/f-market-making-and-hft-algorithms/queue-position-and-order-placement/">queue position</a> has a measurable value.</li>
+</ol>
+<pre class="mermaid"><code>flowchart TD
+    A["Natural spread vs one tick"] --&gt;|"narrower than 1 tick"| B["Tick-constrained&lt;br/&gt;spread pinned at 1 tick"]
+    A --&gt;|"several ticks wide"| C["Spread free to move"]
+    B --&gt; D["Long queues. Competition on&lt;br/&gt;time priority, fees and venue choice"]
+    C --&gt; E["Competition on price.&lt;br/&gt;Quotes step inside the spread"]
+    D --&gt; F["Key models: queue value,&lt;br/&gt;fee-adjusted routing, markouts"]
+    E --&gt; G["Key models: fair value,&lt;br/&gt;spread and skew setting"]</code></pre>
+<p><strong>Round and odd lots.</strong> Only <a href="../../09-reference/glossary/#round-lot">round lots</a> count toward the protected NBBO. At 100 shares for every stock, a round lot of a $900 stock was $90,000, so better-priced <a href="../../09-reference/glossary/#odd-lot">odd-lot</a> orders often sat invisibly inside the NBBO. Since Nov 3, 2025, the round lot depends on the stock's average closing price in the prior evaluation month, with reassignment twice a year <code>[Verified]</code>:</p>
+<table>
+<thead>
+<tr>
+<th>Average closing price</th>
+<th>Round lot</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>up to $250.00</td>
+<td>100 shares</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(250.01–\)</span>1,000.00</td>
+<td>40 shares</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(1,000.01–\)</span>10,000.00</td>
+<td>10 shares</td>
+</tr>
+<tr>
+<td>above $10,000</td>
+<td>1 share</td>
+</tr>
+</tbody>
+</table>
+<p>Since late April 2026 the SIPs have also disseminated the best odd-lot order. Odd-lot depth between that order and the NBBO is deferred to May 2028 <code>[Verified]</code>. Details are in <a href="../nbbo-and-market-data/">NBBO and market data</a>.</p>
+<h2 id="the-2024-amendments-status-as-of-2026-11">The 2024 amendments (status as of 2026-11)<a class="headerlink" href="#the-2024-amendments-status-as-of-2026-11" title="Permanent link">&para;</a></h2>
+<p>The SEC adopted the package on Sep 18, 2024 <code>[Verified]</code>. It had two parts that change unit economics:</p>
+<ul>
+<li><strong>Half-penny tick.</strong> Stocks priced at $1 or more with a time-weighted average quoted spread of $0.015 or less over an evaluation period would quote in $0.005 increments. All others keep $0.01 <code>[Verified]</code>.</li>
+<li><strong>Access-fee cap.</strong> The cap falls from $0.0030 to $0.0010 per share for stocks priced at $1 or more <code>[Verified]</code>. Rebates are funded by take fees, so they must fall too.</li>
+</ul>
+<p>Compliance was first due Nov 3, 2025. An Oct 31, 2025 order moved it to Nov 2, 2026. A June 2026 order moved it to Nov 1, 2027 and came alongside a staff review of both rules <code>[Reported]</code>. Treat both parts as unsettled. <a href="../recent-changes/">Recent changes</a> tracks the dates.</p>
+<h2 id="worked-example-a-market-makers-per-share-pl">Worked example: a market maker's per-share P&amp;L<a class="headerlink" href="#worked-example-a-market-makers-per-share-pl" title="Permanent link">&para;</a></h2>
+<p>Take a passive market maker quoting both sides of a tick-constrained $40 stock with a 1¢ spread. It earns top-tier rebates and exits 20% of its inventory aggressively. All figures are per share filled and illustrative.</p>
+<table>
+<thead>
+<tr>
+<th>P&amp;L line (per share)</th>
+<th>Today: 1¢ tick, $0.0030 cap</th>
+<th>If the 2024 rules applied</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Half-spread captured</td>
+<td>+$0.0050</td>
+<td>+$0.0025</td>
+</tr>
+<tr>
+<td>Maker rebate</td>
+<td>+$0.0029</td>
+<td>+$0.0008 <code>[Estimate]</code>, the cap minus exchange margin</td>
+</tr>
+<tr>
+<td>Adverse selection (markout to mid)</td>
+<td>−$0.0045</td>
+<td>−$0.0030 <code>[Estimate]</code>, falls less than the spread</td>
+</tr>
+<tr>
+<td>Aggressive exits: 20% × (half-spread + take fee)</td>
+<td>−$0.0016</td>
+<td>−$0.0007</td>
+</tr>
+<tr>
+<td>Clearing and regulatory fees</td>
+<td>−$0.0002</td>
+<td>−$0.0002</td>
+</tr>
+<tr>
+<td><strong>Net</strong></td>
+<td><strong>+$0.0016</strong></td>
+<td><strong>−$0.0006</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Read it as an income statement. The rebate is 37% of today's $0.0079 gross revenue, and without it the book loses $0.0013 a share. If the 2024 rules took effect, both the tick rent and the rebate would shrink. Survival would then depend on better <a href="../../09-reference/glossary/#markout">markouts</a>, which means better short-horizon prediction, or on more volume per quote <code>[Estimate]</code>.</p>
+<h2 id="rebate-capture-the-logic-and-its-limits">Rebate capture: the logic and its limits<a class="headerlink" href="#rebate-capture-the-logic-and-its-limits" title="Permanent link">&para;</a></h2>
+<p><strong>Rebate capture</strong> means routing and timing trades so you collect rebates instead of paying fees. Moving one share from taking (−0.30¢) to making (+0.29¢) is worth about 0.6¢. For a stat-arb book trading 5 million shares a day, that is about $30,000 a day, or $7.5M a year (illustrative). Three limits:</p>
+<ul>
+<li><strong>Selection and non-fills.</strong> Passive orders fill most often just before the price moves through them. Orders that never fill need a costlier catch-up trade later. Rebate capture only pays when the alpha horizon is long relative to the queue wait.</li>
+<li><strong>Tiers reward scale.</strong> Top rebates need a set share of consolidated volume each month, so large firms concentrate flow to hit the tier. A 2023 SEC proposal to curb volume tiers was withdrawn on Jun 12, 2025 <code>[Reported]</code>.</li>
+<li><strong>Agency conflict.</strong> Brokers that route client limit orders to the venue with the highest rebate keep the rebate, and their clients get worse fills. Battalio, Corwin and Jennings (2016) documented this <code>[Reported]</code>.</li>
+</ul>
+<h2 id="why-this-matters-for-strategies-algorithms">Why this matters for strategies &amp; algorithms<a class="headerlink" href="#why-this-matters-for-strategies-algorithms" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Market making.</strong> <a href="../../02-strategies/a-liquidity-provision/equity-market-making/">Equity market making</a> and <a href="../../02-strategies/a-liquidity-provision/etf-market-making/">ETF market making</a> earn half-spread plus rebate minus markout. The table above is their P&amp;L skeleton.</li>
+<li><strong>Fee-driven strategies.</strong> <a href="../../02-strategies/b-speed-and-structural/fee-and-microstructure-driven-strategies/">Fee- and microstructure-driven strategies</a> trade on fee-adjusted prices and queue dynamics directly.</li>
+<li><strong>High-turnover books.</strong> For <a href="../../02-strategies/c-statistical-arbitrage/short-term-cross-sectional-reversal/">short-term reversal</a>, the 0.6¢ make-or-take swing decides whether the strategy is profitable.</li>
+<li><strong>Algorithms.</strong> Fees and ticks are explicit inputs to:<ul>
+<li><a href="../../03-algorithms/f-market-making-and-hft-algorithms/queue-position-and-order-placement/">queue position and order placement</a>;</li>
+<li><a href="../../03-algorithms/f-market-making-and-hft-algorithms/quoting-and-inventory-control/">quoting and inventory control</a>;</li>
+<li><a href="../../03-algorithms/f-market-making-and-hft-algorithms/adverse-selection-and-markouts/">adverse selection and markouts</a>;</li>
+<li><a href="../../03-algorithms/e-execution-algorithms/smart-order-routing/">smart order routing</a>;</li>
+<li><a href="../../03-algorithms/d-portfolio-construction/transaction-cost-and-impact-models/">transaction cost and impact models</a>.</li>
+</ul>
+</li>
+</ul>
+<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../the-limit-order-book/">The limit order book</a></li>
+<li><a href="../venues-and-retail-flow/">Venues and retail flow</a></li>
+<li><a href="../nbbo-and-market-data/">NBBO and market data</a></li>
+<li><a href="../recent-changes/">Recent changes (as of 2026-11)</a></li>
+<li><a href="../../06-risk-and-regulation/rules-that-shape-strategies/">Rules that shape strategies</a></li>
+</ul>
+<h2 id="sources">Sources<a class="headerlink" href="#sources" title="Permanent link">&para;</a></h2>
+<ul>
+<li>[Verified] SEC (2024-09-18). "Regulation NMS: Minimum Pricing Increments, Access Fees, and Transparency of Better Priced Orders." Release No. 34-101070. <a href="https://www.sec.gov/files/rules/final/2024/34-101070.pdf">https://www.sec.gov/files/rules/final/2024/34-101070.pdf</a> (accessed 2026-11)</li>
+<li>[Verified] SEC (2024-09-18). "Fact Sheet: Tick Sizes, Access Fees, and Transparency of Better Priced Orders." <a href="https://www.sec.gov/files/34-101070-fact-sheet.pdf">https://www.sec.gov/files/34-101070-fact-sheet.pdf</a> (accessed 2026-11)</li>
+<li>[Reported] TradeInformer (2026-06). "SEC extends NMS relief to November 2027, proposes scrapping trade-through rule." <a href="https://tradeinformer.com/regulations/sec-extends-nms-relief-rule-611-repeal-2027">https://tradeinformer.com/regulations/sec-extends-nms-relief-rule-611-repeal-2027</a> (accessed 2026-11)</li>
+<li>[Reported] FlexTrade (2025-11). "Round-Lots, Odd-Lots Push Forward, while SEC Delays Tick Size and Access Fees." <a href="https://flextrade.com/resources/round-lots-odd-lots-push-forward-while-sec-delays-tick-size-and-access-fees/">https://flextrade.com/resources/round-lots-odd-lots-push-forward-while-sec-delays-tick-size-and-access-fees/</a> (accessed 2026-11)</li>
+<li>[Verified] SEC Division of Economic and Risk Analysis. "Market Activity Report: Methodology" (round-lot tiers and reassignment schedule). <a href="https://www.sec.gov/featured-topics/market-structure-analytics/market-activity-report-methodology">https://www.sec.gov/featured-topics/market-structure-analytics/market-activity-report-methodology</a> (accessed 2026-11)</li>
+<li>[Verified] Cboe (2025-10-28). "Regulation NMS Round Lots Enhancements FAQ." <a href="https://cdn.cboe.com/resources/membership/Round_Lots_Enhancements_FAQ.pdf">https://cdn.cboe.com/resources/membership/Round_Lots_Enhancements_FAQ.pdf</a> (accessed 2026-11)</li>
+<li>[Verified] Federal Register (2026-04-21). "Investors Exchange LLC; rule change to conform with amendments to Rules 600 and 603 concerning odd-lot information." <a href="https://www.federalregister.gov/documents/2026/04/21/2026-07692/self-regulatory-organizations-investors-exchange-llc-notice-of-filing-and-immediate-effectiveness-of">https://www.federalregister.gov/documents/2026/04/21/2026-07692/self-regulatory-organizations-investors-exchange-llc-notice-of-filing-and-immediate-effectiveness-of</a> (accessed 2026-11)</li>
+<li>[Verified] Nasdaq. "Price List: Trading Connectivity" (equity rebates and fees). <a href="https://www.nasdaqtrader.com/Trader.aspx?id=PriceListTrading2">https://www.nasdaqtrader.com/Trader.aspx?id=PriceListTrading2</a> (accessed 2026-11)</li>
+<li>[Verified] Cboe. "BYX U.S. Equities Fee Schedule." <a href="https://www.cboe.com/us/equities/membership/fee_schedule/byx/">https://www.cboe.com/us/equities/membership/fee_schedule/byx/</a> (accessed 2026-11)</li>
+<li>[Verified] 17 CFR 242.612, "Minimum pricing increment." eCFR. <a href="https://www.ecfr.gov/current/title-17/section-242.612">https://www.ecfr.gov/current/title-17/section-242.612</a> (accessed 2026-11)</li>
+<li>[Reported] Proskauer (2025-06). "SEC Withdraws Fourteen Rule Proposals." <a href="https://www.proskauer.com/alert/sec-withdraws-fourteen-rule-proposals">https://www.proskauer.com/alert/sec-withdraws-fourteen-rule-proposals</a> (accessed 2026-11)</li>
+<li>[Reported] Battalio, R., Corwin, S. A. &amp; Jennings, R. (2016). "Can Brokers Have It All? On the Relation between Make-Take Fees and Limit Order Execution Quality." <em>Journal of Finance</em> 71(5), 2193–2238. <a href="https://doi.org/10.1111/jofi.12422">https://doi.org/10.1111/jofi.12422</a> (accessed 2026-11)</li>
+</ul>
 
 
 

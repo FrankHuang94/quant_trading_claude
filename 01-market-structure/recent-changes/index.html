@@ -922,6 +922,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Recent changes (as of 2026-11)
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -931,6 +942,70 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      The table
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-each-change-means" class="md-nav__link">
+    <span class="md-ellipsis">
+      What each change means
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters-for-strategies-algorithms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why this matters for strategies &amp; algorithms
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related pages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sources
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -5404,6 +5479,59 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      The table
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-each-change-means" class="md-nav__link">
+    <span class="md-ellipsis">
+      What each change means
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters-for-strategies-algorithms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why this matters for strategies &amp; algorithms
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related pages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sources
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -5421,11 +5549,187 @@
 
 
 <h1 id="recent-changes-as-of-2026-11">Recent changes (as of 2026-11)<a class="headerlink" href="#recent-changes-as-of-2026-11" title="Permanent link">&para;</a></h1>
-<!-- STUB -->
-<div class="admonition note">
-<p class="admonition-title">Not yet written</p>
-<p>This page is scheduled for Phase 2 of the build. See <code>PLAN.md</code> in the repository.</p>
-</div>
+<blockquote>
+<p><strong>TL;DR</strong></p>
+<ul>
+<li><strong>Live:</strong> price-tiered round lots (Nov 3, 2025), best odd-lot orders on the SIP (late April 2026), amended Rule 605 execution-quality reports (Aug 1, 2026) and T+1 settlement (May 28, 2024).</li>
+<li><strong>Deferred:</strong> the half-penny tick and the 0.10¢ access-fee cap are pushed to Nov 1, 2027 and back under review. Form SHO and securities-lending reporting are pushed to 2028–2029.</li>
+<li><strong>Coming:</strong> 23-hour weekday stock trading on Nasdaq, NYSE Arca and the SIPs, targeted for Dec 6, 2026. A proposal to repeal the trade-through rule (June 2026) is pending.</li>
+<li><strong>Growing:</strong> 0DTE options set a record 66.2% of SPX volume in July 2026.</li>
+</ul>
+</blockquote>
+<p><strong>Level:</strong> Core · <strong>Read time:</strong> ~6 min · <strong>Last verified:</strong> 2026-11</p>
+<p>This page keeps only changes that alter a strategy's P&amp;L, data or risk. Each item was checked in November 2026 against regulators' releases, exchange notices or law-firm and trade-press summaries. The tag on each row says which. Dates and statuses move, so re-check before relying on any row.</p>
+<h2 id="the-table">The table<a class="headerlink" href="#the-table" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Change</th>
+<th>Status as of 2026-11</th>
+<th>Key dates</th>
+<th>Strategies most affected</th>
+<th>Confidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../../09-reference/glossary/#round-lot">Round lots</a> by price tier (100 / 40 / 10 / 1 shares)</td>
+<td><strong>Live</strong></td>
+<td>adopted Sep 18, 2024; live Nov 3, 2025; reassigned twice a year</td>
+<td>market making in high-priced names, routing, NBBO-based signals and TCA</td>
+<td><code>[Verified]</code></td>
+</tr>
+<tr>
+<td>Best <a href="../../09-reference/glossary/#odd-lot">odd-lot</a> order on the <a href="../../09-reference/glossary/#sip">SIP</a></td>
+<td><strong>Live</strong>; odd-lot depth deferred</td>
+<td>late Apr 2026; depth May 2028</td>
+<td>microprice and order-book signals, SIP-based market makers</td>
+<td><code>[Verified]</code></td>
+</tr>
+<tr>
+<td>$0.005 <a href="../../09-reference/glossary/#tick-size">tick</a> for tick-constrained stocks</td>
+<td><strong>Deferred</strong>, under staff review</td>
+<td>due Nov 3, 2025 → Nov 2, 2026 → Nov 1, 2027</td>
+<td>equity and ETF market making, queue strategies, high-turnover stat arb</td>
+<td><code>[Reported]</code></td>
+</tr>
+<tr>
+<td><a href="../../09-reference/glossary/#access-fee">Access-fee</a> cap $0.0030 → $0.0010</td>
+<td><strong>Deferred</strong>, under staff review</td>
+<td>same as tick</td>
+<td>fee-driven strategies, market-maker rebates, routing</td>
+<td><code>[Reported]</code></td>
+</tr>
+<tr>
+<td><a href="../../09-reference/glossary/#rule-605">Rule 605</a> execution-quality amendments</td>
+<td><strong>Live</strong></td>
+<td>Aug 1, 2026 (first reports cover Aug 2026)</td>
+<td>retail internalization, TCA</td>
+<td><code>[Verified]</code></td>
+</tr>
+<tr>
+<td>Repeal of the <a href="../../09-reference/glossary/#trade-through-rule">trade-through rule</a> (Rule 611) and the locked/crossed rule (610(e))</td>
+<td><strong>Proposed</strong></td>
+<td>Jun 11, 2026; comment period closed</td>
+<td>routing, latency arbitrage, market making</td>
+<td><code>[Verified]</code></td>
+</tr>
+<tr>
+<td>2022–23 proposals: Order Competition Rule, Reg Best Execution, volume-based exchange pricing</td>
+<td><strong>Withdrawn</strong></td>
+<td>Jun 12, 2025</td>
+<td>wholesalers, fee tiers</td>
+<td><code>[Reported]</code></td>
+</tr>
+<tr>
+<td>23-hour weekday trading (exchanges and SIPs)</td>
+<td><strong>Approved, not yet live</strong></td>
+<td>Nasdaq approved Apr 10, 2026; launch targeted Dec 6, 2026</td>
+<td>ETF market making, futures lead-lag, event-driven, risk</td>
+<td><code>[Reported]</code></td>
+</tr>
+<tr>
+<td><a href="../../09-reference/glossary/#0dte">0DTE</a> index options</td>
+<td><strong>Growing</strong></td>
+<td>record 66.2% of SPX volume, Jul 2026</td>
+<td>options market making, vol risk premium, intraday stat arb</td>
+<td><code>[Verified]</code></td>
+</tr>
+<tr>
+<td><a href="../../09-reference/glossary/#t1-settlement">T+1 settlement</a></td>
+<td><strong>Live</strong></td>
+<td>May 28, 2024</td>
+<td>short sellers, ETF creation, corporate-action trades</td>
+<td><code>[Verified]</code></td>
+</tr>
+<tr>
+<td>Form SHO (Rule 13f-2) and lending reports (Rule 10c-1a)</td>
+<td><strong>Deferred</strong> after court remand</td>
+<td>Jan 2, 2028; Sep 28, 2028; public data Mar 29, 2029</td>
+<td>short-heavy books, crowding signals</td>
+<td><code>[Reported]</code></td>
+</tr>
+<tr>
+<td><a href="../../09-reference/glossary/#consolidated-audit-trail-cat">Consolidated Audit Trail</a> overhaul</td>
+<td><strong>Under review</strong></td>
+<td>concept release Apr 16, 2026</td>
+<td>compliance cost for all; little direct strategy effect</td>
+<td><code>[Verified]</code></td>
+</tr>
+<tr>
+<td>Tokenized-stock "innovation exemption"</td>
+<td><strong>Granted</strong>, five-year conditional</td>
+<td>Sep 17, 2026</td>
+<td>watch item: a possible new venue and arbitrage leg</td>
+<td><code>[Reported]</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="what-each-change-means">What each change means<a class="headerlink" href="#what-each-change-means" title="Permanent link">&para;</a></h2>
+<p><strong>The pricing grid: ticks, fees and lots.</strong> The round-lot change is live and it matters. In stocks priced above $250, the NBBO is now set by 40-, 10- or 1-share orders, so the protected quote is tighter and thinner. Signals built on NBBO size or on the spread shifted level on Nov 3, 2025, so treat that date as a break in any history. Half-penny ticks and the lower fee cap would rewrite market-maker unit economics (worked example in <a href="../fees-rebates-and-ticks/">fees, rebates and ticks</a>). Compliance moved from Nov 2025 to Nov 2026 by an Oct 31, 2025 order, then to Nov 1, 2027 by a June 2026 order. The Chairman has also asked staff to review both rules <code>[Reported]</code>. Treat the 2027 date as provisional.</p>
+<p><strong>Market data and disclosure.</strong> Since late April 2026, SIP subscribers can see the best odd-lot order, which narrows the information gap between SIP and direct feeds a little. The full odd-lot depth between that order and the NBBO waits until May 2028 <code>[Verified]</code>. The amended Rule 605 applies from Aug 1, 2026. It brings in large brokers and single-dealer platforms, adds millisecond time-to-execution, and measures price improvement against the best displayed price including odd lots <code>[Verified]</code>. That gives better public data for judging wholesaler execution quality and for TCA.</p>
+<p><strong>Routing rules.</strong> On Jun 11, 2026 the SEC proposed rescinding Rule 611 (trade-through) and Rule 610(e) (locked and crossed markets) <code>[Verified]</code>. One sell-side analyst expects a final rule in early 2027 <code>[Reported]</code>. If adopted, routers would no longer be forced to honor the best protected quote at every venue, and the case for fee-, fill- and markout-weighted routing would get stronger. The Gensler-era retail auction (Order Competition Rule) and the Reg Best Execution proposal were withdrawn on Jun 12, 2025 <code>[Reported]</code>, so the wholesaler model described in <a href="../venues-and-retail-flow/">venues and retail flow</a> stands.</p>
+<p><strong>Trading hours.</strong> The SEC approved Nasdaq's 23-hour weekday schedule on Apr 10, 2026. Other exchanges followed, and the SIP plans approved matching hours <code>[Reported]</code>. The target is Dec 6, 2026. The schedule runs from 9 p.m. ET Sunday to 8 p.m. ET Friday, with a one-hour pause each weekday evening, and opens with static 20% overnight price bands <code>[Reported]</code>. 24X National Exchange has traded 4 a.m.–8 p.m. ET since October 2025 <code>[Reported]</code>. An Aug 7, 2026 SEC order lets 24X run overnight without SIP coverage from Jan 24, 2027, but only if the SIPs miss their date <code>[Verified]</code>. For strategies, overnight cash trading would weaken futures' monopoly on overnight price discovery. It would create new ETF market-making and event-driven windows, and risk systems would have to treat the "close" differently. Expect thin liquidity early on.</p>
+<p><strong>Options.</strong> 0DTE share keeps rising: a 66.2% record in July 2026 <code>[Verified]</code>, and about 3.4M contracts a day in Q3 2026 <code>[Reported]</code>. Intraday hedging flow and the volatility debate are covered in <a href="../etf-futures-options-linkages/">ETF, futures and options linkages</a>.</p>
+<p><strong>Settlement and shorting.</strong> T+1 is settled practice. After the Fifth Circuit's August 2025 remand, the SEC pushed the short-sale and securities-lending transparency rules to 2028–2029 <code>[Reported]</code>. Short-side crowding data therefore still comes from vendors and FINRA short interest (see <a href="../shorting-financing-and-settlement/">shorting, financing and settlement</a>).</p>
+<p><strong>Watch list.</strong> The SEC's Sep 17, 2026 innovation exemption allows capped on-chain trading of tokenized US-listed stocks for five years <code>[Reported]</code>. On Nov 3, 2026, the CFTC Chairman said single-stock perpetual futures may trade on venues also registered with the SEC <code>[Reported]</code>. Neither affects mainstream strategies yet. Both could become new hedging or arbitrage legs. On the CAT, the 2023 funding model was vacated by the Eleventh Circuit in 2025, a revised funding order followed in March 2026, and an April 2026 concept release opened a wider review <code>[Reported]</code>.</p>
+<pre class="mermaid"><code>timeline
+    title Changes that matter for strategies (status as of 2026-11)
+    2024 : T+1 settlement (May 28) : Tick, fee-cap and round-lot rules adopted (Sep 18)
+    2025 : 2022-23 proposals withdrawn (Jun 12) : 24X opens extended-hours trading (Oct) : Tick and fee cap deferred to Nov 2026 (Oct 31) : Round lots by price tier live (Nov 3) : Form SHO deferred to 2028 (Dec 3)
+    2026 : Nasdaq 23x5 approved (Apr 10) : Best odd-lot order on SIP (late Apr) : Rule 611 repeal proposed and tick and fee cap deferred to Nov 2027 (Jun) : 0DTE record 66.2 pct of SPX volume (Jul) : Rule 605 amendments live (Aug 1) : 23x5 exchanges and SIPs target (Dec 6)
+    2027 : 24X overnight backstop (Jan 24) : Tick and fee-cap compliance date (Nov 1)
+    2028 : Form SHO compliance (Jan 2) : Odd-lot depth on SIP (May) : Rule 10c-1a reporting (Sep 28)</code></pre>
+<pre class="mermaid"><code>flowchart LR
+    RL["Round lots and odd-lot data"] --&gt; MM["Market making"]
+    RL --&gt; SIG["Order-book signals"]
+    TK["Tick and fee cap (deferred)"] --&gt; MM
+    TK --&gt; FEE["Fee-driven strategies"]
+    R611["Rule 611 repeal (proposed)"] --&gt; SOR["Routing and latency arb"]
+    H23["23x5 trading (Dec 2026 target)"] --&gt; ETFMM["ETF market making"]
+    H23 --&gt; LL["Futures lead-lag"]
+    ZD["0DTE growth"] --&gt; OPT["Options MM and vol strategies"]
+    SHO["Form SHO and 10c-1a (deferred)"] --&gt; SA["Short-heavy stat arb"]</code></pre>
+<h2 id="why-this-matters-for-strategies-algorithms">Why this matters for strategies &amp; algorithms<a class="headerlink" href="#why-this-matters-for-strategies-algorithms" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>The pricing grid.</strong> <a href="../../02-strategies/a-liquidity-provision/equity-market-making/">Equity market making</a> and <a href="../../02-strategies/b-speed-and-structural/fee-and-microstructure-driven-strategies/">fee- and microstructure-driven strategies</a> need scenario P&amp;L for the 2027 tick and fee change, and they must re-baseline features at the Nov 2025 round-lot break. Their tools are <a href="../../03-algorithms/f-market-making-and-hft-algorithms/quoting-and-inventory-control/">quoting and inventory control</a> and <a href="../../03-algorithms/f-market-making-and-hft-algorithms/queue-position-and-order-placement/">queue position</a>.</li>
+<li><strong>Market data.</strong> <a href="../../03-algorithms/f-market-making-and-hft-algorithms/order-book-and-trade-flow-signals/">Order-book and trade-flow signals</a> and <a href="../../03-algorithms/f-market-making-and-hft-algorithms/fair-value-and-microprice/">fair value and microprice</a> change their inputs with odd-lot data. <a href="../../03-algorithms/a-data-and-signals/point-in-time-data-and-cleaning/">Point-in-time data</a> must record the rule-change dates.</li>
+<li><strong>Routing.</strong> <a href="../../03-algorithms/e-execution-algorithms/smart-order-routing/">Smart order routing</a>, <a href="../../02-strategies/b-speed-and-structural/latency-arbitrage/">latency arbitrage</a> and <a href="../../02-strategies/a-liquidity-provision/retail-flow-internalization/">retail flow internalization</a> depend on how Rule 611 and Rule 605 turn out.</li>
+<li><strong>Trading hours.</strong> 23-hour trading affects <a href="../../02-strategies/a-liquidity-provision/etf-market-making/">ETF market making</a>, <a href="../../02-strategies/b-speed-and-structural/lead-lag-and-cross-asset-arbitrage/">lead-lag arbitrage</a>, <a href="../../02-strategies/d-mid-frequency-alpha/earnings-and-event-driven/">earnings and event-driven</a> trading and <a href="../../03-algorithms/f-market-making-and-hft-algorithms/algorithmic-risk-controls/">algorithmic risk controls</a>.</li>
+<li><strong>Options.</strong> 0DTE growth reshapes <a href="../../02-strategies/a-liquidity-provision/options-market-making/">options market making</a> and the <a href="../../02-strategies/f-volatility-and-derivatives/volatility-risk-premium-and-vol-arb/">volatility risk premium</a>, and it changes the inputs to <a href="../../03-algorithms/f-market-making-and-hft-algorithms/hedging-algorithms/">hedging algorithms</a>.</li>
+</ul>
+<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../fees-rebates-and-ticks/">Fees, rebates and ticks</a></li>
+<li><a href="../nbbo-and-market-data/">NBBO and market data</a></li>
+<li><a href="../shorting-financing-and-settlement/">Shorting, financing and settlement</a></li>
+<li><a href="../../06-risk-and-regulation/rules-that-shape-strategies/">Rules that shape strategies</a></li>
+<li><a href="../../02-strategies/h-cross-cutting/evolution-of-quant-strategies/">Evolution of quant strategies</a></li>
+</ul>
+<h2 id="sources">Sources<a class="headerlink" href="#sources" title="Permanent link">&para;</a></h2>
+<ul>
+<li>[Verified] SEC (2024-09-18). "Regulation NMS: Minimum Pricing Increments, Access Fees, and Transparency of Better Priced Orders." Release No. 34-101070. <a href="https://www.federalregister.gov/documents/2024/10/08/2024-21867/regulation-nms-minimum-pricing-increments-access-fees-and-transparency-of-better-priced-orders">https://www.federalregister.gov/documents/2024/10/08/2024-21867/regulation-nms-minimum-pricing-increments-access-fees-and-transparency-of-better-priced-orders</a> (accessed 2026-11)</li>
+<li>[Reported] TradeInformer (2026-06). "SEC extends NMS relief to November 2027, proposes scrapping trade-through rule." <a href="https://tradeinformer.com/regulations/sec-extends-nms-relief-rule-611-repeal-2027">https://tradeinformer.com/regulations/sec-extends-nms-relief-rule-611-repeal-2027</a> (accessed 2026-11)</li>
+<li>[Reported] Morrison Foerster (2026-06-12). "SEC Proposes Landmark Rollback of Core Regulation NMS Requirements and Delays Implementation of 2024 Market Structure Reforms." <a href="https://www.mofo.com/resources/insights/260612-sec-proposes-landmark-rollback-of-core-regulation">https://www.mofo.com/resources/insights/260612-sec-proposes-landmark-rollback-of-core-regulation</a> (accessed 2026-11)</li>
+<li>[Verified] Federal Register (2026-06-17). "The Trade-Through Rule and Locked and Crossed Markets Provisions of Regulation NMS." <a href="https://www.federalregister.gov/documents/2026/06/17/2026-12163/the-trade-through-rule-and-locked-and-crossed-markets-provisions-of-regulation-nms">https://www.federalregister.gov/documents/2026/06/17/2026-12163/the-trade-through-rule-and-locked-and-crossed-markets-provisions-of-regulation-nms</a> (accessed 2026-11)</li>
+<li>[Verified] Cboe (2025-10-28). "Regulation NMS Round Lots Enhancements FAQ." <a href="https://cdn.cboe.com/resources/membership/Round_Lots_Enhancements_FAQ.pdf">https://cdn.cboe.com/resources/membership/Round_Lots_Enhancements_FAQ.pdf</a> (accessed 2026-11)</li>
+<li>[Reported] FlexTrade (2025-11). "Round-Lots, Odd-Lots Push Forward, while SEC Delays Tick Size and Access Fees." <a href="https://flextrade.com/resources/round-lots-odd-lots-push-forward-while-sec-delays-tick-size-and-access-fees/">https://flextrade.com/resources/round-lots-odd-lots-push-forward-while-sec-delays-tick-size-and-access-fees/</a> (accessed 2026-11)</li>
+<li>[Verified] Federal Register (2025-10-02). "Extension of Compliance Date for Disclosure of Order Execution Information." <a href="https://www.federalregister.gov/documents/2025/10/02/2025-19316/extension-of-compliance-date-for-disclosure-of-order-execution-information">https://www.federalregister.gov/documents/2025/10/02/2025-19316/extension-of-compliance-date-for-disclosure-of-order-execution-information</a> (accessed 2026-11)</li>
+<li>[Verified] FINRA (2026-06-17). "Information Notice: Amended Rule 605 Reporting." <a href="https://www.finra.org/rules-guidance/notices/information-notice-20260617">https://www.finra.org/rules-guidance/notices/information-notice-20260617</a> (accessed 2026-11)</li>
+<li>[Reported] Proskauer (2025-06). "SEC Withdraws Fourteen Rule Proposals." <a href="https://www.proskauer.com/alert/sec-withdraws-fourteen-rule-proposals">https://www.proskauer.com/alert/sec-withdraws-fourteen-rule-proposals</a> (accessed 2026-11)</li>
+<li>[Reported] Simpson Thacher (2026-04-29). "SEC Approves Nasdaq's 23/5 Trading Proposal." <a href="https://www.stblaw.com/docs/default-source/memos/firmmemo_04_29_26">https://www.stblaw.com/docs/default-source/memos/firmmemo_04_29_26</a> (accessed 2026-11)</li>
+<li>[Reported] Jones Day (2026-09). "NYSE and Nasdaq Move to 23-Hour Trading Day: Overnight Session Is an Evolution, But Not Yet a Revolution." <a href="https://www.jonesday.com/en/insights/2026/09/nyse-and-nasdaq-move-to-23hour-trading-day-overnight-session-is-an-evolution-but-not-yet-a-revolution">https://www.jonesday.com/en/insights/2026/09/nyse-and-nasdaq-move-to-23hour-trading-day-overnight-session-is-an-evolution-but-not-yet-a-revolution</a> (accessed 2026-11)</li>
+<li>[Reported] Sidley Austin (2026-09). "SEC Roundtable Highlights Key Considerations for 24-Hour Trading." <a href="https://www.sidley.com/en/insights/newsupdates/2026/09/sec-roundtable-highlights-key-considerations-for-24-hour-trading">https://www.sidley.com/en/insights/newsupdates/2026/09/sec-roundtable-highlights-key-considerations-for-24-hour-trading</a> (accessed 2026-11)</li>
+<li>[Verified] Federal Register (2026-08-14). SEC order granting 24X National Exchange temporary conditional exemptive relief (Release No. 34-106061). <a href="https://www.govinfo.gov/content/pkg/FR-2026-08-14/html/2026-16572.htm">https://www.govinfo.gov/content/pkg/FR-2026-08-14/html/2026-16572.htm</a> (accessed 2026-11)</li>
+<li>[Reported] Mondo Visione (2025-10-15). "24X National Exchange Opens for Trading as First SEC-Approved 23/5 Stock Exchange." <a href="https://mondovisione.com/media-and-resources/news/24x-national-exchange-opens-for-trading-as-first-sec-approved-235-stock-exchang-20251015/">https://mondovisione.com/media-and-resources/news/24x-national-exchange-opens-for-trading-as-first-sec-approved-235-stock-exchang-20251015/</a> (accessed 2026-11)</li>
+<li>[Verified] Cboe (2026-08). "Market Metrics That Matter: Derivatives July 2026 Volume Highlights." <a href="https://www.cboe.com/insights/posts/market-metrics-that-matter-derivatives-july-2026-volume-highlights">https://www.cboe.com/insights/posts/market-metrics-that-matter-derivatives-july-2026-volume-highlights</a> (accessed 2026-11)</li>
+<li>[Verified] DTCC (2024-05-13). "DTCC Comments on Industry's Affirmation Progress with T+1 Implementation Two Weeks Away." <a href="https://www.dtcc.com/news/2024/may/13/dtcc-comments-on-industrys-affirmation-progress">https://www.dtcc.com/news/2024/may/13/dtcc-comments-on-industrys-affirmation-progress</a> (accessed 2026-11)</li>
+<li>[Reported] Morgan Lewis (2025-12). "Short Sale Reporting on Form SHO: Compliance Date Further Extended to 2028." <a href="https://www.morganlewis.com/pubs/2025/12/short-sale-reporting-on-form-sho-compliance-date-further-extended-to-2028">https://www.morganlewis.com/pubs/2025/12/short-sale-reporting-on-form-sho-compliance-date-further-extended-to-2028</a> (accessed 2026-11)</li>
+<li>[Verified] SEC (2026-04-16). "Concept Release on the Consolidated Audit Trail and Other Audit Trails and Data Sources." Release No. 34-105251. <a href="https://www.govinfo.gov/content/pkg/FR-2026-04-20/html/2026-07651.htm">https://www.govinfo.gov/content/pkg/FR-2026-04-20/html/2026-07651.htm</a> (accessed 2026-11)</li>
+<li>[Reported] Pensions &amp; Investments (2025). "Court strikes down funding model for SEC's consolidated audit trail." <a href="https://www.pionline.com/rules-regulations/government-politics/pi-court-strikes-down-sec-consolidated-audit-trail-fee-model/">https://www.pionline.com/rules-regulations/government-politics/pi-court-strikes-down-sec-consolidated-audit-trail-fee-model/</a> (accessed 2026-11)</li>
+<li>[Reported] Sidley Austin (2026-09). "SEC Issues Innovation Exemption for On-chain Trading of Tokenized U.S.-Listed Stocks." <a href="https://www.sidley.com/en/insights/newsupdates/2026/09/sec-issues-innovation-exemption-for-onchain-trading-of-tokenized-us-listed-stocks">https://www.sidley.com/en/insights/newsupdates/2026/09/sec-issues-innovation-exemption-for-onchain-trading-of-tokenized-us-listed-stocks</a> (accessed 2026-11)</li>
+<li>[Reported] The Block (2026-11-03). "CFTC approves individual stock perpetual futures trading in US for the first time." <a href="https://www.theblock.co/news/regulation/2026-11-03-cftc-approves-individual-stock-perpetual-futures-trading-in-us-for-first-time-432422">https://www.theblock.co/news/regulation/2026-11-03-cftc-approves-individual-stock-perpetual-futures-trading-in-us-for-first-time-432422</a> (accessed 2026-11)</li>
+</ul>
 
 
 
