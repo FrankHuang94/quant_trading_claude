@@ -5723,9 +5723,9 @@
 <p><strong>TL;DR</strong></p>
 <ul>
 <li>In production quant, LLMs mainly turn text (news, filings, call transcripts) into features for ordinary forecasting models, and serve as coding and research tools.</li>
-<li>Lopez-Lira &amp; Tang (<em>JFE</em>, 2026): GPT headline scores predict next-day returns; GPT-4 calls the direction of the (non-tradable) same-day reaction about 90% of the time.</li>
+<li>Lopez-Lira &amp; Tang (<em>JFE</em>, 2026): GPT headline scores predict next-day returns; portfolios sorted on GPT-4 scores get the (non-tradable) same-day reaction right on about 90% of days.</li>
 <li>Look-ahead leakage is the central problem: a model trained on text through year Y has read what happened next. Only post-cutoff backtests are clean.</li>
-<li>Time-series foundation models (Chronos, TimesFM) forecast generic series well zero-shot; on daily stock returns they trail boosted trees and do not trade profitably.</li>
+<li>Time-series foundation models (Chronos, TimesFM) forecast generic series well zero-shot; off the shelf they trail boosted trees on daily stock returns.</li>
 </ul>
 </blockquote>
 <p><strong>Level:</strong> Core · <strong>Pipeline stage:</strong> forecast · <strong>Last verified:</strong> 2026-11</p>
@@ -5827,11 +5827,11 @@
 </ul>
 <h2 id="textbook-version-vs-what-firms-actually-do">Textbook version vs what firms actually do<a class="headerlink" href="#textbook-version-vs-what-firms-actually-do" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Return predictability:</strong> <a href="https://doi.org/10.1016/j.jfineco.2026.104335">Lopez-Lira &amp; Tang (2026)</a> find ChatGPT headline scores correlate positively with next-day returns, and GPT-4 hits about 90% on the direction of the non-tradable initial reaction <code>[Verified]</code>.</li>
+<li><strong>Return predictability:</strong> <a href="https://doi.org/10.1016/j.jfineco.2026.104335">Lopez-Lira &amp; Tang (2026)</a> find ChatGPT headline scores predict next-day returns, especially in small stocks and after bad news, and that strategy returns fall as LLM adoption rises <code>[Verified]</code>.</li>
 <li><strong>Leakage:</strong> <a href="https://arxiv.org/abs/2309.17322">Glasserman &amp; Lin (2023)</a> tested GPT-3.5 (training data to September 2021). Anonymizing firm names <em>improved</em> in-sample results: company knowledge distracted the model more than look-ahead helped <code>[Verified]</code>.</li>
 <li><strong>Older baselines matter:</strong> FinBERT beat dictionaries on finance sentiment (<a href="https://doi.org/10.1111/1911-3846.12832">Huang, Wang &amp; Yang 2023</a>); year-over-year 10-K text changes predicted returns (<a href="https://doi.org/10.1111/jofi.12885">Cohen, Malloy &amp; Nguyen 2020</a>) <code>[Verified]</code>.</li>
-<li><strong>Foundation models:</strong> <a href="https://arxiv.org/abs/2403.07815">Chronos</a> (Amazon) quantizes scaled values into tokens for T5-family models of 20M–710M parameters; <a href="https://arxiv.org/abs/2310.10688">TimesFM</a> (Google) is a 200M-parameter decoder trained on ~100 billion points, mostly Google Trends and Wikipedia pageviews. Both rival dataset-specific models zero-shot on general benchmarks <code>[Verified]</code>. On daily excess returns, zero-shot versions trailed CatBoost and LightGBM, with flat or declining long-short returns (Rahimikia et al., 2026) <code>[Verified]</code>.</li>
-<li><strong>Practice:</strong> press coverage in 2024–26 describes in-house LLM assistants for coding, document summarization and research triage at large hedge funds and banks <code>[Reported]</code> TODO(verify): add named firm sources. Claims that LLMs generate standalone alpha at scale are <code>[Lore]</code>.</li>
+<li><strong>Foundation models:</strong> <a href="https://arxiv.org/abs/2403.07815">Chronos</a> (Amazon) quantizes scaled values into tokens for T5-family models of 20M–710M parameters; <a href="https://arxiv.org/abs/2310.10688">TimesFM</a> (Google) is a 200M-parameter decoder trained on ~100 billion points, mostly Google Trends and Wikipedia pageviews. Both rival dataset-specific models zero-shot on general benchmarks <code>[Verified]</code>. On daily excess returns, zero-shot and fine-tuned versions trailed CatBoost and LightGBM; versions pre-trained from scratch on financial data came close on long-short Sharpe, gross of costs, but not on R² (<a href="https://arxiv.org/abs/2511.18578">Rahimikia, Ni &amp; Wang 2025</a>) <code>[Verified]</code>.</li>
+<li><strong>Practice:</strong> Man Group built ManGPT, an internal portal to OpenAI's models (2023), and says its AlphaGPT agent drafts, codes and backtests signal ideas, several dozen approved for live trading after human review <code>[Reported]</code>. Claims that LLMs generate standalone alpha at scale are <code>[Lore]</code>.</li>
 </ul>
 <h2 id="how-to-tell-if-its-working">How to tell if it's working<a class="headerlink" href="#how-to-tell-if-its-working" title="Permanent link">&para;</a></h2>
 <ul>
@@ -5859,7 +5859,6 @@
 <li>"We embed and let ridge decide." → Keep learning inside the validated pipeline.</li>
 <li>"Same-day reaction is priced; show me tomorrow." → Only post-publication drift is tradable.</li>
 <li>"The vendor updated the model and our history changed." → Pin versions, store raw outputs.</li>
-<li>"Chronos on returns is a random walk with extra steps." → Zero-shot forecasters find nothing in near-noise.</li>
 </ul>
 <h2 id="questions-you-could-ask-a-quant-about-this">Questions you could ask a quant about this<a class="headerlink" href="#questions-you-could-ask-a-quant-about-this" title="Permanent link">&para;</a></h2>
 <ol>
@@ -5894,7 +5893,9 @@ R_{\text{observed}} = R_{\text{true}} + B_{\text{look-ahead}} + B_{\text{distrac
 <li>[Verified] Ansari, A. F. et al. (2024). "Chronos: Learning the Language of Time Series." <em>Transactions on Machine Learning Research</em>. <a href="https://arxiv.org/abs/2403.07815">https://arxiv.org/abs/2403.07815</a> (accessed 2026-11)</li>
 <li>[Verified] Das, A., Kong, W., Sen, R. &amp; Zhou, Y. (2024). "A decoder-only foundation model for time-series forecasting." <em>ICML 2024</em>, PMLR 235. <a href="https://arxiv.org/abs/2310.10688">https://arxiv.org/abs/2310.10688</a> (accessed 2026-11)</li>
 <li>[Verified] Google Research (2024-02). "A decoder-only foundation model for time-series forecasting." <a href="https://research.google/blog/a-decoder-only-foundation-model-for-time-series-forecasting/">https://research.google/blog/a-decoder-only-foundation-model-for-time-series-forecasting/</a> (accessed 2026-11)</li>
-<li>[Verified] Rahimikia, E. et al. (2026). "Re(Visiting) Time Series Foundation Models in Finance." FoFI 2026 conference paper. <a href="http://wp.lancs.ac.uk/fofi2026/files/2026/03/FoFI-2026-020-Eghbal-Rahimikia.pdf">http://wp.lancs.ac.uk/fofi2026/files/2026/03/FoFI-2026-020-Eghbal-Rahimikia.pdf</a> (accessed 2026-11)</li>
+<li>[Verified] Rahimikia, E., Ni, H. &amp; Wang, W. (2025). "Re(Visiting) Time Series Foundation Models in Finance." arXiv:2511.18578 (also presented at FoFI 2026). <a href="https://arxiv.org/abs/2511.18578">https://arxiv.org/abs/2511.18578</a> (accessed 2026-11)</li>
+<li>[Reported] Hedgeweek (2023-07-25). "Man Group develops ManGPT AI portal." <a href="https://www.hedgeweek.com/man-group-develops-mangpt-ai-portal/">https://www.hedgeweek.com/man-group-develops-mangpt-ai-portal/</a> (accessed 2026-11)</li>
+<li>[Reported] Hedgeweek (2025-07-11), citing Bloomberg. "Man Group deploys agentic AI for quant signal discovery." <a href="https://www.hedgeweek.com/man-group-deploys-agentic-ai-for-quant-signal-discovery/">https://www.hedgeweek.com/man-group-deploys-agentic-ai-for-quant-signal-discovery/</a> (accessed 2026-11)</li>
 <li>[Verified] Loughran, T. &amp; McDonald, B. (2011). "When Is a Liability Not a Liability? Textual Analysis, Dictionaries, and 10-Ks." <em>Journal of Finance</em> 66(1), 35–65. <a href="https://doi.org/10.1111/j.1540-6261.2010.01625.x">https://doi.org/10.1111/j.1540-6261.2010.01625.x</a> (accessed 2026-11)</li>
 <li>[Verified] Huang, A. H., Wang, H. &amp; Yang, Y. (2023). "FinBERT: A Large Language Model for Extracting Information from Financial Text." <em>Contemporary Accounting Research</em> 40(2), 806–841. <a href="https://doi.org/10.1111/1911-3846.12832">https://doi.org/10.1111/1911-3846.12832</a> (accessed 2026-11)</li>
 <li>[Verified] Cohen, L., Malloy, C. &amp; Nguyen, Q. (2020). "Lazy Prices." <em>Journal of Finance</em> 75(3), 1371–1415. <a href="https://doi.org/10.1111/jofi.12885">https://doi.org/10.1111/jofi.12885</a> (accessed 2026-11)</li>

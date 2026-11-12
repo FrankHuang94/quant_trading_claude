@@ -5911,11 +5911,11 @@
 <p><strong>Passive fills:</strong> you join a 10,000-share bid with 500 shares. Then 3,000 trade at your price and 2,000 cancel. A fill-on-touch engine fills you. A risk-averse <a href="../../../09-reference/glossary/#queue-position">queue model</a> puts the cancels behind you, leaving 7,000 ahead. A probabilistic model leaves 5,000–7,000 ahead.</p>
 <h2 id="key-parameters-and-how-practitioners-tune-them">Key parameters and how practitioners tune them<a class="headerlink" href="#key-parameters-and-how-practitioners-tune-them" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Fill price:</strong> next open or next-interval VWAP for daily books. The close is usable only if the decision came before the MOC cutoff (3:50 p.m. on NYSE) <code>[Verified]</code>.</li>
+<li><strong>Fill price:</strong> next open or next-interval VWAP for daily books. The close is usable only if the decision came before the MOC cutoff (3:50 p.m. on NYSE) <code>[Verified]</code> (<a href="../../../01-market-structure/order-types-and-auctions/">order types and auctions</a>).</li>
 <li><strong>Impact coefficient:</strong> order 1 in the <a href="../../../09-reference/glossary/#square-root-law">square-root law</a> literature (<a href="https://doi.org/10.1103/PhysRevX.1.021006">Tóth et al. 2011</a>) <code>[Reported]</code>. Firms refit it on their own fills via <a href="../../e-execution-algorithms/transaction-cost-analysis/">TCA</a> <code>[Lore]</code>.</li>
 <li><strong>Latency:</strong> HFT engines sample measured distributions, not constants <code>[Lore]</code>.</li>
 <li><strong>Borrow:</strong> general collateral about 0.25–0.50% a year, hard-to-borrow 5–50%+ <code>[Lore]</code> (<a href="../../../01-market-structure/shorting-financing-and-settlement/">shorting</a>).</li>
-<li><strong>Fees:</strong> take fees are capped at $0.0030 per share <code>[Verified]</code>.</li>
+<li><strong>Fees:</strong> take fees are capped at $0.0030 per share (Rule 610(c)); the cut to $0.0010 for stocks priced at $1 or more is delayed to November 2027 <code>[Verified]</code>.</li>
 </ul>
 <h2 id="textbook-version-vs-what-firms-actually-do">Textbook version vs what firms actually do<a class="headerlink" href="#textbook-version-vs-what-firms-actually-do" title="Permanent link">&para;</a></h2>
 <ul>
@@ -5985,6 +5985,7 @@
 <li>[Verified] Nautech Systems. NautilusTrader (README, PyPI). <a href="https://github.com/nautechsystems/nautilus_trader">https://github.com/nautechsystems/nautilus_trader</a> (accessed 2026-11)</li>
 <li>[Verified] QuantConnect. LEAN algorithmic trading engine (README). <a href="https://github.com/QuantConnect/Lean">https://github.com/QuantConnect/Lean</a> (accessed 2026-11)</li>
 <li>[Verified] hftbacktest documentation, "Order Fill" (exchange and queue models). <a href="https://hftbacktest.readthedocs.io/en/latest/order_fill.html">https://hftbacktest.readthedocs.io/en/latest/order_fill.html</a> (accessed 2026-11)</li>
+<li>[Verified] SEC (2026-06-11). Release 34-105656, order granting temporary exemptive relief from Rules 610(c) and 612. <a href="https://www.sec.gov/files/rules/exorders/2026/34-105656.pdf">https://www.sec.gov/files/rules/exorders/2026/34-105656.pdf</a> (accessed 2026-11)</li>
 <li>[Verified] Byrd, D., Hybinette, M. &amp; Balch, T. H. (2019). "ABIDES: Towards High-Fidelity Market Simulation for AI Research." arXiv:1904.12066. <a href="https://arxiv.org/abs/1904.12066">https://arxiv.org/abs/1904.12066</a> (accessed 2026-11)</li>
 <li>[Verified] Tóth, B., Lempérière, Y., Deremble, C., de Lataillade, J., Kockelkoren, J. &amp; Bouchaud, J.-P. (2011). "Anomalous Price Impact and the Critical Nature of Liquidity in Financial Markets." <em>Physical Review X</em> 1(2), 021006. <a href="https://doi.org/10.1103/PhysRevX.1.021006">https://doi.org/10.1103/PhysRevX.1.021006</a> (accessed 2026-11)</li>
 </ul>

@@ -5768,7 +5768,7 @@
 </tbody>
 </table>
 <h2 id="intuition">Intuition<a class="headerlink" href="#intuition" title="Permanent link">&para;</a></h2>
-<p>A credit analyst underwrites the same balance sheet differently in a boom and a bust. Markets are similar, and wild days cluster. From 1990 to November 2026 the VIX closed above 30 on 7.9% of days, and after such a close it stayed above 30 the next day 87% of the time (FRED data) <code>[Estimate]</code>. A regime model turns that persistence into a probability. The aim is not to call the crash but to notice quickly that the world changed, and resize.</p>
+<p>A credit analyst underwrites the same balance sheet differently in a boom and a bust. Markets are similar, and wild days cluster. From 1990 to November 2026 the VIX closed above 30 on 7.9% of days, and after such a close it stayed above 30 the next day 87% of the time (computed from FRED data) <code>[Verified]</code>. A regime model turns that persistence into a probability. The aim is not to call the crash but to notice quickly that the world changed, and resize.</p>
 <h2 id="where-it-sits-in-the-pipeline">Where it sits in the pipeline<a class="headerlink" href="#where-it-sits-in-the-pipeline" title="Permanent link">&para;</a></h2>
 <pre class="mermaid"><code>flowchart LR
   ret["Index and factor returns"] --&gt; rd
@@ -5842,7 +5842,7 @@
 <li><strong>States:</strong> two is standard; a third crash state rests on few observations. Choose by out-of-sample likelihood <code>[Lore]</code>.</li>
 <li><strong>Persistence:</strong> stay probability <em>p</em> means spells of 1 ÷ (1 − <em>p</em>) days on average; higher <em>p</em> gives fewer whipsaws but slower detection.</li>
 <li><strong>Inputs:</strong> realized vol, the VIX or credit spreads sharpen a returns-only model <code>[Lore]</code>.</li>
-<li><strong>Thresholds:</strong> since 1990 the VIX closed above 25 on 17% of days <code>[Estimate]</code>; realized-vol filters often trigger at the 80th–90th percentile <code>[Lore]</code>.</li>
+<li><strong>Thresholds:</strong> since 1990 the VIX closed above 25 on 17% of days <code>[Verified]</code>; realized-vol filters often trigger at the 80th–90th percentile <code>[Lore]</code>.</li>
 </ul>
 <h2 id="textbook-version-vs-what-firms-actually-do">Textbook version vs what firms actually do<a class="headerlink" href="#textbook-version-vs-what-firms-actually-do" title="Permanent link">&para;</a></h2>
 <ul>
@@ -5851,7 +5851,7 @@
 <li><strong>Clustering:</strong> Two Sigma fit a Gaussian mixture to 17 factors and named four conditions: Crisis, Steady State, Inflation and Walking on Ice <code>[Verified]</code>.</li>
 <li><strong>Practice:</strong> HMMs fill allocation research (Kritzman, Page &amp; Turkington 2012; Nystrup et al. 2015) <code>[Verified]</code>; production mostly uses plain <a href="../../../09-reference/glossary/#volatility-targeting">volatility targeting</a> <code>[Lore]</code>.</li>
 <li><strong>Evidence for:</strong> cutting exposure when volatility is high raised Sharpe ratios for the market and many factors (Moreira &amp; Muir 2017) <code>[Verified]</code>. Vol targeting raised Sharpe for equities and credit, not bonds, currencies or commodities, and thinned left tails (Harvey et al. 2018) <code>[Verified]</code>. <a href="../../../09-reference/glossary/#momentum-crash">Momentum crashes</a> cluster in panic states; a dynamic version roughly doubled momentum's Sharpe (Daniel &amp; Moskowitz 2016) <code>[Verified]</code>.</li>
-<li><strong>Evidence against:</strong> across 103 equity strategies, real-time versions generally earned lower Sharpe ratios and certainty-equivalent returns than the unmanaged originals, losing on the latter in 72 cases (Cederburg et al. 2020) <code>[Verified]</code>. Both sides have strong evidence; the debate is open.</li>
+<li><strong>Evidence against:</strong> across 103 equity strategies, managed versions had the higher Sharpe in only 53 cases, and real-time combinations of managed and original earned lower certainty-equivalent returns than the original alone in 72 (Cederburg et al. 2020) <code>[Verified]</code>. Both sides have strong evidence; the debate is open.</li>
 </ul>
 <h2 id="how-to-tell-if-its-working">How to tell if it's working<a class="headerlink" href="#how-to-tell-if-its-working" title="Permanent link">&para;</a></h2>
 <ul>

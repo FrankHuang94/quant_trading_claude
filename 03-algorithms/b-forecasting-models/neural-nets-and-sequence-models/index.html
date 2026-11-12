@@ -5841,7 +5841,7 @@
 <li><strong>Cross-sectional MLPs:</strong> in <a href="https://doi.org/10.1093/rfs/hhaa009">GKX 2020</a>, monthly stock-level R² rose from 0.33% (one layer) to 0.40% (three), against 0.16% for OLS-3; the value-weighted long-short decile Sharpe was 1.35 gross, 1987–2016 <code>[Verified]</code>.</li>
 <li><strong>Order books:</strong> <a href="https://doi.org/10.1109/TSP.2019.2907260">DeepLOB</a> (convolutions, an Inception module, an LSTM) beat earlier models on the FI-2010 benchmark and a year of London Stock Exchange data, and transferred to unseen instruments <code>[Verified]</code>. <a href="https://doi.org/10.1080/14697688.2019.1622295">Sirignano &amp; Cont (2019)</a> found a "universal" model pooled across many US stocks beat stock-specific ones <code>[Verified]</code>. Both report accuracy, not P&amp;L after costs.</li>
 <li><strong>Autoencoder factor models:</strong> <a href="https://doi.org/10.1016/j.jeconom.2020.07.009">Gu, Kelly &amp; Xiu (2021)</a> let betas be a neural function of characteristics, with latent factors and a no-arbitrage restriction, and report much smaller out-of-sample pricing errors than leading factor models <code>[Verified]</code>.</li>
-<li><strong>Practice:</strong> market makers train sizable nets on GPU clusters but run small, distilled versions in the latency-critical path <code>[Lore]</code>; mid-frequency books use nets as one ensemble input <code>[Lore]</code>.</li>
+<li><strong>Practice:</strong> market makers train sizable nets on GPU clusters (XTX Markets says it has over 25,000 GPUs <code>[Reported]</code>) but run small, distilled versions in the latency-critical path <code>[Lore]</code>; mid-frequency books use nets as one ensemble input <code>[Lore]</code>.</li>
 </ul>
 <h2 id="how-to-tell-if-its-working">How to tell if it's working<a class="headerlink" href="#how-to-tell-if-its-working" title="Permanent link">&para;</a></h2>
 <ul>
@@ -5900,6 +5900,7 @@ r_{i,t} = \beta(z_{i,t-1})^\top f_t + \varepsilon_{i,t}, \qquad f_t = W\, (Z_{t-
 <li>[Verified] Sirignano, J. &amp; Cont, R. (2019). "Universal features of price formation in financial markets: perspectives from deep learning." <em>Quantitative Finance</em> 19(9), 1449–1459. <a href="https://doi.org/10.1080/14697688.2019.1622295">https://doi.org/10.1080/14697688.2019.1622295</a> (accessed 2026-11)</li>
 <li>[Verified] Hochreiter, S. &amp; Schmidhuber, J. (1997). "Long Short-Term Memory." <em>Neural Computation</em> 9(8), 1735–1780. <a href="https://doi.org/10.1162/neco.1997.9.8.1735">https://doi.org/10.1162/neco.1997.9.8.1735</a> (accessed 2026-11)</li>
 <li>[Verified] Vaswani, A. et al. (2017). "Attention Is All You Need." <em>NeurIPS 30</em>. <a href="https://arxiv.org/abs/1706.03762">https://arxiv.org/abs/1706.03762</a> (accessed 2026-11)</li>
+<li>[Reported] XTX Markets (n.d.). Company website (research cluster of over 25,000 GPUs; firm statement). <a href="https://www.xtxmarkets.com/">https://www.xtxmarkets.com/</a> (accessed 2026-11)</li>
 <li>[Verified] Lakshminarayanan, B., Pritzel, A. &amp; Blundell, C. (2017). "Simple and Scalable Predictive Uncertainty Estimation using Deep Ensembles." <em>NeurIPS 30</em>. <a href="https://arxiv.org/abs/1612.01474">https://arxiv.org/abs/1612.01474</a> (accessed 2026-11)</li>
 </ul>
 
