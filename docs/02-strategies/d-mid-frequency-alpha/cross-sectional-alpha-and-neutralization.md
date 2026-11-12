@@ -204,7 +204,7 @@ flowchart TD
 - "Our effective breadth is a few hundred bets a year." → Correlated bets shrink the √N.
 - "The TC on that book is terrible." → Constraints stop holdings reflecting the forecast.
 - "IC is 2%, but it's a 1-day signal and costs eat it." → Real but unusable at that turnover.
-- "We trade a third of the way to target each day." → Partial adjustment balancing decay against impact.
+- "We trade a third of the way to target each day." → Partial adjustment: the trade rate balances transaction costs against risk aversion, while fast-decaying alphas are discounted inside the aim portfolio (Gârleanu–Pedersen).
 
 ## Myths vs reality
 

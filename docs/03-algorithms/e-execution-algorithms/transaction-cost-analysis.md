@@ -84,7 +84,7 @@ def orders_needed(sd_bps=60.0, diff_bps=5.0, z_alpha=1.96, z_power=0.84):
 
 ## Worked example with numbers
 
-*Illustrative.* The PM decides to buy 100,000 shares at yesterday's close, \$50.00 (\$5M; 1 bp = \$500). The algo starts at \$50.10, fills 80,000 at an average \$50.25 when the mid averaged \$50.23, and stops at a participation cap. The close is $50.60. Commissions are $800. The market (β = 1) rose 0.10% while the order worked.
+*Illustrative.* The PM decides to buy 100,000 shares at yesterday's close, \$50.00 (\$5M; 1 bp = \$500). The algo starts at \$50.10, fills 80,000 at an average \$50.25 when the mid averaged \$50.23, and stops at a participation cap. The close is \$50.60. Commissions are \$800. The market (β = 1) rose 0.10% while the order worked.
 
 | Component | Calculation | $ | bps |
 |---|---|---|---|
