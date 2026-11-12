@@ -13,8 +13,8 @@ from the finished labs, so the page stays consistent with them:
     rescaled to this order (arithmetic shown in the page).
   * Close sizing: the E5 card's rule (cap MOC/LOC at 15% of the forecast closing print).
 
-Run:  python labs/walkthroughs/walkthrough-institutional-execution.py   (about 2 s)
-Out:  labs/walkthroughs/walkthrough-institutional-execution.json
+Run:  python labs/walkthroughs/institutional-execution.py   (about 2 s)
+Out:  labs/walkthroughs/institutional-execution.json
 """
 from __future__ import annotations
 

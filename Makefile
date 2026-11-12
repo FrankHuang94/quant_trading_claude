@@ -3,10 +3,10 @@ PY ?= python3
 MKDOCS ?= $(PY) -m mkdocs
 LABS := $(sort $(wildcard labs/[0-9][0-9]-*/lab.py))
 
-.PHONY: help site serve labs labs-smoke check check-strict wordcount matrix sources lint
+.PHONY: help site serve labs labs-smoke walkthroughs check check-strict wordcount matrix sources lint
 
 help:
-	@echo "make site | serve | labs | labs-smoke | check | check-strict | wordcount | matrix | sources | lint"
+	@echo "make site | serve | labs | labs-smoke | walkthroughs | check | check-strict | wordcount | matrix | sources | lint"
 
 site:
 	$(MKDOCS) build --strict
@@ -19,6 +19,9 @@ labs:
 
 labs-smoke:
 	$(PY) scripts/run_labs.py --smoke --max-seconds 60
+
+walkthroughs:
+	$(PY) scripts/run_labs.py --walkthroughs
 
 check:
 	$(PY) scripts/fix_dollars.py --check
