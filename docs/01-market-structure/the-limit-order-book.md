@@ -92,6 +92,12 @@ Illustrative numbers, per share, for a resting bid that gets filled. The [markou
 
 The front is worth about half a cent a share more than the back, roughly the half-spread, a common rule of thumb for large-tick names `[Lore]`. Most of the gap is adverse selection, not fill rate. That is why HFT market makers race to the front when a new price level opens, and why the [queue-position card](../03-algorithms/f-market-making-and-hft-algorithms/queue-position-and-order-placement.md) models the two together. Academic queue models include Cont, Stoikov and Talreja (2010) and Huang, Lehalle and Rosenbaum's queue-reactive model (2015).
 
+[Lab 01](https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/01-matching-engine-order-book) measures the same effect in a simulated order book with informed and noise traders. It posts 14,004 probe orders at different depths in the queue. Orders in the front quartile filled within 10 s 86% of the time, against 47% for the back quartile. Their 10-second markouts were +0.28 vs −0.23 ticks. Comparing the front and back of the same queue puts priority at about $0.56 per 100 shares (synthetic lab result).
+
+![Lab 01: fill probability vs shares ahead in the queue](../assets/labs/lab01-fill-prob-vs-queue.png)
+
+*Lab 01, synthetic data. The more shares ahead of you, the less likely a fill within 10 seconds. The fills you do get at the back come disproportionately from informed sweeps.*
+
 ## Hidden and iceberg orders
 
 - **Non-displayed (hidden) orders** rest in the book but are not shown on market data. On most venues they rank behind displayed orders at the same price, so hiding costs priority. Midpoint pegs are usually non-displayed.
