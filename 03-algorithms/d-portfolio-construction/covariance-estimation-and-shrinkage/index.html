@@ -5723,7 +5723,7 @@
 <p><strong>TL;DR</strong></p>
 <ul>
 <li>The sample covariance of N stocks from T days is singular when N &gt; T (Lab 14: 500 stocks, 252 days, rank 251); near N = T its small eigenvalues are too small and large ones too large.</li>
-<li>Random-matrix theory sizes the noise: pure-noise eigenvalues spread over (1 ± √(N/T))². For S&amp;P 500 stocks, 94% of correlation eigenvalues sit inside that band.</li>
+<li>Random-matrix theory sizes the noise: pure-noise eigenvalues spread over (1 ± √(N/T))². For S&amp;P 500 stocks, 94% of correlation eigenvalues fit such a band.</li>
 <li>Fixes: linear shrinkage toward a target (Ledoit–Wolf), factor models, eigenvalue clipping, nonlinear shrinkage.</li>
 <li>EWMA weighting helps, but its effective sample (about 2.9 half-lives) must stay well above N; volatilities get short half-lives, correlations long ones.</li>
 </ul>
@@ -5841,7 +5841,7 @@
 <h2 id="textbook-version-vs-what-firms-actually-do">Textbook version vs what firms actually do<a class="headerlink" href="#textbook-version-vs-what-firms-actually-do" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Against the sample matrix</strong>: on the largest US stocks, 1983–2002, constant-correlation shrinkage raised an active manager's realized information ratio by about 50% <code>[Verified]</code> (<a href="https://doi.org/10.3905/jpm.2004.110">Ledoit &amp; Wolf 2004</a>).</li>
-<li><strong>Random-matrix evidence</strong>: for 406 S&amp;P 500 stocks over 1,309 days, 94% of eigenvalues fell in the noise band; the informative 6% carried 26% of total volatility <code>[Verified]</code> (<a href="https://doi.org/10.1103/PhysRevLett.83.1467">Laloux et al. 1999</a>).</li>
+<li><strong>Random-matrix evidence</strong>: for 406 S&amp;P 500 stocks over 1,309 days, 94% of eigenvalues fell in the noise band (rescaled for the market mode's share of variance); the informative 6% carried 26% of total volatility <code>[Verified]</code> (<a href="https://doi.org/10.1103/PhysRevLett.83.1467">Laloux et al. 1999</a>).</li>
 <li><strong>Nonlinear shrinkage</strong> adjusts each eigenvalue separately (Ledoit &amp; Wolf 2012, 2017); the 2020 analytical version is about 1,000× faster and handles 10,000+ assets, including N &gt; T <code>[Verified]</code>.</li>
 <li><strong>In equities the factor model is the main regularizer</strong>; shrinkage goes into its pieces, as in USE4's eigenfactor adjustment and Bayesian specific-risk shrinkage <code>[Verified]</code>. Futures books of 50–200 contracts often use shrunk EWMA matrices directly <code>[Lore]</code>.</li>
 <li><strong>Constraints shrink too</strong>: long-only limits act like covariance shrinkage <code>[Verified]</code> (Jagannathan &amp; Ma 2003; see <a href="../alternatives-to-mvo/">alternatives to MVO</a>).</li>

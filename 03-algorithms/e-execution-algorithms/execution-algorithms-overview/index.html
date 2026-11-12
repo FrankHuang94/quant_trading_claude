@@ -5725,8 +5725,8 @@
 <li>An execution algo turns one parent order into thousands of child orders through three layers: a <strong>scheduler</strong> (how much by when), <strong>placement</strong> (post or take, size, price) and a <strong>smart order router</strong> (where).</li>
 <li>Families differ mainly in the benchmark they chase: TWAP, VWAP, POV, implementation shortfall (arrival), target close, liquidity-seeking, pegged.</li>
 <li>Choose by size (% of ADV), urgency (alpha decay, risk) and benchmark; the benchmark can make a bad choice look good.</li>
-<li><a href="https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/17-vwap-twap-pov">Lab 17</a> (synthetic, 10% of ADV in a day): expected cost 12.8–17.9 bps by schedule, against a shortfall SD of about 120 bps.</li>
-<li>About 40% of US buy-side equity flow runs through algos; 36% of desks use algo wheels (2025) <code>[Reported]</code>.</li>
+<li><a href="https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/17-vwap-twap-pov">Lab 17</a> (synthetic, 10% of ADV in a day): expected cost 12.8–17.9 bps by schedule, against shortfall SDs of 122–180 bps.</li>
+<li>Algos and smart order routers carried 43% of US buy-side equity activity in FY2025; 36% of desks use algo wheels <code>[Reported]</code>.</li>
 </ul>
 </blockquote>
 <p><strong>Level:</strong> Core · <strong>Pipeline stage:</strong> execution · <strong>Last verified:</strong> 2026-11</p>
@@ -5891,7 +5891,7 @@
 </tr>
 </tbody>
 </table>
-<p><em>Share of long-only desks using each type: The TRADE 2025 survey, mostly European respondents <code>[Reported]</code>.</em></p>
+<p><em>Share of long-only desks using each type: The TRADE 2025 survey (Figure 6), mostly European respondents <code>[Verified]</code>.</em></p>
 <h2 id="worked-example-with-numbers">Worked example with numbers<a class="headerlink" href="#worked-example-with-numbers" title="Permanent link">&para;</a></h2>
 <p><em>Illustrative.</em> $50 stock, ADV 5M shares, volatility 2% (200 bps) a day; <a href="../../../09-reference/glossary/#square-root-law">square-root</a> impact, Y = 0.5, average fill 2/3 of peak (<a href="../../d-portfolio-construction/transaction-cost-and-impact-models/">P5</a>); risk SD ≈ σ√(T/3) over T days (<a href="../transaction-cost-analysis/">E6</a>).</p>
 <table>
@@ -5937,14 +5937,14 @@
 <li><strong>Benchmarks</strong>: early cost studies used <a href="https://doi.org/10.1111/j.1540-6261.1988.tb02591.x">VWAP</a> (1988); <a href="https://doi.org/10.3905/jpm.1988.409150">implementation shortfall</a> was defined the same year <code>[Verified]</code>.</li>
 <li><strong>Layering</strong>: scheduling, then tactical placement, then routing is the textbook architecture <code>[Reported]</code> (<a href="https://doi.org/10.1142/10739">Lehalle and Laruelle</a>).</li>
 <li><strong>Broker suites</strong>: a few branded strategies on a shared engine; IBKR's include VWAP, TWAP, POV, Arrival Price, Close Price and Dark Ice <code>[Verified]</code>. Large clients get custom variants <code>[Lore]</code>.</li>
-<li><strong>Adoption</strong>: nearly 40% of North American buy-side flow runs through algos; algo wheels are used by 36% of desks, up 4 points <code>[Reported]</code> (<a href="https://www.greenwich.com/market-structure-technology/us-equity-market-trends-2025-dont-call-it-comeback">Coalition Greenwich, 2026-01</a>).</li>
+<li><strong>Adoption</strong>: algos and smart order routers handled 43% of buy-side activity in FY2025 (<a href="https://www.marketsmedia.com/us-equities-trading-revenues-jumped-in-2025/">Markets Media, 2026-05</a>); 36% of North American desks use algo wheels, up 4 points (<a href="https://www.greenwich.com/market-structure-technology/us-equity-market-trends-2025-dont-call-it-comeback">Coalition Greenwich, 2026-01</a>) <code>[Reported]</code>.</li>
 <li><strong>Algo wheels</strong>: orders in a bucket (say, VWAP, 1–5% of ADV) go to brokers at random under preset weights; TCA compares like with like and reweights quarterly <code>[Lore]</code>.</li>
 <li><strong>Leakage</strong>: high-frequency traders first lean against large institutional orders, then trade <em>with</em> the most informed ones <code>[Verified]</code> (<a href="https://doi.org/10.1111/jofi.12759">van Kervel and Menkveld 2019</a>); hence randomized sizes and timing <code>[Lore]</code>.</li>
 </ul>
 <h2 id="how-to-tell-if-its-working">How to tell if it's working<a class="headerlink" href="#how-to-tell-if-its-working" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Shortfall vs arrival and vs the pre-trade estimate, by algo and size bucket; completion; <a href="../../../09-reference/glossary/#information-leakage">information leakage</a> (drift beyond modeled impact).</li>
-<li><strong>Synthetic lab result</strong> (Lab 17, 500 days, buy 10% of ADV): expected cost TWAP 14.0, VWAP 12.8, POV 13.1, close-heavy 17.9 bps; shortfall SD about 120 bps; POV finished on only 61% of days. Real orders this size cost nearer 20 bps <code>[Estimate]</code> (square-root law), with per-order SDs of 50–150 bps (<a href="../transaction-cost-analysis/">E6</a>).</li>
+<li><strong>Synthetic lab result</strong> (Lab 17, 500 days, buy 10% of ADV): expected cost TWAP 14.0, VWAP 12.8, POV 13.1, close-heavy 17.9 bps; shortfall SD 122–125 bps (close-heavy 180); POV finished on only 61% of days. Real orders this size cost nearer 20 bps <code>[Estimate]</code> (square-root law), with per-order SDs of 50–150 bps (<a href="../transaction-cost-analysis/">E6</a>).</li>
 <li>Telling VWAP from TWAP (1.3 bps) across unrelated orders takes about <strong>77,000 orders</strong>.</li>
 </ul>
 <p><img alt="Lab 17: slippage distributions" src="../../../assets/labs/lab17-slippage.png" /></p>
@@ -6004,6 +6004,7 @@ n \approx \left(\frac{2\sqrt{s_1^2 + s_2^2}}{\delta}\right)^2 = \left(\frac{2 \t
 <li>[Reported] Lehalle, C.-A. &amp; Laruelle, S. (eds.) (2018). <em>Market Microstructure in Practice</em>, 2nd ed. World Scientific. <a href="https://doi.org/10.1142/10739">https://doi.org/10.1142/10739</a> (accessed 2026-11)</li>
 <li>[Verified] Kissell, R. (2014). <em>The Science of Algorithmic Trading and Portfolio Management</em>. Academic Press. <a href="https://doi.org/10.1016/B978-0-12-401689-7.00001-5">https://doi.org/10.1016/B978-0-12-401689-7.00001-5</a> (accessed 2026-11)</li>
 <li>[Verified] Interactive Brokers (n.d.). "IB Algos" (TWS API documentation: VWAP, TWAP, Percentage of Volume, Arrival Price, Close Price, Dark Ice parameters). <a href="https://interactivebrokers.github.io/tws-api/ibalgos.html">https://interactivebrokers.github.io/tws-api/ibalgos.html</a> (accessed 2026-11)</li>
+<li>[Reported] Markets Media (2026-05-18). "US Equities Trading Revenues Jumped in 2025" (Crisil Coalition Greenwich FY2025 revenue report: algo and smart-order-router trading 43% of buy-side activity). <a href="https://www.marketsmedia.com/us-equities-trading-revenues-jumped-in-2025/">https://www.marketsmedia.com/us-equities-trading-revenues-jumped-in-2025/</a> (accessed 2026-11)</li>
 <li>[Reported] Coalition Greenwich (2026-01-21). "U.S. equity market trends 2025: Don't call it a comeback" (253 North American buy-side equity traders). <a href="https://www.greenwich.com/market-structure-technology/us-equity-market-trends-2025-dont-call-it-comeback">https://www.greenwich.com/market-structure-technology/us-equity-market-trends-2025-dont-call-it-comeback</a> (accessed 2026-11)</li>
 <li>[Reported] The TRADE (2025). "Algorithmic Trading Survey 2025: Long-only" (types of algorithms used, Figure 6). <a href="https://thetradenews.com/wp-content/uploads/2025/04/Algo56-FINAL.pdf">https://thetradenews.com/wp-content/uploads/2025/04/Algo56-FINAL.pdf</a> (accessed 2026-11)</li>
 <li>[Verified] van Kervel, V. &amp; Menkveld, A. J. (2019). "High-frequency trading around large institutional orders." <em>Journal of Finance</em> 74(3), 1091–1137. <a href="https://doi.org/10.1111/jofi.12759">https://doi.org/10.1111/jofi.12759</a> (accessed 2026-11)</li>

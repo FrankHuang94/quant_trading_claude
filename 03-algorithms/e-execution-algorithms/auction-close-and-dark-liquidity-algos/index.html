@@ -5722,10 +5722,10 @@
 <blockquote>
 <p><strong>TL;DR</strong></p>
 <ul>
-<li>The close is about 9% of US notional, about 20% on rebalance days. Close algos size MOC/LOC orders before the cutoff (NYSE 3:50 p.m., Nasdaq 3:55 p.m.), then react to the imbalance.</li>
+<li>The close is 5–10% of US volume (record 9.4% of notional in Q2 2024), about 20% on rebalance days. Close algos size MOC/LOC orders before the cutoff (NYSE 3:50 p.m., Nasdaq 3:55 p.m.), then react to the imbalance.</li>
 <li>After the cutoff you may only add on the side that offsets the imbalance, which is exactly when the auction pays a price concession.</li>
 <li>Dark algos rest midpoint pegs and conditional orders across dark pools and block venues, using minimum fill sizes against probing.</li>
-<li>Every dark fill trades fill probability against adverse selection: judge venues by markouts, not fill rates. Leakage is the hidden cost; regulators have fined dark-pool operators up to $84.3M.</li>
+<li>Every dark fill trades fill probability against adverse selection: judge venues by markouts, not fill rates. Leakage is the hidden cost: one dark-pool operator paid $84.3M to settle charges.</li>
 </ul>
 </blockquote>
 <p><strong>Level:</strong> Core · <strong>Pipeline stage:</strong> execution · <strong>Last verified:</strong> 2026-11</p>
@@ -5759,7 +5759,7 @@
 </tr>
 <tr>
 <td>Main failure modes</td>
-<td>imbalance on your side; no NYSE cancels after 3:58 p.m.; pinging; stale midpoints; overfills</td>
+<td>imbalance on your side; no NYSE MOC/LOC cancels after 3:50 p.m.; pinging; stale midpoints; overfills</td>
 </tr>
 <tr>
 <td>Lab</td>
@@ -5768,7 +5768,7 @@
 </tbody>
 </table>
 <h2 id="intuition">Intuition<a class="headerlink" href="#intuition" title="Permanent link">&para;</a></h2>
-<p>Large orders want liquidity without advertising it. <strong>The close</strong> is a scheduled call auction: one price, huge volume, and the official benchmark for index funds and NAVs (mechanics in <a href="../../../01-market-structure/order-types-and-auctions/">order types and auctions</a>). <strong><a href="../../../09-reference/glossary/#dark-pool">Dark pools</a></strong> are continuous, non-displayed books, usually crossing at the midpoint. Both hide your order from the lit book. Both carry a selection problem: the fills you get are not a random sample of the fills you wanted.</p>
+<p>Large orders want liquidity without advertising it. <strong>The close</strong> is a scheduled call auction: one price, huge volume, and the official benchmark for index funds and NAVs (mechanics in <a href="../../../01-market-structure/order-types-and-auctions/">order types and auctions</a>). <strong><a href="../../../09-reference/glossary/#dark-pool">Dark pools</a></strong> are continuous, non-displayed books, usually crossing at the midpoint. Both hide your order from the lit book. Both carry a selection problem: your fills are not a random sample of the fills you wanted.</p>
 <h2 id="where-it-sits-in-the-pipeline">Where it sits in the pipeline<a class="headerlink" href="#where-it-sits-in-the-pipeline" title="Permanent link">&para;</a></h2>
 <pre class="mermaid"><code>flowchart LR
   po["Parent order and benchmark"] --&gt; sch["E2 and E3 schedule"]
@@ -5863,7 +5863,7 @@
 </tr>
 </tbody>
 </table>
-<p>Budget 100,000; minimum fill 4,000. Venue B fills most and is dropped: its fills are followed by a 4 bps adverse move, more than the spread saved.</p>
+<p>Budget 100,000; minimum fill 4,000. Venue B fills most but is dropped: a 4 bps adverse move follows its fills, more than the spread saved.</p>
 <h2 id="key-parameters-and-how-practitioners-tune-them">Key parameters and how practitioners tune them<a class="headerlink" href="#key-parameters-and-how-practitioners-tune-them" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Auction cap</strong>: lower in crowded rebalance names, higher for close-benchmarked flow <code>[Lore]</code>.</li>
@@ -5885,11 +5885,13 @@
 <li><strong>Close</strong>: slippage vs the official close; your share of the print; overnight reversion of the close (large = you moved it).</li>
 <li><strong>Dark</strong>: per-venue fill rate vs markout, refreshed weekly.</li>
 <li><strong>Leakage</strong>: drift after order start vs comparable orders not shown dark.</li>
-<li><a href="https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/17-vwap-twap-pov">Lab 17</a> builds the volume curve whose closing slice is sized here.</li>
+<li><a href="https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/17-vwap-twap-pov">Lab 17</a> (synthetic): putting 30% of a 10%-of-ADV order in the auction matched the close (0.0 ± 48 bps) but cost 17.9 bps vs arrival, against VWAP's 12.8: afternoon crowding and auction demand that moved the close itself.</li>
 </ul>
+<p><img alt="Lab 17: schedules and participation by time of day" src="../../../assets/labs/lab17-schedules.png" /></p>
+<p><em>Lab 17, synthetic: the close-heavy schedule (purple) takes about 19% of afternoon volume and 24% of the auction.</em></p>
 <h2 id="failure-modes-and-pitfalls">Failure modes and pitfalls<a class="headerlink" href="#failure-modes-and-pitfalls" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Late imbalance swings</strong>, with NYSE cancels barred after 3:58 p.m. <code>[Verified]</code>.</li>
+<li><strong>Late imbalance swings</strong>: NYSE bars MOC/LOC cancels after 3:50 p.m., even for errors <code>[Verified]</code>.</li>
 <li><strong>Pinging</strong>: small IOC probes find resting orders.</li>
 <li><strong>Stale midpoints</strong>: a lagging NBBO view gets you filled at an old midpoint.</li>
 <li><strong>Overfills</strong> and missed firm-ups that downgrade your scorecard.</li>
@@ -5898,7 +5900,6 @@
 <ul>
 <li>"We're 12% of the expected print." → auction participation.</li>
 <li>"The imbalance flipped at 3:57." → late swing in the closing book.</li>
-<li>"That pool's markouts are ugly at one second." → latency-sensitive counterparties.</li>
 <li>"Send conditionals, firm up on invites." → block-venue workflow.</li>
 <li>"We got paid to supply the imbalance." → offset order filled at a concession.</li>
 </ul>
