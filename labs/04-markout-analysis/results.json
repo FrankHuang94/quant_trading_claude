@@ -7,7 +7,7 @@
   "n_passive_fills": 136488,
   "shares_filled": 20425200.0,
   "informed_share_of_volume": 0.363708,
-  "bps_per_tick": 1.993815,
+  "bps_per_tick": 1.99381,
   "horizons_s": [
     0,
     1,
@@ -20,31 +20,31 @@
     300
   ],
   "markout_bps_informed": {
-    "0s": 2.528952,
-    "1s": 1.133295,
+    "0s": 2.52895,
+    "1s": 1.1333,
     "2s": 0.763958,
-    "5s": -0.033176,
+    "5s": -0.0331762,
     "10s": -0.741048,
-    "30s": -1.378655,
-    "60s": -1.457307,
-    "120s": -1.409186,
-    "300s": -1.207004
+    "30s": -1.37866,
+    "60s": -1.45731,
+    "120s": -1.40919,
+    "300s": -1.207
   },
   "markout_bps_uninformed": {
-    "0s": 2.136332,
-    "1s": 1.544182,
-    "2s": 1.504435,
-    "5s": 1.491837,
-    "10s": 1.673638,
-    "30s": 2.089689,
-    "60s": 2.126198,
-    "120s": 2.170056,
-    "300s": 2.149609
+    "0s": 2.13633,
+    "1s": 1.54418,
+    "2s": 1.50444,
+    "5s": 1.49184,
+    "10s": 1.67364,
+    "30s": 2.08969,
+    "60s": 2.1262,
+    "120s": 2.17006,
+    "300s": 2.14961
   },
   "markout_bps_all": {
-    "0s": 2.279131,
-    "1s": 1.394739,
-    "2s": 1.235118,
+    "0s": 2.27913,
+    "1s": 1.39474,
+    "2s": 1.23512,
     "5s": 0.937178,
     "10s": 0.795398,
     "30s": 0.828226,
@@ -53,9 +53,9 @@
     "300s": 0.928783
   },
   "markout_60s_bps_by_taker_size": {
-    "100 sh": 1.641784,
+    "100 sh": 1.64178,
     "200-300 sh": 1.0147,
-    "400-700 sh": 1.122601,
+    "400-700 sh": 1.1226,
     "800+ sh": -0.446816
   },
   "informed_share_by_taker_size": {
@@ -66,43 +66,43 @@
   },
   "markout_0s_and_60s_bps_by_spread": {
     "1 tick": [
-      1.635161,
+      1.63516,
       0.149623
     ],
     "2 ticks": [
-      2.471395,
-      1.052181
+      2.47139,
+      1.05218
     ],
     "3+ ticks": [
-      3.815286,
-      2.363672
+      3.81529,
+      2.36367
     ]
   },
   "income_statement_usd_per_day": {
-    "spread_captured_usd_per_day": 77818.166667,
-    "adverse_selection_10s_usd_per_day": -50661.166667,
-    "adverse_selection_60s_usd_per_day": -49722.666667,
+    "spread_captured_usd_per_day": 77818.2,
+    "adverse_selection_10s_usd_per_day": -50661.2,
+    "adverse_selection_60s_usd_per_day": -49722.7,
     "net_after_60s_usd_per_day": 28095.5,
     "share_of_spread_kept_at_60s": 0.36104
   },
   "income_by_counterparty_usd_per_day": {
     "informed": {
-      "spread_captured_usd_per_day": 31404.833333,
-      "net_after_60s_usd_per_day": -18106.333333
+      "spread_captured_usd_per_day": 31404.8,
+      "net_after_60s_usd_per_day": -18106.3
     },
     "uninformed": {
-      "spread_captured_usd_per_day": 46413.333333,
-      "net_after_60s_usd_per_day": 46201.833333
+      "spread_captured_usd_per_day": 46413.3,
+      "net_after_60s_usd_per_day": 46201.8
     }
   },
   "informed_first_negative_horizon_s": 5,
   "se_bps_all_naive_vs_block": {
     "10s": [
-      0.012083,
-      0.02614
+      0.0120833,
+      0.0261398
     ],
     "300s": [
-      0.070615,
+      0.0706154,
       0.117698
     ]
   },

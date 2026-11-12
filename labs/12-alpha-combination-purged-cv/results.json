@@ -8,38 +8,38 @@
   "label_horizon_days": 5,
   "gbdt_backend": "lightgbm",
   "oos_rank_ic": {
-    "shuffled K-fold (naive) | equal weight": 0.049578,
-    "shuffled K-fold (naive) | IC-weighted": 0.082847,
-    "shuffled K-fold (naive) | ridge": 0.086704,
+    "shuffled K-fold (naive) | equal weight": 0.0495781,
+    "shuffled K-fold (naive) | IC-weighted": 0.0828471,
+    "shuffled K-fold (naive) | ridge": 0.0867041,
     "shuffled K-fold (naive) | GBDT": 0.126638,
-    "walk-forward (purged) | equal weight": 0.049578,
-    "walk-forward (purged) | IC-weighted": 0.082099,
-    "walk-forward (purged) | ridge": 0.084704,
-    "walk-forward (purged) | GBDT": 0.066299,
-    "purged K-fold + embargo | equal weight": 0.049578,
-    "purged K-fold + embargo | IC-weighted": 0.08181,
-    "purged K-fold + embargo | ridge": 0.085039,
-    "purged K-fold + embargo | GBDT": 0.076004
+    "walk-forward (purged) | equal weight": 0.0495781,
+    "walk-forward (purged) | IC-weighted": 0.0820993,
+    "walk-forward (purged) | ridge": 0.0847038,
+    "walk-forward (purged) | GBDT": 0.0662995,
+    "purged K-fold + embargo | equal weight": 0.0495781,
+    "purged K-fold + embargo | IC-weighted": 0.0818103,
+    "purged K-fold + embargo | ridge": 0.0850391,
+    "purged K-fold + embargo | GBDT": 0.0760044
   },
-  "oracle_rank_ic": 0.08651,
-  "best_single_signal_rank_ic": 0.050965,
-  "gbdt_ic_shuffled_minus_walk_forward": 0.060339,
-  "ridge_ic_shuffled_minus_walk_forward": 0.002,
+  "oracle_rank_ic": 0.0865104,
+  "best_single_signal_rank_ic": 0.0509652,
+  "gbdt_ic_shuffled_minus_walk_forward": 0.0603388,
+  "ridge_ic_shuffled_minus_walk_forward": 0.00200033,
   "gbdt_in_sample_ic_last_fold": 0.238068,
   "ridge_in_sample_ic_last_fold": 0.0841,
   "ic_weight_alpha_fast_plus_duplicate": 0.428823,
   "sharpe_gross_walk_forward": {
-    "equal weight": 5.652526,
-    "IC-weighted": 9.671189,
-    "ridge": 9.636574,
-    "GBDT": 7.043189
+    "equal weight": 5.65253,
+    "IC-weighted": 9.67119,
+    "ridge": 9.63657,
+    "GBDT": 7.04319
   },
   "sharpe_net_walk_forward": {
-    "equal weight": 1.489062,
-    "IC-weighted": 4.450447,
-    "ridge": 5.576681,
-    "GBDT": 1.672947
+    "equal weight": 1.48906,
+    "IC-weighted": 4.45045,
+    "ridge": 5.57668,
+    "GBDT": 1.67295
   },
-  "sharpe_gross_gbdt_shuffled_cv": 12.059982,
+  "sharpe_gross_gbdt_shuffled_cv": 12.06,
   "turnover_per_day_ridge": 0.467238
 }

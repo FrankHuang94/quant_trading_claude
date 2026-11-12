@@ -56,7 +56,7 @@ flowchart LR
 
 ## Why "the SIP is slower" matters: stale quotes
 
-Here is an illustrative race. The NBBO is \$20.00 × \$20.01 everywhere. A large seller sweeps every \$20.00 bid, so the true market is now about \$19.99 × $20.00. A dark pool that prices its [midpoint pegs](../09-reference/glossary.md#midpoint-peg) off the SIP still shows \$20.005 for a few hundred microseconds. A trader on direct feeds sells to the resting midpoint buyer at \$20.005 and buys back around \$19.995 once market makers re-quote. That is about 1 cent per share, paid by the slow peg. This is [latency arbitrage](../09-reference/glossary.md#latency-arbitrage) in its purest form.
+Here is an illustrative race. The NBBO is \$20.00 × \$20.01 everywhere. A large seller sweeps every \$20.00 bid, so the true market is now about \$19.99 × \$20.00. A dark pool that prices its [midpoint pegs](../09-reference/glossary.md#midpoint-peg) off the SIP still shows \$20.005 for a few hundred microseconds. A trader on direct feeds sells to the resting midpoint buyer at \$20.005 and buys back around \$19.995 once market makers re-quote. That is about 1 cent per share, paid by the slow peg. This is [latency arbitrage](../09-reference/glossary.md#latency-arbitrage) in its purest form.
 
 ```mermaid
 sequenceDiagram

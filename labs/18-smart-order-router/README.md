@@ -93,7 +93,7 @@ Full run, seed 7. All-in cost per share in bps of price; `+` = cost. At \$50, 1 
 - **Fees are flat.** Real fee schedules are tiered by monthly volume (top rebates need very large
   volume) and differ by tape, displayed vs non-displayed, midpoint peg and auction. They change
   often through exchange fee filings. Fees also matter more in bps for cheap stocks: \$0.0030 is
-  0.6 bp at \$50 but 3 bps at $10.
+  0.6 bp at \$50 but 3 bps at \$10.
 - **Regulation may compress fees.** In September 2024 the SEC amended Rule 610(c) to cut the
   access-fee cap from \$0.0030 to **\$0.0010 per share** for quotes at or above \$1.00 (Release
   34-101070) `[Verified]`. The original compliance date, the first business day of **November
@@ -148,7 +148,7 @@ re-checked this session:
 
 - **Maker-taker:** take fees at or near the \$0.0030 cap; maker rebates of roughly \$0.0015–\$0.0032
   depending on tier. `[Lore]` (check current exchange fee schedules; tiers change often).
-- **Inverted venues:** charge makers and pay takers, each typically below $0.0020. `[Lore]`
+- **Inverted venues:** charge makers and pay takers, each typically below \$0.0020. `[Lore]`
 - **Midpoint dark pools (ATSs):** typically charge about \$0.0005–\$0.0010 per side. `[Lore]`
 
 Sources:

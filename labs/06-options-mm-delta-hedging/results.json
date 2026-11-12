@@ -6,21 +6,21 @@
   "n_trades": 398,
   "trade_every_days": 5,
   "units": "$ per short straddle contract (1 call + 1 put, 100 shares each)",
-  "mean_premium_usd": 500.057525,
-  "mean_vega_usd_per_volpt": 24.23843,
+  "mean_premium_usd": 500.058,
+  "mean_vega_usd_per_volpt": 24.2384,
   "mean_atm30_iv": 0.203054,
   "mean_rv30_fwd": 0.183912,
-  "mean_iv_minus_rv_volpts": 1.914264,
+  "mean_iv_minus_rv_volpts": 1.91426,
   "share_days_iv_above_rv": 0.6462,
-  "implied_over_realized_variance_atm": 1.188363,
-  "implied_over_realized_variance_varswap": 1.263936,
+  "implied_over_realized_variance_atm": 1.18836,
+  "implied_over_realized_variance_varswap": 1.26394,
   "planted_variance_ratio": 1.25,
   "smile_rmse_volpts": {
     "quadratic": 0.504029,
-    "svi": 0.035174
+    "svi": 0.0351737
   },
   "smile_wing_extrapolation_abs_err_volpts": {
-    "quadratic": 1.247172,
+    "quadratic": 1.24717,
     "svi": 0.118297
   },
   "attribution_mean_usd": {
@@ -124,14 +124,14 @@
     "band 0.10": 1.54
   },
   "hedge_residual_sd_slope_vs_rebalances": -0.556991,
-  "max_abs_mean_delta_hedge_residual_in_se": 1.228699,
-  "theta_plus_gamma_minus_vol_spread_max_abs_usd": 0.0,
+  "max_abs_mean_delta_hedge_residual_in_se": 1.2287,
+  "theta_plus_gamma_minus_vol_spread_max_abs_usd": 1.42109e-13,
   "r2_pnl_vs_classic_gamma_weighted_formula": 0.81801,
   "r2_pnl_vs_vega_x_iv_minus_rv": 0.747293,
-  "mean_classic_formula_usd": 44.740904,
+  "mean_classic_formula_usd": 44.7409,
   "mean_pnl_ex_edge_costs_15min_usd": 42.2731,
   "share_trades_losing_daily_hedge": 0.349246,
-  "p05_trade_pnl_usd_daily_hedge": -183.000427,
-  "unexplained_sd_usd_15min": 1.696035,
-  "unexplained_sd_usd_without_vanna_volga_15min": 23.830389
+  "p05_trade_pnl_usd_daily_hedge": -183.0,
+  "unexplained_sd_usd_15min": 1.69604,
+  "unexplained_sd_usd_without_vanna_volga_15min": 23.8304
 }

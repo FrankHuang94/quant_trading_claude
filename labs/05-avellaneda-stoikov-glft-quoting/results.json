@@ -16,7 +16,7 @@
   },
   "gamma_glft": 0.01,
   "glft_lean_cents_per_lot": 0.254463,
-  "glft_equivalent_as_horizon_s": 59.544429,
+  "glft_equivalent_as_horizon_s": 59.5444,
   "gamma_as_matched_risk": 0.0006,
   "naive_half_spread_cents": 0.666667,
   "world_a_no_adverse_selection": {
@@ -205,10 +205,10 @@
   "planted_vs_measured_adverse_selection_glft": {
     "glft_half_spread_at_q0_cents": 0.791686,
     "news_per_session": 60.0,
-    "expected_pick_offs_at_q0": 35.394411,
-    "expected_adverse_selection_at_q0": -81.112874,
+    "expected_pick_offs_at_q0": 35.3944,
+    "expected_adverse_selection_at_q0": -81.1129,
     "measured_pick_offs": 36.172,
-    "measured_adverse_selection": -79.219609
+    "measured_adverse_selection": -79.2196
   },
   "pick_offs_per_session": {
     "(i) naive, fixed 0.67-cent half-spread": 37.1265,
@@ -217,20 +217,20 @@
   },
   "best_widening": {
     "strategy": "GLFT + widen 0.25 c",
-    "mean_pnl": 44.473549
+    "mean_pnl": 44.4735
   },
   "inventory_std_lots_at_minute_30_and_59": {
     "(i) naive, fixed 0.67-cent half-spread": [
-      5.977305,
-      6.035631
+      5.97731,
+      6.03563
     ],
     "(ii) AS, gamma 0.0006 (matched risk)": [
       0.856445,
-      2.627721
+      2.62772
     ],
     "(iii) GLFT, gamma 0.01": [
-      1.153021,
-      1.160274
+      1.15302,
+      1.16027
     ]
   },
   "frontier_world_a": [

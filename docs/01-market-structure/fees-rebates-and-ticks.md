@@ -19,7 +19,7 @@ A **maker** posts a resting limit order. A **taker** removes it with a marketabl
 | Inverted | pays fee | earns small rebate | Cboe BYX: add fee \$0.0020 (tiers to \$0.0013); remove rebate \$0.0002 `[Verified]` |
 | Flat / most ATSs | small fee or none | small fee | varies by venue |
 
-**The economic price is the quoted price adjusted for the fee.** Lifting a \$50.00 offer costs \$50.0030 all-in on a maker-taker venue. On an inverted venue it costs about $49.9998. A bid resting at \$49.99 on the inverted venue really pays \$49.992, which is 0.2¢ better than its quote without any sub-penny quoting. So takers sweep inverted venues first, and makers who pay to post there are buying a place at the front of the queue. A [smart order router](../03-algorithms/e-execution-algorithms/smart-order-routing.md) therefore ranks venues by fee-adjusted price and fill probability, not by the displayed price.
+**The economic price is the quoted price adjusted for the fee.** Lifting a \$50.00 offer costs \$50.0030 all-in on a maker-taker venue. On an inverted venue it costs about \$49.9998. A bid resting at \$49.99 on the inverted venue really pays \$49.992, which is 0.2¢ better than its quote without any sub-penny quoting. So takers sweep inverted venues first, and makers who pay to post there are buying a place at the front of the queue. A [smart order router](../03-algorithms/e-execution-algorithms/smart-order-routing.md) therefore ranks venues by fee-adjusted price and fill probability, not by the displayed price.
 
 ```mermaid
 flowchart LR

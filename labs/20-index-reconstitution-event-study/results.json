@@ -7,27 +7,27 @@
   "n_reconstitutions": 9,
   "car_adds_pct": {
     "anticipation_R_to_A": -0.232078,
-    "announcement_day_A": 1.120354,
-    "run_up_A_to_E": 2.542527,
+    "announcement_day_A": 1.12035,
+    "run_up_A_to_E": 2.54253,
     "effective_day_E": 0.375665,
-    "reversal_E_to_E20": -2.586042,
+    "reversal_E_to_E20": -2.58604,
     "total_R_to_E20": 0.844761
   },
   "car_deletes_pct": {
     "anticipation_R_to_A": -0.822449,
-    "announcement_day_A": -1.153843,
-    "run_up_A_to_E": -1.403328,
+    "announcement_day_A": -1.15384,
+    "run_up_A_to_E": -1.40333,
     "effective_day_E": -0.367857,
-    "reversal_E_to_E20": 1.884592,
-    "total_R_to_E20": -1.495027
+    "reversal_E_to_E20": 1.88459,
+    "total_R_to_E20": -1.49503
   },
   "planted_car_adds_pct": {
     "anticipation_R_to_A": 0.51343,
-    "announcement_day_A": 1.283576,
-    "run_up_A_to_E": 2.053722,
+    "announcement_day_A": 1.28358,
+    "run_up_A_to_E": 2.05372,
     "effective_day_E": 0.51343,
-    "reversal_E_to_E20": -1.925364,
-    "total_R_to_E20": 1.925364
+    "reversal_E_to_E20": -1.92536,
+    "total_R_to_E20": 1.92536
   },
   "band_coverage_of_truth_adds_deletes": [
     0.983607,
@@ -37,49 +37,49 @@
     0.934426,
     0.852459
   ],
-  "se_dependence_over_se_cross_median": 1.376372,
-  "e_day_volume_multiple_median": 7.471633,
-  "strategy_net_bps_per_trade_base": 177.335198,
-  "strategy_net_ci95_bps": 109.328367,
-  "strategy_gross_bps_per_trade_base": 197.180827,
+  "se_dependence_over_se_cross_median": 1.37637,
+  "e_day_volume_multiple_median": 7.47163,
+  "strategy_net_bps_per_trade_base": 177.335,
+  "strategy_net_ci95_bps": 109.328,
+  "strategy_gross_bps_per_trade_base": 197.181,
   "strategy_hit_rate": 0.630648,
-  "hold_to_E_plus_20_net_bps_per_trade": -50.103648,
+  "hold_to_E_plus_20_net_bps_per_trade": -50.1036,
   "net_bps_by_crowding": {
-    "0": 407.052818,
-    "0.1": 280.709258,
-    "0.25": 177.335198,
-    "0.5": 96.930969,
-    "1": 39.496694,
-    "2": 10.087583,
-    "4": -1.351501
+    "0": 407.053,
+    "0.1": 280.709,
+    "0.25": 177.335,
+    "0.5": 96.931,
+    "1": 39.4967,
+    "2": 10.0876,
+    "4": -1.3515
   },
   "arb_profit_musd_per_year_by_crowding": {
     "0": 0.0,
-    "0.1": 60.655613,
-    "0.25": 96.758237,
-    "0.5": 108.142202,
-    "1": 94.310733,
-    "2": 63.69919,
-    "4": 30.203253
+    "0.1": 60.6556,
+    "0.25": 96.7582,
+    "0.5": 108.142,
+    "1": 94.3107,
+    "2": 63.6992,
+    "4": 30.2033
   },
   "planted_arb_profit_musd_per_year_by_crowding": {
     "0": 0.0,
-    "0.1": 57.320743,
-    "0.25": 88.264209,
-    "0.5": 90.914296,
-    "1": 59.522706,
-    "2": -6.195817,
-    "4": -109.801478
+    "0.1": 57.3207,
+    "0.25": 88.2642,
+    "0.5": 90.9143,
+    "1": 59.5227,
+    "2": -6.19582,
+    "4": -109.801
   },
   "crowding_at_max_expected_total_arb_profit": 0.5,
-  "index_demand_usd_bn_per_year": 20.105601,
-  "mean_round_trip_cost_bps": 19.845629,
+  "index_demand_usd_bn_per_year": 20.1056,
+  "mean_round_trip_cost_bps": 19.8456,
   "pitfall_selection_car_year_before_rank_day_pct": {
-    "add": 38.261488,
-    "delete": -33.906943
+    "add": 38.2615,
+    "delete": -33.9069
   },
   "pitfall_intercept_bias_total_car_pct": {
-    "add": -9.171194,
-    "delete": 8.106398
+    "add": -9.17119,
+    "delete": 8.1064
   }
 }

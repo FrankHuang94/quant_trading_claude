@@ -129,7 +129,7 @@
       "weighted_mid": 56.131,
       "microprice": 0.526,
       "conditional_mean": -4.135,
-      "latent_fair_value": 1110.251
+      "latent_fair_value": 1110.25
     },
     "t2": {
       "weighted_mid": 25.908,
@@ -250,14 +250,14 @@
       "k20": 0.12
     }
   },
-  "latent_fv_gap_std_ticks": 1.958651,
+  "latent_fv_gap_std_ticks": 1.95865,
   "corr_adjustment_with_latent_fv_gap": {
-    "microprice_adjustment": 0.000573,
-    "weighted_mid_adjustment": -0.018386
+    "microprice_adjustment": 0.000573193,
+    "weighted_mid_adjustment": -0.0183865
   },
   "mse_vs_latent_fv_ticks2": {
-    "mid": 3.836435,
+    "mid": 3.83644,
     "weighted_mid": 4.11382,
-    "microprice": 3.885784
+    "microprice": 3.88578
   }
 }

@@ -7,84 +7,84 @@
   "n_forecast_dates": 47,
   "n_optimized_dates": 16,
   "sample_cov_rank": 251,
-  "ledoit_wolf_shrinkage_mean": 0.078024,
+  "ledoit_wolf_shrinkage_mean": 0.0780235,
   "risk_aversion": 50.0,
   "bias_statistic": {
     "sample": {
       "random_long_short": 0.997005,
       "random_long_only": 1.00268,
-      "optimized_mvo": 2.780744
+      "optimized_mvo": 2.78074
     },
     "ledoit_wolf": {
       "random_long_short": 0.985199,
-      "random_long_only": 1.046566,
-      "optimized_mvo": 1.916279
+      "random_long_only": 1.04657,
+      "optimized_mvo": 1.91628
     },
     "pca": {
       "random_long_short": 0.996972,
-      "random_long_only": 1.000666,
+      "random_long_only": 1.00067,
       "optimized_mvo": 0.995769
     },
     "oracle": {
       "random_long_short": 0.999575,
-      "random_long_only": 1.013419,
+      "random_long_only": 1.01342,
       "optimized_mvo": 0.919983
     }
   },
   "optimized_vol_pct_predicted_vs_realized": {
     "sample": [
-      1.151853,
-      3.195464
+      1.15185,
+      3.19546
     ],
     "ledoit_wolf": [
-      1.613415,
+      1.61341,
       3.10101
     ],
     "pca": [
-      2.141605,
-      2.173551
+      2.14161,
+      2.17355
     ],
     "oracle": [
-      2.075224,
-      1.915078
+      2.07522,
+      1.91508
     ]
   },
   "frontier_true_over_predicted_vol_at_risk_aversion_50": {
-    "sample": 3.167684,
-    "ledoit_wolf": 2.253086,
-    "pca": 1.281736,
+    "sample": 3.16768,
+    "ledoit_wolf": 2.25309,
+    "pca": 1.28174,
     "oracle": 1.0
   },
   "frontier_expected_alpha_per_true_vol_at_risk_aversion_50": {
-    "sample": 2.026612,
-    "ledoit_wolf": 2.088852,
-    "pca": 2.483958,
-    "oracle": 2.576852
+    "sample": 2.02661,
+    "ledoit_wolf": 2.08885,
+    "pca": 2.48396,
+    "oracle": 2.57685
   },
   "cost_test_pca_biweekly": {
     "cost_aversion_0": {
-      "sharpe_gross": 3.645529,
-      "sharpe_net": 2.418287,
-      "annual_turnover_x_capital": 19.429866,
-      "cost_bps_per_year": 316.440093,
-      "expected_alpha_bps_per_year": 809.77695,
-      "expected_net_alpha_bps_per_year": 493.336857
+      "sharpe_gross": 3.64553,
+      "sharpe_net": 2.41829,
+      "annual_turnover_x_capital": 19.4299,
+      "cost_bps_per_year": 316.44,
+      "expected_alpha_bps_per_year": 809.777,
+      "expected_net_alpha_bps_per_year": 493.337
     },
     "cost_aversion_0.25": {
       "sharpe_gross": 3.57395,
-      "sharpe_net": 2.627308,
-      "annual_turnover_x_capital": 15.032384,
-      "cost_bps_per_year": 243.901107,
-      "expected_alpha_bps_per_year": 793.394177,
-      "expected_net_alpha_bps_per_year": 549.49307
+      "sharpe_net": 2.62731,
+      "annual_turnover_x_capital": 15.0324,
+      "cost_bps_per_year": 243.901,
+      "expected_alpha_bps_per_year": 793.394,
+      "expected_net_alpha_bps_per_year": 549.493
     },
     "cost_aversion_1": {
-      "sharpe_gross": 2.917099,
-      "sharpe_net": 2.428994,
-      "annual_turnover_x_capital": 7.414002,
-      "cost_bps_per_year": 119.334337,
-      "expected_alpha_bps_per_year": 659.918668,
-      "expected_net_alpha_bps_per_year": 540.584332
+      "sharpe_gross": 2.9171,
+      "sharpe_net": 2.42899,
+      "annual_turnover_x_capital": 7.414,
+      "cost_bps_per_year": 119.334,
+      "expected_alpha_bps_per_year": 659.919,
+      "expected_net_alpha_bps_per_year": 540.584
     }
   }
 }

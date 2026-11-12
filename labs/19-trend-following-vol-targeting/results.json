@@ -7,13 +7,13 @@
   "sharpe_net_vol_target_no_buffer": 0.5902,
   "sharpe_net_equal_notional": 0.650507,
   "sharpe_net_inverse_vol_mop": 0.602698,
-  "realized_vol_vol_target": 0.097813,
+  "realized_vol_vol_target": 0.0978126,
   "rolling_3m_vol_p5_p95_vol_target": [
-    0.070234,
+    0.0702339,
     0.123351
   ],
   "rolling_3m_vol_p5_p95_equal_notional": [
-    0.04924,
+    0.0492398,
     0.166686
   ],
   "risk_share_commodity_equity_equal_notional": 0.923066,
@@ -23,11 +23,11 @@
     "fx": 0.191604,
     "rates": 0.246438
   },
-  "annual_turnover_x_nav": 140.699617,
-  "annual_turnover_x_nav_no_buffer": 251.602835,
-  "annual_cost_drag_pct": 1.117209,
-  "mean_gross_leverage_x_nav": 3.822112,
-  "asset_cap_binding_share_of_market_days": 0.00095,
+  "annual_turnover_x_nav": 140.7,
+  "annual_turnover_x_nav_no_buffer": 251.603,
+  "annual_cost_drag_pct": 1.11721,
+  "mean_gross_leverage_x_nav": 3.82211,
+  "asset_cap_binding_share_of_market_days": 0.000949544,
   "sharpe_by_lookback_gross_net": {
     "21d": [
       0.515758,
@@ -52,28 +52,28 @@
     "2x": 0.608574,
     "4x": 0.379611
   },
-  "oracle_sharpe_gross_true_drift_sign": 2.439411,
+  "oracle_sharpe_gross_true_drift_sign": 2.43941,
   "signal_agrees_with_true_drift_sign": 0.616245,
   "mean_single_market_sharpe_gross": 0.210813,
-  "smile_curvature": 1.228616,
-  "smile_curvature_t": 2.636724,
+  "smile_curvature": 1.22862,
+  "smile_curvature_t": 2.63672,
   "trend_vs_equity_quarterly_corr": 0.39931,
   "worst_decile_equity_quarters_mean_equity_return": -0.133985,
-  "worst_decile_equity_quarters_mean_trend_return": 0.008388,
+  "worst_decile_equity_quarters_mean_trend_return": 0.00838814,
   "n_worlds": 12,
   "worlds_sharpe_net_mean_p10_p90": [
     0.697123,
     0.425089,
-    1.035036
+    1.03504
   ],
   "worlds_share_positive_curvature": 0.916667,
   "worlds_share_positive_worst_decile_trend": 0.916667,
   "worlds_mean_sharpe_net_equal_notional": 0.502307,
   "pooled_quintile_mean_trend_return_q1_to_q5": [
-    0.024612,
-    0.013057,
-    0.00543,
-    0.012966,
-    0.03045
+    0.0246115,
+    0.0130569,
+    0.00543021,
+    0.0129657,
+    0.0304502
   ]
 }
