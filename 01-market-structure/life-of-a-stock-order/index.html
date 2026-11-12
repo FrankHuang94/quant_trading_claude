@@ -5661,7 +5661,7 @@
 <ol>
 <li><strong>Decision to order.</strong> A portfolio manager's rebalance becomes an order in the OMS, for example "buy 2M XYZ today, implementation-shortfall benchmark".</li>
 <li><strong>Algo.</strong> An in-house or broker algorithm (VWAP, POV, <a href="../../09-reference/glossary/#implementation-shortfall">implementation shortfall</a>) cuts the parent into thousands of <a href="../../09-reference/glossary/#child-order">child orders</a> over minutes to the full session. The point is to limit market impact.</li>
-<li><strong>Router.</strong> For each child, the <a href="../../09-reference/glossary/#smart-order-router-sor">smart order router</a> picks a venue and an order type. It can post passively on an exchange and wait in the queue, or ping <a href="../../09-reference/glossary/#dark-pool">dark pools</a> with midpoint IOCs. It can sweep several lit venues at once with ISOs, or send market-on-close orders to the auction.</li>
+<li><strong>Router.</strong> For each child, the <a href="../../09-reference/glossary/#smart-order-routing-sor">smart order router</a> picks a venue and an order type. It can post passively on an exchange and wait in the queue, or ping <a href="../../09-reference/glossary/#dark-pool">dark pools</a> with midpoint IOCs. It can sweep several lit venues at once with ISOs, or send market-on-close orders to the auction.</li>
 <li><strong>Feedback.</strong> Fills stream back, the algo re-plans, and transaction cost analysis (TCA) scores the result afterwards.</li>
 </ol>
 <p>The other side of those child orders is whoever is resting in the book: market makers, other algos, and occasionally another institution in a block-crossing ATS.</p>
