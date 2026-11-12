@@ -21,7 +21,7 @@
 
 ## Intuition
 
-A credit analyst underwrites the same balance sheet differently in a boom and a bust. Markets are similar, and wild days cluster. From 1990 to November 2026 the VIX closed above 30 on 7.9% of days, and after such a close it stayed above 30 the next day 87% of the time (FRED data) `[Estimate]`. A regime model turns that persistence into a probability. The aim is not to call the crash but to notice quickly that the world changed, and resize.
+A credit analyst underwrites the same balance sheet differently in a boom and a bust. Markets are similar, and wild days cluster. From 1990 to November 2026 the VIX closed above 30 on 7.9% of days, and after such a close it stayed above 30 the next day 87% of the time (computed from FRED data) `[Verified]`. A regime model turns that persistence into a probability. The aim is not to call the crash but to notice quickly that the world changed, and resize.
 
 ## Where it sits in the pipeline
 
@@ -111,7 +111,7 @@ stateDiagram-v2
 - **States:** two is standard; a third crash state rests on few observations. Choose by out-of-sample likelihood `[Lore]`.
 - **Persistence:** stay probability *p* means spells of 1 ÷ (1 − *p*) days on average; higher *p* gives fewer whipsaws but slower detection.
 - **Inputs:** realized vol, the VIX or credit spreads sharpen a returns-only model `[Lore]`.
-- **Thresholds:** since 1990 the VIX closed above 25 on 17% of days `[Estimate]`; realized-vol filters often trigger at the 80th–90th percentile `[Lore]`.
+- **Thresholds:** since 1990 the VIX closed above 25 on 17% of days `[Verified]`; realized-vol filters often trigger at the 80th–90th percentile `[Lore]`.
 
 ## Textbook version vs what firms actually do
 
@@ -120,7 +120,7 @@ stateDiagram-v2
 - **Clustering:** Two Sigma fit a Gaussian mixture to 17 factors and named four conditions: Crisis, Steady State, Inflation and Walking on Ice `[Verified]`.
 - **Practice:** HMMs fill allocation research (Kritzman, Page & Turkington 2012; Nystrup et al. 2015) `[Verified]`; production mostly uses plain [volatility targeting](../../09-reference/glossary.md#volatility-targeting) `[Lore]`.
 - **Evidence for:** cutting exposure when volatility is high raised Sharpe ratios for the market and many factors (Moreira & Muir 2017) `[Verified]`. Vol targeting raised Sharpe for equities and credit, not bonds, currencies or commodities, and thinned left tails (Harvey et al. 2018) `[Verified]`. [Momentum crashes](../../09-reference/glossary.md#momentum-crash) cluster in panic states; a dynamic version roughly doubled momentum's Sharpe (Daniel & Moskowitz 2016) `[Verified]`.
-- **Evidence against:** across 103 equity strategies, real-time versions generally earned lower Sharpe ratios and certainty-equivalent returns than the unmanaged originals, losing on the latter in 72 cases (Cederburg et al. 2020) `[Verified]`. Both sides have strong evidence; the debate is open.
+- **Evidence against:** across 103 equity strategies, managed versions had the higher Sharpe in only 53 cases, and real-time combinations of managed and original earned lower certainty-equivalent returns than the original alone in 72 (Cederburg et al. 2020) `[Verified]`. Both sides have strong evidence; the debate is open.
 
 ## How to tell if it's working
 

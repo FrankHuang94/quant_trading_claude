@@ -3,9 +3,9 @@
 > **TL;DR**
 >
 > - In production quant, LLMs mainly turn text (news, filings, call transcripts) into features for ordinary forecasting models, and serve as coding and research tools.
-> - Lopez-Lira & Tang (*JFE*, 2026): GPT headline scores predict next-day returns; GPT-4 calls the direction of the (non-tradable) same-day reaction about 90% of the time.
+> - Lopez-Lira & Tang (*JFE*, 2026): GPT headline scores predict next-day returns; portfolios sorted on GPT-4 scores get the (non-tradable) same-day reaction right on about 90% of days.
 > - Look-ahead leakage is the central problem: a model trained on text through year Y has read what happened next. Only post-cutoff backtests are clean.
-> - Time-series foundation models (Chronos, TimesFM) forecast generic series well zero-shot; on daily stock returns they trail boosted trees and do not trade profitably.
+> - Time-series foundation models (Chronos, TimesFM) forecast generic series well zero-shot; off the shelf they trail boosted trees on daily stock returns.
 
 **Level:** Core · **Pipeline stage:** forecast · **Last verified:** 2026-11
 
@@ -79,7 +79,7 @@ def embedding_features(docs, embed, pca_mean, pca_components):
 
 ## Worked example with numbers
 
-**Compute cost (`[Estimate]`).** 20,000 headlines a day × ~200 tokens (prompt plus headline) = 4 million tokens a day, ~1 billion a year. At \$0.10–\$3 per million input tokens (small to mid-size models; prices vary and keep falling), that is \$100–\$3,000 a year. Earnings calls: 3,000 firms × 4 calls × 12,000 tokens = 144 million tokens, \$14–$430. Inference is cheap next to the news-feed license.
+**Compute cost (`[Estimate]`).** 20,000 headlines a day × ~200 tokens (prompt plus headline) = 4 million tokens a day, ~1 billion a year. At \$0.10–\$3 per million input tokens (small to mid-size models; prices vary and keep falling), that is \$100–\$3,000 a year. Earnings calls: 3,000 firms × 4 calls × 12,000 tokens = 144 million tokens, \$14–\$430. Inference is cheap next to the news-feed license.
 
 **Does it survive costs? (illustrative)** A \$100M long-short book (\$50M a side) whose longs beat its shorts by 10 bps a day earns \$50M × 0.10% = **\$50,000 a day**. Full daily turnover trades \$100M; at 5 bps per dollar, costs are **\$50,000 a day**. Net ≈ 0: a daily-turnover headline signal needs slower holding, cheaper execution, or a place in a [combined forecast](alpha-combination-and-ensembling.md).
 
@@ -92,11 +92,11 @@ def embedding_features(docs, embed, pca_mean, pca_components):
 
 ## Textbook version vs what firms actually do
 
-- **Return predictability:** [Lopez-Lira & Tang (2026)](https://doi.org/10.1016/j.jfineco.2026.104335) find ChatGPT headline scores correlate positively with next-day returns, and GPT-4 hits about 90% on the direction of the non-tradable initial reaction `[Verified]`.
+- **Return predictability:** [Lopez-Lira & Tang (2026)](https://doi.org/10.1016/j.jfineco.2026.104335) find ChatGPT headline scores predict next-day returns, especially in small stocks and after bad news, and that strategy returns fall as LLM adoption rises `[Verified]`.
 - **Leakage:** [Glasserman & Lin (2023)](https://arxiv.org/abs/2309.17322) tested GPT-3.5 (training data to September 2021). Anonymizing firm names *improved* in-sample results: company knowledge distracted the model more than look-ahead helped `[Verified]`.
 - **Older baselines matter:** FinBERT beat dictionaries on finance sentiment ([Huang, Wang & Yang 2023](https://doi.org/10.1111/1911-3846.12832)); year-over-year 10-K text changes predicted returns ([Cohen, Malloy & Nguyen 2020](https://doi.org/10.1111/jofi.12885)) `[Verified]`.
-- **Foundation models:** [Chronos](https://arxiv.org/abs/2403.07815) (Amazon) quantizes scaled values into tokens for T5-family models of 20M–710M parameters; [TimesFM](https://arxiv.org/abs/2310.10688) (Google) is a 200M-parameter decoder trained on ~100 billion points, mostly Google Trends and Wikipedia pageviews. Both rival dataset-specific models zero-shot on general benchmarks `[Verified]`. On daily excess returns, zero-shot versions trailed CatBoost and LightGBM, with flat or declining long-short returns (Rahimikia et al., 2026) `[Verified]`.
-- **Practice:** press coverage in 2024–26 describes in-house LLM assistants for coding, document summarization and research triage at large hedge funds and banks `[Reported]` TODO(verify): add named firm sources. Claims that LLMs generate standalone alpha at scale are `[Lore]`.
+- **Foundation models:** [Chronos](https://arxiv.org/abs/2403.07815) (Amazon) quantizes scaled values into tokens for T5-family models of 20M–710M parameters; [TimesFM](https://arxiv.org/abs/2310.10688) (Google) is a 200M-parameter decoder trained on ~100 billion points, mostly Google Trends and Wikipedia pageviews. Both rival dataset-specific models zero-shot on general benchmarks `[Verified]`. On daily excess returns, zero-shot and fine-tuned versions trailed CatBoost and LightGBM; versions pre-trained from scratch on financial data came close on long-short Sharpe, gross of costs, but not on R² ([Rahimikia, Ni & Wang 2025](https://arxiv.org/abs/2511.18578)) `[Verified]`.
+- **Practice:** Man Group built ManGPT, an internal portal to OpenAI's models (2023), and says its AlphaGPT agent drafts, codes and backtests signal ideas, several dozen approved for live trading after human review `[Reported]`. Claims that LLMs generate standalone alpha at scale are `[Lore]`.
 
 ## How to tell if it's working
 
@@ -127,7 +127,6 @@ timeline
 - "We embed and let ridge decide." → Keep learning inside the validated pipeline.
 - "Same-day reaction is priced; show me tomorrow." → Only post-publication drift is tradable.
 - "The vendor updated the model and our history changed." → Pin versions, store raw outputs.
-- "Chronos on returns is a random walk with extra steps." → Zero-shot forecasters find nothing in near-noise.
 
 ## Questions you could ask a quant about this
 
@@ -170,7 +169,9 @@ Annual cost ≈ documents/day × tokens/document × 250 × price per token.
 - [Verified] Ansari, A. F. et al. (2024). "Chronos: Learning the Language of Time Series." *Transactions on Machine Learning Research*. <https://arxiv.org/abs/2403.07815> (accessed 2026-11)
 - [Verified] Das, A., Kong, W., Sen, R. & Zhou, Y. (2024). "A decoder-only foundation model for time-series forecasting." *ICML 2024*, PMLR 235. <https://arxiv.org/abs/2310.10688> (accessed 2026-11)
 - [Verified] Google Research (2024-02). "A decoder-only foundation model for time-series forecasting." <https://research.google/blog/a-decoder-only-foundation-model-for-time-series-forecasting/> (accessed 2026-11)
-- [Verified] Rahimikia, E. et al. (2026). "Re(Visiting) Time Series Foundation Models in Finance." FoFI 2026 conference paper. <http://wp.lancs.ac.uk/fofi2026/files/2026/03/FoFI-2026-020-Eghbal-Rahimikia.pdf> (accessed 2026-11)
+- [Verified] Rahimikia, E., Ni, H. & Wang, W. (2025). "Re(Visiting) Time Series Foundation Models in Finance." arXiv:2511.18578 (also presented at FoFI 2026). <https://arxiv.org/abs/2511.18578> (accessed 2026-11)
+- [Reported] Hedgeweek (2023-07-25). "Man Group develops ManGPT AI portal." <https://www.hedgeweek.com/man-group-develops-mangpt-ai-portal/> (accessed 2026-11)
+- [Reported] Hedgeweek (2025-07-11), citing Bloomberg. "Man Group deploys agentic AI for quant signal discovery." <https://www.hedgeweek.com/man-group-deploys-agentic-ai-for-quant-signal-discovery/> (accessed 2026-11)
 - [Verified] Loughran, T. & McDonald, B. (2011). "When Is a Liability Not a Liability? Textual Analysis, Dictionaries, and 10-Ks." *Journal of Finance* 66(1), 35–65. <https://doi.org/10.1111/j.1540-6261.2010.01625.x> (accessed 2026-11)
 - [Verified] Huang, A. H., Wang, H. & Yang, Y. (2023). "FinBERT: A Large Language Model for Extracting Information from Financial Text." *Contemporary Accounting Research* 40(2), 806–841. <https://doi.org/10.1111/1911-3846.12832> (accessed 2026-11)
 - [Verified] Cohen, L., Malloy, C. & Nguyen, Q. (2020). "Lazy Prices." *Journal of Finance* 75(3), 1371–1415. <https://doi.org/10.1111/jofi.12885> (accessed 2026-11)

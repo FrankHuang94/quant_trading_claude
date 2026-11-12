@@ -5,7 +5,7 @@
 > - Nearly every backtest bias pushes the same way: up. The audit asks by how much, and why.
 > - Data and timing errors invent returns; cost, borrow and capacity errors inflate real ones; statistical errors inflate confidence.
 > - Predictor returns fall 26% out of sample and 58% after publication (McLean & Pontiff 2016). Across 888 Quantopian algorithms, backtest Sharpe explained under 2.5% of out-of-sample Sharpe.
-> - Harvey & Liu (2015) haircut Sharpe ratios for the number of strategies tried. The haircut is nonlinear: a flat 50% is too lenient below Sharpe 0.4 and too harsh above 1.0.
+> - Harvey & Liu (2015) haircut Sharpe ratios for the number of strategies tried. The haircut is nonlinear: a flat 50% is too lenient for marginal Sharpe ratios and too harsh for strong ones (table below).
 
 **Level:** Core · **Pipeline stage:** validation · **Last verified:** 2026-11
 

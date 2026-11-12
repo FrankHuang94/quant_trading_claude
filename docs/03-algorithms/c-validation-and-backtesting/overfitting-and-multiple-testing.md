@@ -121,7 +121,7 @@ Synthetic lab result (100 stocks × 1,260 days, gross): corr(IS, OOS Sharpe) acr
 
 *Lab 13, synthetic data: the best in-sample Sharpe of N noise strategies rises with N; the winner's out-of-sample Sharpe stays near zero.*
 
-The setting is generous: the planted alpha's true Sharpe is near 2, cost-free. Single [academic factors](../../02-strategies/e-risk-premia-and-factors/factor-investing-fundamentals.md) earn gross Sharpe ratios of about 0.3–0.5 `[Verified]` and lose about 58% of their return after publication ([McLean & Pontiff 2016](https://doi.org/10.1111/jofi.12365)) `[Verified]`; at Sharpe 0.75, t = 2 takes about seven years `[Estimate]`.
+The setting is generous: the planted alpha's true Sharpe is near 2, cost-free. Single [academic factors](../../02-strategies/e-risk-premia-and-factors/factor-investing-fundamentals.md) earned gross Sharpe ratios of about 0.2–0.5 in the US over 1963–2026 (size 0.21, value 0.34, momentum 0.50; French data library) `[Verified]` and lose about 58% of their return after publication ([McLean & Pontiff 2016](https://doi.org/10.1111/jofi.12365)) `[Verified]`; t = 2 takes about seven years at Sharpe 0.75 and 25 at 0.4 `[Estimate]`.
 
 ## Failure modes and pitfalls
 
@@ -188,4 +188,5 @@ Minimum Backtest Length (years) keeping $E[\max] \le \bar{SR}$: $(z_N / \bar{SR}
 - [Verified] Jensen, T. I., Kelly, B. & Pedersen, L. H. (2023). "Is There a Replication Crisis in Finance?" *Journal of Finance* 78(5), 2465–2518. <https://doi.org/10.1111/jofi.13249> (accessed 2026-11)
 - [Verified] White, H. (2000). "A Reality Check for Data Snooping." *Econometrica* 68(5), 1097–1126. <https://doi.org/10.1111/1468-0262.00152> (accessed 2026-11)
 - [Verified] López de Prado, M. (2018). "The 10 Reasons Most Machine Learning Funds Fail." *Journal of Portfolio Management* 44(6), 120–133. <https://doi.org/10.3905/jpm.2018.44.6.120> (accessed 2026-11)
+- [Verified] French, K. R. Data Library: Fama/French 5 factors (2x3) and momentum factor, monthly, 1963-07 to 2026-09 (Sharpe ratios computed by the KB). <https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html> (accessed 2026-11)
 - [Verified] McLean, R. D. & Pontiff, J. (2016). "Does Academic Research Destroy Stock Return Predictability?" *Journal of Finance* 71(1), 5–32. <https://doi.org/10.1111/jofi.12365> (accessed 2026-11)

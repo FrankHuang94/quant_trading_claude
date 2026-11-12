@@ -3,7 +3,7 @@
 > **TL;DR**
 >
 > - The workhorse equity forecaster is still linear: regress forward residual returns on standardized signals, then shrink the coefficients (ridge, lasso, elastic net).
-> - Returns are mostly noise: the best monthly stock-level out-of-sample R² in Gu, Kelly & Xiu (2020) was 0.40%; daily, 0.1–0.3% is good `[Estimate]`. At that signal-to-noise ratio, estimation variance dominates, so shrunk coefficients beat OLS.
+> - Returns are mostly noise: the best monthly stock-level out-of-sample R² in Gu, Kelly & Xiu (2020) was 0.40%; daily, 0.05–0.25% is good `[Estimate]`. At that signal-to-noise ratio, estimation variance dominates, so shrunk coefficients beat OLS.
 > - Pooled and per-date (Fama–MacBeth) regressions differ mainly in how they weight dates.
 > - The penalty is chosen by purged walk-forward cross-validation on rank IC, never by random K-fold.
 
@@ -43,43 +43,51 @@ flowchart LR
 1. **Features:** per date, rank or z-score each signal, winsorize, fill missing with 0 (the mean). Standardizing matters because the penalty is scale-dependent.
 2. **Target:** forward [residual return](../../09-reference/glossary.md#residual-return) over the holding horizon *h*, winsorized or ranked.
 3. **Scheme:** *pooled* (stack all dates) or *per-date* ([Fama–MacBeth](../../09-reference/glossary.md#fama-macbeth-regression): one cross-sectional regression per date, average the slopes).
-4. **Shrink and choose λ:** walk-forward folds, purging the last *h* days of training before each validation block; score mean daily [rank IC](../../09-reference/glossary.md#information-coefficient-ic).
+4. **Shrink and choose λ:** walk-forward folds, training only on dates whose *h*-day labels end before each validation block; score mean daily [rank IC](../../09-reference/glossary.md#information-coefficient-ic).
 5. **Refit** on a rolling or expanding window; forecast = signals × β.
 
 ```python
 import numpy as np
-# Simplified numpy sketch; Lab 12 runs the full purged-CV comparison (equal, IC, ridge, GBDT).
+import pandas as pd
+# rank_target, fit_ridge, walk_forward_splits: Lab 12 core functions (same names and logic).
+# zscore_xs, fama_macbeth, rank_ic and choose_lambda are sketches added here.
 
 def zscore_xs(X):                          # X: (n_stocks, k) signals for ONE date
     X = (X - np.nanmean(X, 0)) / np.nanstd(X, 0)
     return np.nan_to_num(np.clip(X, -3, 3))     # winsorize at 3 sd; missing -> 0 (the mean)
 
-def fit_ridge(X, y, lam):
-    # beta = (X'X + lam*I)^-1 X'y; X standardized per date, y demeaned per date
+def rank_target(ret, dates):               # per-date percentile rank of forward return, in [-0.5, 0.5]
+    g = pd.Series(ret).groupby(dates)
+    return ((g.rank() - 1) / (g.transform("count") - 1) - 0.5).to_numpy()
+
+def fit_ridge(X, y, lam):                  # no intercept: X z-scored, y ranked per date (mean 0)
     return np.linalg.solve(X.T @ X + lam * np.eye(X.shape[1]), X.T @ y)
+
+def walk_forward_splits(n_dates, n_folds=5, horizon=5):
+    blocks = np.array_split(np.arange(n_dates), n_folds + 1)
+    for test in blocks[1:]:                # train only on dates whose label ends before the test block
+        yield np.arange(0, test[0] - horizon + 1), test
 
 def fama_macbeth(Xs, ys):
     # one OLS per date; the slopes' time series is each signal's daily "factor return"
     B = np.array([np.linalg.lstsq(X, y, rcond=None)[0] for X, y in zip(Xs, ys)])
-    t_stat = B.mean(0) / (B.std(0, ddof=1) / np.sqrt(len(B)))
-    return B.mean(0), t_stat
+    return B.mean(0), B.mean(0) / (B.std(0, ddof=1) / np.sqrt(len(B)))   # mean slope, t-stat
 
 def rank_ic(pred, y):
     return np.corrcoef(pred.argsort().argsort(), y.argsort().argsort())[0, 1]
 
-def choose_lambda(Xs, ys, lams, n_folds=5, horizon=5, train_min=500):
-    # walk-forward: train on dates [0, s - horizon) (purged), validate on [s, e)
-    edges = np.linspace(train_min, len(Xs), n_folds + 1).astype(int)
+def choose_lambda(Xs, ys, lams, n_folds=5, horizon=5):
+    # Xs[t]: (n_stocks, k) z-scored signals; ys[t]: rank_target of date t's forward residual return
     score = {lam: [] for lam in lams}
-    for s, e in zip(edges[:-1], edges[1:]):
-        Xtr, ytr = np.vstack(Xs[:s - horizon]), np.concatenate(ys[:s - horizon])
-        for lam in lams:
+    for tr, te in walk_forward_splits(len(Xs), n_folds, horizon):
+        Xtr, ytr = np.vstack([Xs[t] for t in tr]), np.concatenate([ys[t] for t in tr])
+        for lam in lams:                   # Lab 12 fixes lam = 0.1 x training rows instead
             b = fit_ridge(Xtr, ytr, lam)
-            score[lam] += [rank_ic(Xs[t] @ b, ys[t]) for t in range(s, e)]
+            score[lam] += [rank_ic(Xs[t] @ b, ys[t]) for t in te]
     return max(lams, key=lambda lam: np.mean(score[lam]))   # best mean daily rank IC
 
-# Daily step (expanding window; use Xs[t-W:t] for rolling):
-# beta = fit_ridge(np.vstack(Xs[:t - horizon]), np.concatenate(ys[:t - horizon]), lam_star)
+# Daily step on date t (expanding window; labels known for dates <= t - horizon):
+# beta = fit_ridge(np.vstack(Xs[:t - horizon + 1]), np.concatenate(ys[:t - horizon + 1]), lam_star)
 # forecast_t = zscore_xs(raw_signals_t) @ beta
 ```
 
@@ -93,7 +101,7 @@ In-sample R² = 0.030 × 0.0256 + 0.026 × 0.0056 = **0.091%**, versus 0.030² =
 
 **Noise:** with ~10,000 effectively independent observations, each IC has standard error ≈ 0.010, so each OLS coefficient has ≈ √2.78 × 0.010 = **0.0167**, larger than β₂ itself.
 
-**Ridge, λ = 1:** (Σ + I)⁻¹ = (1/3.36)·[[2, −0.8], [−0.8, 2]].
+**Ridge, λ = 1 (correlation units):** (Σ + I)⁻¹ = (1/3.36)·[[2, −0.8], [−0.8, 2]].
 β₁ = (2 × 0.030 − 0.8 × 0.026)/3.36 = 0.0117; β₂ = (2 × 0.026 − 0.8 × 0.030)/3.36 = 0.0083.
 Standard error = √0.184 × 0.010 = **0.0043**, four times smaller: a sliver of in-sample fit buys stable coefficients.
 
@@ -106,7 +114,7 @@ Standard error = √0.184 × 0.010 = **0.0043**, four times smaller: a sliver of
 
 ## Textbook version vs what firms actually do
 
-- **Fama–MacBeth as a diagnostic:** built to test asset pricing models ([Fama & MacBeth 1973](https://doi.org/10.1086/260061)). In practice each day's slope is the return of a unit-exposure portfolio in that signal, i.e. the signal's P&L series; Barra-style [risk models](../d-portfolio-construction/risk-models.md) run the same regressions `[Verified]`.
+- **Fama–MacBeth as a diagnostic:** built to test asset pricing models ([Fama & MacBeth 1973](https://doi.org/10.1086/260061)). In practice each day's slope is the return of a unit-exposure portfolio in that signal, i.e. the signal's P&L series; Barra-style [risk models](../d-portfolio-construction/risk-models.md) run the same regressions `[Verified]` (MSCI USE4).
 - **Shrinkage matters:** in [GKX 2020](https://doi.org/10.1093/rfs/hhaa009), OLS on ~900 predictors had *negative* out-of-sample R². Penalized and reduced-rank linear models recovered roughly 0.1–0.3% per month, versus 0.16% for a three-characteristic OLS and 0.33–0.40% for trees and nets `[Verified]`.
 - **Lasso at high frequency:** Chinco, Clark-Joseph & Ye (2019) ran lasso on lagged one-minute returns of all NYSE stocks and found sparse, short-lived predictors that improved out-of-sample fit `[Verified]`.
 - **Contested:** Kelly, Malamud & Zhou (2024) argue heavily over-parameterized ridge models *improve* market timing; the claim is debated.
@@ -117,7 +125,7 @@ Standard error = √0.184 × 0.010 = **0.0043**, four times smaller: a sliver of
 - Out-of-sample rank IC (mean, t-stat, by year) beats the best single signal on folds the λ search never touched.
 - Out-of-sample R² against a zero forecast (the GKX convention), not the historical mean.
 - IC vs log λ is hump-shaped; coefficients keep their signs across refits.
-- In-sample to out-of-sample IC ratio below ~0.5 signals overfitting `[Lore]`. [Lab 12](https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/12-alpha-combination-purged-cv) compares ridge with other combiners under purged CV.
+- Out-of-sample IC below half of in-sample IC signals overfitting `[Lore]`. In [Lab 12](https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/12-alpha-combination-purged-cv), ridge kept all of it; GBDT kept 28% (synthetic lab result).
 
 ## Failure modes and pitfalls
 
@@ -181,4 +189,5 @@ Cost: $O(nk^2 + k^3)$; one eigendecomposition serves the whole λ grid.
 - [Verified] Zou, H. & Hastie, T. (2005). "Regularization and Variable Selection via the Elastic Net." *Journal of the Royal Statistical Society B* 67(2), 301–320. <https://doi.org/10.1111/j.1467-9868.2005.00503.x> (accessed 2026-11)
 - [Verified] Chinco, A., Clark-Joseph, A. D. & Ye, M. (2019). "Sparse Signals in the Cross-Section of Returns." *Journal of Finance* 74(1), 449–492. <https://doi.org/10.1111/jofi.12733> (accessed 2026-11)
 - [Verified] Kelly, B., Malamud, S. & Zhou, K. (2024). "The Virtue of Complexity in Return Prediction." *Journal of Finance* 79(1), 459–503. <https://doi.org/10.1111/jofi.13298> (accessed 2026-11)
+- [Verified] MSCI (2011). "Barra US Equity Model (USE4)" fact sheet. <https://www.msci.com/documents/10199/242721/Barra_US_Equity_Model_USE4.pdf> (accessed 2026-11)
 - [Verified] Hastie, T., Tibshirani, R. & Friedman, J. (2009). *The Elements of Statistical Learning*, 2nd ed., Springer (ch. 3 and 7). <https://hastie.su.domains/ElemStatLearn/> (accessed 2026-11)

@@ -125,11 +125,11 @@ A flat 5 bps charge books \$1,000, about 7× too little. Against 30 bps of expec
 
 ## Key parameters and how practitioners tune them
 
-- **Fill price:** next open or next-interval VWAP for daily books. The close is usable only if the decision came before the MOC cutoff (3:50 p.m. on NYSE) `[Verified]`.
+- **Fill price:** next open or next-interval VWAP for daily books. The close is usable only if the decision came before the MOC cutoff (3:50 p.m. on NYSE) `[Verified]` ([order types and auctions](../../01-market-structure/order-types-and-auctions.md)).
 - **Impact coefficient:** order 1 in the [square-root law](../../09-reference/glossary.md#square-root-law) literature ([Tóth et al. 2011](https://doi.org/10.1103/PhysRevX.1.021006)) `[Reported]`. Firms refit it on their own fills via [TCA](../e-execution-algorithms/transaction-cost-analysis.md) `[Lore]`.
 - **Latency:** HFT engines sample measured distributions, not constants `[Lore]`.
 - **Borrow:** general collateral about 0.25–0.50% a year, hard-to-borrow 5–50%+ `[Lore]` ([shorting](../../01-market-structure/shorting-financing-and-settlement.md)).
-- **Fees:** take fees are capped at \$0.0030 per share `[Verified]`.
+- **Fees:** take fees are capped at \$0.0030 per share (Rule 610(c)); the cut to \$0.0010 for stocks priced at \$1 or more is delayed to November 2027 `[Verified]`.
 
 ## Textbook version vs what firms actually do
 
@@ -206,5 +206,6 @@ Queue models (hftbacktest): a cancel of size $C$ is ahead of you with probabilit
 - [Verified] Nautech Systems. NautilusTrader (README, PyPI). <https://github.com/nautechsystems/nautilus_trader> (accessed 2026-11)
 - [Verified] QuantConnect. LEAN algorithmic trading engine (README). <https://github.com/QuantConnect/Lean> (accessed 2026-11)
 - [Verified] hftbacktest documentation, "Order Fill" (exchange and queue models). <https://hftbacktest.readthedocs.io/en/latest/order_fill.html> (accessed 2026-11)
+- [Verified] SEC (2026-06-11). Release 34-105656, order granting temporary exemptive relief from Rules 610(c) and 612. <https://www.sec.gov/files/rules/exorders/2026/34-105656.pdf> (accessed 2026-11)
 - [Verified] Byrd, D., Hybinette, M. & Balch, T. H. (2019). "ABIDES: Towards High-Fidelity Market Simulation for AI Research." arXiv:1904.12066. <https://arxiv.org/abs/1904.12066> (accessed 2026-11)
 - [Verified] Tóth, B., Lempérière, Y., Deremble, C., de Lataillade, J., Kockelkoren, J. & Bouchaud, J.-P. (2011). "Anomalous Price Impact and the Critical Nature of Liquidity in Financial Markets." *Physical Review X* 1(2), 021006. <https://doi.org/10.1103/PhysRevX.1.021006> (accessed 2026-11)

@@ -50,18 +50,17 @@ flowchart LR
 
 ```python
 import numpy as np
+import pandas as pd
 # Boosting for L2 loss written out to show the mechanics; production uses LightGBM/XGBoost.
-# Lab 12 uses LightGBM if installed, with a scikit-learn fallback.
+# Lab 12 fits LightGBM (sklearn fallback) with deliberately loose settings (31 leaves,
+# 50 rows per leaf, lr 0.05, 150 rounds, no early stopping) to show overfitting.
 # fit_tree(X, r, max_depth, min_leaf, lam): any CART regressor whose leaf value is
 #   sum(residuals in leaf) / (n_leaf + lam)   <- ridge-like shrinkage of each leaf mean
 
-def rank_target(ret, dates):
+def rank_target(ret, dates):               # Lab 12 core function (same logic)
     # per-date percentile rank in [-0.5, 0.5]: removes outliers and the day's market move
-    out = np.empty_like(ret)
-    for d in np.unique(dates):
-        m = dates == d
-        out[m] = ret[m].argsort().argsort() / (m.sum() - 1) - 0.5
-    return out
+    g = pd.Series(ret).groupby(dates)
+    return ((g.rank() - 1) / (g.transform("count") - 1) - 0.5).to_numpy()
 
 def boost(X_tr, y_tr, X_va, y_va, lr=0.02, n_rounds=5000, patience=200,
           max_depth=5, min_leaf=2000, lam=10.0, row_frac=0.7, col_frac=0.7, seed=0):
@@ -115,8 +114,8 @@ Illustrative mean next-day residual returns (bps) in four equal-sized buckets:
 ## Textbook version vs what firms actually do
 
 - **Foundations:** [Breiman (2001)](https://doi.org/10.1023/A:1010933404324) and [Friedman (2001)](https://doi.org/10.1214/aos/1013203451); XGBoost added a regularized second-order objective, LightGBM histogram binning and leaf-wise growth `[Verified]`.
-- **Academic evidence:** in [GKX 2020](https://doi.org/10.1093/rfs/hhaa009) (US stocks 1957–2016, tested 1987–2016, 94 characteristics), random forests and boosted trees with Huber loss sat near the top with neural nets, and all methods agreed on momentum, liquidity and volatility as the dominant predictors `[Verified]`. Neural-net long-short deciles reached a value-weighted Sharpe of 1.35 gross over 1987–2016 `[Verified]`, against about 0.6 for a linear benchmark `[Reported]`.
-- **Recent benchmark:** on daily excess returns, LightGBM and CatBoost ensembles beat zero-shot time-series foundation models (Rahimikia et al., 2026 workshop paper) `[Verified]`; see [LLMs and foundation models](llms-and-foundation-models-in-quant.md).
+- **Academic evidence:** in [GKX 2020](https://doi.org/10.1093/rfs/hhaa009) (US stocks 1957–2016, tested 1987–2016, 94 characteristics), random forests and boosted trees with Huber loss sat near the top with neural nets, and all methods agreed on momentum, liquidity and volatility as the dominant predictors `[Verified]`. Neural-net long-short deciles reached a value-weighted Sharpe of 1.35 gross over 1987–2016, against 0.61 for a three-characteristic OLS `[Verified]`.
+- **Recent benchmark:** on daily excess returns, CatBoost and LightGBM beat off-the-shelf time-series foundation models; versions pre-trained on financial data narrowed the gap (Rahimikia, Ni & Wang 2025, gross of costs) `[Verified]`; see [LLMs and foundation models](llms-and-foundation-models-in-quant.md).
 - **Practice:** boosted trees are common in short-horizon books with hundreds of features, usually blended with linear and neural models `[Lore]`.
 
 ## How to tell if it's working
@@ -124,7 +123,7 @@ Illustrative mean next-day residual returns (bps) in four equal-sized buckets:
 - Out-of-sample rank IC beats a [ridge](linear-models-and-regularization.md) baseline on identical purged folds, net of added turnover.
 - **Null test:** retrain on per-date shuffled targets. IC should collapse to ~0; if not, a feature leaks.
 - IC by size bucket: microcap-only gains won't survive costs.
-- SHAP dependence plots look economically sane. [Lab 12](https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/12-alpha-combination-purged-cv) compares GBDT with linear combiners under purged CV.
+- SHAP dependence plots look economically sane. In [Lab 12](https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/12-alpha-combination-purged-cv), loose GBDT topped shuffled CV but trailed ridge under purged CV (synthetic lab result).
 
 ## Failure modes and pitfalls
 
@@ -177,7 +176,6 @@ SHAP values are Shapley values (average marginal contribution over feature subse
 ## Sources
 
 - [Verified] Gu, S., Kelly, B. & Xiu, D. (2020). "Empirical Asset Pricing via Machine Learning." *Review of Financial Studies* 33(5), 2223–2273. <https://doi.org/10.1093/rfs/hhaa009> (accessed 2026-11)
-- [Reported] Mirova Research Center. Summary of "Empirical Asset Pricing via Machine Learning" (Sharpe ratios of NN vs linear decile portfolios). <https://www.research-center.mirova.com/en/research-library/Empirical-Asset-Pricing-via-Machine-Learning> (accessed 2026-11)
 - [Verified] Breiman, L. (2001). "Random Forests." *Machine Learning* 45(1), 5–32. <https://doi.org/10.1023/A:1010933404324> (accessed 2026-11)
 - [Verified] Friedman, J. H. (2001). "Greedy Function Approximation: A Gradient Boosting Machine." *Annals of Statistics* 29(5), 1189–1232. <https://doi.org/10.1214/aos/1013203451> (accessed 2026-11)
 - [Verified] Chen, T. & Guestrin, C. (2016). "XGBoost: A Scalable Tree Boosting System." *KDD '16*, 785–794. <https://doi.org/10.1145/2939672.2939785> (accessed 2026-11)
@@ -186,4 +184,4 @@ SHAP values are Shapley values (average marginal contribution over feature subse
 - [Verified] Lundberg, S. M. et al. (2020). "From local explanations to global understanding with explainable AI for trees." *Nature Machine Intelligence* 2, 56–67. <https://doi.org/10.1038/s42256-019-0138-9> (accessed 2026-11)
 - [Verified] Strobl, C., Boulesteix, A.-L., Zeileis, A. & Hothorn, T. (2007). "Bias in random forest variable importance measures." *BMC Bioinformatics* 8:25. <https://doi.org/10.1186/1471-2105-8-25> (accessed 2026-11)
 - [Verified] López de Prado, M. (2018). *Advances in Financial Machine Learning*, Wiley (ch. 8, feature importance). <https://www.wiley.com/en-us/Advances+in+Financial+Machine+Learning-p-9781119482086> (accessed 2026-11)
-- [Verified] Rahimikia, E. et al. (2026). "Re(Visiting) Time Series Foundation Models in Finance." FoFI 2026 conference paper. <http://wp.lancs.ac.uk/fofi2026/files/2026/03/FoFI-2026-020-Eghbal-Rahimikia.pdf> (accessed 2026-11)
+- [Verified] Rahimikia, E., Ni, H. & Wang, W. (2025). "Re(Visiting) Time Series Foundation Models in Finance." arXiv:2511.18578 (also presented at FoFI 2026). <https://arxiv.org/abs/2511.18578> (accessed 2026-11)

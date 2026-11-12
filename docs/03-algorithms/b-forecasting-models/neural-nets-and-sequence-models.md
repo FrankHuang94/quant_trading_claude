@@ -107,7 +107,7 @@ The infinite-seed ceiling is 0.020 × √2 = 0.028. With breadth and costs fixed
 - **Cross-sectional MLPs:** in [GKX 2020](https://doi.org/10.1093/rfs/hhaa009), monthly stock-level R² rose from 0.33% (one layer) to 0.40% (three), against 0.16% for OLS-3; the value-weighted long-short decile Sharpe was 1.35 gross, 1987–2016 `[Verified]`.
 - **Order books:** [DeepLOB](https://doi.org/10.1109/TSP.2019.2907260) (convolutions, an Inception module, an LSTM) beat earlier models on the FI-2010 benchmark and a year of London Stock Exchange data, and transferred to unseen instruments `[Verified]`. [Sirignano & Cont (2019)](https://doi.org/10.1080/14697688.2019.1622295) found a "universal" model pooled across many US stocks beat stock-specific ones `[Verified]`. Both report accuracy, not P&L after costs.
 - **Autoencoder factor models:** [Gu, Kelly & Xiu (2021)](https://doi.org/10.1016/j.jeconom.2020.07.009) let betas be a neural function of characteristics, with latent factors and a no-arbitrage restriction, and report much smaller out-of-sample pricing errors than leading factor models `[Verified]`.
-- **Practice:** market makers train sizable nets on GPU clusters but run small, distilled versions in the latency-critical path `[Lore]`; mid-frequency books use nets as one ensemble input `[Lore]`.
+- **Practice:** market makers train sizable nets on GPU clusters (XTX Markets says it has over 25,000 GPUs `[Reported]`) but run small, distilled versions in the latency-critical path `[Lore]`; mid-frequency books use nets as one ensemble input `[Lore]`.
 
 ## How to tell if it's working
 
@@ -174,4 +174,5 @@ Self-attention over $L$ events of width $d$ costs $O(L^2 d)$, one reason lookbac
 - [Verified] Sirignano, J. & Cont, R. (2019). "Universal features of price formation in financial markets: perspectives from deep learning." *Quantitative Finance* 19(9), 1449–1459. <https://doi.org/10.1080/14697688.2019.1622295> (accessed 2026-11)
 - [Verified] Hochreiter, S. & Schmidhuber, J. (1997). "Long Short-Term Memory." *Neural Computation* 9(8), 1735–1780. <https://doi.org/10.1162/neco.1997.9.8.1735> (accessed 2026-11)
 - [Verified] Vaswani, A. et al. (2017). "Attention Is All You Need." *NeurIPS 30*. <https://arxiv.org/abs/1706.03762> (accessed 2026-11)
+- [Reported] XTX Markets (n.d.). Company website (research cluster of over 25,000 GPUs; firm statement). <https://www.xtxmarkets.com/> (accessed 2026-11)
 - [Verified] Lakshminarayanan, B., Pritzel, A. & Blundell, C. (2017). "Simple and Scalable Predictive Uncertainty Estimation using Deep Ensembles." *NeurIPS 30*. <https://arxiv.org/abs/1612.01474> (accessed 2026-11)

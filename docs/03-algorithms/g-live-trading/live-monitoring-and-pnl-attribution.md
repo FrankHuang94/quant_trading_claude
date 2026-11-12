@@ -96,10 +96,10 @@ def factor_attribution(h_start, h_end, px_prev, px_close, fills, X, f, model_cos
 - $u_A$ = −1.5% + 2.4% = +0.9% → +\$90,000; $u_B$ = −3.0% + 1.6% = −1.4%, short earns +\$140,000 → specific **+\$230,000**.
 - Holding: −\$150,000 + \$300,000 = +\$150,000 = −80,000 + 230,000 ✓.
 
-The book also bought 50,000 A: arrival \$99.80, average fill \$99.86, close $98.50.
+The book also bought 50,000 A: arrival \$99.80, average fill \$99.86, close \$98.50.
 
 - Trading P&L = 50,000 × (98.50 − 99.86) = **−\$68,000**.
-- Slippage vs arrival = −50,000 × 0.06 = −\$3,000 (6 bps); the model said 8 bps (−\$3,992), so execution beat it by $992.
+- Slippage vs arrival = −50,000 × 0.06 = −\$3,000 (6 bps); the model said 8 bps (−\$3,992), so execution beat it by \$992.
 - The other −\$65,000 is A falling after arrival: a timing question, not execution.
 
 Total +\$82,000. The alpha made \$230,000; an unintended beta tilt cost \$80,000. Fix the hedge, not the alpha.
@@ -140,7 +140,7 @@ flowchart TD
 - **Textbook**: Brinson sector attribution vs a benchmark. **Practice**: factor attribution off the risk model; vendor tools report factor contributions, specific return and trading impact `[Verified]` ([MSCI](https://www.msci.com/downloads/web/msci-com/data-and-analytics/portfolio-management/MSCI%20MAC%20Performance%20Attribution%20Factsheet.pdf)).
 - **Holding vs trading** is Perold's paper-vs-real portfolio gap (1988) `[Verified]`.
 - **Linking**: daily lines do not sum to compounded returns; Menchero (2004) finds one linking method meets all his criteria `[Verified]`.
-- **Market makers**: Menkveld's study of one HFT market maker found ≈ €1.55 per trade of spread capture net of fees against ≈ €0.68 of positioning losses `[Verified]` (working-paper figures).
+- **Market makers**: Menkveld's study of one HFT market maker found ≈ €1.55 per trade from the spread against ≈ €0.68 of positioning losses, ≈ €0.88 overall `[Verified]` (working-paper figures).
 - **Monitoring**: before Knight Capital's 2012 loss, 97 automated emails flagged an error pre-open, but were not designed as alerts and went unread; the SEC's first market access rule case followed (\$12M penalty) `[Verified]`.
 
 ## How to tell if it's working

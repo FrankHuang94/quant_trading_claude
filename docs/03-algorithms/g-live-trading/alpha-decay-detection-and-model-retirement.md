@@ -117,7 +117,7 @@ stateDiagram-v2
 ## Textbook version vs what firms actually do
 
 - **Publication decay**: McLean & Pontiff (2016) find returns of 97 predictors fall ~26% out of sample (an upper bound on data mining) and ~58% post-publication, so at least ~32% (58 − 26) reflects publication-informed trading `[Verified]`.
-- **Out-of-sample decay**: Falck, Rej & Thesmar (2022) find 72 published strategies keep about half their in-sample performance; publication date predicts decay best, and overfitting proxies add roughly 15% explanatory power `[Verified]`.
+- **Out-of-sample decay**: Falck, Rej & Thesmar (2022) find 72 published strategies keep about half their in-sample performance; publication year alone explains about 30% of the variance in decay across strategies, and overfitting proxies add roughly 15% `[Verified]`.
 - **Crowding**: Lou & Polk's comomentum (excess return correlation among momentum stocks) flags crowding; when high, momentum returns tend to revert `[Verified]`. Desks also watch short interest in the short leg and holdings overlap `[Lore]`.
 - **Capacity decay** is yours alone: gross alpha holds, net falls as impact rises with size ([cost models](../d-portfolio-construction/transaction-cost-and-impact-models.md)) `[Estimate]`. Plot gross and net bps against AUM.
 - **Textbook**: test "Sharpe = 0". **Practice**: tests lack power, so firms shrink and down-weight gradually `[Lore]`.
