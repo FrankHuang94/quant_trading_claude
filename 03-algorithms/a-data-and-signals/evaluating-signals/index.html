@@ -5726,7 +5726,7 @@
 <li>Real single signals have daily ICs of about 0.005–0.03; stability, decay, turnover and cost separate them.</li>
 <li>Mean IC ÷ its sd, annualized, approximates the pre-cost Sharpe: the Fundamental Law in disguise.</li>
 <li>Overlapping returns inflate t-stats (Lab 11: naive 45 vs Newey–West 25, synthetic lab result).</li>
-<li>A new signal helps only if its IR exceeds its correlation with the book times the book's IR.</li>
+<li>A new signal earns a positive weight only if its IR exceeds its correlation with the book times the book's IR.</li>
 </ul>
 </blockquote>
 <p><strong>Level:</strong> Core · <strong>Pipeline stage:</strong> signal · <strong>Last verified:</strong> 2026-11</p>
@@ -5850,7 +5850,7 @@
 <ul>
 <li><strong>Fundamental Law:</strong> IR ≈ IC × √breadth (Grinold 1989), times a transfer coefficient (Clarke, de Silva &amp; Thorley 2002) <code>[Verified]</code>.</li>
 <li><strong>IC volatility:</strong> Qian &amp; Hua (2004) estimate IR as mean IC ÷ sd of IC, since IC varies over time <code>[Reported]</code>. Daily IC 0.01 at Sharpe 1.5 implies IC sd ≈ 0.11, five times the sampling noise of 2,000 names <code>[Estimate]</code>.</li>
-<li><strong>Real alphas:</strong> of 4,000 WorldQuant US-equity alphas (holding 0.7–19 days), the positive-Sharpe ones had a median Sharpe of 1.49 before costs; profit per share fell in proportion to turnover (Kakushadze &amp; Tulchinsky 2016) <code>[Verified]</code>.</li>
+<li><strong>Real alphas:</strong> of 4,000 WorldQuant US-equity alphas (holding 0.7–19 days), the positive-Sharpe ones had a median Sharpe of 1.49 before costs; cents per share scaled as 1/turnover (Kakushadze &amp; Tulchinsky 2016) <code>[Verified]</code>.</li>
 <li><strong>Costs:</strong> anomalies with monthly turnover under 50% mostly survive costs; faster ones mostly do not (Novy-Marx &amp; Velikov 2016) <code>[Verified]</code>.</li>
 <li><strong>Tooling:</strong> Alphalens reports rank IC, quantile returns, turnover and rank autocorrelation <code>[Verified]</code>. Patton &amp; Timmermann (2010) test monotonicity formally <code>[Verified]</code>.</li>
 </ul>
@@ -5899,7 +5899,7 @@
 <div class="arithmatex">\[
 IR_{12}^2 = \frac{IR_1^2 + IR_2^2 - 2\rho\, IR_1 IR_2}{1-\rho^2},
 \]</div>
-<p>which beats <span class="arithmatex">\(IR_1\)</span> only if <span class="arithmatex">\(IR_2 &gt; \rho\, IR_1\)</span>. Illustrative: 1.5 and 1.0 give 1.505 at <span class="arithmatex">\(\rho = 0.6\)</span>, 1.80 at <span class="arithmatex">\(\rho = 0\)</span>.</p>
+<p>which gives stream 2 a positive weight only if <span class="arithmatex">\(IR_2 &gt; \rho\, IR_1\)</span> (below that, only as a short hedge). Illustrative: 1.5 and 1.0 give 1.505 at <span class="arithmatex">\(\rho = 0.6\)</span>, 1.80 at <span class="arithmatex">\(\rho = 0\)</span>.</p>
 </details>
 <h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link">&para;</a></h2>
 <ul>
@@ -5912,7 +5912,7 @@ IR_{12}^2 = \frac{IR_1^2 + IR_2^2 - 2\rho\, IR_1 IR_2}{1-\rho^2},
 <ul>
 <li>[Verified] Grinold, R. C. (1989). "The Fundamental Law of Active Management." <em>Journal of Portfolio Management</em> 15(3), 30–37. <a href="https://doi.org/10.3905/jpm.1989.409211">https://doi.org/10.3905/jpm.1989.409211</a> (accessed 2026-11)</li>
 <li>[Verified] Clarke, R., de Silva, H. &amp; Thorley, S. (2002). "Portfolio Constraints and the Fundamental Law of Active Management." <em>Financial Analysts Journal</em> 58(5), 48–66. <a href="https://doi.org/10.2469/faj.v58.n5.2468">https://doi.org/10.2469/faj.v58.n5.2468</a> (accessed 2026-11)</li>
-<li>[Reported] Qian, E. &amp; Hua, R. (2004). "Active Risk and Information Ratio." <em>Journal of Investment Management</em> 2(3), 1–15. <a href="https://joim.com/journal-issue/2004/third-quarter-2004">https://joim.com/journal-issue/2004/third-quarter-2004</a> (accessed 2026-11)</li>
+<li>[Reported] Qian, E. &amp; Hua, R. (2004). "Active Risk and Information Ratio." <em>Journal of Investment Management</em> 2(3), 1–15. <a href="https://joim.com/active-risk-and-information-ratio/">https://joim.com/active-risk-and-information-ratio/</a> (accessed 2026-11)</li>
 <li>[Verified] Kakushadze, Z. &amp; Tulchinsky, I. (2016). "Performance v. Turnover: A Story by 4,000 Alphas." <em>Journal of Investment Strategies</em> 5(2), 75–89. <a href="https://arxiv.org/abs/1509.08110">https://arxiv.org/abs/1509.08110</a> (accessed 2026-11)</li>
 <li>[Verified] Novy-Marx, R. &amp; Velikov, M. (2016). "A Taxonomy of Anomalies and Their Trading Costs." <em>Review of Financial Studies</em> 29(1), 104–147. <a href="https://doi.org/10.1093/rfs/hhv063">https://doi.org/10.1093/rfs/hhv063</a> (accessed 2026-11)</li>
 <li>[Verified] Newey, W. K. &amp; West, K. D. (1987). "A Simple, Positive Semi-Definite, Heteroskedasticity and Autocorrelation Consistent Covariance Matrix." <em>Econometrica</em> 55(3), 703–708. <a href="https://doi.org/10.2307/1913610">https://doi.org/10.2307/1913610</a> (accessed 2026-11)</li>

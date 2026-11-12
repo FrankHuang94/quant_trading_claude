@@ -5621,7 +5621,7 @@
 </table>
 <p>The body always runs in the same order. It starts with intuition and a diagram that highlights the card's place in the pipeline. Then come the algorithm itself (plain steps, then commented pseudocode matching the lab code), a worked example with numbers, and how practitioners tune the parameters. The "textbook vs practice" section sources or tags every claim. After that: how to tell whether the method is working, its failure modes, sample practitioner sentences with glosses, and questions to ask, ordered basic to sharp, with 🔒 marking proprietary territory. Math sits in a collapsed block at the end. Confidence tags (<code>[Verified]</code>, <code>[Reported]</code>, <code>[Estimate]</code>, <code>[Lore]</code>) are explained on the <a href="../#how-to-read-confidence-tags">home page</a>.</p>
 <h2 id="labs">Labs<a class="headerlink" href="#labs" title="Permanent link">&para;</a></h2>
-<p>Each lab is a short, deterministic Python script on synthetic data, so it shows mechanisms rather than real <a href="../09-reference/glossary/#alpha">alpha</a>. Its pseudocode in the cards uses the same names and parameters as the lab.</p>
+<p>Each lab is a short, deterministic Python script on synthetic data, so it shows mechanisms rather than real <a href="../09-reference/glossary/#alpha">alpha</a>, and its Sharpe ratios run far above real-world levels. The pseudocode in the cards uses the same names and parameters as the lab. "Cards it supports" lists the cards that name the lab in their header; "Also supports" lists dossiers and cards that quote its results.</p>
 <table>
 <thead>
 <tr>
@@ -5633,33 +5633,33 @@
 <tbody>
 <tr>
 <td><a href="https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/01-matching-engine-order-book">01 Matching engine and order book</a></td>
-<td><a href="f-market-making-and-hft-algorithms/queue-position-and-order-placement/">M6</a></td>
+<td><a href="f-market-making-and-hft-algorithms/anatomy-of-an-hft-trading-loop/">M1</a>, <a href="f-market-making-and-hft-algorithms/queue-position-and-order-placement/">M6</a></td>
 <td><a href="../01-market-structure/the-limit-order-book/">The limit order book</a></td>
 </tr>
 <tr>
 <td><a href="https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/02-microprice-fair-value">02 Microprice and fair value</a></td>
 <td><a href="f-market-making-and-hft-algorithms/fair-value-and-microprice/">M2</a></td>
-<td>—</td>
+<td><a href="f-market-making-and-hft-algorithms/order-book-and-trade-flow-signals/">M3</a>, <a href="../02-strategies/a-liquidity-provision/equity-market-making/">Equity market making</a></td>
 </tr>
 <tr>
 <td><a href="https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/03-order-flow-imbalance">03 Order-flow imbalance</a></td>
 <td><a href="f-market-making-and-hft-algorithms/order-book-and-trade-flow-signals/">M3</a></td>
-<td>—</td>
+<td><a href="f-market-making-and-hft-algorithms/fair-value-and-microprice/">M2</a>, <a href="f-market-making-and-hft-algorithms/adverse-selection-and-markouts/">M5</a></td>
 </tr>
 <tr>
 <td><a href="https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/04-markout-analysis">04 Markout analysis</a></td>
 <td><a href="f-market-making-and-hft-algorithms/adverse-selection-and-markouts/">M5</a></td>
-<td><a href="../02-strategies/a-liquidity-provision/equity-market-making/">Equity market making</a></td>
+<td><a href="f-market-making-and-hft-algorithms/quoting-and-inventory-control/">M4</a>, <a href="e-execution-algorithms/transaction-cost-analysis/">E6</a>, <a href="../02-strategies/a-liquidity-provision/equity-market-making/">Equity market making</a>, <a href="../02-strategies/a-liquidity-provision/retail-flow-internalization/">Retail flow internalization</a></td>
 </tr>
 <tr>
 <td><a href="https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/05-avellaneda-stoikov-glft-quoting">05 Avellaneda-Stoikov and GLFT quoting</a></td>
 <td><a href="f-market-making-and-hft-algorithms/quoting-and-inventory-control/">M4</a></td>
-<td><a href="../02-strategies/a-liquidity-provision/equity-market-making/">Equity market making</a></td>
+<td><a href="f-market-making-and-hft-algorithms/fair-value-and-microprice/">M2</a>, <a href="f-market-making-and-hft-algorithms/adverse-selection-and-markouts/">M5</a>, <a href="../02-strategies/a-liquidity-provision/equity-market-making/">Equity market making</a></td>
 </tr>
 <tr>
 <td><a href="https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/06-options-mm-delta-hedging">06 Options MM and delta hedging</a></td>
 <td><a href="f-market-making-and-hft-algorithms/options-pricing-and-vol-surfaces-for-mm/">M8</a>, <a href="f-market-making-and-hft-algorithms/hedging-algorithms/">M7</a></td>
-<td><a href="../02-strategies/a-liquidity-provision/options-market-making/">Options market making</a></td>
+<td><a href="../02-strategies/a-liquidity-provision/options-market-making/">Options market making</a>, <a href="../02-strategies/f-volatility-and-derivatives/dispersion-and-correlation-trading/">Dispersion</a>, <a href="../02-strategies/f-volatility-and-derivatives/volatility-risk-premium-and-vol-arb/">Volatility risk premium</a></td>
 </tr>
 <tr>
 <td><a href="https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/07-etf-nav-arbitrage">07 ETF NAV arbitrage</a></td>
@@ -5669,26 +5669,26 @@
 <tr>
 <td><a href="https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/08-pairs-cointegration">08 Pairs and cointegration</a></td>
 <td>—</td>
-<td><a href="../02-strategies/c-statistical-arbitrage/pairs-trading-and-cointegration/">Pairs trading</a></td>
+<td><a href="../02-strategies/c-statistical-arbitrage/pairs-trading-and-cointegration/">Pairs trading</a>, <a href="c-validation-and-backtesting/overfitting-and-multiple-testing/">V4</a>, <a href="d-portfolio-construction/transaction-cost-and-impact-models/">P5</a></td>
 </tr>
 <tr>
 <td><a href="https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/09-pca-residual-stat-arb">09 PCA residual stat arb</a></td>
 <td>—</td>
-<td><a href="../02-strategies/c-statistical-arbitrage/factor-residual-mean-reversion/">Factor-residual mean reversion</a></td>
+<td><a href="../02-strategies/c-statistical-arbitrage/factor-residual-mean-reversion/">Factor-residual mean reversion</a>, <a href="../02-strategies/c-statistical-arbitrage/stat-arb-overview-and-history/">Stat arb overview</a>, <a href="d-portfolio-construction/risk-models/">P1</a>, <a href="d-portfolio-construction/transaction-cost-and-impact-models/">P5</a></td>
 </tr>
 <tr>
 <td><a href="https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/10-reversal-momentum-costs">10 Reversal, momentum and costs</a></td>
 <td>—</td>
-<td><a href="../02-strategies/c-statistical-arbitrage/short-term-cross-sectional-reversal/">Short-term reversal</a>, <a href="../02-strategies/e-risk-premia-and-factors/momentum/">Momentum</a></td>
+<td><a href="../02-strategies/c-statistical-arbitrage/short-term-cross-sectional-reversal/">Short-term reversal</a>, <a href="../02-strategies/e-risk-premia-and-factors/momentum/">Momentum</a>, <a href="d-portfolio-construction/transaction-cost-and-impact-models/">P5</a></td>
 </tr>
 <tr>
 <td><a href="https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/11-signal-transforms-ic">11 Signal transforms and IC</a></td>
 <td><a href="a-data-and-signals/signal-transforms/">D3</a>, <a href="a-data-and-signals/evaluating-signals/">D4</a></td>
-<td>—</td>
+<td><a href="../02-strategies/d-mid-frequency-alpha/cross-sectional-alpha-and-neutralization/">Cross-sectional alpha</a></td>
 </tr>
 <tr>
 <td><a href="https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/12-alpha-combination-purged-cv">12 Alpha combination and purged CV</a></td>
-<td><a href="b-forecasting-models/alpha-combination-and-ensembling/">F5</a>, <a href="c-validation-and-backtesting/time-series-cross-validation/">V1</a></td>
+<td><a href="b-forecasting-models/alpha-combination-and-ensembling/">F5</a>, <a href="c-validation-and-backtesting/time-series-cross-validation/">V1</a>, <a href="b-forecasting-models/linear-models-and-regularization/">F1</a>, <a href="b-forecasting-models/tree-ensembles/">F2</a></td>
 <td>—</td>
 </tr>
 <tr>
@@ -5704,16 +5704,16 @@
 <tr>
 <td><a href="https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/15-trading-toward-aim">15 Trading toward the aim</a></td>
 <td><a href="d-portfolio-construction/multi-period-and-trading-toward-aim/">P6</a></td>
-<td>—</td>
+<td><a href="d-portfolio-construction/transaction-cost-and-impact-models/">P5</a></td>
 </tr>
 <tr>
 <td><a href="https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/16-almgren-chriss-frontier">16 Almgren-Chriss frontier</a></td>
 <td><a href="e-execution-algorithms/implementation-shortfall-and-almgren-chriss/">E3</a></td>
-<td>—</td>
+<td><a href="e-execution-algorithms/transaction-cost-analysis/">E6</a></td>
 </tr>
 <tr>
 <td><a href="https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/17-vwap-twap-pov">17 VWAP, TWAP and POV</a></td>
-<td><a href="e-execution-algorithms/vwap-twap-pov/">E2</a>, <a href="e-execution-algorithms/execution-algorithms-overview/">E1</a></td>
+<td><a href="e-execution-algorithms/vwap-twap-pov/">E2</a>, <a href="e-execution-algorithms/execution-algorithms-overview/">E1</a>, <a href="e-execution-algorithms/auction-close-and-dark-liquidity-algos/">E5</a>, <a href="e-execution-algorithms/transaction-cost-analysis/">E6</a></td>
 <td>—</td>
 </tr>
 <tr>
@@ -5738,7 +5738,7 @@
 <ul>
 <li><a href="h-end-to-end-walkthroughs/walkthrough-mid-frequency-stat-arb/">A mid-frequency stat-arb book</a>: universe → three alphas → IC-weighted combination → risk model → optimizer with costs → VWAP/IS execution → next-day attribution.</li>
 <li><a href="h-end-to-end-walkthroughs/walkthrough-etf-market-maker/">A day at an ETF market maker</a>: fair value from basket and futures, quoting, inventory, creation/redemption, hedging, markouts, end-of-day P&amp;L.</li>
-<li><a href="h-end-to-end-walkthroughs/walkthrough-options-market-maker/">An options market maker</a>: vol surface → theoretical values → quotes → delta/vega hedging → Greeks P&amp;L attribution.</li>
+<li><a href="h-end-to-end-walkthroughs/walkthrough-options-market-maker/">An options market maker</a>: vol surface → theoretical values → quotes leaned against book vega → delta hedging on a band → Greeks P&amp;L attribution.</li>
 <li><a href="h-end-to-end-walkthroughs/walkthrough-institutional-execution/">Executing a $500M buy order</a>: schedule choice, child orders, venues, the close, and the TCA report.</li>
 </ul>
 <h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link">&para;</a></h2>

@@ -5750,7 +5750,7 @@
 <h3 id="hft-boom-arms-race-compression-consolidation">HFT: boom, arms race, compression, consolidation<a class="headerlink" href="#hft-boom-arms-race-compression-consolidation" title="Permanent link">&para;</a></h3>
 <p><a href="../../../09-reference/glossary/#high-frequency-trading-hft">High-frequency trading</a> boomed after Reg NMS (adopted 2005) fragmented US equities <code>[Reported]</code>. Tabb Group estimated US-equity HFT revenue at $7.2B in 2009 and expected it to fall below $1B in 2017, as reported by the Financial Times <code>[Reported]</code>. The causes were ordinary economics: low volatility and volumes, rising market-data and connectivity costs, and speed parity among competitors <code>[Reported]</code>.</p>
 <p>The <a href="../../../09-reference/glossary/#latency-arbitrage">latency arbitrage</a> data show what competition does at the top speed tier. Budish, Cramton and Shim found the median ES–SPY arbitrage window shrank from 97 ms in 2005 to 7 ms in 2011 while profit per opportunity stayed roughly flat <code>[Verified]</code>: competition raised the speed required, not the price paid. Baron, Brogaard, Hagströmer and Kirilenko (2019) show that relative latency rank drives HFT trading performance <code>[Verified]</code>, a recipe for winner-take-most. Consolidation followed: Virtu bought KCG for $1.4B, DRW bought Chopper Trading and RGM Advisors, and Teza sold its HFT business to Quantlab <code>[Reported]</code>.</p>
-<p>The pool then migrated rather than died. For 2025 the largest liquidity providers were reported to earn record revenues, global and multi-asset: Jane Street about $39.6B of net trading revenue (helped by gains on private stakes), Hudson River Trading about $12.3B and Citadel Securities about $12.2B <code>[Reported]</code>. Listed options volume set a sixth straight record in 2025 at 15.26B contracts <code>[Verified]</code>. The rent moved to options, ETFs, bonds and other markets, and onto the balance sheets of a handful of firms (see <a href="../../a-liquidity-provision/equity-market-making/">equity market making</a> and <a href="../../a-liquidity-provision/options-market-making/">options market making</a>).</p>
+<p>The pool then migrated rather than died. For 2025 the largest liquidity providers were reported to earn record revenues, global and multi-asset: Jane Street about $39.6B of net trading revenue (helped by gains on private stakes), Hudson River Trading about $12.3B and Citadel Securities about $12.2B <code>[Reported]</code>. OCC-cleared volume set a sixth straight annual record in 2025 at 15.26B contracts, 15.21B of them options <code>[Verified]</code>. The rent moved to options, ETFs, bonds and other markets, and onto the balance sheets of a handful of firms (see <a href="../../a-liquidity-provision/equity-market-making/">equity market making</a> and <a href="../../a-liquidity-provision/options-market-making/">options market making</a>).</p>
 <h3 id="data-edges-alternative-data-then-llms">Data edges: alternative data, then LLMs<a class="headerlink" href="#data-edges-alternative-data-then-llms" title="Permanent link">&para;</a></h3>
 <p><a href="../../../09-reference/glossary/#alternative-data">Alternative data</a> restarted the cycle for informational edges. Katona, Painter, Patatoukas and Zeng find that once satellite coverage of retailers' parking lots appeared (sample 2011–2017), investors with access traded profitably, especially ahead of bad-news quarters, and liquidity around reports fell <code>[Verified]</code>. Managers spent roughly $2.8B on alternative data in 2025 <code>[Reported]</code>, so most datasets now have many buyers; as vendors add clients, the edge folds into consensus (<a href="../../d-mid-frequency-alpha/alternative-data/">alternative data</a>).</p>
 <p>Text shows the cycle compressing. After Loughran and McDonald published finance-specific word lists (2011), firms whose filings were heavily machine-read avoided the flagged words (Cao et al. 2023) <code>[Verified]</code>: the signal changed its own input. Lopez-Lira and Tang find GPT-4 headline scores predict the subsequent drift, especially in small stocks and on bad news, and that strategy returns decline as LLM adoption rises <code>[Verified]</code>. Our view <code>[Estimate]</code>: LLMs shorten the time from "new data type" to "commodity", because the scarce input used to be the ability to process text, and that is now cheap (see <a href="../../d-mid-frequency-alpha/nlp-and-llm-signals/">NLP and LLM signals</a> and <a href="../../../03-algorithms/b-forecasting-models/llms-and-foundation-models-in-quant/">F4</a>).</p>
@@ -5772,7 +5772,7 @@
         2011-17 : Satellite parking-lot data in use
         2016 : McLean and Pontiff decay study
         2017 : HFT revenue below 1B, Virtu buys KCG
-        2018-20 : Quant winter in value
+        2017-20 : Quant winter in value
     section 2020s
         2020-25 : Options boom, liquidity revenue records
         2023-26 : LLM signals, returns fall with adoption</code></pre>
@@ -5813,7 +5813,7 @@
 <tr>
 <td>Value</td>
 <td>Before arbitrage capital grew (from the late 1980s) <code>[Verified]</code></td>
-<td>Arbitrage capital; the 2018–2020 drought</td>
+<td>Arbitrage capital; the 2017–2020 drought (HML −51%) <code>[Verified]</code></td>
 <td>Multi-factor composites, quality-adjusted value</td>
 </tr>
 <tr>
@@ -5853,7 +5853,7 @@
 <h2 id="planning-for-decay">Planning for decay<a class="headerlink" href="#planning-for-decay" title="Permanent link">&para;</a></h2>
 <p>Firms treat decay as a cost line, not a surprise.</p>
 <ul>
-<li><strong>Haircut every backtest.</strong> 30–60% of gross alpha is a common planning range (<a href="../../../03-algorithms/g-live-trading/alpha-decay-detection-and-model-retirement/">L2</a>).</li>
+<li><strong>Haircut every backtest.</strong> 30–60% of gross alpha is a common planning range <code>[Lore]</code>, bracketing McLean and Pontiff's 26% out-of-sample and 58% post-publication declines (<a href="../../../03-algorithms/g-live-trading/alpha-decay-detection-and-model-retirement/">L2</a>).</li>
 <li><strong>Budget research as maintenance capex.</strong> Illustrative: if a signal's alpha halves every three years, it loses 1 − 0.5^(1/3) ≈ 21% a year. A book needs that much new alpha every year just to stand still; with a two-year half-life, 29%.</li>
 <li><strong>Monitor crowding, not just P&amp;L:</strong> rising correlation with peers and published factors, falling alpha per unit of <a href="../../../09-reference/glossary/#turnover">turnover</a>, violent reversals on de-risking days.</li>
 <li><strong>Refuse to lever a decaying edge</strong> to defend a return target. That choice turned 2007 from a drought into a crash.</li>

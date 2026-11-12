@@ -5765,7 +5765,7 @@
 <td><a href="../b-forecasting-models/tree-ensembles/">Tree ensembles</a></td>
 <td>forecast</td>
 <td>Boosted trees for nonlinear interactions</td>
-<td>train hours; predict ms</td>
+<td>train minutes; predict µs per stock</td>
 <td>2, 3</td>
 </tr>
 <tr>
@@ -5781,7 +5781,7 @@
 <td><a href="../b-forecasting-models/llms-and-foundation-models-in-quant/">LLMs and foundation models in quant</a></td>
 <td>forecast</td>
 <td>Turn text into signals</td>
-<td>batch, minutes to hours</td>
+<td>overnight or event-driven; seconds per document</td>
 <td>3</td>
 </tr>
 <tr>
@@ -5869,7 +5869,7 @@
 <td><a href="../d-portfolio-construction/transaction-cost-and-impact-models/">Transaction cost and impact models</a></td>
 <td>portfolio</td>
 <td>Predict spread plus impact for a trade</td>
-<td>fit offline; evaluate in ms</td>
+<td>fit overnight; µs per name</td>
 <td>2, 3, 4, 5</td>
 </tr>
 <tr>
@@ -5893,7 +5893,7 @@
 <td><a href="../e-execution-algorithms/execution-algorithms-overview/">Execution algorithms overview</a></td>
 <td>execution</td>
 <td>Pick the algo family for a parent order</td>
-<td>per order</td>
+<td>per order; re-planned every 1–5 min</td>
 <td>2, 3, 5</td>
 </tr>
 <tr>
@@ -5901,7 +5901,7 @@
 <td><a href="../e-execution-algorithms/vwap-twap-pov/">VWAP, TWAP and POV</a></td>
 <td>execution</td>
 <td>Benchmark-tracking schedules</td>
-<td>slices every seconds to minutes</td>
+<td>checked every 1-minute bin</td>
 <td>3, 4, 5</td>
 </tr>
 <tr>
@@ -5949,7 +5949,7 @@
 <td><a href="../f-market-making-and-hft-algorithms/fair-value-and-microprice/">Fair value and microprice</a></td>
 <td>market making</td>
 <td>Best estimate of the current price</td>
-<td>ns–µs</td>
+<td>µs per book update</td>
 <td>1</td>
 </tr>
 <tr>
@@ -5973,7 +5973,7 @@
 <td><a href="../f-market-making-and-hft-algorithms/adverse-selection-and-markouts/">Adverse selection and markouts</a></td>
 <td>market making</td>
 <td>Measure price moves after fills</td>
-<td>post-trade</td>
+<td>per fill, 100 ms–60 s; curves overnight</td>
 <td>1, 5</td>
 </tr>
 <tr>
@@ -6021,7 +6021,7 @@
 <td><a href="../g-live-trading/alpha-decay-detection-and-model-retirement/">Alpha decay detection and model retirement</a></td>
 <td>live</td>
 <td>Detect dying signals; resize or retire</td>
-<td>weekly to monthly</td>
+<td>overnight batch</td>
 <td>2, 3, 4</td>
 </tr>
 <tr>
@@ -6071,7 +6071,7 @@
 <li>[Verified] Almgren, R. &amp; Chriss, N. (2000). "Optimal execution of portfolio transactions." <em>Journal of Risk</em> 3(2), 5–39. <a href="https://doi.org/10.21314/JOR.2001.041">https://doi.org/10.21314/JOR.2001.041</a> (accessed 2026-11)</li>
 <li>[Verified] Avellaneda, M. &amp; Stoikov, S. (2008). "High-frequency trading in a limit order book." <em>Quantitative Finance</em> 8(3), 217–224. <a href="https://doi.org/10.1080/14697680701381228">https://doi.org/10.1080/14697680701381228</a> (accessed 2026-11)</li>
 <li>[Verified] Gârleanu, N. &amp; Pedersen, L. H. (2013). "Dynamic trading with predictable returns and transaction costs." <em>Journal of Finance</em> 68(6), 2309–2340. <a href="https://doi.org/10.1111/jofi.12080">https://doi.org/10.1111/jofi.12080</a> (accessed 2026-11)</li>
-<li>[Verified] STAC (2024-06-25). "STAC-T0 results with an Exegy/AMD FPGA solution" (vendor-commissioned benchmark; the nanosecond end of the latency range). <a href="https://stacresearch.com/node/48577">https://stacresearch.com/node/48577</a> (accessed 2026-11)</li>
+<li>[Verified] AMD (2024-06-27). "AMD Sets STAC Benchmark World Record for Fastest Electronic Trade Execution" (STAC-T0, with Exegy; vendor-commissioned benchmark; the nanosecond end of the latency range). <a href="https://www.amd.com/en/blogs/2024/amd-sets-stac-benchmark-world-record-for-fastest-e.html">https://www.amd.com/en/blogs/2024/amd-sets-stac-benchmark-world-record-for-fastest-e.html</a> (accessed 2026-11)</li>
 </ul>
 
 
