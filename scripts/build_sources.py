@@ -43,6 +43,22 @@ def group_of(rel: str) -> tuple[str, str]:
     return "Other", title
 
 
+LINK = re.compile(r"\]\((?!https?://|mailto:|#)([^)\s]+)\)")
+
+
+def relink(body: str, page) -> str:
+    """Re-point relative links from the page's folder to ../docs/... (sources.md lives in references/)."""
+    def fix(m: "re.Match") -> str:
+        target, _, anchor = m.group(1).partition("#")
+        resolved = (page.parent / target).resolve()
+        try:
+            rel = resolved.relative_to(DOCS.resolve()).as_posix()
+        except ValueError:
+            return m.group(0)
+        return f"](../docs/{rel}{'#' + anchor if anchor else ''})"
+    return LINK.sub(fix, body)
+
+
 def key_of(text: str) -> str:
     m = URL.search(text)
     if m:
@@ -69,7 +85,7 @@ def main() -> int:
             em = ENTRY.match(line)
             if not em:
                 continue
-            tag, body = em.group(1), em.group(2).strip()
+            tag, body = em.group(1), relink(em.group(2).strip(), p)
             k = key_of(body)
             if k not in entries:
                 entries[k] = {"tag": tag, "body": body, "group": group_of(rel), "pages": []}
