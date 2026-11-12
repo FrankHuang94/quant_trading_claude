@@ -1,0 +1,45 @@
+{
+  "lab": "12-alpha-combination-purged-cv",
+  "smoke": false,
+  "seed": 7,
+  "n_stocks": 150,
+  "n_days": 1260,
+  "n_signals": 14,
+  "label_horizon_days": 5,
+  "gbdt_backend": "lightgbm",
+  "oos_rank_ic": {
+    "shuffled K-fold (naive) | equal weight": 0.049578,
+    "shuffled K-fold (naive) | IC-weighted": 0.082847,
+    "shuffled K-fold (naive) | ridge": 0.086704,
+    "shuffled K-fold (naive) | GBDT": 0.126638,
+    "walk-forward (purged) | equal weight": 0.049578,
+    "walk-forward (purged) | IC-weighted": 0.082099,
+    "walk-forward (purged) | ridge": 0.084704,
+    "walk-forward (purged) | GBDT": 0.066299,
+    "purged K-fold + embargo | equal weight": 0.049578,
+    "purged K-fold + embargo | IC-weighted": 0.08181,
+    "purged K-fold + embargo | ridge": 0.085039,
+    "purged K-fold + embargo | GBDT": 0.076004
+  },
+  "oracle_rank_ic": 0.08651,
+  "best_single_signal_rank_ic": 0.050965,
+  "gbdt_ic_shuffled_minus_walk_forward": 0.060339,
+  "ridge_ic_shuffled_minus_walk_forward": 0.002,
+  "gbdt_in_sample_ic_last_fold": 0.238068,
+  "ridge_in_sample_ic_last_fold": 0.0841,
+  "ic_weight_alpha_fast_plus_duplicate": 0.428823,
+  "sharpe_gross_walk_forward": {
+    "equal weight": 5.652526,
+    "IC-weighted": 9.671189,
+    "ridge": 9.636574,
+    "GBDT": 7.043189
+  },
+  "sharpe_net_walk_forward": {
+    "equal weight": 1.489062,
+    "IC-weighted": 4.450447,
+    "ridge": 5.576681,
+    "GBDT": 1.672947
+  },
+  "sharpe_gross_gbdt_shuffled_cv": 12.059982,
+  "turnover_per_day_ridge": 0.467238
+}

@@ -1,0 +1,85 @@
+{
+  "lab": "11-signal-transforms-ic",
+  "smoke": false,
+  "seed": 7,
+  "n_stocks": 500,
+  "n_days": 1260,
+  "raw_pearson_ic_total": 0.01233,
+  "raw_rank_ic_total": 0.020069,
+  "raw_ic_tstat_total": 5.845718,
+  "zscore_only_ic_total": 0.017517,
+  "winsor_z_ic_total": 0.019247,
+  "winsor_z_ic_tstat_total": 6.848595,
+  "neutralized_ic_total": 0.024972,
+  "neutralized_ic_tstat_total": 22.168916,
+  "neutralized_ic_resid": 0.027705,
+  "raw_ic_sd_total": 0.074871,
+  "neutralized_ic_sd_total": 0.039984,
+  "raw_corr_with_beta": 0.283175,
+  "measured_ic_1d": {
+    "alpha_fast": 0.040555,
+    "alpha_med": 0.029951,
+    "alpha_slow": 0.020304
+  },
+  "true_ic_1d": {
+    "alpha_fast": 0.04,
+    "alpha_med": 0.03,
+    "alpha_slow": 0.02
+  },
+  "fitted_half_life_days": {
+    "alpha_fast": 2.160211,
+    "alpha_med": 11.480969,
+    "alpha_slow": 60.013096
+  },
+  "true_half_life_days": {
+    "alpha_fast": 2.0,
+    "alpha_med": 10.0,
+    "alpha_slow": 60.0
+  },
+  "cumulative_ic_20d": {
+    "alpha_fast": 0.033505,
+    "alpha_med": 0.074888,
+    "alpha_slow": 0.082404
+  },
+  "signal_autocorr_1d": {
+    "alpha_fast": 0.706207,
+    "alpha_med": 0.932551,
+    "alpha_slow": 0.988398
+  },
+  "alpha_med_ic5d_tstat_naive": 45.11122,
+  "alpha_med_ic5d_tstat_newey_west": 25.15816,
+  "daily_ic_sd_alpha_med": 0.044303,
+  "one_over_sqrt_n": 0.044721,
+  "noise_signals_abs_t_gt_2": 1,
+  "noise_signals_n": 20,
+  "q5_minus_q1_gross_bps_per_day": {
+    "alpha_fast": 17.776277,
+    "alpha_med": 13.053053,
+    "alpha_slow": 9.097038,
+    "noise_000": -1.188363
+  },
+  "q5_minus_q1_net_bps_per_day": {
+    "alpha_fast": 3.646841,
+    "alpha_med": 6.295309,
+    "alpha_slow": 6.290741,
+    "noise_000": -6.918824
+  },
+  "turnover_per_day": {
+    "alpha_fast": 0.861525,
+    "alpha_med": 0.411668,
+    "alpha_slow": 0.171303,
+    "noise_000": 0.349245
+  },
+  "sharpe_gross": {
+    "alpha_fast": 12.642551,
+    "alpha_med": 9.228571,
+    "alpha_slow": 6.339461,
+    "noise_000": -0.825367
+  },
+  "sharpe_net": {
+    "alpha_fast": 2.589909,
+    "alpha_med": 4.443093,
+    "alpha_slow": 4.383416,
+    "noise_000": -4.807215
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "lab": "13-backtest-overfitting-dsr-pbo",
+  "smoke": false,
+  "seed": 7,
+  "n_stocks": 100,
+  "n_days": 1260,
+  "n_noise_trials": 500,
+  "best_noise_is_sharpe": 2.178931,
+  "best_noise_oos_sharpe": -0.895957,
+  "planted_alpha_is_sharpe": 2.402686,
+  "planted_alpha_oos_sharpe": 1.956967,
+  "planted_alpha_full_sharpe": 2.184032,
+  "noise_beating_planted_alpha_is": 0,
+  "corr_is_oos_noise": 0.014999,
+  "expected_max_is_sharpe_theory": 2.032789,
+  "max_is_sharpe_simulated": 1.97994,
+  "oos_sharpe_of_is_winner_simulated": -0.156939,
+  "planted_alpha_avg_is_sharpe_random_halves": 2.136765,
+  "n_trials_where_luck_beats_planted_alpha": 860,
+  "best_noise_full_sharpe": 1.307592,
+  "best_noise_psr": 0.998271,
+  "best_noise_dsr": 0.342609,
+  "sr0_annualized": 1.488871,
+  "planted_alpha_dsr_by_n_trials": {
+    "1": 0.999999,
+    "10": 0.999223,
+    "100": 0.983098,
+    "500": 0.939849
+  },
+  "pbo_noise_only": 0.640559,
+  "pbo_with_planted_alpha": 0.223621,
+  "cscv_splits": 12870,
+  "pbo_noise_disjoint_groups_of_100_mean": 0.500699,
+  "pbo_noise_disjoint_groups_range": [
+    0.446698,
+    0.569775
+  ],
+  "cscv_noise_mean_oos_sharpe_of_is_winner": -0.17934
+}
