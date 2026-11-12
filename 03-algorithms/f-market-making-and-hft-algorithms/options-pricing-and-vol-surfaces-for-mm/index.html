@@ -5862,7 +5862,7 @@
 </tr>
 </tbody>
 </table>
-<p>That 0.8-vol-point gap exceeds a 0.5-point edge ($5.30 at the new vega). The hedge moves too: under sticky delta the strike's vol rises 0.40/S = 0.004 per $1, so delta is 0.511 + 11.43 × 0.004 = 0.557 (vega per share per unit of vol is also 11.43). On 1,000 contracts: 4,573 shares, about $457,000 (<a href="../hedging-algorithms/">hedging algorithms</a>).</p>
+<p>That 0.8-vol-point gap exceeds a 0.5-point edge ($5.30 at the new vega). The hedge moves too: under sticky delta the strike's vol rises 0.40/S = 0.004 per $1, so delta is 0.511 + 11.43 × 0.004 = 0.557 (vega per share per unit of vol is also 11.43). On 1,000 contracts the extra hedge is 4,573 shares, about $457,000 (<a href="../hedging-algorithms/">hedging algorithms</a>).</p>
 <h2 id="key-parameters-and-how-practitioners-tune-them">Key parameters and how practitioners tune them<a class="headerlink" href="#key-parameters-and-how-practitioners-tune-them" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Model.</strong> SVI or SSVI for indices <code>[Lore]</code>; one vendor platform fits splines with separate put and call wing slopes <code>[Verified]</code>; SABR in rates.</li>
@@ -5917,7 +5917,7 @@
 <li><strong>Wings:</strong> parabolas bend the wrong way.</li>
 <li><strong>Garbage quotes</strong> at the open and in fast markets.</li>
 <li><strong>Wrong dynamics:</strong> leaves hidden vanna.</li>
-<li><strong>0DTE and events:</strong> 0DTE was a record ~66% of SPX volume in July 2026 <code>[Reported]</code>.</li>
+<li><strong>0DTE and events:</strong> 0DTE was a record 66.2% of SPX volume in July 2026 <code>[Verified]</code>.</li>
 </ul>
 <h2 id="how-practitioners-talk-about-it">How practitioners talk about it<a class="headerlink" href="#how-practitioners-talk-about-it" title="Permanent link">&para;</a></h2>
 <ul>
@@ -5976,6 +5976,7 @@ g(k) = \left(1 - \frac{k\,w'}{2w}\right)^2 - \frac{w'^2}{4}\left(\frac{1}{w} + \
 <li>[Verified] nth Moment LLC / Vela (now Exegy) (2020-10-12). "Dynamic Skew App User Guide," v4.48 (vendor documentation for the Metro options platform). <a href="https://www.exegy.com/wp-content/uploads/2021/11/DynamicSkewApp_UserGuide.pdf">https://www.exegy.com/wp-content/uploads/2021/11/DynamicSkewApp_UserGuide.pdf</a> (accessed 2026-11)</li>
 <li>[Verified] SIAC for the OPRA Participants (2025-09-15). "Revised OPRA Capacity Projections." <a href="https://cdn.opraplan.com/documents/notices/OPRA_Capacity_Projections_Update_0925.pdf">https://cdn.opraplan.com/documents/notices/OPRA_Capacity_Projections_Update_0925.pdf</a> (accessed 2026-11)</li>
 <li>[Verified] Cboe, Schwartz, H. (2026-01-22). "The State of the Options Industry: 2025." <a href="https://www.cboe.com/insights/posts/the-state-of-the-options-industry-2025">https://www.cboe.com/insights/posts/the-state-of-the-options-industry-2025</a> (accessed 2026-11)</li>
+<li>[Verified] Cboe (2026-08). "Market Metrics That Matter: Derivatives July 2026 Volume Highlights." <a href="https://www.cboe.com/insights/posts/market-metrics-that-matter-derivatives-july-2026-volume-highlights">https://www.cboe.com/insights/posts/market-metrics-that-matter-derivatives-july-2026-volume-highlights</a> (accessed 2026-11)</li>
 <li>[Reported] CFA Institute Enterprising Investor (2024-07-31). "How well does the market predict volatility?" <a href="https://blogs.cfainstitute.org/blog/2024/07/31/how-well-does-the-market-predict-volatility">https://blogs.cfainstitute.org/blog/2024/07/31/how-well-does-the-market-predict-volatility</a> (accessed 2026-11)</li>
 </ul>
 

@@ -5725,7 +5725,7 @@
 <li>A market maker earns the distance between its quotes and fair value on each fill and loses when leftover inventory moves against it. Quoting control sets where quotes are centered and how wide they are.</li>
 <li>Avellaneda &amp; Stoikov (2008): center on a <a href="../../../09-reference/glossary/#reservation-price">reservation price</a> <span class="arithmatex">\(r = s - q\gamma\sigma^2(T-t)\)</span> that leans against inventory <span class="arithmatex">\(q\)</span>.</li>
 <li>Guéant, Lehalle &amp; Fernandez-Tapia (2013): closed-form, clock-free quotes with inventory limits, leaning a constant amount per lot.</li>
-<li>Lab 05 (synthetic): GLFT earns what naive quoting earns ($95 vs $94 an hour) at a fifth of the risk. Adverse selection cuts it to $42; cancelling stale quotes faster recovers $68; widening barely helps.</li>
+<li>Lab 05 (synthetic): GLFT earns what naive quoting earns ($95 vs $94 an hour) at a fifth of the risk. Adverse selection cuts it to $42; cancelling stale quotes faster lifts it back to $68; widening barely helps.</li>
 <li>Practice: fair value and an adverse-selection floor matter more than the formula <code>[Lore]</code>.</li>
 </ul>
 </blockquote>
@@ -5883,7 +5883,7 @@
 <li><strong>Fair value, not mid.</strong> Desks center on a microprice (Stoikov 2018) or a forecast <code>[Verified]</code>; Cartea, Jaimungal &amp; Ricci (2014) put alpha and adverse selection into the quoting problem <code>[Verified]</code>. The forecast often moves quotes more than inventory does <code>[Lore]</code>.</li>
 <li><strong>Linear skew in ticks:</strong> fair value − β·q, β a fraction of a tick per 100 shares scaled by volatility, then a floor and the grid <code>[Lore]</code>. GLFT justifies the linear, clock-free form.</li>
 <li><strong>Ticks bind.</strong> In <a href="../../../09-reference/glossary/#tick-constrained-stock">tick-constrained</a> names skew becomes which side you show and how much size <code>[Lore]</code>.</li>
-<li><strong>Offload and hedge.</strong> Menkveld's HFT market maker was passive on 78% of trades yet offloaded positions on the incumbent exchange <code>[Verified]</code>. Factor exposure goes to futures and ETFs, leaving skew for stock-specific inventory <code>[Lore]</code>.</li>
+<li><strong>Offload and hedge.</strong> Menkveld's HFT market maker was passive on 78% of its trades on both the incumbent and the entrant venue, earning the spread and losing on positions <code>[Verified]</code>. Factor exposure goes to futures and ETFs, leaving skew for stock-specific inventory <code>[Lore]</code>.</li>
 <li><strong>Real intermediaries lean.</strong> NYSE specialist price pressure averaged 0.49% with a 0.92-day half-life (Hendershott &amp; Menkveld 2014) <code>[Verified]</code>; spreads widened when specialists held large positions or lost money (Comerton-Forde et al. 2010) <code>[Verified]</code>.</li>
 </ul>
 <h2 id="how-to-tell-if-its-working">How to tell if it's working<a class="headerlink" href="#how-to-tell-if-its-working" title="Permanent link">&para;</a></h2>

@@ -5724,7 +5724,7 @@
 <ul>
 <li><a href="../../../09-reference/glossary/#fair-value">Fair value</a> is what a market maker quotes around: the mid adjusted for imbalance, flow and related instruments, over a few price changes.</li>
 <li>The weighted mid leans toward the thin side by imbalance × half-spread; Stoikov's (2018) <a href="../../../09-reference/glossary/#microprice">microprice</a> learns how much of that lean comes true.</li>
-<li>In Lab 02 (synthetic) the microprice cuts next-move forecast error only 3.5% versus the mid; the weighted mid is 41% worse. Past ~5 seconds nothing book-based beats the mid.</li>
+<li>In Lab 02 (synthetic) the microprice cuts next-move forecast error only 3.5% versus the mid; the weighted mid is 41% worse. Past ~10 seconds nothing book-based beats the mid.</li>
 <li>The book is not the information: real fair values add flow and futures or ETF leads, each shrunk.</li>
 </ul>
 </blockquote>
@@ -5869,7 +5869,7 @@
 </tbody>
 </table>
 <p>At two ticks a weighted-mid desk thinks a new 50.01 bid is 0.8 ticks cheap; the microprice says 0.31. Lab 02's test days realized 0.16 ticks by the next change: a fivefold overstatement.</p>
-<p><strong>Adding a leader</strong> (illustrative). ES ticks up 0.25 points at 6,000 (+4.17 bps). With beta 1.2 shrunk by 0.5, fair value rises 0.5 × 1.2 × 4.17 = 2.5 bps = $0.0125, to 50.0218: through the 50.01 offer. The engine cancels its own offer and may lift rivals' stale ones (<a href="../../../02-strategies/b-speed-and-structural/latency-arbitrage/">latency arbitrage</a>).</p>
+<p><strong>Adding a leader</strong> (illustrative). ES ticks up 0.25 points at 6,000 (+4.17 bps). With beta 1.2 shrunk by 0.5, fair value rises 0.5 × 1.2 × 4.17 = 2.5 bps = $0.0125, from the 1-tick microprice to 50.0218: through the 50.01 offer. The engine cancels its own offer and may lift rivals' stale ones (<a href="../../../02-strategies/b-speed-and-structural/latency-arbitrage/">latency arbitrage</a>).</p>
 <h2 id="key-parameters-and-how-practitioners-tune-them">Key parameters and how practitioners tune them<a class="headerlink" href="#key-parameters-and-how-practitioners-tune-them" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Tick regime.</strong> Queue imbalance predicts much better in large-tick stocks than small-tick ones (Gould and Bonart 2016) <code>[Verified]</code>; see <a href="../../../09-reference/glossary/#tick-constrained-stock">tick-constrained stocks</a>.</li>
