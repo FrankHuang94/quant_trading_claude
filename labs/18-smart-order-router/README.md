@@ -117,7 +117,7 @@ Everything below is **illustrative**. The fee levels are typical in size for US 
 \$0.0030 cap, but they are **not any real venue's fee schedule**. The fill rates and markouts are
 invented to be plausible.
 
-**Venues.** Fees are in $/share: `+` = fee paid, `-` = rebate received. Markouts are in bps, `+` = adverse.
+**Venues.** Fees are in \$/share: `+` = fee paid, `-` = rebate received. Markouts are in bps, `+` = adverse.
 
 | Venue | Type | Make | Take | Passive fill | Passive markout | Aggressive fill | Aggressive markout | Passive all-in | Aggressive all-in |
 |---|---|---|---|---|---|---|---|---|---|

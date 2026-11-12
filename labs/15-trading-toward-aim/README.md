@@ -59,11 +59,11 @@ python labs/15-trading-toward-aim/lab.py --seed 3     # another simulated market
 
 ## Expected output
 
-Full run, seed 7: 200 stocks, 2,520 days (the first 120 are dropped). `gamma = 2e-7` per $ and
-`lam = 3.46e-6` per $ give a **GP rate of 0.213 per day**, so the gap to the aim halves in about
+Full run, seed 7: 200 stocks, 2,520 days (the first 120 are dropped). `gamma = 2e-7` per \$ and
+`lam = 3.46e-6` per \$ give a **GP rate of 0.213 per day**, so the gap to the aim halves in about
 3 days. The myopic rate is 0.055.
 
-| Signal half-life | Measured IC | Net Sharpe, full rebalance | Net Sharpe, GP | Best net Sharpe toward Markowitz | Utility-max rate toward aim (grid) | Utility-max rate toward Markowitz (grid) | Utility, GP vs best toward Markowitz ($M/yr) |
+| Signal half-life | Measured IC | Net Sharpe, full rebalance | Net Sharpe, GP | Best net Sharpe toward Markowitz | Utility-max rate toward aim (grid) | Utility-max rate toward Markowitz (grid) | Utility, GP vs best toward Markowitz (\$M/yr) |
 |---|---|---|---|---|---|---|---|
 | 1 day | 0.0096 | −17.5 | 1.16 | 0.72 | 0.209 | 0.064 | 1.67 vs 1.09 |
 | 5 days | 0.0092 | −3.0 | 1.44 | 1.36 | 0.210 | 0.139 | 6.19 vs 5.43 |
@@ -94,7 +94,7 @@ volatility varies over time while the formula assumes a constant `Sigma`.
 
 Combined signal (half-lives 5 + 60 days), base costs:
 
-| Rule | Rate | Net Sharpe | Gross Sharpe | Utility ($M/yr) | Costs ($M/yr) | Turnover (× gross/yr) |
+| Rule | Rate | Net Sharpe | Gross Sharpe | Utility (\$M/yr) | Costs (\$M/yr) | Turnover (× gross/yr) |
 |---|---|---|---|---|---|---|
 | Full rebalance to Markowitz | 1 | −0.71 | 3.46 | −40.3 | 67.4 | 95 |
 | Myopic cost-aware | 0.055 | 2.74 | 2.80 | 15.1 | 0.7 | 13 |
@@ -144,8 +144,8 @@ market.
 | `n_stocks`, `n_days` | 200, 2,520 | 10 years, to keep Sharpe noise down |
 | planted alphas | IC 0.01 each; half-lives 1, 5, 20, 60 days | `horizon_decay = 0.5 ** (1 / half_life)`, so the signal itself is the best predictor |
 | expected return | `loading * sigma_i * score` | the simulator's true model, given to the trader |
-| `gamma` | 2e-7 per $ | risk aversion; gives a frictionless book of about \$0.86B gross for the combined signal |
-| `lam` | 3.46e-6 per $ | trading \$1M of a stock with 1.7% daily specific vol moves it about 10 bps (cost about 5 bps) `[Estimate]`, the same order as square-root-law estimates for a stock with \$50–100M ADV |
+| `gamma` | 2e-7 per \$ | risk aversion; gives a frictionless book of about \$0.86B gross for the combined signal |
+| `lam` | 3.46e-6 per \$ | trading \$1M of a stock with 1.7% daily specific vol moves it about 10 bps (cost about 5 bps) `[Estimate]`, the same order as square-root-law estimates for a stock with \$50–100M ADV |
 | `rho` | 0 | daily discount rate (negligible at daily frequency) |
 | GP rate | 0.213 per day | `gp_trade_rate(gamma, lam)` |
 | rate grid | 25 log-spaced values, 0.01 to 1 | grid search; peak refined by a parabola in log(rate) |

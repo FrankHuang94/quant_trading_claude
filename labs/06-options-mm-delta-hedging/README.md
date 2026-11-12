@@ -116,7 +116,7 @@ The wing test fits on strikes from 0.85 to 1.15 of spot and predicts the 0.80 an
   `sum 1/2 Gamma(IV_sale) S^2 (IV_sale^2 - RV^2) dt` predicts each trade's P&L (before edge and
   costs) with **R² = 0.82**: its mean is \$44.7, against \$42.3 actual. The cruder
   `vega x (IV - RV)` gets R² = 0.75.
-- **Unexplained sd $1.7.** Without the vanna and volga terms the unexplained sd would be
+- **Unexplained sd \$1.7.** Without the vanna and volga terms the unexplained sd would be
   **\$23.8**. For a straddle that drifts away from the money, the spot-vol cross term matters.
 - **Pitfall: risk dwarfs edge.** With daily hedging, 35% of trades lose money, and the
   5th-percentile trade loses \$183, against a mean gain of \$47.
@@ -182,7 +182,7 @@ to a specific market.
 | `TENOR_DAYS` | 30 trading days | straddle maturity; strike = spot at sale (ATM) |
 | `trade_every` | 5 days (smoke: 10) | a new straddle each week; trades overlap 6x |
 | `EDGE_VOL` | 0.005 (0.5 vol pt) | sold at fitted ATM vol + edge, about 2.5% of premium `[Estimate]` |
-| `COST_BPS` | 1 bp per $ of stock traded | half-spread + fees on the hedge; liquid large cap or ETF `[Estimate]` |
+| `COST_BPS` | 1 bp per \$ of stock traded | half-spread + fees on the hedge; liquid large cap or ETF `[Estimate]` |
 | `TIME_POLICIES` | 15 min, hourly, daily, weekly | time-based rebalancing back to zero delta |
 | `DELTA_BANDS` | ±0.05, ±0.10 per share | move-based: rebalance when net delta (per straddle share) leaves the band |
 | `MULT` | 100 | contract multiplier |

@@ -99,9 +99,9 @@ square-root impact law. They are not a calibration to any real stock.
 | `T`, `n` | 5 days, 50 intervals | 10 intervals per day (about 39 minutes each) |
 | `sigma` | 2% per day = \$1.00/share/sqrt(day) | about 32% annualized, typical of a large-cap stock `[Estimate]` |
 | `epsilon` | 1.5 bps = \$0.0075/share | half of a 3 bps quoted spread `[Estimate]` |
-| `eta` | 5e-8 $/share per (share/day) | temporary impact of 20 bps when trading at 10% of ADV per day (the TWAP rate) |
-| `gamma` | 2.5e-8 $/share per share | permanent impact of 50 bps once the full order (50% of ADV) is done |
-| `lambda` | 0, 1e-9, 1e-8, 1e-7, 1e-6 per $ | risk aversion; urgency half-lives of infinity, 4.8, 1.5, 0.48 and 0.15 days |
+| `eta` | 5e-8 \$/share per (share/day) | temporary impact of 20 bps when trading at 10% of ADV per day (the TWAP rate) |
+| `gamma` | 2.5e-8 \$/share per share | permanent impact of 50 bps once the full order (50% of ADV) is done |
+| `lambda` | 0, 1e-9, 1e-8, 1e-7, 1e-6 per \$ | risk aversion; urgency half-lives of infinity, 4.8, 1.5, 0.48 and 0.15 days |
 | MC paths | 40,000 (smoke: 2,000) | common random numbers across schedules |
 
 How the impact parameters were chosen `[Estimate]`:

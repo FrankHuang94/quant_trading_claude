@@ -89,8 +89,9 @@ residual return:
 
 - **Naive CV picks the wrong model.** Shuffled K-fold ranks GBDT first by a wide margin
   (0.127); both purged schemes rank it last among the fitted combiners. GBDT's in-sample IC in
-  the last walk-forward fold is 0.238 against 0.066 out of sample. Ridge leaks only +0.002
-  (in-sample 0.084, OOS 0.085).
+  the last walk-forward fold is 0.238 against 0.066 out of sample. Ridge barely moves: shuffled
+  K-fold scores it only +0.002 above walk-forward (0.087 vs 0.085), and its in-sample IC in that
+  fold (0.084) is no higher than out of sample.
 - **Ridge wins out of sample** and matches the oracle (0.085 vs 0.087). IC weighting comes
   close but double-counts the duplicate: in the last fold it gives `alpha_fast` +
   `alpha_fast_v2` 43% of the weight, while ridge gives the duplicate only 6% of its absolute
