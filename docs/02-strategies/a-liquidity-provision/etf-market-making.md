@@ -21,7 +21,7 @@
 | Core algorithms used | [M2 Fair value and microprice](../../03-algorithms/f-market-making-and-hft-algorithms/fair-value-and-microprice.md) · [M4 Quoting and inventory control](../../03-algorithms/f-market-making-and-hft-algorithms/quoting-and-inventory-control.md) · [M7 Hedging algorithms](../../03-algorithms/f-market-making-and-hft-algorithms/hedging-algorithms.md) · [P5 Transaction cost and impact models](../../03-algorithms/d-portfolio-construction/transaction-cost-and-impact-models.md) |
 | Infra intensity | high: low-latency quoting on thousands of tickers, heavy reference data, RFQ systems |
 | Capacity (rough $ range) | P&L-limited: hundreds of \$M to ~\$2B a year for a top US book `[Estimate]` (2.5 bps on Jane Street's reported ~\$8.5T 2024 ETF volume, an upper bound) |
-| Typical Sharpe (gross vs net) | No strategy disclosure. Gross daily Sharpe said to exceed 3 for diversified books `[Lore]`. Net, firm level: Flow Traders' 2025 EBITDA margin 41%, Q4 NTI −20% year on year `[Reported]`. Margins compressed, not gone. |
+| Typical Sharpe (gross vs net) | No strategy disclosure. Annualized gross Sharpe said to exceed 3 for diversified books `[Lore]`. Net, firm level: Flow Traders' 2025 EBITDA margin 41%, Q4 NTI −20% year on year `[Reported]`. Margins compressed, not gone. |
 | Turnover | very high: inventory turns many times a day |
 | Main risks / failure modes | unpriceable baskets (halts, closed markets), hedge basis breaks, informed flow, balance-sheet limits, basket-file errors |
 | Crowding risk | high in the largest funds (one-tick spreads); lower in bond, international and niche ETFs |

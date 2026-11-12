@@ -15,12 +15,12 @@
 | Family | speed & structural |
 | Edge source | structural/regulatory · liquidity provision |
 | Holding period | seconds to minutes (rebate capture); milliseconds for order-type and odd-lot edges |
-| Counterparty: who pays and why they accept it | Takers paying access fees, and naive routers that rest at queue backs or chase rebates, filling mostly before adverse moves. They accept because the cost is a fraction of a cent per share, buried in commissions; exchange fee schedules do the redistributing. |
+| Counterparty: who pays and why they accept it | Takers paying access fees, and naive routers that rest at queue backs or chase rebates, filling mostly before adverse moves. They accept because the cost is a fraction of a cent per share, buried in commissions. |
 | Universe & instruments | tick-constrained stocks; high-priced stocks that trade in odd lots; ETFs; all lit venues and midpoint ATSs |
 | Data required | fee schedules and tier status; direct feeds with odd lots; queue estimates; venue-level markouts |
 | Core algorithms used | [E4 Smart order routing](../../03-algorithms/e-execution-algorithms/smart-order-routing.md) · [M6 Queue position and order placement](../../03-algorithms/f-market-making-and-hft-algorithms/queue-position-and-order-placement.md) · [M4 Quoting and inventory control](../../03-algorithms/f-market-making-and-hft-algorithms/quoting-and-inventory-control.md) · [M5 Adverse selection and markouts](../../03-algorithms/f-market-making-and-hft-algorithms/adverse-selection-and-markouts.md) |
 | Infra intensity | medium-high: colocation and direct feeds to manage queues; microwave not required |
-| Capacity (rough $ range) | \$10–100M/yr net for a large market maker `[Estimate]` (a fraction of a mil to a few mils per share on 100–500M shares/day) |
+| Capacity (rough $ range) | \$10–100M/yr net for a large market maker `[Estimate]` (roughly 4–8 mils, \$0.0004–\$0.0008, of net fee and queue edge per share on 100–500M shares/day × 250 days) |
 | Typical Sharpe (gross vs net) | rarely standalone; part of very stable market-making P&L `[Lore]`; net near zero for sub-scale players `[Estimate]`; no disclosures; would shrink under the 2027 rules |
 | Turnover | very high; flat by the close |
 | Main risks / failure modes | fee and tier changes; rule changes; adverse selection outrunning rebates; enforcement |
@@ -30,7 +30,7 @@
 
 ## Intuition (the story in plain English)
 
-A one-cent spread in a \$10 stock is a hard floor: no exchange can display $10.005. Fee schedules let traders deal in fractions of a cent anyway: the same \$10.00 bid nets a passive buyer less than \$10.00 on a rebate-paying venue and more on an inverted one. The displayed price is not the price; the net-of-fee price is. Strategies live in that gap: earning rebates, buying priority, posting [odd lots](../../09-reference/glossary.md#odd-lot) inside the spread, and exploiting order-type behavior ([Fees, rebates and ticks](../../01-market-structure/fees-rebates-and-ticks.md)).
+A one-cent spread in a \$10 stock is a hard floor: no exchange can display \$10.005. Fee schedules let traders deal in fractions of a cent anyway: the same \$10.00 bid nets a passive buyer less than \$10.00 on a rebate-paying venue and more on an inverted one. The displayed price is not the price; the net-of-fee price is. Strategies live in that gap: earning rebates, buying priority, posting [odd lots](../../09-reference/glossary.md#odd-lot) inside the spread, and exploiting order-type behavior ([Fees, rebates and ticks](../../01-market-structure/fees-rebates-and-ticks.md)).
 
 ## Economic rationale: why should this make money at all?
 
@@ -46,7 +46,7 @@ Reg NMS caps take fees at 30 mils (\$0.0030) and fixes a one-cent tick above \$1
 
 ## Worked example with numbers
 
-Illustrative schedules, close to Nasdaq's top tier and Cboe BYX's inverted schedule `[Verified]`: venue A charges takers 30 mils and pays makers 29; venue B charges makers 15 mils and pays takers 2. Stock quoted \$10.00 × $10.01.
+Illustrative schedules, close to Nasdaq's top tier and Cboe BYX's inverted schedule `[Verified]`: venue A charges takers 30 mils and pays makers 29; venue B charges makers 15 mils and pays takers 2. Stock quoted \$10.00 × \$10.01.
 
 | At the \$10.00 bid | Venue A | Venue B |
 |---|---|---|
@@ -56,7 +56,7 @@ Illustrative schedules, close to Nasdaq's top tier and Cboe BYX's inverted sched
 
 Sellers hit B first (0.32¢ more), so 0.44¢ buys the front of the line.
 
-Rebate capture: buy 1,000 shares passively at \$10.00 on A ($ per 1,000 shares).
+Rebate capture: buy 1,000 shares passively at \$10.00 on A (\$ per 1,000 shares).
 
 | Outcome (probability) | Today: 1¢ tick, 29-mil rebate | Under 2024 rules: ½¢ tick, 9-mil rebate |
 |---|---|---|
@@ -95,13 +95,13 @@ def net_take_price(price, side, v):
 - **Tiers.** Near a monthly volume threshold the marginal share is worth far more than the average; trading with yourself to get there is illegal wash trading.
 - **Odd lots.** Odd-lot quotes inside the NBBO were invisible on the SIP; price-tiered round lots (2025-11-03) and the SIP odd-lot best quote (late April 2026) shrink that edge, with depth deferred to May 2028 `[Reported]`.
 - **Midpoint.** Pegs save half the spread but get picked off before NBBO moves; IEX's crumbling-quote indicator guards against this `[Verified]`.
-- **Locked markets.** Post-only orders that would lock are repriced; a pending June 2026 proposal would repeal that ban with Rule 611 `[Verified]`.
+- **Locked markets.** Post-only orders that would lock are repriced; a pending June 2026 proposal would repeal that ban (Rule 610(e)) with Rule 611 `[Verified]`.
 
 ## P&L decomposition
 
-Illustrative, per 1M shares of passive volume, from the "today" column above.
+Illustrative: 1,000 round trips like the "today" column (1M shares bought passively). Across a whole book, with worse setups, net edge falls to the few mils in the header.
 
-| Line | $ |
+| Line | \$ |
 |---|---|
 | Spread captured | +4,000 |
 | Maker rebates | +5,075 |
@@ -157,7 +157,7 @@ flowchart LR
 - "We're 2M shares short of the top tier." → Month-end volume decides the rebate rate.
 - "Back-of-queue fills are toxic." → Those fills come just before the price drops.
 - "Odd lots are the real inside in that name." → In a high-priced stock, the best prices sit in odd lots.
-- "Net capture is half a mil after markouts." → Spread plus rebate minus adverse selection, per share.
+- "Net capture is four mils after markouts." → Spread plus rebate minus adverse selection, per share.
 
 ## Myths vs reality
 

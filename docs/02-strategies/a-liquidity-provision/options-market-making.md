@@ -5,7 +5,7 @@
 > - Quote two-sided prices on thousands of series per underlying, all read off one fitted [volatility surface](../../09-reference/glossary.md#volatility-surface); 4.87 million US option series traded in 2025 `[Verified]`.
 > - Revenue is edge (price minus theoretical value). Inventory is held as Greeks: delta hedged within seconds, gamma and vega warehoused and shaded away through quotes.
 > - As an income statement: edge is revenue; theta minus gamma is realized-vs-implied volatility; vega is a mark; hedging, fees and [payment for order flow](../../09-reference/glossary.md#payment-for-order-flow-pfof) are costs.
-> - Retail drives the flow: over 60% of volume (Bryzgalova et al. 2023), and options PFOF is two-thirds of all PFOF `[Verified]`. 0DTE was 66.2% of SPX volume in July 2026 `[Verified]`. All trades execute on 20 exchanges `[Verified]`.
+> - Retail drives the flow: over 60% of volume (Bryzgalova et al. 2023) `[Verified]`, and options PFOF is two-thirds of all PFOF `[Verified]`. 0DTE was 66.2% of SPX volume in July 2026 `[Verified]`. All trades execute on 20 exchanges `[Verified]`.
 > - It fails on gaps and volatility spikes: one session can erase weeks of theta.
 
 **Level:** Core · **Read time:** ~10 min · **Last verified:** 2026-11
@@ -231,7 +231,7 @@ $$
 \hat\sigma^2 = \sigma^2\left(1 + \sqrt{\tfrac{2}{\pi}}\;\frac{k}{\sigma\sqrt{\Delta t}}\right).
 $$
 
-At $\sigma = 20\%$ and $k = 2$ bp, 15-minute hedging needs ~0.6 vol points of extra edge and daily hedging ~0.13. Lab 06 quoted 0.5, so 15-minute hedging lost money net.
+At $\sigma = 20\%$ and $k = 2$ bp, 15-minute hedging needs ~0.6 vol points of extra edge and daily hedging ~0.13. Lab 06 quoted 0.5, so at 15-minute hedging the costs (\$14.9) exceeded the quoted edge (\$13.1).
 
 </details>
 

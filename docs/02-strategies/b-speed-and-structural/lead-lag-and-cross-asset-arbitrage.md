@@ -19,7 +19,7 @@
 | Data required | CME and equity direct feeds with synchronized clocks; ETF holdings; FX for ADRs |
 | Core algorithms used | [M2 Fair value and microprice](../../03-algorithms/f-market-making-and-hft-algorithms/fair-value-and-microprice.md) · [F1 Linear models and regularization](../../03-algorithms/b-forecasting-models/linear-models-and-regularization.md) · [M3 Order-book and trade-flow signals](../../03-algorithms/f-market-making-and-hft-algorithms/order-book-and-trade-flow-signals.md) · [M7 Hedging algorithms](../../03-algorithms/f-market-making-and-hft-algorithms/hedging-algorithms.md) |
 | Infra intensity | extreme for sub-ms futures to cash; moderate at seconds; low for ADRs |
-| Capacity (rough $ range) | fast end: tens of $M/yr P&L for a top firm; slow end: a few hundred $M of gross intraday positions `[Estimate]` (fast end shares the latency-arbitrage pool; slow end is capped by follower liquidity) |
+| Capacity (rough $ range) | fast end: tens of \$M/yr P&L for a top firm; slow end: a few hundred \$M of gross intraday positions `[Estimate]` (fast end shares the latency-arbitrage pool; slow end is capped by follower liquidity) |
 | Typical Sharpe (gross vs net) | fast end: very high for the fastest, near zero for the rest `[Lore]`; seconds-to-minutes books: gross 2–4, net 1–2 `[Estimate]` (practitioner estimate: many small bets, low R²); no disclosures; fast windows decayed 2005–2011 |
 | Turnover | very high; inventory flattened intraday |
 | Main risks / failure modes | beta breaks on stock news, leader noise, coarse hedges, rank loss, halts |
@@ -47,11 +47,11 @@ Informed traders concentrate in the leader, so it carries most of the [informati
 
 **Speed** `[Estimate]`: Aurora to New Jersey is ~1,175 km, 3.92 ms at vacuum light speed; microwave reached 3.982 ms (2016) and the best fiber took 6.65 ms (2013) `[Reported]`. Fiber users arrive ~2.7 ms after the race ends.
 
-**Fair value** (illustrative): ES at 6,000 ticks up 0.25; a \$200 stock has 100 ms beta 1.3, shrunk by 0.5.
+**Fair value** (illustrative): ES at 6,000 jumps 2.5 points (10 ticks) on a headline; a \$200 stock has 100 ms beta 1.3, shrunk by 0.5.
 
 | Step | Calculation | Result |
 |---|---|---|
-| Leader return | 0.25 / 6,000 | +4.17 bps |
+| Leader return | 2.5 / 6,000 | +4.17 bps |
 | Implied follower move | 0.5 × 1.3 × 4.17 bps × \$200 | +\$0.054 |
 | New fair value | mid 199.99 + 0.054 | 200.044 |
 | Edge on stale 200.00 ask after 0.3¢ fee | 4.4¢ − 0.3¢ | 4.1¢/share |
@@ -95,7 +95,7 @@ def decide(fv, best_bid, best_ask, take_fee=0.003, edge_ticks=0.5, tick=0.01):
 
 Illustrative seconds-scale taking book, 3M shares/day.
 
-| Line | ¢/share | $k/day |
+| Line | ¢/share | \$k/day |
 |---|---|---|
 | Predicted move captured | +0.80 | +24.0 |
 | Take fees | −0.30 | −9.0 |

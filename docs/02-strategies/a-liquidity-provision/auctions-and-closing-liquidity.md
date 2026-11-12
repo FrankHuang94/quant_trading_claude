@@ -29,7 +29,7 @@
 
 ## Intuition (the story in plain English)
 
-At 3:50 p.m. NYSE publishes: "XYZ, 300,000 shares to buy at the close, indicative $50.10." The buyers are mostly index funds that must own XYZ at the 4:00 print, whatever it is. Someone has to sell 300,000 shares they may not own and carry the short overnight. That someone sets the closing price, and is paid by selling a few cents above where XYZ will trade tomorrow morning.
+At 3:50 p.m. NYSE publishes: "XYZ, 300,000 shares to buy at the close, indicative \$50.10." The buyers are mostly index funds that must own XYZ at the 4:00 print, whatever it is. Someone has to sell 300,000 shares they may not own and carry the short overnight. That someone sets the closing price, and is paid by selling a few cents above where XYZ will trade tomorrow morning.
 
 ## Economic rationale: why should this make money at all?
 
@@ -49,7 +49,7 @@ The concession is small: closing prices typically match pre-close bid or ask pri
 
 ## Worked example with numbers
 
-Illustrative, extending the example in [order types and auctions](../../01-market-structure/order-types-and-auctions.md). XYZ last \$50.00; [MOC](../../09-reference/glossary.md#market-on-close-moc) buys 1.2M, MOC sells 0.9M; other sell limits: 100k at \$50.02, 150k at \$50.05, 200k at $50.10. Alone, the close would print $50.10. We add a 100k sell at limit $50.04.
+Illustrative, extending the example in [order types and auctions](../../01-market-structure/order-types-and-auctions.md). XYZ last \$50.00; [MOC](../../09-reference/glossary.md#market-on-close-moc) buys 1.2M, MOC sells 0.9M; other sell limits: 100k at \$50.02, 150k at \$50.05, 200k at \$50.10. Alone, the close would print \$50.10. We add a 100k sell at limit \$50.04.
 
 | Price | Buys | Sells | Matched |
 |---|---|---|---|
@@ -57,9 +57,9 @@ Illustrative, extending the example in [order types and auctions](../../01-marke
 | 50.05 | 1.20M | 1.25M | **1.20M** |
 | 50.10 | 1.20M | 1.45M | 1.20M |
 
-The close is \$50.05 (maximum volume, smallest surplus); MOC buyers pay \$60,000 less. Next morning we buy back at $50.015.
+The close is \$50.05 (maximum volume, smallest surplus); MOC buyers pay \$60,000 less. Next morning we buy back at \$50.015.
 
-| Line | $ |
+| Line | \$ |
 |---|---|
 | Gross: 100,000 × (50.05 − 50.015) | +3,500 |
 | Auction and take fees | −400 |
@@ -104,7 +104,7 @@ def size_auction_offer(msg, s):
 
 Illustrative provider absorbing \$300M of imbalances a day, \$75B a year.
 
-| Line | bps | $M/yr |
+| Line | bps | \$M/yr |
 |---|---|---|
 | Concession captured (fill vs exit) | +6.0 | +45.0 |
 | Informed or continuing imbalances | −2.4 | −18.0 |

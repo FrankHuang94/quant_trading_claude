@@ -46,7 +46,7 @@ Our view `[Estimate]` (reasoning: the persistence column): edges where the count
 
 The [Sharpe ratio](../09-reference/glossary.md#sharpe-ratio) is excess return over volatility; the [information ratio](../09-reference/glossary.md#information-ratio) applies it to active return. Only the net figure pays anyone.
 
-Short-horizon strategies post higher Sharpe ratios because they make many small, nearly independent bets; annualized Sharpe scales with the square root of independent bets per year. A daily Sharpe of 0.2 annualizes to 0.2 × √252 ≈ 3.2. Virtu's 2014 IPO filing showed one losing day in 1,238 `[Reported]`. If daily P&L were normal, that would imply a daily Sharpe near 3.2 and an annualized figure around 50 `[Estimate]` (illustrative; P&L has fat tails). The price of that Sharpe is capacity: such books cannot absorb billions.
+Short-horizon strategies post higher Sharpe ratios because they make many small, nearly independent bets; annualized Sharpe scales with the square root of independent bets per year. A daily Sharpe of 0.2 annualizes to 0.2 × √252 ≈ 3.2. Virtu's 2014 IPO filing showed one losing day in 1,238 (2009–2013) `[Reported]`. If daily P&L were normal, that would imply a daily Sharpe near 3.2 and an annualized figure around 50 `[Estimate]` (illustrative; P&L has fat tails). The price of that Sharpe is capacity: such books cannot absorb billions.
 
 Confidence grows slowly: the t-statistic is roughly Sharpe × √years, so a true Sharpe of 0.75 needs about seven years to reach t = 2. Lo (2002) shows serial correlation can distort annualized Sharpe ratios `[Verified]`. Harvey, Liu and Zhu argue a new factor needs t > 3, not 2, given how many have been tried `[Verified]`. The [deflated Sharpe ratio](../09-reference/glossary.md#deflated-sharpe-ratio) of Bailey and López de Prado corrects for the number of trials and for non-normality `[Verified]` (see [overfitting and multiple testing](../03-algorithms/c-validation-and-backtesting/overfitting-and-multiple-testing.md)).
 
@@ -68,7 +68,7 @@ Novy-Marx and Velikov agree: most anomalies with under 50% monthly one-sided tur
 
 ### Capacity
 
-Capacity is the size at which marginal net alpha reaches zero, or net Sharpe hits the hurdle; impact rises roughly with the square root of participation. An AQR study using live execution data estimated break-even fund sizes for US long-short size, value and momentum factors of roughly \$52–103B `[Reported]` (2012 draft; one manager's costs). For latency-sensitive strategies, capacity is better counted in P&L than in capital: the edge per trade is a fraction of a tick, and the whole global latency-arbitrage pool in equities has been estimated at about \$5B a year (Aquilina, Budish and O'Neill) `[Reported]`.
+Capacity is the size at which marginal net alpha reaches zero, or net Sharpe hits the hurdle; impact rises roughly with the square root of participation. An AQR study using live execution data estimated break-even fund sizes for US long-short size, value and momentum factors of \$103B, \$83B and \$52B `[Verified]` (2012 working paper; one manager's 1998–2011 costs; an upper bound, since rivals share the capacity). For latency-sensitive strategies, capacity is better counted in P&L than in capital: the edge per trade is a fraction of a tick, and the whole global latency-arbitrage pool in equities has been estimated at about \$5B a year (Aquilina, Budish and O'Neill) `[Verified]`.
 
 ### Correlation to the book: the marginal Sharpe test
 
@@ -146,7 +146,7 @@ $$ IR \approx TC \times IC \times \sqrt{BR} $$
 
 Long-only limits, turnover caps and neutrality constraints push TC below 1; their paper reports realized performance at about 0.3–0.8 of the unconstrained law's prediction `[Verified]`.
 
-Illustration: IC = 0.03 on 500 stocks rebalanced monthly gives BR = 6,000 if bets were independent, so IR ≈ 0.03 × 77 ≈ 2.3; with TC = 0.5, 1.2; if correlation cuts effective breadth to 1,500, 0.58. Breadth counts independent bets, not trades.
+Illustration: IC = 0.03 on 500 stocks rebalanced monthly gives BR = 6,000 if bets were independent, so IR ≈ 0.03 × 77 ≈ 2.3; with TC = 0.5, 1.2; if correlation also cuts effective breadth to 1,500, 0.58. Breadth counts independent bets, not trades.
 
 </details>
 
@@ -190,7 +190,7 @@ and the optimal risk weight on the candidate is proportional to $S_n - \rho S_b$
 - [Verified] Khandani, A. E. & Lo, A. W. (2011). "What happened to the quants in August 2007? Evidence from factors and transactions data." *Journal of Financial Markets* 14(1), 1–46. <https://doi.org/10.1016/j.finmar.2010.07.005> (accessed 2026-11)
 - [Verified] Aquilina, M., Budish, E. & O'Neill, P. (2022). "Quantifying the High-Frequency Trading 'Arms Race'." *Quarterly Journal of Economics* 137(1), 493–564. <https://doi.org/10.1093/qje/qjab032> (accessed 2026-11)
 - [Reported] Benhamou, E. & Guez, B. (2018). "Incremental Sharpe and other performance ratios." arXiv:1807.09864. <https://arxiv.org/abs/1807.09864> (accessed 2026-11)
-- [Reported] Frazzini, A., Israel, R. & Moskowitz, T. J. (2018). "Trading Costs." SSRN working paper 3229719 (break-even fund sizes are from the 2012 draft, "Trading Costs of Asset Pricing Anomalies"). <https://papers.ssrn.com/abstract=3229719> (accessed 2026-11)
+- [Verified] Frazzini, A., Israel, R. & Moskowitz, T. J. (2012). "Trading Costs of Asset Pricing Anomalies." AQR working paper (break-even fund sizes; later revised as "Trading Costs," SSRN 3229719). <https://www.aqr.com/Insights/Research/Working-Paper/Trading-Costs-of-Asset-Pricing-Anomalies> (accessed 2026-11)
 - [Reported] Bloomberg (2014-06-04). "Virtu Touting Near-Perfect Record of Profits Backfired, CEO Says." <https://www.bloomberg.com/news/articles/2014-06-04/virtu-touting-near-perfect-record-of-profits-backfired-ceo-says> (accessed 2026-11)
 - [Reported] Neudata (2026). "The state of the alternative data market in 2026." <https://www.neudata.co/intelligence/the-state-of-the-alternative-data-market-in-2026> (accessed 2026-11)
 - [Reported] eFinancialCareers (n.d.). Article on Millennium jobs and stop-loss practice, citing the Wall Street Journal. <https://www.efinancialcareers.com/news/millennium-hedge-fund-jobs> (accessed 2026-11)

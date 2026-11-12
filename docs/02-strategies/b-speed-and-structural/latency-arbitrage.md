@@ -3,7 +3,7 @@
 > **TL;DR**
 >
 > - Latency arbitrage trades against quotes left stale for microseconds after public news (a futures tick, a sweep on another venue) moved fair value. Whoever reaches the matching engine first wins.
-> - It is a race, not a forecast: in London Stock Exchange data the winner beat the first loser by a modal 5–10 µs, and races were about 22% of FTSE 100 volume `[Verified]`.
+> - It is a race, not a forecast: in London Stock Exchange data the winner beat the first loser by a modal 5–10 µs, and races were about 20% of FTSE 100 volume `[Verified]`.
 > - Sniped quoters pay first and investors pay last, through wider spreads: a "tax" of roughly 0.5 bp of trading volume, about \$5B a year globally `[Verified]`.
 > - The edge is rank, not capital. Speed bumps (IEX) blunt it on one venue only.
 
@@ -19,8 +19,8 @@
 | Data required | direct feeds from every venue and CME; synchronized hardware timestamps |
 | Core algorithms used | [M1 Anatomy of an HFT trading loop](../../03-algorithms/f-market-making-and-hft-algorithms/anatomy-of-an-hft-trading-loop.md) · [M2 Fair value and microprice](../../03-algorithms/f-market-making-and-hft-algorithms/fair-value-and-microprice.md) · [M3 Order-book and trade-flow signals](../../03-algorithms/f-market-making-and-hft-algorithms/order-book-and-trade-flow-signals.md) · [M9 Algorithmic risk controls](../../03-algorithms/f-market-making-and-hft-algorithms/algorithmic-risk-controls.md) |
 | Infra intensity | extreme: colocation, FPGA tick-to-trade, microwave or millimeter-wave links |
-| Capacity (rough $ range) | P&L-limited, not capital-limited: US pool roughly \$1–3B/yr, a top firm tens to low hundreds of $M `[Estimate]` (from ABO's ~\$5B global figure and top-6 concentration) |
-| Typical Sharpe (gross vs net) | Not meaningful on capital. Fastest firm: gross daily Sharpe far above 5; runner-up near zero `[Lore]`. No fund disclosures. Profits track latency rank (Baron et al. 2019, academic) `[Verified]`; per-race profit held flat 2005–2011 (BCS) `[Verified]` |
+| Capacity (rough $ range) | P&L-limited, not capital-limited: US pool roughly \$1–3B/yr, a top firm tens to low hundreds of \$M `[Estimate]` (from ABO's ~\$5B global figure and top-6 concentration) |
+| Typical Sharpe (gross vs net) | Not meaningful on capital. Fastest firm: annualized gross Sharpe far above 5; runner-up near zero `[Lore]`. No fund disclosures. Profits track latency rank (Baron et al. 2019, academic) `[Verified]`; per-race profit held flat 2005–2011 (BCS) `[Verified]` |
 | Turnover | extreme: about one race per minute per FTSE 100 stock `[Verified]` |
 | Main risks / failure modes | rank loss, false triggers, hedge-leg slippage, rain fade, runaway code, venue redesign |
 | Crowding risk | extreme: winner-take-most among a handful of firms |
@@ -44,11 +44,11 @@ Budish, Cramton & Shim (2015) call it a design flaw. A continuous [limit order b
 
 ## Worked example with numbers
 
-Illustrative. Index 6,000, SPY ≈ $600. ES ticks up 0.25 points (4.2 bps); SPY fair value rises ≈ \$0.025, from a 599.995 mid to ≈ 600.02. Three venues still offer 2,000 shares at 600.00.
+Illustrative. Index 6,000, SPY ≈ \$600. ES ticks up 0.25 points (0.42 bp); SPY fair value rises ≈ \$0.025, from a 599.995 mid to ≈ 600.02. Three venues still offer 600, 600 and 800 shares at 600.00.
 
-| Step | Calculation | $ |
+| Step | Calculation | \$ |
 |---|---|---|
-| Win 2 of 3 venues | 1,200 shares at 600.00 | 720,000 notional |
+| Win the two 600-share venues | 1,200 shares at 600.00 | 720,000 notional |
 | Stale-quote edge | 1,200 × 0.02 | +24.00 |
 | Take fee | 1,200 × 0.0030 | −3.60 |
 | Exit slippage | 1,200 × 0.005 | −6.00 |
@@ -90,7 +90,7 @@ def on_leader_update(leader_mid, st):
 
 Illustrative: 8M shares/day of race fills, 250 days.
 
-| Line | ¢/share | $M/yr |
+| Line | ¢/share | \$M/yr |
 |---|---|---|
 | Stale-quote capture | +1.20 | +24.0 |
 | Take fees | −0.30 | −6.0 |

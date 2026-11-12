@@ -4,7 +4,7 @@
 >
 > - Electronic market makers quote both sides of thousands of US stocks, earn the half-spread plus rebates, and pay [adverse selection](../../09-reference/glossary.md#adverse-selection) to informed traders. Net margin is about a tenth of a cent per share `[Estimate]`.
 > - Menkveld (2013): one HFT market maker earned €0.88 gross per trade, a €1.55 net spread less a €0.68 loss on positions; gross Sharpe 9.35 `[Verified]`.
-> - The edge is fair value, speed (cancelling stale quotes in time) and cost per share, more than the quoting formula. Lab 05 (synthetic): adverse selection cuts an optimal quoter from \$95 to \$42 an hour; faster cancels recover \$68.
+> - The edge is fair value, speed (cancelling stale quotes in time) and cost per share, more than the quoting formula. Lab 05 (synthetic): adverse selection cuts an optimal quoter from \$95 to \$42 an hour; cancelling half the stale quotes in time lifts it to \$68.
 > - It fails through adverse-selection spikes, technology errors (Knight Capital, over \$460M in 45 minutes, 2012 `[Verified]`) and volatility events. The half-penny tick and 10-mil fee cap, delayed to November 2027 `[Verified]`, would reprice it.
 
 **Level:** Core · **Read time:** ~12 min · **Last verified:** 2026-11
@@ -83,6 +83,7 @@ def requote(stock, s, p):
     q = s.inventory[stock] - s.hedged_lots(stock)                    # M7: factor part already hedged
     d_bid, d_ask = glft_quotes(q, p.gamma, s.sigma[stock], p.A, p.k, p.q_max)   # M4, Lab 05
     floor = s.exp_markout[stock] + s.fee_net_of_rebate(stock)        # M5: e.g. 60 s markout, cents
+    # (Lab 05 instead adds a fixed 'widen' to both distances; this max() floor is a simplification)
     bid = floor_to_tick(fair - max(d_bid, floor))                     # M6: 1-cent grid
     ask = ceil_to_tick(fair + max(d_ask, floor))
     if s.risk.ok(stock, bid, ask):                                    # M9: limits, collars, kill switch
@@ -102,7 +103,7 @@ Synthetic lab result: GLFT earns \$95 an hour (sd \$46) against naive's \$94 (sd
 
 ![Lab 04: markouts by counterparty](../../assets/labs/lab04-markouts-by-counterparty.png)
 
-*Lab 04, synthetic. Informed fills turn negative after about 5 seconds and settle near −1.5 bps; uninformed fills stay above +2 bps.*
+*Lab 04, synthetic. Informed fills turn negative after about 5 seconds and settle near −1.5 bps; uninformed fills stay positive, +1.5 to +2.2 bps.*
 
 In Lab 04 (synthetic lab result) liquidity providers capture \$77,818 a day of spread, lose \$49,723 to adverse selection at 60 seconds and keep 36%.
 

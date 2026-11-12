@@ -3,7 +3,7 @@
 > **TL;DR**
 >
 > - Three trades tie one index exposure together: ETF vs basket (creation and redemption), futures vs basket (carry), ETF vs constituents (statistical).
-> - Each lives inside a **no-arbitrage band**, the cheapest arbitrageur's all-in cost: ±7.4 bps on average in Lab 07, 14.9 bps in stress (synthetic lab result). Trade inside your band and you lose.
+> - Each lives inside a **no-arbitrage band**, the cheapest arbitrageur's all-in cost: ±7.4 bps on average in Lab 07, up to 14.9 bps in stress (synthetic lab result). Trade inside your band and you lose.
 > - Competition turned pure index arbitrage into a speed race and a financing market, with the basis quoted in bps `[Verified]`.
 > - It fails when the basket cannot be traded: halts, closed markets, capacity limits.
 
@@ -138,7 +138,7 @@ Pure [index arbitrage](../../09-reference/glossary.md#index-arbitrage) is decade
 
 ## How it fails
 
-- **Illiquid basket:** stress widens the band (14.9 vs 7.4 bps in Lab 07).
+- **Illiquid basket:** stress widens the band (up to 14.9 vs 7.4 bps on average in Lab 07).
 - **Halts:** 24 August 2015 brought 1,278 [LULD](../../09-reference/glossary.md#limit-up-limit-down-luld) halts, 1,058 in 327 ETPs `[Verified]`.
 - **Capacity:** LQD closed at a 5.0% discount in the week to 20 March 2020 `[Reported]`; bond-ETF discounts disappeared once the Fed announced bond purchases (Haddad, Moreira & Muir 2021) `[Verified]`.
 - **Legs:** borrow recalls, dividend surprises, financing spikes; a discount to stale NAV is no arbitrage.
