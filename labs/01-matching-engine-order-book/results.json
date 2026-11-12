@@ -1,0 +1,222 @@
+{
+  "lab": "01-matching-engine-order-book",
+  "smoke": false,
+  "seed": 7,
+  "demo": {
+    "fills_market_sell_400": [
+      [
+        "A",
+        300,
+        10.0
+      ],
+      [
+        "B",
+        100,
+        10.0
+      ]
+    ],
+    "g_shares_ahead_before_after_cancel": [
+      100,
+      0
+    ],
+    "fills_marketable_buy_500": [
+      [
+        "D",
+        100,
+        10.01
+      ],
+      [
+        "E",
+        300,
+        10.01
+      ]
+    ],
+    "h_resting_size": 100,
+    "final_best_bid": 10.01,
+    "final_best_ask": 10.02
+  },
+  "n_days": 3,
+  "seconds_per_day": 23400,
+  "n_probes": 14004,
+  "n_probe_fills_60s": 12320,
+  "sim_spread_1tick_share": 0.537426,
+  "sim_touch_size_median": 500.0,
+  "fill_prob_by_shares_ahead": [
+    {
+      "bin": "[0.0, 200.0)",
+      "n": 1936,
+      "mean_shares_ahead": 100.0,
+      "fill_5s": 0.753099,
+      "fill_10s": 0.86157,
+      "fill_30s": 0.916839
+    },
+    {
+      "bin": "[200.0, 400.0)",
+      "n": 2980,
+      "mean_shares_ahead": 244.865772,
+      "fill_5s": 0.678188,
+      "fill_10s": 0.807383,
+      "fill_30s": 0.887248
+    },
+    {
+      "bin": "[400.0, 700.0)",
+      "n": 3175,
+      "mean_shares_ahead": 488.818898,
+      "fill_5s": 0.52,
+      "fill_10s": 0.725039,
+      "fill_30s": 0.84378
+    },
+    {
+      "bin": "[700.0, 1000.0)",
+      "n": 2110,
+      "mean_shares_ahead": 792.985782,
+      "fill_5s": 0.36019,
+      "fill_10s": 0.618483,
+      "fill_30s": 0.804265
+    },
+    {
+      "bin": "[1000.0, 1500.0)",
+      "n": 2075,
+      "mean_shares_ahead": 1176.626506,
+      "fill_5s": 0.244819,
+      "fill_10s": 0.520482,
+      "fill_30s": 0.751807
+    },
+    {
+      "bin": "[1500.0, 2500.0)",
+      "n": 1454,
+      "mean_shares_ahead": 1815.474553,
+      "fill_5s": 0.162999,
+      "fill_10s": 0.428473,
+      "fill_30s": 0.726272
+    },
+    {
+      "bin": "[2500.0, inf)",
+      "n": 274,
+      "mean_shares_ahead": 2900.729927,
+      "fill_5s": 0.109489,
+      "fill_10s": 0.332117,
+      "fill_30s": 0.69708
+    }
+  ],
+  "quartile_shares_ahead_edges": [
+    100.0,
+    200.0,
+    500.0,
+    1000.0,
+    4601.0
+  ],
+  "fill_prob_10s_front_quartile": 0.86157,
+  "fill_prob_10s_back_quartile": 0.471733,
+  "markout_10s_ticks_front_quartile": 0.277747,
+  "markout_10s_ticks_back_quartile": -0.233525,
+  "markout_30s_ticks_front_quartile": 0.292857,
+  "markout_30s_ticks_back_quartile": -0.348209,
+  "value_per_order_30s_ticks_front": 0.27531,
+  "value_per_order_30s_ticks_back": -0.286221,
+  "queue_priority_value_usd_per_100_shares": 0.561531,
+  "markout_horizons_s": [
+    0,
+    1,
+    2,
+    5,
+    10,
+    20,
+    30,
+    60
+  ],
+  "markout_curves_ticks_by_quartile": {
+    "Q1: 100-199 shares ahead": [
+      0.441758,
+      0.414286,
+      0.397527,
+      0.307692,
+      0.277747,
+      0.292857,
+      0.292857,
+      0.285989
+    ],
+    "Q2: 200-499 shares ahead": [
+      0.543535,
+      0.466701,
+      0.410858,
+      0.288805,
+      0.264317,
+      0.303446,
+      0.366805,
+      0.374061
+    ],
+    "Q3: 500-999 shares ahead": [
+      0.633997,
+      0.489189,
+      0.382077,
+      0.187767,
+      0.038549,
+      -0.000853,
+      -0.039829,
+      0.041821
+    ],
+    "Q4: 1,000-4,600 shares ahead": [
+      0.62556,
+      0.403391,
+      0.262956,
+      -0.015675,
+      -0.233525,
+      -0.306942,
+      -0.348209,
+      -0.346449
+    ]
+  },
+  "markout_curves_ticks_virtual": {
+    "front": [
+      0.787317,
+      0.76496,
+      0.731238,
+      0.614979,
+      0.558901,
+      0.537185,
+      0.541024,
+      0.558073
+    ],
+    "middle": [
+      0.739938,
+      0.669658,
+      0.605633,
+      0.439705,
+      0.35676,
+      0.335859,
+      0.340521,
+      0.364219
+    ],
+    "back": [
+      0.575122,
+      0.44931,
+      0.363149,
+      0.185511,
+      0.075568,
+      0.060187,
+      0.058442,
+      0.083442
+    ]
+  },
+  "virtual_same_queue": {
+    "front": {
+      "shares_ahead": 0.0,
+      "fill_10s": 0.884247,
+      "markout_10s_ticks": 0.558901,
+      "markout_30s_ticks": 0.541024
+    },
+    "middle": {
+      "shares_ahead": 243.916024,
+      "fill_10s": 0.798843,
+      "markout_10s_ticks": 0.35676,
+      "markout_30s_ticks": 0.340521
+    },
+    "back": {
+      "shares_ahead": 715.831191,
+      "fill_10s": 0.676592,
+      "markout_10s_ticks": 0.075568,
+      "markout_30s_ticks": 0.058442
+    }
+  }
+}
