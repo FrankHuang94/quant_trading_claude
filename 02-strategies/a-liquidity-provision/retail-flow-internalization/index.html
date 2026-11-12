@@ -5831,9 +5831,9 @@
 <p><strong>TL;DR</strong></p>
 <ul>
 <li>Wholesalers pay brokers for retail marketable orders (<a href="../../../09-reference/glossary/#payment-for-order-flow-pfof">PFOF</a>), fill them as principal at or inside the <a href="../../../09-reference/glossary/#nbbo">NBBO</a> and keep a fraction of a cent per share.</li>
-<li>The edge is <strong>segmentation</strong>: an exchange prices for its average counterparty; a wholesaler knows the broker and prices that flow. Round-trip costs for identical orders ranged from 0.07% to 0.46% across brokers <code>[Verified]</code>.</li>
+<li>The edge is <strong>segmentation</strong>: an exchange prices for its average counterparty; a wholesaler knows the broker and prices that flow. Round-trip costs for identical orders ranged from 0.07% to 0.46% across six brokerage accounts <code>[Verified]</code>.</li>
 <li>Concentrated: six wholesalers received over 90% of individual investors' marketable orders <code>[Verified]</code>; Citadel Securities claims about 35% of US-listed retail volume <code>[Reported]</code>.</li>
-<li>It fails when retail turns correlated: GameStop's off-exchange share fell from 62.6% to 32.8% in a week of January 2021 as wholesalers routed out <code>[Verified]</code>.</li>
+<li>It fails when retail turns correlated: GameStop's off-exchange share of dollar volume fell from 62.6% to 32.8% in a week of January 2021, consistent with wholesalers internalizing less <code>[Verified]</code>.</li>
 </ul>
 </blockquote>
 <p><strong>Level:</strong> Core · <strong>Read time:</strong> ~7 min · <strong>Last verified:</strong> 2026-11</p>
@@ -5908,7 +5908,7 @@
 </tbody>
 </table>
 <h2 id="intuition-the-story-in-plain-english">Intuition (the story in plain English)<a class="headerlink" href="#intuition-the-story-in-plain-english" title="Permanent link">&para;</a></h2>
-<p>A customer taps "buy 200 shares." The broker's router sends the order to a <a href="../../../09-reference/glossary/#wholesaler">wholesaler</a>, which sells from its own book at $40.0076 when the best offer is $40.01: a quarter-cent of <a href="../../../09-reference/glossary/#price-improvement">price improvement</a>. No queue, no race. The order arrived because of who sent it, and the only question is what that broker's flow is worth given how prices move afterwards: its <a href="../../../09-reference/glossary/#markout">markout</a>.</p>
+<p>A customer taps "buy 200 shares." The broker's router sends the order to a <a href="../../../09-reference/glossary/#wholesaler">wholesaler</a>, which sells from its own book at $40.0076 when the best offer is $40.01: a quarter-cent of <a href="../../../09-reference/glossary/#price-improvement">price improvement</a>. No queue, no race. The order arrived because of who sent it, and the only question is what that broker's flow is worth, judged by its <a href="../../../09-reference/glossary/#markout">markout</a>.</p>
 <h2 id="economic-rationale-why-should-this-make-money-at-all">Economic rationale: why should this make money at all?<a class="headerlink" href="#economic-rationale-why-should-this-make-money-at-all" title="Permanent link">&para;</a></h2>
 <p>Glosten and Milgrom (1985): a dealer facing some informed traders widens the spread for everyone. An exchange cannot tell retail from a latency arbitrageur, so its spread prices the mix. A wholesaler sees the broker, prices a segment with little <a href="../../../09-reference/glossary/#adverse-selection">adverse selection</a>, and still beats the NBBO: <a href="../../../09-reference/glossary/#internalization">internalization</a> of benign flow.</p>
 <p>Wholesalers may also fill in sub-pennies, which exchanges cannot for displayed orders (Rule 612) <code>[Verified]</code>, and brokers may choose how the surplus splits between price improvement and PFOF <code>[Verified]</code>. Retail is benign only short-term: net retail buying predicts about 10 bps of outperformance over the next week (Boehmer et al. 2021) <code>[Verified]</code>, irrelevant to a desk holding for seconds.</p>
@@ -5975,6 +5975,8 @@
 <a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>    <span class="n">px</span> <span class="o">=</span> <span class="n">nbbo_px</span> <span class="o">-</span> <span class="n">d</span> <span class="o">*</span> <span class="n">contract</span><span class="o">.</span><span class="n">pi_share</span> <span class="o">*</span> <span class="n">room</span>                <span class="c1"># give the contracted share as improvement</span>
 <a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>    <span class="k">return</span> <span class="n">fill_as_principal</span><span class="p">(</span><span class="n">order</span><span class="p">,</span> <span class="n">round_subpenny</span><span class="p">(</span><span class="n">px</span><span class="p">,</span> <span class="n">d</span><span class="p">))</span>     <span class="c1"># off-exchange, sub-penny allowed</span>
 </code></pre></div>
+<p><img alt="Lab 04: markouts of passive fills by counterparty type" src="../../../assets/labs/lab04-markouts-by-counterparty.png" /></p>
+<p><em>Lab 04, synthetic. Uninformed fills keep about +2 bps at 60 seconds; informed fills lose about 1.5 bps. Broker segments proxy for this split.</em></p>
 <h2 id="implementation-choices-that-matter">Implementation choices that matter<a class="headerlink" href="#implementation-choices-that-matter" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Segments:</strong> finer ones price better but have noisy markouts; thin ones are shrunk toward pooled estimates <code>[Lore]</code>.</li>
@@ -6045,18 +6047,18 @@
 <p>Fixed costs favor scale, hence concentration. Margins face amended Rule 605 comparisons, a $0.005 tick for tick-constrained stocks due by November 2027 <code>[Verified]</code>, and the EU PFOF ban, whose national exemptions ended 30 June 2026 <code>[Reported]</code>.</p>
 <h2 id="how-it-fails">How it fails<a class="headerlink" href="#how-it-fails" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Correlated retail.</strong> Netting fails and hedges move prices. On 2021-01-27 NSCC called $6.9B of intraday margin from 36 members; brokers then restricted buying, and wholesalers routed GameStop out <code>[Verified]</code>.</li>
+<li><strong>Correlated retail.</strong> Netting fails and hedges move prices. On 2021-01-27 NSCC called $6.9B of intraday margin from 36 members; brokers then restricted buying, and GameStop volume moved on-exchange <code>[Verified]</code>.</li>
 <li><strong>Code errors.</strong> On 2012-08-01 Knight Capital, a leading wholesaler, deployed code for NYSE's Retail Liquidity Program; 212 small retail orders became 4 million executions in 45 minutes and a loss over $460M <code>[Verified]</code>.</li>
 <li><strong>Mis-segmentation:</strong> professionals hiding in retail flow.</li>
 </ul>
 <h2 id="textbook-vs-how-its-done-today">Textbook vs how it's done today<a class="headerlink" href="#textbook-vs-how-its-done-today" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Textbook:</strong> PFOF harms clients. <strong>Practice:</strong> fills beat the NBBO; whether auctions would beat wholesalers is contested. Two Commissioners stressed the staff found no causal link between PFOF and meme volatility <code>[Reported]</code>.</li>
-<li><strong>Textbook:</strong> retail is noise. <strong>Practice:</strong> noise over seconds, mildly informed over a week.</li>
+<li><strong>Textbook:</strong> PFOF harms clients. <strong>Practice:</strong> fills beat the NBBO, but how much depends on the broker (Schwarz et al. 2025) <code>[Verified]</code>; whether auctions would beat wholesalers is contested.</li>
+<li><strong>Textbook:</strong> retail is noise. <strong>Practice:</strong> noise over seconds, mildly informed over a week <code>[Verified]</code>.</li>
 <li><strong>Textbook:</strong> hedge every fill. <strong>Practice:</strong> net opposite flow first <code>[Lore]</code>.</li>
 </ul>
 <h2 id="variants-and-neighbours">Variants and neighbours<a class="headerlink" href="#variants-and-neighbours" title="Permanent link">&para;</a></h2>
-<p>Lit <a href="../equity-market-making/">equity market making</a>; <a href="../options-market-making/">options market making</a> (retail options must execute on exchange); exchange retail liquidity programs (<a href="../../b-speed-and-structural/fee-and-microstructure-driven-strategies/">fee-driven strategies</a>); context in <a href="../../../01-market-structure/venues-and-retail-flow/">venues and retail flow</a>.</p>
+<p>Lit <a href="../equity-market-making/">equity market making</a>; <a href="../options-market-making/">options market making</a> (retail options must execute on exchange); exchange retail liquidity programs (<a href="../../b-speed-and-structural/fee-and-microstructure-driven-strategies/">fee-driven strategies</a>).</p>
 <h2 id="diagram">Diagram<a class="headerlink" href="#diagram" title="Permanent link">&para;</a></h2>
 <pre class="mermaid"><code>flowchart LR
     C["Retail client&lt;br/&gt;marketable order"] --&gt; B["Retail broker&lt;br/&gt;router scores wholesalers"]
@@ -6118,7 +6120,7 @@
 <ul>
 <li>[Verified] SEC (2022-12-14). "SEC Proposes Rule to Enhance Competition for Individual Investor Order Execution" (press release, republished). <a href="https://www.newsfilecorp.com/release/148085/SEC-Proposes-Rule-to-Enhance-Competition-for-Individual-Investor-Order-Execution">https://www.newsfilecorp.com/release/148085/SEC-Proposes-Rule-to-Enhance-Competition-for-Individual-Investor-Order-Execution</a> (accessed 2026-11)</li>
 <li>[Verified] SEC (2025-06-12). "Withdrawal of Proposed Rules," Release No. 33-11377. <a href="https://www.sec.gov/files/rules/final/2025/33-11377.pdf">https://www.sec.gov/files/rules/final/2025/33-11377.pdf</a> (accessed 2026-11)</li>
-<li>[Verified] SEC Staff (2021-10-18). "Staff Report on Equity and Options Market Structure Conditions in Early 2021." <a href="https://www.sec.gov/files/staff-report-equity-options-market-struction-conditions-early-2021.pdf">https://www.sec.gov/files/staff-report-equity-options-market-struction-conditions-early-2021.pdf</a> (accessed 2026-11)</li>
+<li>[Verified] SEC Staff (2021-10-14; released 2021-10-18). "Staff Report on Equity and Options Market Structure Conditions in Early 2021." <a href="https://www.sec.gov/files/staff-report-equity-options-market-struction-conditions-early-2021.pdf">https://www.sec.gov/files/staff-report-equity-options-market-struction-conditions-early-2021.pdf</a> (accessed 2026-11)</li>
 <li>[Verified] SEC (2020-12-17). "SEC Charges Robinhood Financial With Misleading Customers About Revenue Sources and Failing to Satisfy Duty of Best Execution," press release 2020-321. <a href="https://www.sec.gov/news/press-release/2020-321">https://www.sec.gov/news/press-release/2020-321</a> (accessed 2026-11)</li>
 <li>[Verified] SEC (2013-10-16). In the Matter of Knight Capital Americas LLC, Release No. 34-70694. <a href="https://www.sec.gov/litigation/admin/2013/34-70694.pdf">https://www.sec.gov/litigation/admin/2013/34-70694.pdf</a> (accessed 2026-11)</li>
 <li>[Verified] Boehmer, E., Jones, C. M., Zhang, X. &amp; Zhang, X. (2021). "Tracking Retail Investor Activity." <em>Journal of Finance</em> 76(5), 2249–2305. <a href="https://doi.org/10.1111/jofi.13033">https://doi.org/10.1111/jofi.13033</a> (accessed 2026-11)</li>

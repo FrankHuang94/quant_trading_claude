@@ -5831,7 +5831,7 @@
 <p><strong>TL;DR</strong></p>
 <ul>
 <li>Latency arbitrage trades against quotes left stale for microseconds after public news (a futures tick, a sweep on another venue) moved fair value. Whoever reaches the matching engine first wins.</li>
-<li>It is a race, not a forecast: in London Stock Exchange data the winner beat the first loser by a modal 5–10 µs, and races were about 22% of FTSE 100 volume <code>[Verified]</code>.</li>
+<li>It is a race, not a forecast: in London Stock Exchange data the winner beat the first loser by a modal 5–10 µs, and races were about 20% of FTSE 100 volume <code>[Verified]</code>.</li>
 <li>Sniped quoters pay first and investors pay last, through wider spreads: a "tax" of roughly 0.5 bp of trading volume, about $5B a year globally <code>[Verified]</code>.</li>
 <li>The edge is rank, not capital. Speed bumps (IEX) blunt it on one venue only.</li>
 </ul>
@@ -5883,7 +5883,7 @@
 </tr>
 <tr>
 <td>Typical Sharpe (gross vs net)</td>
-<td>Not meaningful on capital. Fastest firm: gross daily Sharpe far above 5; runner-up near zero <code>[Lore]</code>. No fund disclosures. Profits track latency rank (Baron et al. 2019, academic) <code>[Verified]</code>; per-race profit held flat 2005–2011 (BCS) <code>[Verified]</code></td>
+<td>Not meaningful on capital. Fastest firm: annualized gross Sharpe far above 5; runner-up near zero <code>[Lore]</code>. No fund disclosures. Profits track latency rank (Baron et al. 2019, academic) <code>[Verified]</code>; per-race profit held flat 2005–2011 (BCS) <code>[Verified]</code></td>
 </tr>
 <tr>
 <td>Turnover</td>
@@ -5919,7 +5919,7 @@
 <li><strong>Exit:</strong> hedge in the leader or pass inventory to the market-making book, behind hardware risk limits.</li>
 </ol>
 <h2 id="worked-example-with-numbers">Worked example with numbers<a class="headerlink" href="#worked-example-with-numbers" title="Permanent link">&para;</a></h2>
-<p>Illustrative. Index 6,000, SPY ≈ $600. ES ticks up 0.25 points (4.2 bps); SPY fair value rises ≈ $0.025, from a 599.995 mid to ≈ 600.02. Three venues still offer 2,000 shares at 600.00.</p>
+<p>Illustrative. Index 6,000, SPY ≈ $600. ES ticks up 0.25 points (0.42 bp); SPY fair value rises ≈ $0.025, from a 599.995 mid to ≈ 600.02. Three venues still offer 600, 600 and 800 shares at 600.00.</p>
 <table>
 <thead>
 <tr>
@@ -5930,7 +5930,7 @@
 </thead>
 <tbody>
 <tr>
-<td>Win 2 of 3 venues</td>
+<td>Win the two 600-share venues</td>
 <td>1,200 shares at 600.00</td>
 <td>720,000 notional</td>
 </tr>

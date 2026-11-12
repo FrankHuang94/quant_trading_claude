@@ -5833,7 +5833,7 @@
 <li>Quote two-sided prices on thousands of series per underlying, all read off one fitted <a href="../../../09-reference/glossary/#volatility-surface">volatility surface</a>; 4.87 million US option series traded in 2025 <code>[Verified]</code>.</li>
 <li>Revenue is edge (price minus theoretical value). Inventory is held as Greeks: delta hedged within seconds, gamma and vega warehoused and shaded away through quotes.</li>
 <li>As an income statement: edge is revenue; theta minus gamma is realized-vs-implied volatility; vega is a mark; hedging, fees and <a href="../../../09-reference/glossary/#payment-for-order-flow-pfof">payment for order flow</a> are costs.</li>
-<li>Retail drives the flow: over 60% of volume (Bryzgalova et al. 2023), and options PFOF is two-thirds of all PFOF <code>[Verified]</code>. 0DTE was 66.2% of SPX volume in July 2026 <code>[Verified]</code>. All trades execute on 20 exchanges <code>[Verified]</code>.</li>
+<li>Retail drives the flow: over 60% of volume (Bryzgalova et al. 2023) <code>[Verified]</code>, and options PFOF is two-thirds of all PFOF <code>[Verified]</code>. 0DTE was 66.2% of SPX volume in July 2026 <code>[Verified]</code>. All trades execute on 20 exchanges <code>[Verified]</code>.</li>
 <li>It fails on gaps and volatility spikes: one session can erase weeks of theta.</li>
 </ul>
 </blockquote>
@@ -6169,7 +6169,7 @@ P \approx \sum_t \tfrac12 \Gamma_t S_t^2 \left(\sigma_i^2 - \sigma_{r,t}^2\right
 <div class="arithmatex">\[
 \hat\sigma^2 = \sigma^2\left(1 + \sqrt{\tfrac{2}{\pi}}\;\frac{k}{\sigma\sqrt{\Delta t}}\right).
 \]</div>
-<p>At <span class="arithmatex">\(\sigma = 20\%\)</span> and <span class="arithmatex">\(k = 2\)</span> bp, 15-minute hedging needs ~0.6 vol points of extra edge and daily hedging ~0.13. Lab 06 quoted 0.5, so 15-minute hedging lost money net.</p>
+<p>At <span class="arithmatex">\(\sigma = 20\%\)</span> and <span class="arithmatex">\(k = 2\)</span> bp, 15-minute hedging needs ~0.6 vol points of extra edge and daily hedging ~0.13. Lab 06 quoted 0.5, so at 15-minute hedging the costs ($14.9) exceeded the quoted edge ($13.1).</p>
 </details>
 <h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link">&para;</a></h2>
 <ul>

@@ -5516,14 +5516,14 @@
         emm["Equity MM&lt;br/&gt;LP + speed"]
         etfmm["ETF MM&lt;br/&gt;LP + structural"]
         rfi["Retail internalization&lt;br/&gt;LP + structural"]
-        lat["Latency arbitrage&lt;br/&gt;speed"]
+        lat["Latency arbitrage&lt;br/&gt;speed + structural"]
         ll["Lead-lag, cross-asset&lt;br/&gt;speed + info"]
         eia["ETF and index arb&lt;br/&gt;structural + speed"]
-        fee["Fee and microstructure&lt;br/&gt;structural"]
+        fee["Fee and microstructure&lt;br/&gt;structural + LP"]
     end
     subgraph H2["Seconds to one day"]
         direction TB
-        omm["Options MM&lt;br/&gt;LP + risk premium"]
+        omm["Options MM&lt;br/&gt;LP + speed"]
         auc["Auctions and the close&lt;br/&gt;LP + structural"]
         intra["Intraday patterns&lt;br/&gt;structural + behavioral"]
         mlst["ML short-horizon alpha&lt;br/&gt;info + LP"]
@@ -5532,29 +5532,29 @@
         direction TB
         sao["Stat arb overview&lt;br/&gt;LP + behavioral"]
         frmr["Factor-residual reversion&lt;br/&gt;LP + behavioral"]
-        str["Short-term reversal&lt;br/&gt;LP"]
-        nlp["NLP and LLM signals&lt;br/&gt;info"]
+        str["Short-term reversal&lt;br/&gt;LP + behavioral"]
+        nlp["NLP and LLM signals&lt;br/&gt;info + behavioral"]
     end
     subgraph H4["Days to weeks"]
         direction TB
         pairs["Pairs, cointegration&lt;br/&gt;LP + behavioral"]
-        xs["Cross-sectional alpha&lt;br/&gt;info + behavioral"]
-        earn["Earnings and events&lt;br/&gt;behavioral + info"]
-        rev["Analyst revisions&lt;br/&gt;behavioral"]
-        flow["Flow-driven&lt;br/&gt;structural + LP"]
+        xs["Cross-sectional alpha&lt;br/&gt;behavioral + info"]
+        earn["Earnings and events&lt;br/&gt;behavioral + LP"]
+        rev["Analyst revisions&lt;br/&gt;info + behavioral"]
+        flow["Flow-driven&lt;br/&gt;LP + structural"]
         alt["Alternative data&lt;br/&gt;info"]
-        vrp["VRP and vol arb&lt;br/&gt;risk premium"]
+        vrp["VRP and vol arb&lt;br/&gt;risk premium + structural"]
     end
     subgraph H5["Weeks to months"]
         direction TB
-        fq["Fundamental quant&lt;br/&gt;behavioral + risk premium"]
+        fq["Fundamental quant&lt;br/&gt;risk premium + behavioral"]
         ff["Factor investing&lt;br/&gt;risk premium + behavioral"]
-        mom["Momentum&lt;br/&gt;behavioral"]
+        mom["Momentum&lt;br/&gt;behavioral + risk premium"]
         vql["Value, quality, low vol&lt;br/&gt;risk premium + behavioral"]
         ft["Factor timing, crowding&lt;br/&gt;risk premium"]
         disp["Dispersion, correlation&lt;br/&gt;risk premium + structural"]
         trend["Trend following&lt;br/&gt;behavioral + risk premium"]
-        carry["Carry&lt;br/&gt;risk premium"]
+        carry["Carry&lt;br/&gt;risk premium + structural"]
     end
     H1 --&gt; H2 --&gt; H3 --&gt; H4 --&gt; H5
     classDef speed fill:#f6c6c6,stroke:#a33,color:#000
@@ -5564,41 +5564,41 @@
     classDef behavioral fill:#c9ecc9,stroke:#363,color:#000
     classDef riskprem fill:#e2e2e2,stroke:#555,color:#000
     class lat,ll speed
-    class emm,etfmm,rfi,omm,auc,sao,frmr,str,pairs lp
-    class eia,fee,intra,flow structural
-    class mlst,nlp,xs,alt info
-    class earn,rev,fq,mom,trend behavioral
-    class vrp,ff,vql,ft,disp,carry riskprem</code></pre>
+    class emm,etfmm,rfi,omm,auc,sao,frmr,str,pairs,flow lp
+    class eia,fee,intra structural
+    class mlst,nlp,rev,alt info
+    class earn,xs,mom,trend behavioral
+    class vrp,ff,fq,vql,ft,disp,carry riskprem</code></pre>
 <p><em>Colors: red = speed · blue = liquidity provision (LP) · orange = structural/regulatory · purple = informational · green = behavioral · gray = risk premium.</em></p>
 <p>The second map turns the axes around: one row per primary edge source, ordered by horizon; top rows are short-horizon, bottom rows long.</p>
 <pre class="mermaid"><code>flowchart TB
     subgraph SPD["Speed"]
         direction LR
-        a1["Latency arbitrage&lt;br/&gt;µs"] ~~~ a2["Lead-lag, cross-asset&lt;br/&gt;µs to ms"]
+        a1["Latency arbitrage&lt;br/&gt;µs"] ~~~ a2["Lead-lag, cross-asset&lt;br/&gt;ms to minutes"]
     end
     subgraph LPV["Liquidity provision: quoting"]
         direction LR
-        b1["Equity MM&lt;br/&gt;µs to min"] ~~~ b2["ETF MM&lt;br/&gt;µs to hours"] ~~~ b3["Retail internalization&lt;br/&gt;seconds"] ~~~ b4["Options MM&lt;br/&gt;minutes to days"] ~~~ b5["Auctions, close&lt;br/&gt;overnight"]
+        b1["Equity MM&lt;br/&gt;µs to min"] ~~~ b2["ETF MM&lt;br/&gt;µs to hours"] ~~~ b3["Retail internalization&lt;br/&gt;seconds to minutes"] ~~~ b4["Options MM&lt;br/&gt;minutes to days"] ~~~ b5["Auctions, close&lt;br/&gt;overnight to days"]
     end
-    subgraph LPS["Liquidity provision: stat arb"]
+    subgraph LPS["Liquidity provision: stat arb and flows"]
         direction LR
-        b8["Stat arb overview&lt;br/&gt;hours to days"] ~~~ b6["Short-term reversal&lt;br/&gt;1 to 5 days"] ~~~ b7["Factor-residual&lt;br/&gt;1 to 10 days"] ~~~ b9["Pairs&lt;br/&gt;days to weeks"]
+        b8["Stat arb overview&lt;br/&gt;hours to days"] ~~~ b7["Factor-residual&lt;br/&gt;1 to 15 days"] ~~~ b6["Short-term reversal&lt;br/&gt;1 day to 1 month"] ~~~ b9["Pairs&lt;br/&gt;days to weeks"] ~~~ b10["Flow-driven&lt;br/&gt;days to weeks"]
     end
     subgraph STR["Structural and regulatory"]
         direction LR
-        c1["Fee, microstructure&lt;br/&gt;µs to seconds"] ~~~ c2["ETF and index arb&lt;br/&gt;ms to minutes"] ~~~ c3["Intraday patterns&lt;br/&gt;minutes to hours"] ~~~ c4["Flow-driven&lt;br/&gt;days to weeks"]
+        c1["Fee, microstructure&lt;br/&gt;ms to minutes"] ~~~ c2["ETF and index arb&lt;br/&gt;ms to a day"] ~~~ c3["Intraday patterns&lt;br/&gt;minutes to hours"]
     end
     subgraph INF["Informational"]
         direction LR
-        d1["ML short-horizon&lt;br/&gt;minutes to a day"] ~~~ d2["NLP and LLM&lt;br/&gt;hours to days"] ~~~ d3["Alternative data&lt;br/&gt;days to weeks"] ~~~ d4["Cross-sectional alpha&lt;br/&gt;days to weeks"]
+        d1["ML short-horizon&lt;br/&gt;minutes to a day"] ~~~ d2["NLP and LLM&lt;br/&gt;hours to days"] ~~~ d3["Alternative data&lt;br/&gt;days to weeks"] ~~~ d4["Analyst revisions&lt;br/&gt;weeks"]
     end
     subgraph BEH["Behavioral"]
         direction LR
-        e1["Earnings, events&lt;br/&gt;days to weeks"] ~~~ e2["Analyst revisions&lt;br/&gt;weeks"] ~~~ e3["Momentum&lt;br/&gt;months"] ~~~ e4["Fundamental quant&lt;br/&gt;months"] ~~~ e5["Trend following&lt;br/&gt;weeks to months"]
+        e1["Earnings, events&lt;br/&gt;days to weeks"] ~~~ e2["Cross-sectional alpha&lt;br/&gt;days to weeks"] ~~~ e5["Trend following&lt;br/&gt;weeks to months"] ~~~ e3["Momentum&lt;br/&gt;months"]
     end
     subgraph RPM["Risk premium"]
         direction LR
-        f1["VRP, vol arb&lt;br/&gt;days to weeks"] ~~~ f2["Dispersion&lt;br/&gt;weeks to months"] ~~~ f3["Value, quality, low vol&lt;br/&gt;months"] ~~~ f4["Factor investing&lt;br/&gt;months"] ~~~ f5["Factor timing&lt;br/&gt;months"] ~~~ f6["Carry&lt;br/&gt;months"]
+        f1["VRP, vol arb&lt;br/&gt;days to weeks"] ~~~ f2["Dispersion&lt;br/&gt;weeks to months"] ~~~ f3["Value, quality, low vol&lt;br/&gt;months"] ~~~ f7["Fundamental quant&lt;br/&gt;months"] ~~~ f4["Factor investing&lt;br/&gt;months"] ~~~ f5["Factor timing&lt;br/&gt;months"] ~~~ f6["Carry&lt;br/&gt;months"]
     end
     SPD ~~~ LPV ~~~ LPS ~~~ STR ~~~ INF ~~~ BEH ~~~ RPM</code></pre>
 <p>Three lessons. First, <strong>horizon and edge are correlated, not identical</strong>: liquidity provision runs from microseconds (quoting) to weeks (pairs), because absorbing price pressure is paid at every horizon (Grossman and Miller; Nagel) <code>[Verified]</code>. Second, <strong>capacity rises with horizon while Sharpe falls</strong>; the <a href="h-cross-cutting/strategy-comparison-matrix/">comparison matrix</a> puts numbers on it. Third, <strong>the middle is the most crowded</strong>: days-to-weeks informational and behavioral signals are where most quant funds and pods compete, and where published signals decay fastest (<a href="how-quants-evaluate-a-strategy/">evaluation</a>).</p>
@@ -5632,49 +5632,49 @@
 <td>A · Liquidity</td>
 <td><a href="a-liquidity-provision/options-market-making/">Options market making</a></td>
 <td>minutes to days</td>
-<td>LP · risk premium</td>
+<td>LP · speed</td>
 <td>Hedgers, income sellers and retail pay edge over theoretical value for convexity or leverage</td>
 </tr>
 <tr>
 <td>A · Liquidity</td>
 <td><a href="a-liquidity-provision/retail-flow-internalization/">Retail flow internalization</a></td>
-<td>seconds</td>
+<td>seconds to minutes</td>
 <td>LP · structural</td>
-<td>Retail orders pay a small spread inside the NBBO; the flow is valuable because it is uninformed</td>
+<td>Retail orders pay part of the spread: filled inside the NBBO but away from mid; the flow is valuable because it is uninformed</td>
 </tr>
 <tr>
 <td>A · Liquidity</td>
 <td><a href="a-liquidity-provision/auctions-and-closing-liquidity/">Auctions and closing liquidity</a></td>
-<td>intraday to overnight</td>
+<td>overnight to a few days</td>
 <td>LP · structural</td>
 <td>Index funds and benchmarked managers who must trade at the close concede price to imbalance absorbers</td>
 </tr>
 <tr>
 <td>B · Speed</td>
 <td><a href="b-speed-and-structural/latency-arbitrage/">Latency arbitrage</a></td>
-<td>µs</td>
-<td>speed</td>
+<td>µs to seconds</td>
+<td>speed · structural</td>
 <td>Slower liquidity providers whose stale quotes get picked off</td>
 </tr>
 <tr>
 <td>B · Speed</td>
 <td><a href="b-speed-and-structural/lead-lag-and-cross-asset-arbitrage/">Lead-lag and cross-asset arbitrage</a></td>
-<td>µs to ms</td>
+<td>ms to minutes</td>
 <td>speed · info</td>
 <td>Quoters in the lagging instrument (stocks after futures move)</td>
 </tr>
 <tr>
 <td>B · Speed</td>
 <td><a href="b-speed-and-structural/etf-and-index-arbitrage/">ETF and index arbitrage</a></td>
-<td>ms to minutes</td>
+<td>ms to a day</td>
 <td>structural · speed</td>
 <td>Whoever pushes an ETF or future away from its basket value</td>
 </tr>
 <tr>
 <td>B · Speed</td>
 <td><a href="b-speed-and-structural/fee-and-microstructure-driven-strategies/">Fee- and microstructure-driven</a></td>
-<td>µs to seconds</td>
-<td>structural</td>
+<td>ms to minutes</td>
+<td>structural · LP</td>
 <td>Takers paying access fees; traders disadvantaged by tick and fee rules</td>
 </tr>
 <tr>
@@ -5694,15 +5694,15 @@
 <tr>
 <td>C · Stat arb</td>
 <td><a href="c-statistical-arbitrage/factor-residual-mean-reversion/">Factor-residual mean reversion</a></td>
-<td>1 to 10 days</td>
+<td>1 to 15 days</td>
 <td>LP · behavioral</td>
 <td>The same price pressure, harvested across hundreds of names after removing factor moves</td>
 </tr>
 <tr>
 <td>C · Stat arb</td>
 <td><a href="c-statistical-arbitrage/short-term-cross-sectional-reversal/">Short-term cross-sectional reversal</a></td>
-<td>1 to 5 days</td>
-<td>LP</td>
+<td>1 day to 1 month (classically 1 week)</td>
+<td>LP · behavioral</td>
 <td>Impatient sellers and buyers; profits rise when market makers' capital is scarce</td>
 </tr>
 <tr>
@@ -5723,35 +5723,35 @@
 <td>D · Mid-freq</td>
 <td><a href="d-mid-frequency-alpha/cross-sectional-alpha-and-neutralization/">Cross-sectional alpha and neutralization</a></td>
 <td>days to weeks</td>
-<td>info · behavioral</td>
+<td>behavioral · info</td>
 <td>Investors who process information slowly or are constrained from acting on it</td>
 </tr>
 <tr>
 <td>D · Mid-freq</td>
 <td><a href="d-mid-frequency-alpha/fundamental-quant-signals/">Fundamental quant signals</a></td>
 <td>weeks to months</td>
-<td>behavioral · risk premium</td>
+<td>risk premium · behavioral</td>
 <td>Investors who misread accounting quality, or who demand a premium to hold unloved stocks</td>
 </tr>
 <tr>
 <td>D · Mid-freq</td>
 <td><a href="d-mid-frequency-alpha/earnings-and-event-driven/">Earnings and event-driven</a></td>
 <td>days to weeks</td>
-<td>behavioral · info</td>
+<td>behavioral · LP</td>
 <td>Investors who under-react to earnings news (post-earnings drift)</td>
 </tr>
 <tr>
 <td>D · Mid-freq</td>
 <td><a href="d-mid-frequency-alpha/analyst-revisions-and-sentiment/">Analyst revisions and sentiment</a></td>
 <td>weeks</td>
-<td>behavioral</td>
+<td>info · behavioral</td>
 <td>Investors anchored on stale consensus while estimates drift</td>
 </tr>
 <tr>
 <td>D · Mid-freq</td>
 <td><a href="d-mid-frequency-alpha/flow-driven-strategies/">Flow-driven strategies</a></td>
 <td>days to weeks</td>
-<td>structural · LP</td>
+<td>LP · structural</td>
 <td>Index funds and other mechanical traders who must trade on known dates regardless of price</td>
 </tr>
 <tr>
@@ -5765,7 +5765,7 @@
 <td>D · Mid-freq</td>
 <td><a href="d-mid-frequency-alpha/nlp-and-llm-signals/">NLP and LLM signals</a></td>
 <td>hours to days</td>
-<td>info</td>
+<td>info · behavioral</td>
 <td>Slower readers of filings, calls and news</td>
 </tr>
 <tr>
@@ -5779,7 +5779,7 @@
 <td>E · Factors</td>
 <td><a href="e-risk-premia-and-factors/momentum/">Momentum</a></td>
 <td>months</td>
-<td>behavioral</td>
+<td>behavioral · risk premium</td>
 <td>Investors who under-react to news, then chase; holders forced to dump losers</td>
 </tr>
 <tr>
@@ -5800,7 +5800,7 @@
 <td>F · Vol</td>
 <td><a href="f-volatility-and-derivatives/volatility-risk-premium-and-vol-arb/">Volatility risk premium and vol arb</a></td>
 <td>days to weeks</td>
-<td>risk premium</td>
+<td>risk premium · structural</td>
 <td>Option buyers paying above expected realized volatility for crash protection</td>
 </tr>
 <tr>
@@ -5821,7 +5821,7 @@
 <td>G · Futures</td>
 <td><a href="g-futures-and-macro-context/carry-and-cross-asset-risk-premia/">Carry and cross-asset risk premia</a></td>
 <td>months</td>
-<td>risk premium</td>
+<td>risk premium · structural</td>
 <td>Hedgers and investors paying to offload risk; you hold crash risk in return</td>
 </tr>
 </tbody>

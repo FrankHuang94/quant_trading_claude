@@ -5831,7 +5831,7 @@
 <p><strong>TL;DR</strong></p>
 <ul>
 <li>Three trades tie one index exposure together: ETF vs basket (creation and redemption), futures vs basket (carry), ETF vs constituents (statistical).</li>
-<li>Each lives inside a <strong>no-arbitrage band</strong>, the cheapest arbitrageur's all-in cost: ±7.4 bps on average in Lab 07, 14.9 bps in stress (synthetic lab result). Trade inside your band and you lose.</li>
+<li>Each lives inside a <strong>no-arbitrage band</strong>, the cheapest arbitrageur's all-in cost: ±7.4 bps on average in Lab 07, up to 14.9 bps in stress (synthetic lab result). Trade inside your band and you lose.</li>
 <li>Competition turned pure index arbitrage into a speed race and a financing market, with the basis quoted in bps <code>[Verified]</code>.</li>
 <li>It fails when the basket cannot be traded: halts, closed markets, capacity limits.</li>
 </ul>
@@ -6066,7 +6066,7 @@
 <p>Pure <a href="../../../09-reference/glossary/#index-arbitrage">index arbitrage</a> is decades old and competed down to cost <code>[Lore]</code>; the race moved to speed, not lower profit per trade (Budish, Cramton &amp; Shim 2015), and the basis became a financing market. Capacity is premium episodes times balance sheet, and it binds when flows peak (8 of 1,260 days in Lab 07, synthetic). Edge remains in niche baskets.</p>
 <h2 id="how-it-fails">How it fails<a class="headerlink" href="#how-it-fails" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Illiquid basket:</strong> stress widens the band (14.9 vs 7.4 bps in Lab 07).</li>
+<li><strong>Illiquid basket:</strong> stress widens the band (up to 14.9 vs 7.4 bps on average in Lab 07).</li>
 <li><strong>Halts:</strong> 24 August 2015 brought 1,278 <a href="../../../09-reference/glossary/#limit-up-limit-down-luld">LULD</a> halts, 1,058 in 327 ETPs <code>[Verified]</code>.</li>
 <li><strong>Capacity:</strong> LQD closed at a 5.0% discount in the week to 20 March 2020 <code>[Reported]</code>; bond-ETF discounts disappeared once the Fed announced bond purchases (Haddad, Moreira &amp; Muir 2021) <code>[Verified]</code>.</li>
 <li><strong>Legs:</strong> borrow recalls, dividend surprises, financing spikes; a discount to stale NAV is no arbitrage.</li>
