@@ -4505,6 +4505,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    A semiconductor lens
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -4514,6 +4525,88 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#where-trading-touches-silicon" class="md-nav__link">
+    <span class="md-ellipsis">
+      Where trading touches silicon
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fpga-and-nic-consolidation-read-as-ma" class="md-nav__link">
+    <span class="md-ellipsis">
+      FPGA and NIC consolidation, read as M&amp;A
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gpu-demand-from-quant-and-ai-research" class="md-nav__link">
+    <span class="md-ellipsis">
+      GPU demand from quant and AI research
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#timing-from-ptp-to-white-rabbit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Timing: from PTP to White Rabbit
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#questions-a-chip-industry-diligence-team-could-ask" class="md-nav__link">
+    <span class="md-ellipsis">
+      Questions a chip-industry diligence team could ask
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related pages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sources
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -5404,6 +5497,77 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#where-trading-touches-silicon" class="md-nav__link">
+    <span class="md-ellipsis">
+      Where trading touches silicon
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fpga-and-nic-consolidation-read-as-ma" class="md-nav__link">
+    <span class="md-ellipsis">
+      FPGA and NIC consolidation, read as M&amp;A
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gpu-demand-from-quant-and-ai-research" class="md-nav__link">
+    <span class="md-ellipsis">
+      GPU demand from quant and AI research
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#timing-from-ptp-to-white-rabbit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Timing: from PTP to White Rabbit
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#questions-a-chip-industry-diligence-team-could-ask" class="md-nav__link">
+    <span class="md-ellipsis">
+      Questions a chip-industry diligence team could ask
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related pages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sources
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -5421,11 +5585,129 @@
 
 
 <h1 id="a-semiconductor-lens">A semiconductor lens<a class="headerlink" href="#a-semiconductor-lens" title="Permanent link">&para;</a></h1>
-<!-- STUB -->
-<div class="admonition note">
-<p class="admonition-title">Not yet written</p>
-<p>This page is scheduled for Phase 7 of the build. See <code>PLAN.md</code> in the repository.</p>
-</div>
+<blockquote>
+<p><strong>TL;DR</strong></p>
+<ul>
+<li>Trading buys silicon in two very different ways. Production buys small volumes of the lowest-latency parts: FPGAs, specialist NICs, cut-through switches, precision clocks. Research buys GPUs, CPUs and storage at data-center scale.</li>
+<li>The latency niche is concentrated: AMD (Xilinx and Solarflare) and Altera, now 51% owned by Silver Lake, for FPGAs; AMD and NVIDIA (Mellanox) for NICs. AMD even sells trading-specific FPGA cards.</li>
+<li>Trading ASICs exist but are rare and undisclosed. GPU demand from quant research is real and growing: XTX reports over 25,000 GPUs, and High-Flyer's Fire-Flyer 2 cluster held 10,000 A100s.</li>
+<li>No credible public figure sizes "trading silicon" as a market. Treat it as a demanding, high-margin showcase niche, not a volume driver.</li>
+</ul>
+</blockquote>
+<p><strong>Level:</strong> Deep dive · <strong>Read time:</strong> ~5 min · <strong>Last verified:</strong> 2026-11</p>
+<h2 id="where-trading-touches-silicon">Where trading touches silicon<a class="headerlink" href="#where-trading-touches-silicon" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>flowchart LR
+  GPS["GPS and atomic clock&lt;br/&gt;grandmaster"] --&gt;|"PTP or White Rabbit"| NIC
+  EX["Exchange feed"] --&gt; SW["Cut-through switch"]
+  SW --&gt; NIC["Low-latency NIC&lt;br/&gt;or FPGA card"]
+  NIC --&gt; CPU["CPU core&lt;br/&gt;strategy loop"]
+  NIC --&gt;|"triggers, risk checks"| OUT["Order out"]
+  CPU --&gt; OUT
+  GPU["GPU cluster&lt;br/&gt;research and training"] -.-&gt;|"parameters"| CPU</code></pre>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Main suppliers in trading</th>
+<th>Why traders care</th>
+<th>Confidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../../09-reference/glossary/#fpga">FPGA</a></td>
+<td>AMD (Xilinx, acquisition completed 2022-02-14); Altera (Intel sold 51% to Silver Lake, closed September 2025; Intel keeps 49%)</td>
+<td>nanosecond, deterministic logic for feeds, triggers, risk checks</td>
+<td><code>[Verified]</code> AMD and Altera releases</td>
+</tr>
+<tr>
+<td>Trading-specific FPGA cards</td>
+<td>AMD Alveo UL3524 (September 2023: custom 16 nm Virtex UltraScale+, under 3 ns transceiver latency, 64 transceivers) and UL3422 (October 2024, slimmer card on the same FPGA)</td>
+<td>the vendor redesigned transceivers for this one market</td>
+<td><code>[Verified]</code> (vendor claims)</td>
+</tr>
+<tr>
+<td>Low-latency NICs</td>
+<td>AMD Solarflare (Xilinx bought Solarflare in 2019); NVIDIA networking (Mellanox, acquired for about $7B, completed 2020)</td>
+<td>kernel-bypass software stacks and hardware timestamps</td>
+<td><code>[Verified]</code> NVIDIA; Solarflare deal <code>[Reported]</code></td>
+</tr>
+<tr>
+<td>Switches</td>
+<td>cut-through Ethernet switches; Cboe's own access layer lists Arista models</td>
+<td>every hop adds latency; exchanges publish their switch models</td>
+<td><code>[Verified]</code> Cboe manual</td>
+</tr>
+<tr>
+<td>ASICs</td>
+<td>undisclosed</td>
+<td>below FPGA latency at much higher fixed cost; a 2026 Optiver profile mentions loops on one FPGA or ASIC</td>
+<td><code>[Reported]</code></td>
+</tr>
+<tr>
+<td>GPUs</td>
+<td>NVIDIA dominant in published deployments</td>
+<td>model training, research backtests</td>
+<td>see below</td>
+</tr>
+<tr>
+<td>Timing</td>
+<td>GPS-disciplined grandmasters, PTP, White Rabbit</td>
+<td>measuring and ordering events across machines</td>
+<td>see below</td>
+</tr>
+</tbody>
+</table>
+<h2 id="fpga-and-nic-consolidation-read-as-ma">FPGA and NIC consolidation, read as M&amp;A<a class="headerlink" href="#fpga-and-nic-consolidation-read-as-ma" title="Permanent link">&para;</a></h2>
+<p>The latency stack has been rolled up by the two big compute vendors. Xilinx bought Solarflare (2019), AMD bought Xilinx (2022), and NVIDIA bought Mellanox (2020) <code>[Verified]</code> for AMD and NVIDIA, <code>[Reported]</code> for Solarflare. The deal announcements pitched data-center computing and networking, not trading <code>[Verified]</code>. Trading is a small customer set with extreme requirements that doubles as a reference account <code>[Lore]</code>. Altera went the other way: Intel sold control to Silver Lake in 2025. Altera now calls itself the largest pure-play FPGA company <code>[Verified]</code> (company claim). For a trading firm, consolidation means fewer independent roadmaps and real lock-in. FPGA designs, toolchains and kernel-bypass APIs do not port cleanly between vendors <code>[Lore]</code>.</p>
+<h2 id="gpu-demand-from-quant-and-ai-research">GPU demand from quant and AI research<a class="headerlink" href="#gpu-demand-from-quant-and-ai-research" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>XTX Markets</strong> reports over 25,000 GPUs and a data center under construction in Finland <code>[Verified]</code> (firm statement).</li>
+<li><strong>High-Flyer</strong>, the Chinese quant fund, is credited with DeepSeek-AI on Fire-Flyer 2, a cluster built in 2021 with 10,000 PCIe A100 GPUs. The 2024 paper reports performance near NVIDIA's DGX-A100 at about half the cost and 40% less energy <code>[Verified]</code> (the paper's own claims). The <a href="../../04-industry-and-firms/firm-profiles/high-flyer/">High-Flyer profile</a> covers the firm's link to DeepSeek.</li>
+<li><strong>Hudson River Trading</strong> signed a multi-year deal in 2026 to run NVIDIA Vera Rubin NVL72 systems on CoreWeave <code>[Verified]</code>.</li>
+<li><strong>Jane Street</strong> writes that neural networks are used heavily in many of its strategies <code>[Verified]</code>.</li>
+</ul>
+<p>These are research clusters, priced and run like AI-lab infrastructure (<a href="../trading-and-research-tech-stacks/">tech stacks</a>). They compete for the same accelerators and power as AI labs, so a quant firm's GPU plan faces the same supply constraints.</p>
+<h2 id="timing-from-ptp-to-white-rabbit">Timing: from PTP to White Rabbit<a class="headerlink" href="#timing-from-ptp-to-white-rabbit" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Requirement.</strong> Under MiFID II RTS 25, high-frequency traders' clocks must stay within 100 µs of UTC with 1 µs timestamp granularity <code>[Verified]</code>. US CAT rules require industry members' clocks within 50 ms of NIST <code>[Verified]</code>. Both are loose next to what firms need internally <code>[Lore]</code>.</li>
+<li><strong>Practice.</strong> To compute <a href="../../09-reference/glossary/#markout">markouts</a> and tick-to-trade in nanoseconds, firms discipline NIC clocks with the Precision Time Protocol (PTP, IEEE 1588) from GPS-fed grandmasters <code>[Lore]</code>.</li>
+<li><strong>White Rabbit.</strong> Developed at CERN and folded into IEEE 1588-2019 as its high-accuracy profile, it delivers sub-nanosecond sync over fiber <code>[Reported]</code>. A Safran case study says Deutsche Börse used it to timestamp traffic across more than 500 colocation ports <code>[Reported]</code> (vendor source).</li>
+</ul>
+<h2 id="questions-a-chip-industry-diligence-team-could-ask">Questions a chip-industry diligence team could ask<a class="headerlink" href="#questions-a-chip-industry-diligence-team-could-ask" title="Permanent link">&para;</a></h2>
+<ol>
+<li>What share of a vendor's FPGA or NIC revenue comes from trading, and is it disclosed? It usually is not.</li>
+<li>Does the trading customer use vendor IP, such as a feed handler, or only the bare device? The answer decides switching costs.</li>
+<li>How exposed is the latency franchise to market-design changes, such as <a href="../../09-reference/glossary/#speed-bump">speed bumps</a>, batch auctions or exchanges moving matching engines to the cloud?</li>
+<li>For GPU demand, is the firm buying, leasing (CoreWeave-style) or building its own sites?</li>
+</ol>
+<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../how-infrastructure-constrains-algorithms/">How infrastructure constrains algorithms</a> · <a href="../colocation-networks-and-the-speed-of-light/">Colocation, networks and the speed of light</a> · <a href="../trading-and-research-tech-stacks/">Trading and research tech stacks</a></li>
+<li><a href="../../03-algorithms/f-market-making-and-hft-algorithms/anatomy-of-an-hft-trading-loop/">M1 Anatomy of an HFT trading loop</a></li>
+<li><a href="../../02-strategies/b-speed-and-structural/latency-arbitrage/">Latency arbitrage</a> · <a href="../../02-strategies/c-statistical-arbitrage/ml-driven-short-horizon-alpha/">ML-driven short-horizon alpha</a></li>
+<li><a href="../../04-industry-and-firms/firm-profiles/high-flyer/">High-Flyer</a> · <a href="../../04-industry-and-firms/firm-profiles/xtx-markets/">XTX Markets</a></li>
+</ul>
+<h2 id="sources">Sources<a class="headerlink" href="#sources" title="Permanent link">&para;</a></h2>
+<ul>
+<li>[Verified] AMD (2022-02-14). "AMD Completes Acquisition of Xilinx." <a href="https://www.amd.com/en/newsroom/press-releases/2022-2-14-amd-completes-acquisition-of-xilinx.html">https://www.amd.com/en/newsroom/press-releases/2022-2-14-amd-completes-acquisition-of-xilinx.html</a> (accessed 2026-11)</li>
+<li>[Verified] Altera (2025-09-15). "Altera Closes Silver Lake Investment to Become World's Largest Pure-play FPGA Solutions Provider." <a href="https://www.nasdaq.com/press-release/altera-closes-silver-lake-investment-become-worlds-largest-pure-play-fpga-solutions">https://www.nasdaq.com/press-release/altera-closes-silver-lake-investment-become-worlds-largest-pure-play-fpga-solutions</a> (accessed 2026-11)</li>
+<li>[Reported] Benzinga via Yahoo Finance (2025-09). "Intel Wraps Up Altera Stake Sale In Bid To Streamline Business." <a href="https://finance.yahoo.com/news/intel-wraps-altera-stake-sale-131139122.html">https://finance.yahoo.com/news/intel-wraps-altera-stake-sale-131139122.html</a> (accessed 2026-11)</li>
+<li>[Verified] NVIDIA (2020). "NVIDIA Completes Acquisition of Mellanox, Creating Major Force Driving Next-Gen Data Centers." <a href="https://nvidianews.nvidia.com/news/nvidia-completes-acquisition-of-mellanox-creating-major-force-driving-next-gen-data-centers">https://nvidianews.nvidia.com/news/nvidia-completes-acquisition-of-mellanox-creating-major-force-driving-next-gen-data-centers</a> (accessed 2026-11)</li>
+<li>[Reported] HPCwire (2019-07-31). "Xilinx-Solarflare Deal Closes, Combines FPGAs, High-Performance Networks." <a href="https://www.hpcwire.com/2019/07/31/xilinx-solarflare-deal-closes-combines-fpgas-high-performance-networks/">https://www.hpcwire.com/2019/07/31/xilinx-solarflare-deal-closes-combines-fpgas-high-performance-networks/</a> (accessed 2026-11)</li>
+<li>[Verified] AMD (2023-09-27). "AMD Unveils Purpose-Built, FPGA-Based Accelerator for Ultra-Low Latency Electronic Trading." <a href="https://ir.amd.com/news-events/press-releases/detail/1158/amd-unveils-purpose-built-fpga-based-accelerator-for">https://ir.amd.com/news-events/press-releases/detail/1158/amd-unveils-purpose-built-fpga-based-accelerator-for</a> (accessed 2026-11)</li>
+<li>[Verified] AMD (2024-10-14). "AMD Expands Alveo Portfolio with Launch of World's Fastest Electronic Trading Accelerator in Slim Form Factor." <a href="https://www.amd.com/en/newsroom/press-releases/2024-10-14-amd-expands-alveo-portfolio-with-launch-of-world-s.html">https://www.amd.com/en/newsroom/press-releases/2024-10-14-amd-expands-alveo-portfolio-with-launch-of-world-s.html</a> (accessed 2026-11)</li>
+<li>[Verified] Cboe (2026-10-27). "Cboe Titanium U.S. Equities/Options Connectivity Manual," version 10.4.33. <a href="https://cdn.cboe.com/resources/techspec/technical-specifications-cboe-titanium-u-s-equitiesoptions-connectivity-manual.md">https://cdn.cboe.com/resources/techspec/technical-specifications-cboe-titanium-u-s-equitiesoptions-connectivity-manual.md</a> (accessed 2026-11)</li>
+<li>[Verified] An, W. et al. (2024). "Fire-Flyer AI-HPC: A Cost-Effective Software-Hardware Co-Design for Deep Learning." arXiv:2408.14158. <a href="https://arxiv.org/abs/2408.14158">https://arxiv.org/abs/2408.14158</a> (accessed 2026-11)</li>
+<li>[Verified] XTX Markets (n.d.). Company website (over 25,000 GPUs; data centre in Finland). <a href="https://www.xtxmarkets.com/">https://www.xtxmarkets.com/</a> (accessed 2026-11)</li>
+<li>[Verified] Maczka, S. (2026-10-13). "Flex Model: an event-driven feature engineering system." <em>Jane Street Blog</em>. <a href="https://blog.janestreet.com/flex-model-an-event-driven-feature-engineering-system/">https://blog.janestreet.com/flex-model-an-event-driven-feature-engineering-system/</a> (accessed 2026-11)</li>
+<li>[Verified] CoreWeave (2026). "Hudson River Trading to Build Next-Gen Research Platform Powered by NVIDIA Vera Rubin NVL72 on CoreWeave Cloud." <a href="https://coreweave.com/news/hudson-river-trading-to-build-next-gen-research-platform-powered-by-nvidia-vera-rubin-nvl72-on-coreweave-cloud">https://coreweave.com/news/hudson-river-trading-to-build-next-gen-research-platform-powered-by-nvidia-vera-rubin-nvl72-on-coreweave-cloud</a> (accessed 2026-11)</li>
+<li>[Verified] Commission Delegated Regulation (EU) 2017/574 (RTS 25), Annex, Table 2 (clock accuracy). <a href="https://www.legislation.gov.uk/eur/2017/574/annex">https://www.legislation.gov.uk/eur/2017/574/annex</a> (accessed 2026-11)</li>
+<li>[Verified] FINRA Rule 6820, "Clock Synchronization." <a href="https://www.finra.org/rules-guidance/rulebooks/finra-rules/6820">https://www.finra.org/rules-guidance/rulebooks/finra-rules/6820</a> (accessed 2026-11)</li>
+<li>[Reported] Safran Navigation &amp; Timing (n.d.). "Deutsche Börse deploys White Rabbit solution" (vendor case study). <a href="https://www.orolia.com/deutsche-borse-deploys-white-rabbit-solution/">https://www.orolia.com/deutsche-borse-deploys-white-rabbit-solution/</a> (accessed 2026-11)</li>
+<li>[Reported] Computer Weekly (n.d.). "Developed for Big Science in Europe, highly accurate time protocols ensure fair trading in finance." <a href="https://www.computerweekly.com/feature/Developed-for-Big-Science-in-Europe-highly-accurate-time-protocols-ensure-fair-trading-in-finance">https://www.computerweekly.com/feature/Developed-for-Big-Science-in-Europe-highly-accurate-time-protocols-ensure-fair-trading-in-finance</a> (accessed 2026-11)</li>
+<li>[Reported] Orosz, G., Klaric, I. &amp; Spevack, J. (2026-08-11). "Software engineering at a proprietary trading company: Optiver." <em>The Pragmatic Engineer</em>. <a href="https://newsletter.pragmaticengineer.com/p/optiver">https://newsletter.pragmaticengineer.com/p/optiver</a> (accessed 2026-11)</li>
+</ul>
 
 
 

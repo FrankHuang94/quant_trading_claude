@@ -4442,6 +4442,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    How infrastructure constrains algorithms
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -4451,6 +4462,79 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#latency-budgets-by-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Latency budgets by strategy
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fpga-vs-cpu-vs-gpu-who-does-what-and-why" class="md-nav__link">
+    <span class="md-ellipsis">
+      FPGA vs CPU vs GPU: who does what, and why
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-the-constraint-reshapes-the-algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      How the constraint reshapes the algorithm
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-economics-speed-is-a-fixed-cost" class="md-nav__link">
+    <span class="md-ellipsis">
+      The economics: speed is a fixed cost
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related pages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sources
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -5404,6 +5488,68 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#latency-budgets-by-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Latency budgets by strategy
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fpga-vs-cpu-vs-gpu-who-does-what-and-why" class="md-nav__link">
+    <span class="md-ellipsis">
+      FPGA vs CPU vs GPU: who does what, and why
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-the-constraint-reshapes-the-algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      How the constraint reshapes the algorithm
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-economics-speed-is-a-fixed-cost" class="md-nav__link">
+    <span class="md-ellipsis">
+      The economics: speed is a fixed cost
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related pages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sources
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -5421,11 +5567,173 @@
 
 
 <h1 id="how-infrastructure-constrains-algorithms">How infrastructure constrains algorithms<a class="headerlink" href="#how-infrastructure-constrains-algorithms" title="Permanent link">&para;</a></h1>
-<!-- STUB -->
-<div class="admonition note">
-<p class="admonition-title">Not yet written</p>
-<p>This page is scheduled for Phase 7 of the build. See <code>PLAN.md</code> in the repository.</p>
-</div>
+<blockquote>
+<p><strong>TL;DR</strong></p>
+<ul>
+<li>Every strategy has a decision budget: the time it can spend between seeing information and acting on it. Budgets run from tens of nanoseconds (latency arbitrage) to a whole night (daily factor books), and the budget decides which algorithms are allowed at all.</li>
+<li>FPGAs run simple, fixed logic in nanoseconds; CPUs run branchy logic in microseconds; GPUs run huge batched math over milliseconds to days. Hence the standard design: slow models arm fast triggers.</li>
+<li>In the fastest strategies, rank against rivals matters more than absolute speed. In slow ones, data quality and research compute bind first.</li>
+<li>Infrastructure is a fixed cost. Only strategies with enough volume can carry it, which is one reason speed businesses concentrate in a few firms.</li>
+</ul>
+</blockquote>
+<p><strong>Level:</strong> Core · <strong>Read time:</strong> ~6 min · <strong>Last verified:</strong> 2026-11</p>
+<p>Infrastructure is like a fab: a fixed investment that decides which products a firm can make at all. Without colocation and FPGAs there is no <a href="../../09-reference/glossary/#latency-arbitrage">latency arbitrage</a>; without a large GPU cluster, <a href="../../02-strategies/c-statistical-arbitrage/ml-driven-short-horizon-alpha/">ML-driven short-horizon alpha</a> is hard. The inside of the fastest loop is in <a href="../../03-algorithms/f-market-making-and-hft-algorithms/anatomy-of-an-hft-trading-loop/">M1 Anatomy of an HFT trading loop</a>.</p>
+<h2 id="latency-budgets-by-strategy">Latency budgets by strategy<a class="headerlink" href="#latency-budgets-by-strategy" title="Permanent link">&para;</a></h2>
+<p>The budget is how long one decision may take before the opportunity is gone or a rival has acted. Stage splits are <code>[Estimate]</code>, scaled from the sourced endpoints in M1 and the dossiers.</p>
+<table>
+<thead>
+<tr>
+<th>Strategy</th>
+<th>Decision budget</th>
+<th>Where the time goes</th>
+<th>What binds first</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../../02-strategies/b-speed-and-structural/latency-arbitrage/">Latency arbitrage</a></td>
+<td>tens of ns (FPGA) to ~2.5 µs (best software), wire to wire; races won by a modal 5–10 µs in London data <code>[Verified]</code></td>
+<td>parsing the trigger packet, deciding, encoding the order; ~4 ms of Chicago–New Jersey transport for futures triggers</td>
+<td>rank against the fastest rival; network path</td>
+</tr>
+<tr>
+<td><a href="../../02-strategies/a-liquidity-provision/equity-market-making/">Equity</a> and <a href="../../02-strategies/a-liquidity-provision/etf-market-making/">ETF market making</a></td>
+<td>~1–10 µs per quote update; ns for FPGA cancel triggers</td>
+<td>feed decode, book build, fair value, risk check, serialization (a 100-byte frame takes 80 ns at 10 Gb/s)</td>
+<td>p99 tail latency in bursts, such as the open</td>
+</tr>
+<tr>
+<td><a href="../../02-strategies/a-liquidity-provision/options-market-making/">Options market making</a></td>
+<td>µs per quote, but one underlying tick reprices hundreds to thousands of series</td>
+<td>surface re-evaluation and message volume; OPRA planned for a peak of 13.575M messages per 100 ms by July 2026 <code>[Verified]</code></td>
+<td>throughput and exchange message caps, not single-message speed</td>
+</tr>
+<tr>
+<td><a href="../../02-strategies/b-speed-and-structural/lead-lag-and-cross-asset-arbitrage/">Lead-lag and cross-asset</a></td>
+<td>milliseconds between cities</td>
+<td>propagation: about 4 ms Chicago to New Jersey by microwave versus 6.65 ms on the best 2010 fiber <code>[Verified]</code></td>
+<td>path length; rain on radio links</td>
+</tr>
+<tr>
+<td><a href="../../02-strategies/c-statistical-arbitrage/ml-driven-short-horizon-alpha/">ML short-horizon alpha</a> (seconds to minutes)</td>
+<td>~10 µs to 10 ms per prediction <code>[Estimate]</code></td>
+<td>feature updates and model inference, usually on CPU</td>
+<td>model size against freshness</td>
+</tr>
+<tr>
+<td><a href="../../03-algorithms/e-execution-algorithms/execution-algorithms-overview/">Execution algorithms</a> and <a href="../../03-algorithms/e-execution-algorithms/smart-order-routing/">smart order routing</a></td>
+<td>µs to ms per child order; schedules over minutes to hours</td>
+<td>venue round trips, waiting for fills</td>
+<td>fill probability and impact, rarely raw speed</td>
+</tr>
+<tr>
+<td><a href="../../02-strategies/c-statistical-arbitrage/factor-residual-mean-reversion/">Factor-residual stat arb</a> (intraday to days)</td>
+<td>seconds to minutes</td>
+<td>risk-model update, optimizer solve</td>
+<td>data freshness and the cost model</td>
+</tr>
+<tr>
+<td><a href="../../02-strategies/d-mid-frequency-alpha/cross-sectional-alpha-and-neutralization/">Cross-sectional</a> and <a href="../../02-strategies/e-risk-premia-and-factors/factor-investing-fundamentals/">factor</a> books</td>
+<td>overnight batch, hours</td>
+<td>data cleaning, model fits, an optimizer that solves 3,000 names in seconds</td>
+<td><a href="../../03-algorithms/a-data-and-signals/point-in-time-data-and-cleaning/">point-in-time data</a> quality and research compute</td>
+</tr>
+</tbody>
+</table>
+<p>Each rung of the ladder is roughly a thousand times slower than the one before, and allows that much more computation per decision.</p>
+<pre class="mermaid"><code>flowchart LR
+  ns["Nanoseconds&lt;br/&gt;FPGA triggers, feed parsing,&lt;br/&gt;pre-trade risk in logic"] --&gt; us["Microseconds&lt;br/&gt;CPU quoting loop,&lt;br/&gt;kernel-bypass networking"]
+  us --&gt; ms["Milliseconds&lt;br/&gt;Chicago to New Jersey links,&lt;br/&gt;routing, ML inference"]
+  ms --&gt; sec["Seconds to minutes&lt;br/&gt;intraday optimizers,&lt;br/&gt;execution schedules"]
+  sec --&gt; hr["Hours to days&lt;br/&gt;overnight batch,&lt;br/&gt;GPU model training"]</code></pre>
+<h2 id="fpga-vs-cpu-vs-gpu-who-does-what-and-why">FPGA vs CPU vs GPU: who does what, and why<a class="headerlink" href="#fpga-vs-cpu-vs-gpu-who-does-what-and-why" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Hardware</th>
+<th>Latency per decision</th>
+<th>Good at</th>
+<th>Limits</th>
+<th>Typical jobs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../../09-reference/glossary/#fpga">FPGA</a></td>
+<td>tens of ns; 13.9 ns minimum in a vendor-commissioned 2024 STAC-T0 run <code>[Verified]</code></td>
+<td>fixed pipelines with deterministic timing; acting at line rate</td>
+<td>small logic budgets (AMD's trading card: 780K LUTs, 1,680 DSP slices <code>[Verified]</code>); slow build-and-verify cycles <code>[Lore]</code></td>
+<td>feed handlers, stale-quote triggers, pre-trade risk checks, timestamping</td>
+</tr>
+<tr>
+<td>CPU core</td>
+<td>~2.5 µs software <a href="../../09-reference/glossary/#tick-to-trade">tick-to-trade</a> at best <code>[Verified]</code></td>
+<td>branchy logic, many symbols, fast iteration</td>
+<td>caches, interrupts and the operating system cause tail spikes</td>
+<td>the main quoting loop, hedging, routing, intraday optimizers</td>
+</tr>
+<tr>
+<td>GPU</td>
+<td>a PCIe round trip plus a kernel launch costs several to tens of µs before any math <code>[Estimate]</code></td>
+<td>dense linear algebra over large batches</td>
+<td>wasteful at batch size 1; timing varies run to run</td>
+<td>training neural nets, research backtests, Monte Carlo, overnight risk</td>
+</tr>
+<tr>
+<td>ASIC</td>
+<td>below FPGA, at much higher fixed cost</td>
+<td>the same fixed logic, faster and cooler</td>
+<td>long design cycles; logic frozen at tape-out</td>
+<td>rare; a 2026 profile of Optiver mentions some loops on one FPGA or ASIC <code>[Reported]</code></td>
+</tr>
+</tbody>
+</table>
+<p>GPUs stay out of the hot path because the fastest loop handles one event at a time: there is no batch to spread the transfer cost over, and a few microseconds of overhead lose the race. They earn their keep upstream. XTX Markets reports over 25,000 GPUs <code>[Verified]</code>, and Jane Street says neural networks are used heavily in many of its strategies <code>[Verified]</code>; that compute trains models (<a href="../trading-and-research-tech-stacks/">tech stacks</a>).</p>
+<h2 id="how-the-constraint-reshapes-the-algorithm">How the constraint reshapes the algorithm<a class="headerlink" href="#how-the-constraint-reshapes-the-algorithm" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Slow models arm fast triggers.</strong> A large model, refit offline or every few seconds, writes thresholds and lookup tables; the hot path compares one number with a threshold. Optiver describes this split <code>[Reported]</code>, and <a href="../../03-algorithms/f-market-making-and-hft-algorithms/anatomy-of-an-hft-trading-loop/">M1</a> shows it in code.</li>
+<li><strong>Linear and distilled models win in the fast path.</strong> A <a href="../../03-algorithms/f-market-making-and-hft-algorithms/fair-value-and-microprice/">microprice</a> plus a few <a href="../../03-algorithms/f-market-making-and-hft-algorithms/order-book-and-trade-flow-signals/">order-book signals</a> is a dot product. A large network is distilled or moved to a slower horizon <code>[Lore]</code>.</li>
+<li><strong>Throughput beats latency in options.</strong> On most events the market maker moves a few <a href="../../03-algorithms/f-market-making-and-hft-algorithms/options-pricing-and-vol-surfaces-for-mm/">volatility-surface</a> parameters and reprices the most exposed series first <code>[Lore]</code>.</li>
+<li><strong>Risk checks must be as fast as the loop.</strong> A check that runs after the order has left is a log, not a control; hence inline gates in FPGA logic or C++ (<a href="../../03-algorithms/f-market-making-and-hft-algorithms/algorithmic-risk-controls/">M9</a>).</li>
+<li><strong>Slow strategies spend the budget on data.</strong> An overnight book gains more from cleaner <a href="../../09-reference/glossary/#point-in-time-data">point-in-time data</a> and better <a href="../../03-algorithms/d-portfolio-construction/transaction-cost-and-impact-models/">cost models</a> than from any network upgrade.</li>
+</ul>
+<h2 id="the-economics-speed-is-a-fixed-cost">The economics: speed is a fixed cost<a class="headerlink" href="#the-economics-speed-is-a-fixed-cost" title="Permanent link">&para;</a></h2>
+<p>Links, colocation, FPGA engineers and GPU clusters are mostly fixed costs, so they create operating leverage: in the illustrative <a href="../../02-strategies/b-speed-and-structural/latency-arbitrage/">latency arbitrage</a> book, doubling the win rate more than quadruples net profit. Laughlin et al. estimated that cutting Chicago–New York latency cost over $500 million in build-out plus five years of operations <code>[Verified]</code>. Carrying that bill takes volume across many strategies, one reason a handful of firms dominate the fastest markets (<a href="../../04-industry-and-firms/taxonomy-of-quant-firms/">taxonomy of quant firms</a>).</p>
+<pre class="mermaid"><code>quadrantChart
+  title Latency sensitivity vs research compute
+  x-axis Low latency sensitivity --&gt; High latency sensitivity
+  y-axis Light research compute --&gt; Heavy research compute
+  quadrant-1 Split model and trigger
+  quadrant-2 Research factories
+  quadrant-3 Batch and data quality
+  quadrant-4 Pure speed race
+  Latency arb: [0.93, 0.15]
+  Equity MM: [0.82, 0.35]
+  Options MM: [0.72, 0.62]
+  ML short horizon: [0.55, 0.88]
+  Execution algos: [0.5, 0.25]
+  Stat arb: [0.3, 0.6]
+  Factor books: [0.08, 0.35]</code></pre>
+<p><em>Placement is illustrative <code>[Estimate]</code>: relative positions, not measurements.</em></p>
+<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../../03-algorithms/f-market-making-and-hft-algorithms/anatomy-of-an-hft-trading-loop/">M1 Anatomy of an HFT trading loop</a> · <a href="../../03-algorithms/f-market-making-and-hft-algorithms/algorithmic-risk-controls/">M9 Algorithmic risk controls</a></li>
+<li><a href="../../02-strategies/b-speed-and-structural/latency-arbitrage/">Latency arbitrage</a> · <a href="../../02-strategies/a-liquidity-provision/equity-market-making/">Equity market making</a> · <a href="../../02-strategies/a-liquidity-provision/options-market-making/">Options market making</a></li>
+<li><a href="../../02-strategies/c-statistical-arbitrage/ml-driven-short-horizon-alpha/">ML-driven short-horizon alpha</a></li>
+<li><a href="../colocation-networks-and-the-speed-of-light/">Colocation, networks and the speed of light</a> · <a href="../trading-and-research-tech-stacks/">Trading and research tech stacks</a> · <a href="../semiconductor-lens/">A semiconductor lens</a></li>
+</ul>
+<h2 id="sources">Sources<a class="headerlink" href="#sources" title="Permanent link">&para;</a></h2>
+<ul>
+<li>[Verified] Aquilina, M., Budish, E. &amp; O'Neill, P. (2022). "Quantifying the High-Frequency Trading 'Arms Race'." <em>Quarterly Journal of Economics</em> 137(1), 493–564. <a href="https://www.nber.org/papers/w29011">https://www.nber.org/papers/w29011</a> (accessed 2026-11)</li>
+<li>[Verified] Laughlin, G., Aguirre, A. &amp; Grundfest, J. (2014). "Information Transmission between Financial Markets in Chicago and New York." <em>Financial Review</em> 49(2), 283–312. <a href="https://arxiv.org/abs/1302.5966">https://arxiv.org/abs/1302.5966</a> (accessed 2026-11)</li>
+<li>[Verified] Cook, C. (2017). "When a Microsecond Is an Eternity: High Performance Trading Systems in C++." CppCon 2017 (Optiver), slides. <a href="https://github.com/CppCon/CppCon2017/blob/master/Presentations/When%20a%20Microsecond%20Is%20an%20Eternity/When%20a%20Microsecond%20Is%20an%20Eternity%20-%20Carl%20Cook%20-%20CppCon%202017.pdf">https://github.com/CppCon/CppCon2017/blob/master/Presentations/When%20a%20Microsecond%20Is%20an%20Eternity/When%20a%20Microsecond%20Is%20an%20Eternity%20-%20Carl%20Cook%20-%20CppCon%202017.pdf</a> (accessed 2026-11)</li>
+<li>[Verified] AMD (2024-06-27). "AMD Sets STAC Benchmark World Record for Fastest Electronic Trade Execution" (STAC-T0, with Exegy; vendor-commissioned). <a href="https://www.amd.com/en/blogs/2024/amd-sets-stac-benchmark-world-record-for-fastest-e.html">https://www.amd.com/en/blogs/2024/amd-sets-stac-benchmark-world-record-for-fastest-e.html</a> (accessed 2026-11)</li>
+<li>[Verified] AMD (2023-09-27). "AMD Unveils Purpose-Built, FPGA-Based Accelerator for Ultra-Low Latency Electronic Trading" (Alveo UL3524). <a href="https://ir.amd.com/news-events/press-releases/detail/1158/amd-unveils-purpose-built-fpga-based-accelerator-for">https://ir.amd.com/news-events/press-releases/detail/1158/amd-unveils-purpose-built-fpga-based-accelerator-for</a> (accessed 2026-11)</li>
+<li>[Verified] SIAC for the OPRA Participants (2025-09-15). "Revised OPRA Capacity Projections." <a href="https://cdn.opraplan.com/documents/notices/OPRA_Capacity_Projections_Update_0925.pdf">https://cdn.opraplan.com/documents/notices/OPRA_Capacity_Projections_Update_0925.pdf</a> (accessed 2026-11)</li>
+<li>[Verified] XTX Markets (n.d.). Company website (research cluster of over 25,000 GPUs). <a href="https://www.xtxmarkets.com/">https://www.xtxmarkets.com/</a> (accessed 2026-11)</li>
+<li>[Verified] Maczka, S. (2026-10-13). "Flex Model: an event-driven feature engineering system." <em>Jane Street Blog</em>. <a href="https://blog.janestreet.com/flex-model-an-event-driven-feature-engineering-system/">https://blog.janestreet.com/flex-model-an-event-driven-feature-engineering-system/</a> (accessed 2026-11)</li>
+<li>[Reported] Orosz, G., Klaric, I. &amp; Spevack, J. (2026-08-11). "Software engineering at a proprietary trading company: Optiver." <em>The Pragmatic Engineer</em>. <a href="https://newsletter.pragmaticengineer.com/p/optiver">https://newsletter.pragmaticengineer.com/p/optiver</a> (accessed 2026-11)</li>
+</ul>
 
 
 

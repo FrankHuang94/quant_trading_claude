@@ -4579,6 +4579,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Risk management at quant firms
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -4588,6 +4599,97 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-limit-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      The limit stack
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pod-drawdown-rules-at-multi-managers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pod drawdown rules at multi-managers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stress-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stress tests
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kill-switches-and-automated-controls" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kill switches and automated controls
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-risk" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model risk
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#who-owns-risk" class="md-nav__link">
+    <span class="md-ellipsis">
+      Who owns risk
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related pages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sources
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -5404,6 +5506,86 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-limit-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      The limit stack
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pod-drawdown-rules-at-multi-managers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pod drawdown rules at multi-managers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stress-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stress tests
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kill-switches-and-automated-controls" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kill switches and automated controls
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-risk" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model risk
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#who-owns-risk" class="md-nav__link">
+    <span class="md-ellipsis">
+      Who owns risk
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related pages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sources
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -5421,11 +5603,201 @@
 
 
 <h1 id="risk-management-at-quant-firms">Risk management at quant firms<a class="headerlink" href="#risk-management-at-quant-firms" title="Permanent link">&para;</a></h1>
-<!-- STUB -->
-<div class="admonition note">
-<p class="admonition-title">Not yet written</p>
-<p>This page is scheduled for Phase 7 of the build. See <code>PLAN.md</code> in the repository.</p>
-</div>
+<blockquote>
+<p><strong>TL;DR</strong></p>
+<ul>
+<li>Risk management is a stack of limits, each assuming the one above has failed: per-order checks, per-name positions, gross and net notional, factor exposures, liquidity, losses, and finally a kill switch.</li>
+<li>Quant books are built to be neutral, so most limits cap what the strategy did not mean to own: market beta, sectors, styles such as momentum, and crowded names.</li>
+<li>Multi-manager platforms add drawdown ladders: Millennium reportedly halves a PM's capital at a 5% loss and is likely to part ways near 7.5% <code>[Reported]</code>.</li>
+<li>Stress tests replay real crises against today's book: August 2007, May 2010, August 2015, March 2020, January 2021, August 2024.</li>
+<li>Model risk, the chance that the model or its code is wrong, causes as many disasters as market moves. Knight Capital lost over $460M to dead code in 45 minutes <code>[Verified]</code>.</li>
+</ul>
+</blockquote>
+<p><strong>Level:</strong> Core · <strong>Read time:</strong> ~7 min · <strong>Last verified:</strong> 2026-11</p>
+<p>In accounting language, a quant firm's risk function is an internal-control system over a balance sheet that turns over in hours. Limits are preventive controls, monitors and P&amp;L attribution are detective controls, and kill switches and capital cuts are corrective ones (<a href="../../03-algorithms/f-market-making-and-hft-algorithms/algorithmic-risk-controls/">M9</a> uses the same frame). The difference from a corporate controller is speed: many controls must act automatically, in microseconds, without a human.</p>
+<h2 id="the-limit-stack">The limit stack<a class="headerlink" href="#the-limit-stack" title="Permanent link">&para;</a></h2>
+<p>Setting values vary by firm and are rarely published. The ranges below are illustrative <code>[Lore]</code> unless tagged.</p>
+<table>
+<thead>
+<tr>
+<th>Limit</th>
+<th>What it caps</th>
+<th>Illustrative setting</th>
+<th>Enforced where</th>
+<th>Main users</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Per-order</td>
+<td>price collar, size, notional, message rate</td>
+<td>collar 1–5% from reference; Cboe default max order 25,000 shares <code>[Verified]</code></td>
+<td>inline pre-trade gate, broker, exchange</td>
+<td>everyone; required by Rule 15c3-5 <code>[Verified]</code></td>
+</tr>
+<tr>
+<td>Position per name</td>
+<td>shares or $ held in one stock</td>
+<td>0.5–2% of gross market value (GMV); well under one day's volume</td>
+<td>pre-trade and end of day</td>
+<td>stat arb, factor books</td>
+</tr>
+<tr>
+<td>Inventory per name</td>
+<td>market maker's net position</td>
+<td>a few minutes of normal volume</td>
+<td>inline, with quote skew</td>
+<td><a href="../../09-reference/glossary/#market-making">market making</a></td>
+</tr>
+<tr>
+<td>Gross and net notional</td>
+<td>GMV and net long or short</td>
+<td>net near zero for market-neutral books; gross set by capital and leverage</td>
+<td>firm risk system</td>
+<td>all</td>
+</tr>
+<tr>
+<td>Factor exposure</td>
+<td>beta, sectors, styles (momentum, value, size), country</td>
+<td>beta within ±0.05–0.1; sector net within ±1–3% of GMV; style tilts under ~0.25 standard deviations</td>
+<td><a href="../../03-algorithms/d-portfolio-construction/risk-models/">risk model</a> and optimizer constraints</td>
+<td><a href="../../02-strategies/d-mid-frequency-alpha/cross-sectional-alpha-and-neutralization/">cross-sectional</a>, <a href="../../02-strategies/c-statistical-arbitrage/stat-arb-overview-and-history/">stat arb</a>, pods</td>
+</tr>
+<tr>
+<td>Risk budget</td>
+<td>ex-ante volatility</td>
+<td>e.g. 4–8% annualized per pod</td>
+<td>risk model, daily</td>
+<td><a href="../../09-reference/glossary/#pod">pods</a>, multi-strategy funds</td>
+</tr>
+<tr>
+<td>Liquidity</td>
+<td>days to exit at a participation cap</td>
+<td>under 1–3 days at 10–20% of volume</td>
+<td>pre-trade and daily</td>
+<td>mid-frequency books</td>
+</tr>
+<tr>
+<td>Greeks</td>
+<td>delta, gamma, vega per underlying and by expiry</td>
+<td>set per desk</td>
+<td>real time</td>
+<td><a href="../../02-strategies/a-liquidity-provision/options-market-making/">options market making</a></td>
+</tr>
+<tr>
+<td>Loss</td>
+<td>daily, monthly, peak-to-trough</td>
+<td>stop new risk at a daily loss; capital cut at a drawdown</td>
+<td>real time and daily</td>
+<td>all</td>
+</tr>
+</tbody>
+</table>
+<p>Factor limits are the quant-specific layer. A stat-arb book that is accidentally long momentum is a factor bet in disguise. In August 2007 crowded books with similar exposures lost together (<a href="../../09-reference/glossary/#quant-quake">quant quake</a>; Khandani and Lo 2011 <code>[Verified]</code>). The <a href="../../03-algorithms/d-portfolio-construction/risk-models/">risk models</a> card shows how exposures are measured; <a href="../../03-algorithms/d-portfolio-construction/position-sizing-and-risk-budgeting/">position sizing and risk budgeting</a> shows how budgets become position sizes.</p>
+<pre class="mermaid"><code>flowchart TD
+  CAP["Firm capital"] --&gt; BUD["Risk budget per strategy or pod&lt;br/&gt;volatility, drawdown ladder"]
+  BUD --&gt; PORT["Portfolio limits&lt;br/&gt;gross, net, factor, liquidity"]
+  PORT --&gt; NAME["Name limits&lt;br/&gt;position, inventory, Greeks"]
+  NAME --&gt; ORD["Order gate&lt;br/&gt;collar, size, rate, credit"]
+  ORD --&gt; EXC["Exchange controls&lt;br/&gt;fat finger, LULD, kill"]
+  MON["Real-time P and L and exposure monitors"] -.-&gt;|"breach"| KILL["Reduce-only or kill switch"]
+  KILL -.-&gt; ORD</code></pre>
+<h2 id="pod-drawdown-rules-at-multi-managers">Pod drawdown rules at multi-managers<a class="headerlink" href="#pod-drawdown-rules-at-multi-managers" title="Permanent link">&para;</a></h2>
+<p>Multi-manager platforms combine many independent <a href="../../09-reference/glossary/#pod">pods</a> and police each one by its P&amp;L. The rules are reported, not published. Millennium reportedly halves a PM's capital at a 5% loss on allocated capital and is likely to part ways at 7.5% <code>[Reported]</code>; other accounts put the exit near 10% <code>[Lore]</code>. Simulations in <a href="../../02-strategies/h-cross-cutting/how-firms-combine-strategies/">how firms combine strategies</a> show such a stop fires within a year for about 20% of zero-skill pods but also about 4% of Sharpe-1 pods at 4% volatility <code>[Estimate]</code>. The stop caps damage cheaply but detects skill poorly. It also pushes PMs toward low volatility and tight factor neutrality, because a factor drawdown counts the same as a stock-picking one.</p>
+<h2 id="stress-tests">Stress tests<a class="headerlink" href="#stress-tests" title="Permanent link">&para;</a></h2>
+<p>A stress test asks what today's book would lose in a past or imagined crisis. Three methods are common <code>[Lore]</code>: replay historical factor and price moves on current positions; shock factors by <em>k</em> standard deviations, with correlations pushed toward one; and add the cost of exiting at stressed volume. The scenarios come from the <a href="../../02-strategies/h-cross-cutting/strategy-failure-gallery/">strategy failure gallery</a>:</p>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>What it shocks</th>
+<th>Books it hits hardest</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>August 2007 quant quake</td>
+<td>crowded long-short equity factors unwinding together</td>
+<td>stat arb, multi-factor</td>
+</tr>
+<tr>
+<td>6 May 2010 Flash Crash</td>
+<td>liquidity vanishing in minutes</td>
+<td>market makers, stop-loss and hedging logic</td>
+</tr>
+<tr>
+<td>24 August 2015</td>
+<td>1,278 LULD halts, 1,058 of them in 327 ETPs <code>[Verified]</code></td>
+<td>ETF arbitrage, ETF market making</td>
+</tr>
+<tr>
+<td>5 February 2018</td>
+<td>VIX close from 17.31 to 37.32 in a day (FRED data) <code>[Verified]</code></td>
+<td>short volatility</td>
+</tr>
+<tr>
+<td>March 2020</td>
+<td>deleveraging and funding stress</td>
+<td>everything levered</td>
+</tr>
+<tr>
+<td>January 2021 meme squeeze</td>
+<td>short squeezes in crowded shorts</td>
+<td>short books, reversal</td>
+</tr>
+<tr>
+<td>5 August 2024</td>
+<td>yen-carry unwind; VIX near 66 pre-market <code>[Verified]</code></td>
+<td>carry, short volatility, crowded momentum</td>
+</tr>
+</tbody>
+</table>
+<p>Algorithm stress tests matter too. MiFID II's RTS 6 requires EU algorithmic firms to test, at least yearly, that systems and controls survive twice the peak message and trading volume of the past six months <code>[Verified]</code>.</p>
+<h2 id="kill-switches-and-automated-controls">Kill switches and automated controls<a class="headerlink" href="#kill-switches-and-automated-controls" title="Permanent link">&para;</a></h2>
+<p>A <a href="../../09-reference/glossary/#kill-switch">kill switch</a> cancels working orders and blocks new ones, often still allowing risk-reducing orders. FIA's 2024 best-practice paper calls it a last resort behind layered pre-trade controls. It recommends granular switches, per trading system, that the risk owner can operate and the trader cannot override <code>[Verified]</code>. RTS 6 requires the ability to cancel any or all unexecuted orders immediately <code>[Verified]</code>. Good designs fail safe: on lost connectivity, stale data or a breached loss limit, quotes come down first (<a href="../../03-algorithms/f-market-making-and-hft-algorithms/anatomy-of-an-hft-trading-loop/">M1</a>, <a href="../../03-algorithms/f-market-making-and-hft-algorithms/algorithmic-risk-controls/">M9</a>).</p>
+<pre class="mermaid"><code>stateDiagram-v2
+  [*] --&gt; Normal
+  Normal --&gt; Throttled: message or fill rate high
+  Throttled --&gt; Normal: rate back to normal
+  Normal --&gt; ReduceOnly: loss or exposure limit hit
+  Throttled --&gt; ReduceOnly: limit hit
+  ReduceOnly --&gt; Killed: further breach or bad data
+  Normal --&gt; Killed: runaway detected
+  Killed --&gt; Review: orders cancelled
+  Review --&gt; Normal: risk owner restarts</code></pre>
+<h2 id="model-risk">Model risk<a class="headerlink" href="#model-risk" title="Permanent link">&para;</a></h2>
+<p>US bank supervisors define model risk as losses from models that are wrong or misused. Their guidance, SR 11-7, asks for independent validation, effective challenge and ongoing monitoring <code>[Verified]</code>. Hedge funds are not bound by it, but quant firms run similar controls under other names <code>[Lore]</code>:</p>
+<ul>
+<li><strong>Research review.</strong> Out-of-sample tests, <a href="../../03-algorithms/c-validation-and-backtesting/overfitting-and-multiple-testing/">multiple-testing</a> haircuts, and a check against <a href="../../03-algorithms/c-validation-and-backtesting/backtest-pitfalls/">backtest pitfalls</a>.</li>
+<li><strong>Staged deployment.</strong> Paper trading, then small capital, then scale; new code on one server or symbol first.</li>
+<li><strong>Live monitoring.</strong> Realized against expected P&amp;L, <a href="../../03-algorithms/g-live-trading/live-monitoring-and-pnl-attribution/">P&amp;L attribution</a>, and <a href="../../03-algorithms/g-live-trading/alpha-decay-detection-and-model-retirement/">alpha-decay</a> tests that retire models.</li>
+<li><strong>Code risk.</strong> Knight Capital is the canonical case: new code reached seven of eight servers, and a repurposed flag woke dead logic on the eighth. In about 45 minutes it built roughly $3.5B of unintended longs and $3.15B of shorts, and lost over $460M <code>[Verified]</code>. No check compared orders out with fills in.</li>
+</ul>
+<h2 id="who-owns-risk">Who owns risk<a class="headerlink" href="#who-owns-risk" title="Permanent link">&para;</a></h2>
+<p>Most firms separate the trader or PM, who owns P&amp;L, from an independent risk team that sets and enforces limits <code>[Lore]</code>. At broker-dealers the market access rule makes this formal: pre-trade controls under the firm's direct and exclusive control, and an annual CEO certification <code>[Verified]</code> (<a href="../rules-that-shape-strategies/">rules that shape strategies</a>).</p>
+<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../../03-algorithms/f-market-making-and-hft-algorithms/algorithmic-risk-controls/">M9 Algorithmic risk controls</a> · <a href="../../03-algorithms/d-portfolio-construction/risk-models/">P1 Risk models</a> · <a href="../../03-algorithms/d-portfolio-construction/position-sizing-and-risk-budgeting/">P7 Position sizing and risk budgeting</a></li>
+<li><a href="../../02-strategies/h-cross-cutting/how-firms-combine-strategies/">How firms combine strategies</a> · <a href="../../02-strategies/h-cross-cutting/strategy-failure-gallery/">Strategy failure gallery</a></li>
+<li><a href="../../02-strategies/e-risk-premia-and-factors/factor-timing-crowding-and-quant-winters/">Factor timing, crowding and quant winters</a></li>
+<li><a href="../../03-algorithms/g-live-trading/live-monitoring-and-pnl-attribution/">L1 Live monitoring and P&amp;L attribution</a> · <a href="../../03-algorithms/g-live-trading/alpha-decay-detection-and-model-retirement/">L2 Alpha decay detection and model retirement</a></li>
+<li><a href="../rules-that-shape-strategies/">Rules that shape strategies</a></li>
+</ul>
+<h2 id="sources">Sources<a class="headerlink" href="#sources" title="Permanent link">&para;</a></h2>
+<ul>
+<li>[Verified] U.S. SEC (2013-10-16). <em>In the Matter of Knight Capital Americas LLC</em>, Release No. 34-70694. <a href="https://www.sec.gov/litigation/admin/2013/34-70694.pdf">https://www.sec.gov/litigation/admin/2013/34-70694.pdf</a> (accessed 2026-11)</li>
+<li>[Reported] Business Insider via AOL (2024-10-02). "The strategy a $69 billion hedge fund uses to make sure it never loses money in the stock market" (citing the Wall Street Journal). <a href="https://www.aol.com/strategy-69-billion-hedge-fund-193733084.html">https://www.aol.com/strategy-69-billion-hedge-fund-193733084.html</a> (accessed 2026-11)</li>
+<li>[Verified] Khandani, A. E. &amp; Lo, A. W. (2011). "What happened to the quants in August 2007? Evidence from factors and transactions data." <em>Journal of Financial Markets</em> 14(1), 1–46. <a href="https://doi.org/10.1016/j.finmar.2010.07.005">https://doi.org/10.1016/j.finmar.2010.07.005</a> (accessed 2026-11)</li>
+<li>[Verified] FIA (2024-07). "Best Practices for Automated Trading Risk Controls and System Safeguards." <a href="https://fia.org/sites/default/files/2024-07/FIA_WP_AUTOMATED%20TRADING%20RISK%20CONTROLS_FINAL_0.pdf">https://fia.org/sites/default/files/2024-07/FIA_WP_AUTOMATED%20TRADING%20RISK%20CONTROLS_FINAL_0.pdf</a> (accessed 2026-11)</li>
+<li>[Verified] Commission Delegated Regulation (EU) 2017/589 (RTS 6), Articles 10, 12 and 15. <a href="https://www.legislation.gov.uk/eur/2017/589/contents">https://www.legislation.gov.uk/eur/2017/589/contents</a> (accessed 2026-11)</li>
+<li>[Verified] Board of Governors of the Federal Reserve System &amp; OCC (2011-04-04). "Supervisory Guidance on Model Risk Management," SR 11-7. <a href="https://www.federalreserve.gov/boarddocs/srletters/2011/sr1107.htm">https://www.federalreserve.gov/boarddocs/srletters/2011/sr1107.htm</a> (accessed 2026-11)</li>
+<li>[Verified] Cboe (2026-10-05). "Cboe Titanium U.S. Equities BOE Specification," version 2.4.58 (default risk-control settings). <a href="https://cdn.cboe.com/resources/techspec/technical-specifications-cboe-titanium-u-s-equities-boe-specification.md">https://cdn.cboe.com/resources/techspec/technical-specifications-cboe-titanium-u-s-equities-boe-specification.md</a> (accessed 2026-11)</li>
+<li>[Verified] U.S. SEC (2010-11-03). "Risk Management Controls for Brokers or Dealers with Market Access," Release No. 34-63241. <a href="https://www.sec.gov/rules/final/2010/34-63241.pdf">https://www.sec.gov/rules/final/2010/34-63241.pdf</a> (accessed 2026-11)</li>
+<li>[Verified] Todorov, K. &amp; Vilkov, G. (2024-10-29). "Anatomy of the VIX spike in August 2024." <em>BIS Bulletin</em> 95. <a href="https://www.bis.org/publ/bisbull95.htm">https://www.bis.org/publ/bisbull95.htm</a> (accessed 2026-11)</li>
+<li>[Verified] Federal Reserve Bank of St. Louis. "CBOE Volatility Index: VIX (VIXCLS)." FRED. <a href="https://fred.stlouisfed.org/series/VIXCLS">https://fred.stlouisfed.org/series/VIXCLS</a> (accessed 2026-11)</li>
+<li>[Verified] SEC Staff (2015-12). "Research Note: Equity Market Volatility on August 24, 2015." <a href="https://www.sec.gov/marketstructure/research/equity_market_volatility.pdf">https://www.sec.gov/marketstructure/research/equity_market_volatility.pdf</a> (accessed 2026-11)</li>
+<li>[Verified] Bank for International Settlements (2018-03-11). "The equity market turbulence of 5 February: the role of exchange-traded volatility products." <em>BIS Quarterly Review</em>, March 2018, box. <a href="https://www.bis.org/publ/qtrpdf/r_qt1803t.htm">https://www.bis.org/publ/qtrpdf/r_qt1803t.htm</a> (accessed 2026-11)</li>
+</ul>
 
 
 

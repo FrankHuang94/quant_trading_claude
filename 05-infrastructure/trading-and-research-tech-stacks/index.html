@@ -4484,6 +4484,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Trading and research tech stacks
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -4493,6 +4504,79 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#two-stacks-one-firm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Two stacks, one firm
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#production-the-hot-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      Production: the hot path
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#research-the-factory" class="md-nav__link">
+    <span class="md-ellipsis">
+      Research: the factory
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#simulation-and-backtest-infrastructure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Simulation and backtest infrastructure
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related pages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sources
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -5404,6 +5488,68 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#two-stacks-one-firm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Two stacks, one firm
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#production-the-hot-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      Production: the hot path
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#research-the-factory" class="md-nav__link">
+    <span class="md-ellipsis">
+      Research: the factory
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#simulation-and-backtest-infrastructure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Simulation and backtest infrastructure
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related pages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sources
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -5421,11 +5567,162 @@
 
 
 <h1 id="trading-and-research-tech-stacks">Trading and research tech stacks<a class="headerlink" href="#trading-and-research-tech-stacks" title="Permanent link">&para;</a></h1>
-<!-- STUB -->
-<div class="admonition note">
-<p class="admonition-title">Not yet written</p>
-<p>This page is scheduled for Phase 7 of the build. See <code>PLAN.md</code> in the repository.</p>
-</div>
+<blockquote>
+<p><strong>TL;DR</strong></p>
+<ul>
+<li>A quant firm runs two stacks. Production is small, fast and deterministic: C++ (or OCaml, or FPGA logic), kernel-bypass networking, pinned cores. Research is large and flexible: Python, columnar data stores, GPU clusters.</li>
+<li>The interface between them is narrow: research ships parameters and model weights; production ships back logs of every packet, order and fill.</li>
+<li>Jane Street is the best-documented exception to "C++ everywhere": OCaml is its primary language, with Python second for data analysis and machine learning <code>[Verified]</code>.</li>
+<li>The costliest failures sit at the seam: research code that is not the code that trades, and simulators that ignore queues and latency.</li>
+</ul>
+</blockquote>
+<p><strong>Level:</strong> Core · <strong>Read time:</strong> ~6 min · <strong>Last verified:</strong> 2026-11</p>
+<h2 id="two-stacks-one-firm">Two stacks, one firm<a class="headerlink" href="#two-stacks-one-firm" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>flowchart LR
+  subgraph RS["Research stack"]
+    DL["Data lake&lt;br/&gt;ticks, fundamentals, alt data"] --&gt; NB["Python research&lt;br/&gt;pandas, polars, kdb+ q"]
+    NB --&gt; GPU["GPU and CPU clusters&lt;br/&gt;training, backtests"]
+    GPU --&gt; SIM["Simulator&lt;br/&gt;replay with queues and latency"]
+  end
+  subgraph PS["Production stack"]
+    NIC["Kernel-bypass NIC&lt;br/&gt;or FPGA card"] --&gt; HOT["Hot path&lt;br/&gt;C++, OCaml or FPGA logic"]
+    HOT --&gt; GW["Order gateway&lt;br/&gt;and risk gate"]
+  end
+  SIM --&gt;|"parameters, weights, limits"| HOT
+  GW --&gt;|"packet captures, orders, fills"| DL</code></pre>
+<p>In the standard design the arrows are the whole contract <code>[Lore]</code>: research hands production numbers rather than calling into it, and production logs everything for the next refit rather than waiting on research. This is the <a href="../how-infrastructure-constrains-algorithms/#how-the-constraint-reshapes-the-algorithm">slow-model, fast-trigger</a> split in software form.</p>
+<h2 id="production-the-hot-path">Production: the hot path<a class="headerlink" href="#production-the-hot-path" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Common choices</th>
+<th>Why</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Language</td>
+<td>C++</td>
+<td>control of memory layout, no garbage-collection pauses, mature low-latency idioms</td>
+<td>Optiver's CppCon 2017 talk on sub-µs C++ <code>[Verified]</code></td>
+</tr>
+<tr>
+<td></td>
+<td>OCaml at Jane Street</td>
+<td>the firm calls OCaml its primary development platform and writes "everything that we can" in it, trading systems included; it maintains its own compiler extensions (OxCaml) for performance work</td>
+<td>Jane Street technology page and OxCaml site <code>[Verified]</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Java with one business-logic thread</td>
+<td>LMAX reported about 6 million orders per second on one thread</td>
+<td>Fowler (2011) <code>[Verified]</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Rust</td>
+<td>memory safety without a garbage collector; visible mainly in newer and crypto trading firms' hiring and in data vendors</td>
+<td>job postings and vendor blogs <code>[Reported]</code>; adoption at large established HFTs is not publicly documented <code>[Lore]</code></td>
+</tr>
+<tr>
+<td>Networking</td>
+<td><a href="../../09-reference/glossary/#kernel-bypass">Kernel bypass</a>: AMD Solarflare Onload (sockets-compatible), TCPDirect, ef_vi (raw frames); DPDK</td>
+<td>the kernel network stack adds microseconds and jitter; bypass lets a pinned core poll the NIC directly</td>
+<td>AMD documents all three APIs <code>[Verified]</code>; AMD's own tests show about 0.8–1.0 µs ping-pong latency on its X3522 card, lowest with ef_vi <code>[Reported]</code>; DPDK is a Linux Foundation packet-processing project <code>[Verified]</code></td>
+</tr>
+<tr>
+<td>FPGA cards</td>
+<td>AMD Alveo UL3524 and UL3422; vendor frameworks such as Exegy's</td>
+<td>parsing, triggers and risk checks in tens of ns</td>
+<td>AMD says the UL3524 was "already deployed by leading trading firms" at launch <code>[Verified]</code> (vendor claim)</td>
+</tr>
+<tr>
+<td>Operating system</td>
+<td>pinned cores, isolated CPUs, huge pages, busy polling, no allocation on the hot path</td>
+<td>remove sources of tail latency</td>
+<td>Cook (2017) <code>[Verified]</code>; specific settings <code>[Lore]</code></td>
+</tr>
+<tr>
+<td>Time</td>
+<td>PTP-disciplined NIC hardware timestamps</td>
+<td>measure <a href="../../09-reference/glossary/#tick-to-trade">tick-to-trade</a> and <a href="../../09-reference/glossary/#markout">markouts</a> in ns</td>
+<td>see <a href="../semiconductor-lens/">semiconductor lens</a></td>
+</tr>
+</tbody>
+</table>
+<p>Two design rules follow from <a href="../../03-algorithms/f-market-making-and-hft-algorithms/anatomy-of-an-hft-trading-loop/">M1</a>. First, the core is single-threaded and deterministic, so a recorded day replays to identical orders. Second, the risk gate is part of production, not a separate service that can be bypassed (<a href="../../03-algorithms/f-market-making-and-hft-algorithms/algorithmic-risk-controls/">M9</a>).</p>
+<h2 id="research-the-factory">Research: the factory<a class="headerlink" href="#research-the-factory" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Common choices</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tick database</td>
+<td>kdb+, a columnar in-memory time-series database driven by the vector language q, long used in capital markets</td>
+<td>KX product page <code>[Verified]</code>; prevalence at banks and HFTs <code>[Lore]</code></td>
+</tr>
+<tr>
+<td>Analysis language</td>
+<td>Python with NumPy and pandas; polars, an analytical query engine written in Rust</td>
+<td>Jane Street says most of its traders and researchers think and write in Python, its second major language and primary tool for data analysis and ML <code>[Verified]</code>; polars README <code>[Verified]</code></td>
+</tr>
+<tr>
+<td>Compute</td>
+<td>GPU clusters for training; large CPU farms for backtests</td>
+<td>XTX Markets reports over 25,000 GPUs <code>[Verified]</code>, and in 2025 described tens of thousands of high-end GPUs, hundreds of thousands of CPUs and hundreds of petabytes of storage <code>[Verified]</code>; Hudson River Trading signed a multi-year deal for NVIDIA Vera Rubin systems on CoreWeave in 2026 <code>[Verified]</code></td>
+</tr>
+<tr>
+<td>Storage</td>
+<td>columnar files on distributed filesystems or object stores</td>
+<td>XTX open-sourced TernFS, its in-house exabyte-scale filesystem, in September 2025 <code>[Verified]</code></td>
+</tr>
+<tr>
+<td>Data discipline</td>
+<td><a href="../../03-algorithms/a-data-and-signals/point-in-time-data-and-cleaning/">point-in-time</a> snapshots, versioned datasets</td>
+<td>see D1; firm specifics <code>[Lore]</code></td>
+</tr>
+</tbody>
+</table>
+<p>For the reader with a hardware background: research demand is the GPU and storage business; production demand is the NIC, FPGA and switch business. They grow for different reasons, and only research spend scales with model size.</p>
+<h2 id="simulation-and-backtest-infrastructure">Simulation and backtest infrastructure<a class="headerlink" href="#simulation-and-backtest-infrastructure" title="Permanent link">&para;</a></h2>
+<p>Two kinds of simulator, matched to two budgets (details in <a href="../../03-algorithms/c-validation-and-backtesting/backtesting-engines/">V2 Backtesting engines</a>):</p>
+<ul>
+<li><strong>Vectorized backtests</strong> for daily and intraday books: a panel of returns and positions, costs from a <a href="../../03-algorithms/d-portfolio-construction/transaction-cost-and-impact-models/">transaction-cost model</a>. Fast enough to run thousands of variants, which is exactly why <a href="../../03-algorithms/c-validation-and-backtesting/overfitting-and-multiple-testing/">multiple-testing</a> haircuts are needed.</li>
+<li><strong>Event-driven replay</strong> for market making and execution: captured packets are fed through a <a href="https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/01-matching-engine-order-book">matching engine</a> model with <a href="../../03-algorithms/f-market-making-and-hft-algorithms/queue-position-and-order-placement/">queue position</a>, venue latency and fees. The best version runs the production strategy code itself against the replay <code>[Lore]</code>, so research and production cannot drift apart.</li>
+</ul>
+<p>The seam is where money is lost. A model that looked good in Python but is reimplemented in C++ can differ in rounding, feature timing or missing-data handling. Firms counter with shared libraries across research and production (Jane Street's single-language approach is one answer), replay tests that must match production byte for byte, and staged capital ramps for new models (<a href="../../03-algorithms/g-live-trading/alpha-decay-detection-and-model-retirement/">L2</a>) <code>[Lore]</code>.</p>
+<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../../03-algorithms/f-market-making-and-hft-algorithms/anatomy-of-an-hft-trading-loop/">M1 Anatomy of an HFT trading loop</a> · <a href="../../03-algorithms/c-validation-and-backtesting/backtesting-engines/">V2 Backtesting engines</a> · <a href="../../03-algorithms/c-validation-and-backtesting/backtest-pitfalls/">V3 Backtest pitfalls</a></li>
+<li><a href="../../02-strategies/c-statistical-arbitrage/ml-driven-short-horizon-alpha/">ML-driven short-horizon alpha</a> · <a href="../../03-algorithms/b-forecasting-models/neural-nets-and-sequence-models/">F3 Neural nets and sequence models</a></li>
+<li><a href="../../02-strategies/a-liquidity-provision/equity-market-making/">Equity market making</a></li>
+<li><a href="../how-infrastructure-constrains-algorithms/">How infrastructure constrains algorithms</a> · <a href="../semiconductor-lens/">A semiconductor lens</a></li>
+</ul>
+<h2 id="sources">Sources<a class="headerlink" href="#sources" title="Permanent link">&para;</a></h2>
+<ul>
+<li>[Verified] Jane Street (n.d.). "Technology" (OCaml as primary development platform). <a href="https://www.janestreet.com/technology/">https://www.janestreet.com/technology/</a> (accessed 2026-11)</li>
+<li>[Verified] Trangez, N. (2026-06-15). "Using OxCaml to implement type-safe reference counting between OCaml and Python." <em>Jane Street Blog</em>. <a href="https://blog.janestreet.com/oxcaml-typesafe-reference-counting-python/">https://blog.janestreet.com/oxcaml-typesafe-reference-counting-python/</a> (accessed 2026-11)</li>
+<li>[Verified] OxCaml (n.d.). "OxCaml" (Jane Street's production compiler and OCaml extensions). <a href="https://oxcaml.org/">https://oxcaml.org/</a> (accessed 2026-11)</li>
+<li>[Verified] Cook, C. (2017). "When a Microsecond Is an Eternity: High Performance Trading Systems in C++." CppCon 2017 (Optiver), slides. <a href="https://github.com/CppCon/CppCon2017/blob/master/Presentations/When%20a%20Microsecond%20Is%20an%20Eternity/When%20a%20Microsecond%20Is%20an%20Eternity%20-%20Carl%20Cook%20-%20CppCon%202017.pdf">https://github.com/CppCon/CppCon2017/blob/master/Presentations/When%20a%20Microsecond%20Is%20an%20Eternity/When%20a%20Microsecond%20Is%20an%20Eternity%20-%20Carl%20Cook%20-%20CppCon%202017.pdf</a> (accessed 2026-11)</li>
+<li>[Verified] Fowler, M. (2011-07-12). "The LMAX Architecture." <a href="https://martinfowler.com/articles/lmax.html">https://martinfowler.com/articles/lmax.html</a> (accessed 2026-11)</li>
+<li>[Verified] AMD (2026). "Onload User Guide" (UG1586; Onload, TCPDirect and ef_vi). <a href="https://docs.amd.com/r/en-US/ug1586-onload-user/Notes-on-Latency-and-Payload-Graphs">https://docs.amd.com/r/en-US/ug1586-onload-user/Notes-on-Latency-and-Payload-Graphs</a> (accessed 2026-11)</li>
+<li>[Reported] AMD (n.d.). "AMD Low Latency Solutions: AMD EPYC 9005 and AMD Alveo X3" (white paper; vendor-measured latencies). <a href="https://www.amd.com/content/dam/amd/en/documents/epyc-technical-docs/white-papers/amd-low-latency-solutions-amd-epyc-9005-amd-alveo-x3.pdf">https://www.amd.com/content/dam/amd/en/documents/epyc-technical-docs/white-papers/amd-low-latency-solutions-amd-epyc-9005-amd-alveo-x3.pdf</a> (accessed 2026-11)</li>
+<li>[Verified] DPDK Project (n.d.). "About DPDK." <a href="https://www.dpdk.org/about/">https://www.dpdk.org/about/</a> (accessed 2026-11)</li>
+<li>[Verified] AMD (2023-09-27). "AMD Unveils Purpose-Built, FPGA-Based Accelerator for Ultra-Low Latency Electronic Trading." <a href="https://ir.amd.com/news-events/press-releases/detail/1158/amd-unveils-purpose-built-fpga-based-accelerator-for">https://ir.amd.com/news-events/press-releases/detail/1158/amd-unveils-purpose-built-fpga-based-accelerator-for</a> (accessed 2026-11)</li>
+<li>[Verified] KX (n.d.). "kdb+." <a href="https://kx.com/products/kdb/">https://kx.com/products/kdb/</a> (accessed 2026-11)</li>
+<li>[Verified] Polars (n.d.). README: "an analytical query engine written in Rust." <a href="https://github.com/pola-rs/polars">https://github.com/pola-rs/polars</a> (accessed 2026-11)</li>
+<li>[Verified] XTX Markets (2025-09). "TernFS: an exabyte scale, multi-region distributed filesystem." <em>XTX Tech Blog</em>. <a href="https://www.xtxmarkets.com/tech/2025-ternfs/">https://www.xtxmarkets.com/tech/2025-ternfs/</a> (accessed 2026-11)</li>
+<li>[Verified] XTX Markets (n.d.). Company website (research cluster of over 25,000 GPUs). <a href="https://www.xtxmarkets.com/">https://www.xtxmarkets.com/</a> (accessed 2026-11)</li>
+<li>[Verified] CoreWeave (2026). "Hudson River Trading to Build Next-Gen Research Platform Powered by NVIDIA Vera Rubin NVL72 on CoreWeave Cloud." <a href="https://coreweave.com/news/hudson-river-trading-to-build-next-gen-research-platform-powered-by-nvidia-vera-rubin-nvl72-on-coreweave-cloud">https://coreweave.com/news/hudson-river-trading-to-build-next-gen-research-platform-powered-by-nvidia-vera-rubin-nvl72-on-coreweave-cloud</a> (accessed 2026-11)</li>
+<li>[Reported] Databento (2025-08-22). "Rust vs C++ for trading systems: lessons from building market data and trading products." <a href="https://databento.com/blog/rust-vs-cpp">https://databento.com/blog/rust-vs-cpp</a> (accessed 2026-11)</li>
+</ul>
 
 
 
