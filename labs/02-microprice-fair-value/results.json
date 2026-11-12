@@ -1,0 +1,263 @@
+{
+  "lab": "02-microprice-fair-value",
+  "smoke": false,
+  "seed": 7,
+  "headline_next_mid_change_mse_change_pct_microprice": -3.55,
+  "headline_next_mid_change_mse_change_pct_weighted_mid": 41.16,
+  "headline_next_mid_change_mse_change_pct_conditional_mean": -5.63,
+  "headline_spread1_next_change_mse_change_pct_microprice": -9.6,
+  "headline_spread2_next_change_mse_change_pct_weighted_mid": 61.26,
+  "headline_calibration_slope_microprice_1_vs_20_moves": [
+    0.634,
+    0.12
+  ],
+  "headline_corr_microprice_adjustment_with_latent_fv_gap": 0.0006,
+  "train_days": 2,
+  "test_days": 2,
+  "seconds_per_day": 23400,
+  "n_train_book_updates": 132939,
+  "n_test_grid_points": 46558,
+  "imbalance_bucket_centers": [
+    -1.0,
+    -0.8,
+    -0.6,
+    -0.4,
+    -0.2,
+    0.0,
+    0.2,
+    0.4,
+    0.6,
+    0.8,
+    1.0
+  ],
+  "microprice_adjustment_ticks_spread1": [
+    -0.571,
+    -0.432,
+    -0.299,
+    -0.181,
+    -0.094,
+    -0.0,
+    0.094,
+    0.181,
+    0.299,
+    0.432,
+    0.571
+  ],
+  "microprice_adjustment_ticks_spread2": [
+    -0.405,
+    -0.309,
+    -0.199,
+    -0.124,
+    -0.062,
+    -0.0,
+    0.062,
+    0.124,
+    0.199,
+    0.309,
+    0.405
+  ],
+  "microprice_adjustment_ticks_spread3": [
+    -0.278,
+    -0.247,
+    -0.163,
+    -0.116,
+    -0.049,
+    -0.0,
+    0.049,
+    0.116,
+    0.163,
+    0.247,
+    0.278
+  ],
+  "weighted_mid_adjustment_ticks_at_imbalance_0.8": {
+    "spread1": 0.4,
+    "spread2": 0.8,
+    "spread3": 1.2
+  },
+  "microprice_adjustment_ticks_at_imbalance_0.8": {
+    "spread1": 0.432,
+    "spread2": 0.309,
+    "spread3": 0.247
+  },
+  "mid_moves_to_converge": 4,
+  "next_mid_change_mse_change_vs_mid_pct": {
+    "weighted_mid": 41.16,
+    "microprice": -3.549,
+    "conditional_mean": -5.633,
+    "latent_fair_value": 764.219
+  },
+  "mse_change_vs_mid_pct_by_event_horizon": {
+    "k1": {
+      "weighted_mid": 41.16,
+      "microprice": -3.549,
+      "conditional_mean": -5.633,
+      "latent_fair_value": 764.219
+    },
+    "k2": {
+      "weighted_mid": 18.432,
+      "microprice": -1.642,
+      "conditional_mean": -2.523,
+      "latent_fair_value": 271.64
+    },
+    "k3": {
+      "weighted_mid": 14.147,
+      "microprice": -0.05,
+      "conditional_mean": -1.09,
+      "latent_fair_value": 120.736
+    },
+    "k5": {
+      "weighted_mid": 9.089,
+      "microprice": 0.752,
+      "conditional_mean": -0.249,
+      "latent_fair_value": 9.764
+    },
+    "k10": {
+      "weighted_mid": 4.93,
+      "microprice": 0.665,
+      "conditional_mean": -0.027,
+      "latent_fair_value": -36.192
+    },
+    "k20": {
+      "weighted_mid": 2.474,
+      "microprice": 0.366,
+      "conditional_mean": 0.045,
+      "latent_fair_value": -30.65
+    }
+  },
+  "mse_change_vs_mid_pct_by_clock_horizon_s": {
+    "t1": {
+      "weighted_mid": 56.131,
+      "microprice": 0.526,
+      "conditional_mean": -4.135,
+      "latent_fair_value": 1110.251
+    },
+    "t2": {
+      "weighted_mid": 25.908,
+      "microprice": -2.517,
+      "conditional_mean": -3.733,
+      "latent_fair_value": 464.89
+    },
+    "t5": {
+      "weighted_mid": 11.965,
+      "microprice": -0.214,
+      "conditional_mean": -0.99,
+      "latent_fair_value": 60.667
+    },
+    "t10": {
+      "weighted_mid": 6.647,
+      "microprice": 0.661,
+      "conditional_mean": -0.103,
+      "latent_fair_value": -35.988
+    },
+    "t30": {
+      "weighted_mid": 2.175,
+      "microprice": 0.367,
+      "conditional_mean": 0.075,
+      "latent_fair_value": -29.36
+    },
+    "t60": {
+      "weighted_mid": 0.902,
+      "microprice": 0.133,
+      "conditional_mean": 0.094,
+      "latent_fair_value": -14.565
+    },
+    "t120": {
+      "weighted_mid": 0.337,
+      "microprice": 0.028,
+      "conditional_mean": 0.064,
+      "latent_fair_value": -7.122
+    }
+  },
+  "mid_mse_ticks2": {
+    "k1": 0.375,
+    "k2": 0.759,
+    "k3": 1.155,
+    "k5": 2.111,
+    "k10": 4.747,
+    "k20": 10.368,
+    "t1": 0.282,
+    "t2": 0.538,
+    "t5": 1.423,
+    "t10": 3.296,
+    "t30": 11.763,
+    "t60": 23.867,
+    "t120": 47.312
+  },
+  "next_mid_change_by_spread": {
+    "1_tick": {
+      "share_of_time": 0.474,
+      "change_vs_mid_pct_weighted_mid": -10.097,
+      "change_vs_mid_pct_microprice": -9.599
+    },
+    "2_tick": {
+      "share_of_time": 0.369,
+      "change_vs_mid_pct_weighted_mid": 61.264,
+      "change_vs_mid_pct_microprice": 1.912
+    },
+    "3_tick": {
+      "share_of_time": 0.115,
+      "change_vs_mid_pct_weighted_mid": 106.16,
+      "change_vs_mid_pct_microprice": 1.82
+    }
+  },
+  "markov_vs_realized_at_imbalance_0.8": {
+    "k1": {
+      "spread1": [
+        0.386,
+        0.313
+      ],
+      "spread2": [
+        0.193,
+        0.161
+      ]
+    },
+    "k3": {
+      "spread1": [
+        0.428,
+        0.233
+      ],
+      "spread2": [
+        0.302,
+        0.17
+      ]
+    },
+    "k20": {
+      "spread1": [
+        0.432,
+        0.059
+      ],
+      "spread2": [
+        0.309,
+        0.049
+      ]
+    }
+  },
+  "calibration_slope_by_mid_changes": {
+    "weighted_mid": {
+      "k1": 0.181,
+      "k2": 0.211,
+      "k3": 0.162,
+      "k5": 0.103,
+      "k10": 0.016,
+      "k20": -0.03
+    },
+    "microprice": {
+      "k1": 0.634,
+      "k2": 0.625,
+      "k3": 0.506,
+      "k5": 0.341,
+      "k10": 0.184,
+      "k20": 0.12
+    }
+  },
+  "latent_fv_gap_std_ticks": 1.958651,
+  "corr_adjustment_with_latent_fv_gap": {
+    "microprice_adjustment": 0.000573,
+    "weighted_mid_adjustment": -0.018386
+  },
+  "mse_vs_latent_fv_ticks2": {
+    "mid": 3.836435,
+    "weighted_mid": 4.11382,
+    "microprice": 3.885784
+  }
+}

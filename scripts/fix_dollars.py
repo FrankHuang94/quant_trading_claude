@@ -22,7 +22,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 FENCE = re.compile(r"^\s*(`{3,}|~{3,})")
 CURRENCY = re.compile(
-    r"(?<![\\$])\$(?=\d[\d,]*(?:\.\d+)?(?:[MBTKk]\b|bn\b|mm\b|tn\b|\s(?![\\+=\-−*^/])|[,;:)\]–—%|]|/(?:share|sh|yr|year|day|mo|month|contract|order|trade|hr|hour)\b|$))"
+    r"(?<![\\$A-Za-z0-9}\])])\$(?=\d[\d,]*(?:\.\d+)?(?:[MBTKk]\b|bn\b|mm\b|tn\b|\s(?![\\+=\-−*^/])|[,;:)\]–—%|]|/(?:share|sh|yr|year|day|mo|month|contract|order|trade|hr|hour)\b|$))"
 )
 INLINE_CODE = re.compile(r"`[^`\n]*`")
 SUSPICIOUS = re.compile(r"(?<![\\$])\$(?!\s)((?:\\.|[^\\$\n])+?)(?<!\s)\$(?!\$)")
