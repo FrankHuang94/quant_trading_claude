@@ -16,7 +16,7 @@
 | Inputs → Outputs | shares X, horizon T, ADV, σ, spread, impact η and γ, urgency λ, cap → holdings per interval, expected cost and SD, the frontier |
 | Used by strategies | [Cross-sectional alpha](../../02-strategies/d-mid-frequency-alpha/cross-sectional-alpha-and-neutralization.md) · [Factor-residual](../../02-strategies/c-statistical-arbitrage/factor-residual-mean-reversion.md) · [Stat arb](../../02-strategies/c-statistical-arbitrage/stat-arb-overview-and-history.md) · [Pairs](../../02-strategies/c-statistical-arbitrage/pairs-trading-and-cointegration.md) · [Momentum](../../02-strategies/e-risk-premia-and-factors/momentum.md) · [Factor investing](../../02-strategies/e-risk-premia-and-factors/factor-investing-fundamentals.md) · [Value, quality, low vol](../../02-strategies/e-risk-premia-and-factors/value-quality-low-vol.md) · [Fundamental signals](../../02-strategies/d-mid-frequency-alpha/fundamental-quant-signals.md) · [Revisions](../../02-strategies/d-mid-frequency-alpha/analyst-revisions-and-sentiment.md) · [Event-driven](../../02-strategies/d-mid-frequency-alpha/earnings-and-event-driven.md) · [Flow-driven](../../02-strategies/d-mid-frequency-alpha/flow-driven-strategies.md) · [Trend following](../../02-strategies/g-futures-and-macro-context/trend-following-and-ctas.md) |
 | Latency / compute regime | milliseconds: closed form at arrival, re-solved every few minutes; impact refit monthly |
-| Key parameters | λ 1e-9 to 1e-6 per $ (Lab 16: half-lives 4.8 to 0.15 days); participation cap 10–30% of volume; horizon hours to days; 10–80 intervals |
+| Key parameters | λ 1e-9 to 1e-6 per \$ (Lab 16: half-lives 4.8 to 0.15 days); participation cap 10–30% of volume; horizon hours to days; 10–80 intervals |
 | Main failure modes | linear impact at speed; arbitrary λ; ignored alpha and overnight gaps; leakage; judging single orders |
 | Lab | [Lab 16](https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/16-almgren-chriss-frontier) |
 
@@ -46,7 +46,7 @@ flowchart LR
 ## The algorithm
 
 1. **Benchmark**: record the decision price.
-2. **Calibrate**: daily σ in $/share, temporary impact η (cost per unit of trading speed), permanent impact γ (lasting price move per share). Lab 16 anchors them to the [square-root law](../../09-reference/glossary.md#square-root-law): 20 bps at 10% of ADV, and 50 bps of permanent impact once the whole order is done.
+2. **Calibrate**: daily σ in \$/share, temporary impact η (cost per unit of trading speed), permanent impact γ (lasting price move per share). Lab 16 anchors them to the [square-root law](../../09-reference/glossary.md#square-root-law): 20 bps at 10% of ADV, and 50 bps of permanent impact once the whole order is done.
 3. **Pick λ** from the client's urgency.
 4. **Schedule**: urgency κ ≈ √(λσ²/η); holdings x(t) = X·sinh(κ(T−t))/sinh(κT); trade n_k = x_{k−1} − x_k per interval.
 5. **Report** E and SD against TWAP's; check peak participation against the cap.

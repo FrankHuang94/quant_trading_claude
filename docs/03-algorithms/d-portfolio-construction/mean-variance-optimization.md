@@ -138,7 +138,7 @@ Synthetic lab result: at λ = 50, true risk was 3.17× predicted with the sample
 | 0.25 | 15.0 | 244 | **549** | 2.63 |
 | 1 | 7.4 | 119 | 541 | 2.43 |
 
-The Sharpe ratios are far above real books because the alpha is known exactly and never decays; the standard error is about ±0.7. Diversified market-neutral books are put at net Sharpe 1–2 `[Lore]` ([cross-sectional alpha](../../02-strategies/d-mid-frequency-alpha/cross-sectional-alpha-and-neutralization.md)). The gap between 0.25 and 1 is small; the robust lesson is that ignoring costs overtrades.
+The Sharpe ratios are far above real books because the alpha is known exactly and never decays; over two years the standard error is about ±0.7 to ±1.4 (larger once the Sharpe's own size is counted). Diversified market-neutral books are put at net Sharpe 1–2 `[Lore]` ([cross-sectional alpha](../../02-strategies/d-mid-frequency-alpha/cross-sectional-alpha-and-neutralization.md)). The gap between 0.25 and 1 is small; the robust lesson is that ignoring costs overtrades.
 
 ## Failure modes and pitfalls
 

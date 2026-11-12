@@ -86,7 +86,7 @@ def orders_needed(sd_bps=60.0, diff_bps=5.0, z_alpha=1.96, z_power=0.84):
 
 *Illustrative.* The PM decides to buy 100,000 shares at yesterday's close, \$50.00 (\$5M; 1 bp = \$500). The algo starts at \$50.10, fills 80,000 at an average \$50.25 when the mid averaged \$50.23, and stops at a participation cap. The close is \$50.60. Commissions are \$800. The market (β = 1) rose 0.10% while the order worked.
 
-| Component | Calculation | $ | bps |
+| Component | Calculation | \$ | bps |
 |---|---|---|---|
 | Delay | 80,000 × (50.10 − 50.00) | 8,000 | 16.0 |
 | Spread | 80,000 × (50.25 − 50.23) | 1,600 | 3.2 |
@@ -102,19 +102,19 @@ Interval VWAP was \$50.28, so a VWAP report says the algo **beat its benchmark b
 
 ## Key parameters and how practitioners tune them
 
-- **Benchmark**: arrival mid for alpha-driven orders; the close for index funds; VWAP only for genuinely passive orders.
+- **Benchmark**: arrival mid for alpha-driven orders; the close for index funds; VWAP only for passive orders.
 - **Market adjustment**: β × index or sector ETF return; cuts noise without bias.
 - **Sample size**: per-order standard deviation σ, difference δ: n ≈ 2(1.96 + 0.84)²(σ/δ)² per arm. At σ = 60 bps, δ = 5 bps: **about 2,260 orders each**; at δ = 10 bps, about 570 `[Estimate]`.
-- **Peer universes**: other managers' orders of similar size and liquidity. ANcerno (formerly Abel Noser) data underpin academic studies `[Verified]` (Bucci et al.), but peers' urgency differs.
+- **Peer universes**: other managers' similar orders; ANcerno (formerly Abel Noser) data underpin academic studies `[Verified]` (Bucci et al.), but peers' urgency differs.
 
 ## Textbook version vs what firms actually do
 
 - **Textbook**: Perold's shortfall `[Verified]` ([Perold 1988](https://doi.org/10.3905/jpm.1988.409150)).
 - **Practice**: brokers lead with VWAP slippage; buy-side quants anchor on market-adjusted arrival `[Lore]`.
-- **Noise**: in [Lab 16](https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/16-almgren-chriss-frontier), TWAP beat a risk-averse schedule on 61% of single orders even though the risk-averse schedule had far lower risk (synthetic lab result).
+- **Noise** (synthetic lab results): in [Lab 17](https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/17-vwap-twap-pov), VWAP orders for 10% of ADV expected 12.8 bps (spread 1.5, temporary impact 8.3, permanent 3.0) with a single-order shortfall SD of 122 bps; against interval VWAP they read 8.2 ± 3.0 bps. In [Lab 16](https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/16-almgren-chriss-frontier), TWAP beat a far less risky schedule on 61% of orders.
 - **Algo wheels** randomize orders across brokers within a bucket, so "best broker gets the hardest orders" stops biasing the league table `[Lore]`.
-- **US rules**: FINRA Rule 5310 requires firms without order-by-order review to run "regular and rigorous" reviews, at least quarterly, by security and order type `[Verified]`. Amended Rule 605 reports add realized spreads; compliance began 2026-08-01 `[Verified]`.
-- **EU comparison**: MiFID II's firm-level "top five venues" reports (RTS 28) were deleted in the 2024 review as hardly read; ESMA told national regulators to deprioritize them in February 2024, as it had for venue reports (RTS 27) after February 2023 `[Verified]`. The UK dropped RTS 28 from December 2021 `[Reported]`.
+- **US rules**: FINRA Rule 5310 requires firms without order-by-order review to run "regular and rigorous" reviews, at least quarterly, by security and order type `[Verified]`. Amended Rule 605 reports add larger brokers, odd lots, millisecond timing and realized spreads at several horizons; compliance began 2026-08-01 `[Verified]`.
+- **EU comparison**: MiFID II's "top five venues" reports (RTS 28) were deleted in 2024 as little read, after ESMA told regulators to deprioritize them `[Verified]`; the UK dropped them in December 2021 `[Reported]`.
 
 ## How to tell if it's working
 
@@ -122,6 +122,10 @@ Interval VWAP was \$50.28, so a VWAP report says the algo **beat its benchmark b
 - Components sum to the books (zero residual).
 - Rankings that survive a bootstrap and a second period.
 - Markouts on passive fills not systematically negative at 1 minute.
+
+![Lab 17: slippage vs arrival, vs interval VWAP, and cost components](../../assets/labs/lab17-slippage.png)
+
+*Lab 17, synthetic: noisy vs arrival (left), deceptively tight vs interval VWAP (middle), costs by component (right).*
 
 ## Failure modes and pitfalls
 
@@ -135,7 +139,6 @@ Interval VWAP was \$50.28, so a VWAP report says the algo **beat its benchmark b
 - "We beat VWAP but lost to arrival." → traded with the market, paid for it.
 - "Delay ate 15 bps before the algo started." → the desk, not the broker.
 - "What's the standard error on that league table?" → probably noise.
-- "Put it on the wheel." → randomized broker allocation.
 - "Five-minute markouts are negative." → passive fills are adversely selected.
 
 ## Questions you could ask a quant about this
@@ -178,6 +181,7 @@ Price noise for a steady schedule over $T$ days: $\mathrm{sd}(IS) \approx \sigma
 
 - [Verified] Perold, A. F. (1988). "The implementation shortfall: Paper versus reality." *Journal of Portfolio Management* 14(3), 4–9. <https://doi.org/10.3905/jpm.1988.409150> (accessed 2026-11)
 - [Verified] FINRA (n.d.). Rule 5310, "Best Execution and Interpositioning." <https://www.finra.org/rules-guidance/rulebooks/finra-rules/5310> (accessed 2026-11)
+- [Verified] Federal Register (2024-04-15). "Disclosure of Order Execution Information" (final rule amending Rule 605), doc. 2024-05556, 89 FR 26428. <https://www.federalregister.gov/documents/2024/04/15/2024-05556/disclosure-of-order-execution-information> (accessed 2026-11)
 - [Verified] SEC (2024-03-06). "SEC Adopts Amendments to Enhance Disclosure of Order Execution Information," press release 2024-32. <https://www.sec.gov/news/press-release/2024-32> (accessed 2026-11)
 - [Verified] Federal Register (2025-10-02). "Disclosure of Order Execution Information; Extension of Compliance Date" (to August 1, 2026), doc. 2025-19316. <https://public-inspection.federalregister.gov/2025-19316.pdf> (accessed 2026-11)
 - [Verified] ESMA (2024-02-13). "Deprioritisation of supervisory actions on the obligation to publish RTS 28 reports in light of the agreement on the MiFID II/MiFIR review," ESMA35-335435667-5871 (copy). <https://www.dirittobancario.it/wp-content/uploads/2024/02/ESMA-Dichiarazione-pubblica-13-febbraio-2024-n.-335435669-5871.pdf> (accessed 2026-11)

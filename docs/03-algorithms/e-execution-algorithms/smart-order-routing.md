@@ -116,7 +116,7 @@ sequenceDiagram
 
 ## Worked example with numbers
 
-Lab 18's true parameters for passive orders (synthetic): \$50 stock, half-spread 1 bp, cleanup 2.6 bps if unfilled. Fees: \$0.0025 ÷ $50 = 0.5 bp.
+Lab 18's true parameters for passive orders (synthetic): \$50 stock, half-spread 1 bp, cleanup 2.6 bps if unfilled. Fees: \$0.0025 ÷ \$50 = 0.5 bp.
 
 | Venue | Fee (+) or rebate (−) | Fill rate | Markout | True all-in | What a fill-chaser sees |
 |---|---|---|---|---|---|

@@ -2,10 +2,10 @@
 
 > **TL;DR**
 >
-> - The close is about 9% of US notional, about 20% on rebalance days. Close algos size MOC/LOC orders before the cutoff (NYSE 3:50 p.m., Nasdaq 3:55 p.m.), then react to the imbalance.
+> - The close is 5–10% of US volume (record 9.4% of notional in Q2 2024), about 20% on rebalance days. Close algos size MOC/LOC orders before the cutoff (NYSE 3:50 p.m., Nasdaq 3:55 p.m.), then react to the imbalance.
 > - After the cutoff you may only add on the side that offsets the imbalance, which is exactly when the auction pays a price concession.
 > - Dark algos rest midpoint pegs and conditional orders across dark pools and block venues, using minimum fill sizes against probing.
-> - Every dark fill trades fill probability against adverse selection: judge venues by markouts, not fill rates. Leakage is the hidden cost; regulators have fined dark-pool operators up to \$84.3M.
+> - Every dark fill trades fill probability against adverse selection: judge venues by markouts, not fill rates. Leakage is the hidden cost: one dark-pool operator paid \$84.3M to settle charges.
 
 **Level:** Core · **Pipeline stage:** execution · **Last verified:** 2026-11
 
@@ -16,12 +16,12 @@
 | Used by strategies | [Auctions and closing liquidity](../../02-strategies/a-liquidity-provision/auctions-and-closing-liquidity.md) · [Flow-driven](../../02-strategies/d-mid-frequency-alpha/flow-driven-strategies.md) · [ETF and index arbitrage](../../02-strategies/b-speed-and-structural/etf-and-index-arbitrage.md) · [Event-driven](../../02-strategies/d-mid-frequency-alpha/earnings-and-event-driven.md) · [Cross-sectional alpha](../../02-strategies/d-mid-frequency-alpha/cross-sectional-alpha-and-neutralization.md) · [Factor investing](../../02-strategies/e-risk-premia-and-factors/factor-investing-fundamentals.md) · [Fundamental signals](../../02-strategies/d-mid-frequency-alpha/fundamental-quant-signals.md) |
 | Latency / compute regime | seconds for close decisions (imbalance updates about every second); milliseconds for dark routing |
 | Key parameters | auction cap 10–20% of forecast print; close share of parent 10–30% (100% if close-benchmarked); minimum fill 1–5% of order; markouts 1 s–5 min |
-| Main failure modes | imbalance on your side; no NYSE cancels after 3:58 p.m.; pinging; stale midpoints; overfills |
+| Main failure modes | imbalance on your side; no NYSE MOC/LOC cancels after 3:50 p.m.; pinging; stale midpoints; overfills |
 | Lab | [Lab 17](https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/17-vwap-twap-pov) |
 
 ## Intuition
 
-Large orders want liquidity without advertising it. **The close** is a scheduled call auction: one price, huge volume, and the official benchmark for index funds and NAVs (mechanics in [order types and auctions](../../01-market-structure/order-types-and-auctions.md)). **[Dark pools](../../09-reference/glossary.md#dark-pool)** are continuous, non-displayed books, usually crossing at the midpoint. Both hide your order from the lit book. Both carry a selection problem: the fills you get are not a random sample of the fills you wanted.
+Large orders want liquidity without advertising it. **The close** is a scheduled call auction: one price, huge volume, and the official benchmark for index funds and NAVs (mechanics in [order types and auctions](../../01-market-structure/order-types-and-auctions.md)). **[Dark pools](../../09-reference/glossary.md#dark-pool)** are continuous, non-displayed books, usually crossing at the midpoint. Both hide your order from the lit book. Both carry a selection problem: your fills are not a random sample of the fills you wanted.
 
 ## Where it sits in the pipeline
 
@@ -99,7 +99,7 @@ def allocate_dark(remaining, venues, max_dark_pct=0.5, min_fill_frac=0.02):
 | B (midpoint pool) | 0.30 | −4.0 bps | −1.5 bps | 0 |
 | C (block, conditional) | 0.02 | −0.5 bps | +2.0 bps | 21,052 |
 
-Budget 100,000; minimum fill 4,000. Venue B fills most and is dropped: its fills are followed by a 4 bps adverse move, more than the spread saved.
+Budget 100,000; minimum fill 4,000. Venue B fills most but is dropped: a 4 bps adverse move follows its fills, more than the spread saved.
 
 ## Key parameters and how practitioners tune them
 
@@ -122,11 +122,15 @@ Budget 100,000; minimum fill 4,000. Venue B fills most and is dropped: its fills
 - **Close**: slippage vs the official close; your share of the print; overnight reversion of the close (large = you moved it).
 - **Dark**: per-venue fill rate vs markout, refreshed weekly.
 - **Leakage**: drift after order start vs comparable orders not shown dark.
-- [Lab 17](https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/17-vwap-twap-pov) builds the volume curve whose closing slice is sized here.
+- [Lab 17](https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/17-vwap-twap-pov) (synthetic): putting 30% of a 10%-of-ADV order in the auction matched the close (0.0 ± 48 bps) but cost 17.9 bps vs arrival, against VWAP's 12.8: afternoon crowding and auction demand that moved the close itself.
+
+![Lab 17: schedules and participation by time of day](../../assets/labs/lab17-schedules.png)
+
+*Lab 17, synthetic: the close-heavy schedule (purple) takes about 19% of afternoon volume and 24% of the auction.*
 
 ## Failure modes and pitfalls
 
-- **Late imbalance swings**, with NYSE cancels barred after 3:58 p.m. `[Verified]`.
+- **Late imbalance swings**: NYSE bars MOC/LOC cancels after 3:50 p.m., even for errors `[Verified]`.
 - **Pinging**: small IOC probes find resting orders.
 - **Stale midpoints**: a lagging NBBO view gets you filled at an old midpoint.
 - **Overfills** and missed firm-ups that downgrade your scorecard.
@@ -135,7 +139,6 @@ Budget 100,000; minimum fill 4,000. Venue B fills most and is dropped: its fills
 
 - "We're 12% of the expected print." → auction participation.
 - "The imbalance flipped at 3:57." → late swing in the closing book.
-- "That pool's markouts are ugly at one second." → latency-sensitive counterparties.
 - "Send conditionals, firm up on invites." → block-venue workflow.
 - "We got paid to supply the imbalance." → offset order filled at a concession.
 

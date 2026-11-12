@@ -5,8 +5,8 @@
 > - An execution algo turns one parent order into thousands of child orders through three layers: a **scheduler** (how much by when), **placement** (post or take, size, price) and a **smart order router** (where).
 > - Families differ mainly in the benchmark they chase: TWAP, VWAP, POV, implementation shortfall (arrival), target close, liquidity-seeking, pegged.
 > - Choose by size (% of ADV), urgency (alpha decay, risk) and benchmark; the benchmark can make a bad choice look good.
-> - [Lab 17](https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/17-vwap-twap-pov) (synthetic, 10% of ADV in a day): expected cost 12.8–17.9 bps by schedule, against a shortfall SD of about 120 bps.
-> - About 40% of US buy-side equity flow runs through algos; 36% of desks use algo wheels (2025) `[Reported]`.
+> - [Lab 17](https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/17-vwap-twap-pov) (synthetic, 10% of ADV in a day): expected cost 12.8–17.9 bps by schedule, against shortfall SDs of 122–180 bps.
+> - Algos and smart order routers carried 43% of US buy-side equity activity in FY2025; 36% of desks use algo wheels `[Reported]`.
 
 **Level:** Core · **Pipeline stage:** execution · **Last verified:** 2026-11
 
@@ -103,7 +103,7 @@ def run_parent_order(order, algo, market):
 | Liquidity-seeking | contra-side blocks, dark | large % of ADV | adverse selection | 74% |
 | Pegged | resting at bid or midpoint | patient, small | non-fill | n/a |
 
-*Share of long-only desks using each type: The TRADE 2025 survey, mostly European respondents `[Reported]`.*
+*Share of long-only desks using each type: The TRADE 2025 survey (Figure 6), mostly European respondents `[Verified]`.*
 
 ## Worked example with numbers
 
@@ -133,14 +133,14 @@ Spreading halves expected cost and doubles risk: the [Almgren-Chriss](../../09-r
 - **Benchmarks**: early cost studies used [VWAP](https://doi.org/10.1111/j.1540-6261.1988.tb02591.x) (1988); [implementation shortfall](https://doi.org/10.3905/jpm.1988.409150) was defined the same year `[Verified]`.
 - **Layering**: scheduling, then tactical placement, then routing is the textbook architecture `[Reported]` ([Lehalle and Laruelle](https://doi.org/10.1142/10739)).
 - **Broker suites**: a few branded strategies on a shared engine; IBKR's include VWAP, TWAP, POV, Arrival Price, Close Price and Dark Ice `[Verified]`. Large clients get custom variants `[Lore]`.
-- **Adoption**: nearly 40% of North American buy-side flow runs through algos; algo wheels are used by 36% of desks, up 4 points `[Reported]` ([Coalition Greenwich, 2026-01](https://www.greenwich.com/market-structure-technology/us-equity-market-trends-2025-dont-call-it-comeback)).
+- **Adoption**: algos and smart order routers handled 43% of buy-side activity in FY2025 ([Markets Media, 2026-05](https://www.marketsmedia.com/us-equities-trading-revenues-jumped-in-2025/)); 36% of North American desks use algo wheels, up 4 points ([Coalition Greenwich, 2026-01](https://www.greenwich.com/market-structure-technology/us-equity-market-trends-2025-dont-call-it-comeback)) `[Reported]`.
 - **Algo wheels**: orders in a bucket (say, VWAP, 1–5% of ADV) go to brokers at random under preset weights; TCA compares like with like and reweights quarterly `[Lore]`.
 - **Leakage**: high-frequency traders first lean against large institutional orders, then trade *with* the most informed ones `[Verified]` ([van Kervel and Menkveld 2019](https://doi.org/10.1111/jofi.12759)); hence randomized sizes and timing `[Lore]`.
 
 ## How to tell if it's working
 
 - Shortfall vs arrival and vs the pre-trade estimate, by algo and size bucket; completion; [information leakage](../../09-reference/glossary.md#information-leakage) (drift beyond modeled impact).
-- **Synthetic lab result** (Lab 17, 500 days, buy 10% of ADV): expected cost TWAP 14.0, VWAP 12.8, POV 13.1, close-heavy 17.9 bps; shortfall SD about 120 bps; POV finished on only 61% of days. Real orders this size cost nearer 20 bps `[Estimate]` (square-root law), with per-order SDs of 50–150 bps ([E6](transaction-cost-analysis.md)).
+- **Synthetic lab result** (Lab 17, 500 days, buy 10% of ADV): expected cost TWAP 14.0, VWAP 12.8, POV 13.1, close-heavy 17.9 bps; shortfall SD 122–125 bps (close-heavy 180); POV finished on only 61% of days. Real orders this size cost nearer 20 bps `[Estimate]` (square-root law), with per-order SDs of 50–150 bps ([E6](transaction-cost-analysis.md)).
 - Telling VWAP from TWAP (1.3 bps) across unrelated orders takes about **77,000 orders**.
 
 ![Lab 17: slippage distributions](../../assets/labs/lab17-slippage.png)
@@ -209,6 +209,7 @@ $$
 - [Reported] Lehalle, C.-A. & Laruelle, S. (eds.) (2018). *Market Microstructure in Practice*, 2nd ed. World Scientific. <https://doi.org/10.1142/10739> (accessed 2026-11)
 - [Verified] Kissell, R. (2014). *The Science of Algorithmic Trading and Portfolio Management*. Academic Press. <https://doi.org/10.1016/B978-0-12-401689-7.00001-5> (accessed 2026-11)
 - [Verified] Interactive Brokers (n.d.). "IB Algos" (TWS API documentation: VWAP, TWAP, Percentage of Volume, Arrival Price, Close Price, Dark Ice parameters). <https://interactivebrokers.github.io/tws-api/ibalgos.html> (accessed 2026-11)
+- [Reported] Markets Media (2026-05-18). "US Equities Trading Revenues Jumped in 2025" (Crisil Coalition Greenwich FY2025 revenue report: algo and smart-order-router trading 43% of buy-side activity). <https://www.marketsmedia.com/us-equities-trading-revenues-jumped-in-2025/> (accessed 2026-11)
 - [Reported] Coalition Greenwich (2026-01-21). "U.S. equity market trends 2025: Don't call it a comeback" (253 North American buy-side equity traders). <https://www.greenwich.com/market-structure-technology/us-equity-market-trends-2025-dont-call-it-comeback> (accessed 2026-11)
 - [Reported] The TRADE (2025). "Algorithmic Trading Survey 2025: Long-only" (types of algorithms used, Figure 6). <https://thetradenews.com/wp-content/uploads/2025/04/Algo56-FINAL.pdf> (accessed 2026-11)
 - [Verified] van Kervel, V. & Menkveld, A. J. (2019). "High-frequency trading around large institutional orders." *Journal of Finance* 74(3), 1091–1137. <https://doi.org/10.1111/jofi.12759> (accessed 2026-11)

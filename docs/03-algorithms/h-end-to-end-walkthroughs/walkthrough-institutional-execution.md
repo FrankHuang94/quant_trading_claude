@@ -165,7 +165,7 @@ def size_close_order(day_quota, auction_forecast, close_frac=0.10, max_auction_p
 
 Day 1 wants 374K shares and is capped at **300K**; days 2–5 send 244K, 164K, 119K and 98K: **926K shares (\$46.3M, 9.3% of the order)**. Lab 17's close-heavy recipe (30% of a day's order, about 23% of the print) cost 5.1 bps more than VWAP, yet looked perfect against the close (0.0 ± 48 bps) because its own demand set that price. Here, 30% of day 1 would be 56% of the print.
 
-[Market-on-close](../../09-reference/glossary.md#market-on-close-moc) and LOC orders are due by 3:50 p.m. (NYSE) or 3:55 p.m. (Nasdaq); NYSE bars cancels after 3:58 p.m. `[Verified]`. Later orders must offset the published [imbalance](../../09-reference/glossary.md#auction-imbalance). A sell imbalance (say, an index deletion) lets us buy more at a concession; a buy imbalance means our MOC pays up.
+[Market-on-close](../../09-reference/glossary.md#market-on-close-moc) and LOC orders are due by 3:50 p.m. (NYSE) or 3:55 p.m. (Nasdaq); NYSE bars MOC/LOC modifies and cancels after 3:50 p.m. `[Verified]`. Later orders must offset the published [imbalance](../../09-reference/glossary.md#auction-imbalance). A sell imbalance (say, an index deletion) lets us buy more at a concession; a buy imbalance means our MOC pays up.
 
 ## 8. The TCA report
 

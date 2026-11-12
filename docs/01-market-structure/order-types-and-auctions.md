@@ -53,12 +53,12 @@ flowchart LR
 | Opening order cutoff | MOO/LOO cancels rejected from 9:29 a.m. `[Verified]` | — |
 | MOC entry cutoff | 3:50 p.m.; afterwards only offsetting MOC/LOC and CO `[Verified]` | MOC before 3:55 p.m. `[Verified]` |
 | Closing imbalance messages | From 3:50 p.m. `[Verified]`; floor-broker D orders included from 3:50 since August 2024 `[Verified]` | From 3:55 p.m. (moved from 3:50 in 2018) `[Verified]`, updated about every second `[Reported]` |
-| Late cutoffs | No MOC/LOC cancels after 3:58 p.m. D orders accepted until 3:59:50 `[Verified]`; a 2026 change rejects D-order cancels from one minute before the close `[Reported]` TODO(verify): effective date | LOC entry until 3:58 p.m. `[Verified]` |
+| Late cutoffs | No MOC/LOC modifies or cancels after 3:50 p.m., even for errors (the error exception ended in 2022) `[Verified]`. D orders accepted until 3:59:50 `[Verified]`; a 2026 rule change (Federal Register notice, August 2026) rejects D-order cancels from one minute before the close instead of 10 seconds `[Reported]` | LOC entry until 3:58 p.m. `[Verified]` |
 | Uncross | 4:00 p.m. | 4:00 p.m. |
 
 ## Worked example: an imbalance moves the close
 
-Illustrative numbers. XYZ last traded at $50.00. At the cutoff the closing book has 1.2M shares of MOC buys and 0.9M of MOC sells, a 300,000-share **buy imbalance**. Sell-side limit interest (LOC, IO and continuous-book orders) is 100,000 at \$50.02, 150,000 at \$50.05 and 200,000 at $50.10.
+Illustrative numbers. XYZ last traded at \$50.00. At the cutoff the closing book has 1.2M shares of MOC buys and 0.9M of MOC sells, a 300,000-share **buy imbalance**. Sell-side limit interest (LOC, IO and continuous-book orders) is 100,000 at \$50.02, 150,000 at \$50.05 and 200,000 at \$50.10.
 
 | Candidate price | Buy volume | Sell volume | Matched |
 |---|---|---|---|

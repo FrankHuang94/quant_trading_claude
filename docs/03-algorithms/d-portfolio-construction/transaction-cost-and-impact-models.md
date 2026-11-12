@@ -12,10 +12,10 @@
 | Field | Value |
 |---|---|
 | Purpose (the question it answers) | What will this trade cost, and how does cost grow with size and speed? |
-| Inputs → Outputs | size Q, daily volume V, daily volatility σ, spread, fees, borrow → cost per name (bps, $) and a convex optimizer penalty |
+| Inputs → Outputs | size Q, daily volume V, daily volatility σ, spread, fees, borrow → cost per name (bps, \$) and a convex optimizer penalty |
 | Used by strategies | [Cross-sectional alpha](../../02-strategies/d-mid-frequency-alpha/cross-sectional-alpha-and-neutralization.md) · [Factor-residual](../../02-strategies/c-statistical-arbitrage/factor-residual-mean-reversion.md) · [Reversal](../../02-strategies/c-statistical-arbitrage/short-term-cross-sectional-reversal.md) · [ML short-horizon](../../02-strategies/c-statistical-arbitrage/ml-driven-short-horizon-alpha.md) · [Stat arb](../../02-strategies/c-statistical-arbitrage/stat-arb-overview-and-history.md) · [Pairs](../../02-strategies/c-statistical-arbitrage/pairs-trading-and-cointegration.md) · [Intraday patterns](../../02-strategies/c-statistical-arbitrage/intraday-patterns-and-seasonality.md) · [Momentum](../../02-strategies/e-risk-premia-and-factors/momentum.md) · [Factor investing](../../02-strategies/e-risk-premia-and-factors/factor-investing-fundamentals.md) · [Value, quality, low vol](../../02-strategies/e-risk-premia-and-factors/value-quality-low-vol.md) · [Fundamental signals](../../02-strategies/d-mid-frequency-alpha/fundamental-quant-signals.md) · [Revisions](../../02-strategies/d-mid-frequency-alpha/analyst-revisions-and-sentiment.md) · [Event-driven](../../02-strategies/d-mid-frequency-alpha/earnings-and-event-driven.md) · [Flow-driven](../../02-strategies/d-mid-frequency-alpha/flow-driven-strategies.md) · [Trend following](../../02-strategies/g-futures-and-macro-context/trend-following-and-ctas.md) |
 | Latency / compute regime | overnight batch calibration; microseconds per name inside a seconds-long optimizer solve |
-| Key parameters | Y 0.5–1; exponent δ 0.4–0.7; ADV and σ windows 20–60 days; optimizer cost multiplier 1–3×; commission 0.5–2¢/share |
+| Key parameters | Y 0.5–1 (peak impact); exponent δ 0.4–0.7; ADV and σ windows 20–60 days; optimizer cost multiplier 1–3×; commission 0.5–2¢/share |
 | Main failure modes | alpha leaking into calibration; stale ADV on event days; crowding; linear models at large size |
 | Lab | — |
 
@@ -52,16 +52,16 @@ flowchart LR
 import numpy as np
 
 def expected_cost_bps(q_shares, adv_shares, sigma_daily, spread_bps, price,
-                      Y=0.7, delta=0.5, commission_per_share=0.005):
+                      Y=0.5, delta=0.5, commission_per_share=0.005):
     """Pre-trade cost of a parent order worked over about one day, bps of notional.
-    Y here is fitted to average fill slippage (about 2/3 of the peak impact)."""
+    Y here is fitted to average fill slippage: about 2/3 of a peak-impact Y."""
     participation = q_shares / adv_shares
     commission = 1e4 * commission_per_share / price        # explicit, known in advance
     half_spread = 0.5 * spread_bps                          # paid when crossing
     impact = 1e4 * Y * sigma_daily * participation**delta   # concave in size
     return commission + half_spread + impact
 
-def optimizer_cost(dw, nav, price, adv_shares, sigma_daily, spread_bps, Y=0.7):
+def optimizer_cost(dw, nav, price, adv_shares, sigma_daily, spread_bps, Y=0.5):
     """$ cost of trading dw (fraction of NAV) per name: linear + 3/2-power terms.
     Both are convex, so a conic solver handles them (cvxpy: cp.power(cp.abs(dw), 1.5))."""
     a = 0.5 * spread_bps / 1e4                              # $ per $ traded
@@ -92,7 +92,7 @@ def calibrate_Y(slip_bps, spread_bps, sigma_daily, participation, n_bins=10):
 
 Scaling (peak impact, Y = 0.5) vs a linear model matched at 5%:
 
-| % of ADV | Square-root | Linear | Square-root $ |
+| % of ADV | Square-root | Linear | Square-root \$ |
 |---|---|---|---|
 | 1% (\$2M) | 10.0 bps | 4.5 bps | \$2,000 |
 | 5% (\$10M) | 22.4 bps | 22.4 bps | \$22,400 |
@@ -118,7 +118,7 @@ Four times the size: twice the cost per share, eight times the dollars. The line
 ## How to tell if it's working
 
 - **Realized ÷ predicted ≈ 1.0** per bucket (participation, volatility, sector) over hundreds of orders; a trend across participation buckets means a wrong exponent.
-- **Model error at speed**: in [Lab 16](https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/16-almgren-chriss-frontier) the fastest schedule costs 241.8 bps under linear impact, 83.9 bps under matched square-root impact (synthetic lab result). [Lab 15](https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/15-trading-toward-aim) uses a simple cost model in a trade-toward-target rule.
+- **Model error at speed**: in [Lab 16](https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/16-almgren-chriss-frontier) the fastest schedule costs 241.8 bps under linear impact, 83.9 bps under matched square-root impact (synthetic lab result). [Lab 15](https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/15-trading-toward-aim) instead uses a quadratic (linear-impact) cost, about 5 bps on \$1M of a 1.7%-volatility stock, to derive its trade-toward-aim rate.
 
 ## Failure modes and pitfalls
 

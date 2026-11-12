@@ -3,7 +3,7 @@
 > **TL;DR**
 >
 > - The sample covariance of N stocks from T days is singular when N > T (Lab 14: 500 stocks, 252 days, rank 251); near N = T its small eigenvalues are too small and large ones too large.
-> - Random-matrix theory sizes the noise: pure-noise eigenvalues spread over (1 ± √(N/T))². For S&P 500 stocks, 94% of correlation eigenvalues sit inside that band.
+> - Random-matrix theory sizes the noise: pure-noise eigenvalues spread over (1 ± √(N/T))². For S&P 500 stocks, 94% of correlation eigenvalues fit such a band.
 > - Fixes: linear shrinkage toward a target (Ledoit–Wolf), factor models, eigenvalue clipping, nonlinear shrinkage.
 > - EWMA weighting helps, but its effective sample (about 2.9 half-lives) must stay well above N; volatilities get short half-lives, correlations long ones.
 
@@ -103,7 +103,7 @@ def clip_eigenvalues(returns):
 ## Textbook version vs what firms actually do
 
 - **Against the sample matrix**: on the largest US stocks, 1983–2002, constant-correlation shrinkage raised an active manager's realized information ratio by about 50% `[Verified]` ([Ledoit & Wolf 2004](https://doi.org/10.3905/jpm.2004.110)).
-- **Random-matrix evidence**: for 406 S&P 500 stocks over 1,309 days, 94% of eigenvalues fell in the noise band; the informative 6% carried 26% of total volatility `[Verified]` ([Laloux et al. 1999](https://doi.org/10.1103/PhysRevLett.83.1467)).
+- **Random-matrix evidence**: for 406 S&P 500 stocks over 1,309 days, 94% of eigenvalues fell in the noise band (rescaled for the market mode's share of variance); the informative 6% carried 26% of total volatility `[Verified]` ([Laloux et al. 1999](https://doi.org/10.1103/PhysRevLett.83.1467)).
 - **Nonlinear shrinkage** adjusts each eigenvalue separately (Ledoit & Wolf 2012, 2017); the 2020 analytical version is about 1,000× faster and handles 10,000+ assets, including N > T `[Verified]`.
 - **In equities the factor model is the main regularizer**; shrinkage goes into its pieces, as in USE4's eigenfactor adjustment and Bayesian specific-risk shrinkage `[Verified]`. Futures books of 50–200 contracts often use shrunk EWMA matrices directly `[Lore]`.
 - **Constraints shrink too**: long-only limits act like covariance shrinkage `[Verified]` (Jagannathan & Ma 2003; see [alternatives to MVO](alternatives-to-mvo.md)).
@@ -138,7 +138,7 @@ Synthetic lab result: at risk aversion 50, true ÷ predicted volatility was 3.17
 1. Do you estimate a full covariance or only a factor covariance?
 2. What shrinkage target do you use, and how is δ chosen?
 3. What is your effective sample size relative to the number of assets?
-5. 🔒 Where in production do you use nonlinear shrinkage or RMT cleaning?
+4. 🔒 Where in production do you use nonlinear shrinkage or RMT cleaning?
 
 ## Go deeper
 
