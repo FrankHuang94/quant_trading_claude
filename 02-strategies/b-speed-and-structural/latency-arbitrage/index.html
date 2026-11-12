@@ -5879,7 +5879,7 @@
 </tr>
 <tr>
 <td>Capacity (rough $ range)</td>
-<td>P&amp;L-limited, not capital-limited: US pool roughly $1–3B/yr, a top firm tens to low hundreds of <span class="arithmatex">\(M <code>[Estimate]</code> (from ABO's ~\)</span>5B global figure and top-6 concentration)</td>
+<td>P&amp;L-limited, not capital-limited: US pool roughly $1–3B/yr, a top firm tens to low hundreds of $M <code>[Estimate]</code> (from ABO's ~$5B global figure and top-6 concentration)</td>
 </tr>
 <tr>
 <td>Typical Sharpe (gross vs net)</td>
@@ -5956,7 +5956,7 @@
 </tr>
 </tbody>
 </table>
-<p>The market maker who sold lost <span class="arithmatex">\(24.00, less a ~\)</span>2.40 rebate. About a penny a share: only volume and win rate matter.</p>
+<p>The market maker who sold lost $24.00, less a ~$2.40 rebate. About a penny a share: only volume and win rate matter.</p>
 <h2 id="signals-and-algorithms-under-the-hood">Signals and algorithms under the hood<a class="headerlink" href="#signals-and-algorithms-under-the-hood" title="Permanent link">&para;</a></h2>
 <p>A stripped-down <a href="../../../03-algorithms/f-market-making-and-hft-algorithms/anatomy-of-an-hft-trading-loop/">HFT loop</a>: triggers from <a href="../../../03-algorithms/f-market-making-and-hft-algorithms/order-book-and-trade-flow-signals/">order-book signals</a>, a leader-implied <a href="../../../03-algorithms/f-market-making-and-hft-algorithms/fair-value-and-microprice/">fair value</a>, <a href="../../../03-algorithms/f-market-making-and-hft-algorithms/algorithmic-risk-controls/">risk controls</a> in the path. Victims measure it with <a href="../../../03-algorithms/f-market-making-and-hft-algorithms/adverse-selection-and-markouts/">markouts</a>.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Event-driven stale-quote loop (simplified; production runs in FPGA/C++ in well under 1 µs)</span>

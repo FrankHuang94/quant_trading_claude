@@ -5879,7 +5879,7 @@
 </tr>
 <tr>
 <td>Capacity (rough $ range)</td>
-<td>Revisions and short interest: <span class="arithmatex">\(1B–\)</span>5B as a component <code>[Estimate]</code>; news and options signals: <span class="arithmatex">\(100M–\)</span>1B <code>[Estimate]</code> (decay within days forces high turnover)</td>
+<td>Revisions and short interest: $1B–$5B as a component <code>[Estimate]</code>; news and options signals: $100M–$1B <code>[Estimate]</code> (decay within days forces high turnover)</td>
 </tr>
 <tr>
 <td>Typical Sharpe (gross vs net)</td>
@@ -5968,7 +5968,7 @@
 <p>Then z-score within sector, orthogonalize to surprise and momentum, IC-weight, neutralize and pass to the <a href="../cross-sectional-alpha-and-neutralization/">optimizer</a>.</p>
 <h2 id="worked-example-with-numbers">Worked example with numbers<a class="headerlink" href="#worked-example-with-numbers" title="Permanent link">&para;</a></h2>
 <p><strong>Revisions (illustrative).</strong> Twelve analysts; over 60 days seven raised next-year EPS and one cut. Net revision ratio = (7 − 1) / 12 = 0.50. Consensus moved $4.00 → $4.20 on an $80 stock: revision-to-price = 0.20 / 80 = 0.25%. Within sector these z-score to +1.6 and +1.2; average +1.4.</p>
-<p><strong>The short-side trap (illustrative).</strong> Days-to-cover = 6M shares short / 0.5M ADV = 12 days, top decile; the model wants to short <span class="arithmatex">\(2M. Expected underperformance 1.0% a month = +\)</span>20,000. Borrow fee 25% a year = 2.1% a month = −<span class="arithmatex">\(41,700. Net ≈ −\)</span>21,700 a month before squeeze risk: fee-adjusted alpha is what matters.</p>
+<p><strong>The short-side trap (illustrative).</strong> Days-to-cover = 6M shares short / 0.5M ADV = 12 days, top decile; the model wants to short $2M. Expected underperformance 1.0% a month = +$20,000. Borrow fee 25% a year = 2.1% a month = −$41,700. Net ≈ −$21,700 a month before squeeze risk: fee-adjusted alpha is what matters.</p>
 <h2 id="signals-and-algorithms-under-the-hood">Signals and algorithms under the hood<a class="headerlink" href="#signals-and-algorithms-under-the-hood" title="Permanent link">&para;</a></h2>
 <p>Feature design: <a href="../../../03-algorithms/a-data-and-signals/feature-engineering/">D2</a>; transforms: <a href="../../../03-algorithms/a-data-and-signals/signal-transforms/">D3</a>; decay and IC by horizon: <a href="../../../03-algorithms/a-data-and-signals/evaluating-signals/">D4</a>; blending with other alphas: <a href="../../../03-algorithms/b-forecasting-models/alpha-combination-and-ensembling/">F5</a>; LLM news scoring: <a href="../../../03-algorithms/b-forecasting-models/llms-and-foundation-models-in-quant/">F4</a>; point-in-time estimates: <a href="../../../03-algorithms/a-data-and-signals/point-in-time-data-and-cleaning/">D1</a>.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>

@@ -5879,7 +5879,7 @@
 </tr>
 <tr>
 <td>Capacity (rough $ range)</td>
-<td><span class="arithmatex">\(1B–\)</span>10B gross market value (GMV) per book <code>[Estimate]</code> (square-root impact: total cost grows like size^1.5, alpha like size)</td>
+<td>$1B–$10B gross market value (GMV) per book <code>[Estimate]</code> (square-root impact: total cost grows like size^1.5, alpha like size)</td>
 </tr>
 <tr>
 <td>Typical Sharpe (gross vs net)</td>
@@ -5987,8 +5987,8 @@
 </tr>
 </tbody>
 </table>
-<p>The raw signal is mostly "long semis, short banks". Sector-neutral, the book is long A and C, short B and D. At <span class="arithmatex">\(100M GMV (\)</span>41.7M per unit of score): A +<span class="arithmatex">\(20.8M, C +\)</span>29.2M, B −<span class="arithmatex">\(20.8M, D −\)</span>29.2M. Net beta dollars: 20.8×1.4 + 29.2×1.1 − 20.8×1.3 − 29.2×0.9 = +<span class="arithmatex">\(7.9M, so a 2% market drop costs ~\)</span>158k. <strong>Sector-neutral is not beta-neutral</strong>: add beta to the regression or hedge with ~$7.9M of index futures.</p>
-<p><strong>B. Dollar- vs beta-neutral (illustrative).</strong> $500M long at beta 0.8 against <span class="arithmatex">\(500M short at beta 1.2 is dollar-neutral but carries −\)</span>200M of beta: a +1% market day loses ~$2M.</p>
+<p>The raw signal is mostly "long semis, short banks". Sector-neutral, the book is long A and C, short B and D. At $100M GMV ($41.7M per unit of score): A +$20.8M, C +$29.2M, B −$20.8M, D −$29.2M. Net beta dollars: 20.8×1.4 + 29.2×1.1 − 20.8×1.3 − 29.2×0.9 = +$7.9M, so a 2% market drop costs ~$158k. <strong>Sector-neutral is not beta-neutral</strong>: add beta to the regression or hedge with ~$7.9M of index futures.</p>
+<p><strong>B. Dollar- vs beta-neutral (illustrative).</strong> $500M long at beta 0.8 against $500M short at beta 1.2 is dollar-neutral but carries −$200M of beta: a +1% market day loses ~$2M.</p>
 <p><strong>C. Fundamental Law (illustrative).</strong> IC 0.03, 2,000 stocks, 5-day horizon (≈ 50 periods a year): nominal breadth 100,000, √ ≈ 316, IR ≈ 9.5; with a transfer coefficient of 0.4, 3.8. If correlated residuals and overlapping holds leave 10% of bets truly independent, √10,000 = 100 and IR ≈ 0.03 × 100 × 0.4 = 1.2, where real books live.</p>
 <h2 id="signals-and-algorithms-under-the-hood">Signals and algorithms under the hood<a class="headerlink" href="#signals-and-algorithms-under-the-hood" title="Permanent link">&para;</a></h2>
 <p>Transforms and IC: <a href="../../../03-algorithms/a-data-and-signals/signal-transforms/">D3</a>, <a href="../../../03-algorithms/a-data-and-signals/evaluating-signals/">D4</a>. Combination: <a href="../../../03-algorithms/b-forecasting-models/alpha-combination-and-ensembling/">F5</a>. <a href="../../../09-reference/glossary/#risk-model">Risk model</a>: <a href="../../../03-algorithms/d-portfolio-construction/risk-models/">P1</a>, <a href="../../../03-algorithms/d-portfolio-construction/covariance-estimation-and-shrinkage/">P2</a>. Optimizer and costs: <a href="../../../03-algorithms/d-portfolio-construction/mean-variance-optimization/">P3</a>, <a href="../../../03-algorithms/d-portfolio-construction/transaction-cost-and-impact-models/">P5</a>, <a href="../../../03-algorithms/d-portfolio-construction/multi-period-and-trading-toward-aim/">P6</a>. <a href="https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/11-signal-transforms-ic">Lab 11</a> implements the transforms and IC diagnostics on synthetic data.</p>
@@ -6025,7 +6025,7 @@
 <li><strong>Execution and borrow</strong>: participation caps of 1–5% of ADV <code>[Lore]</code>; hard-to-borrow names penalized (<a href="../../../01-market-structure/shorting-financing-and-settlement/">shorting and financing</a>).</li>
 </ul>
 <h2 id="pl-decomposition">P&amp;L decomposition<a class="headerlink" href="#pl-decomposition" title="Permanent link">&para;</a></h2>
-<p>Illustrative: <span class="arithmatex">\(1B GMV, turnover 15% per day (\)</span>37.8B traded per year).</p>
+<p>Illustrative: $1B GMV, turnover 15% per day ($37.8B traded per year).</p>
 <table>
 <thead>
 <tr>

@@ -5861,8 +5861,8 @@
 <p><em>Illustrative.</em> Sell 10,000 shares in 5 steps; half-spread $0.01; impact $0.001 per 1,000 shares sold in a step; σ = $0.10 per share per step; risk aversion 2 × 10⁻⁵ per dollar.</p>
 <ul>
 <li><strong>All at once</strong>: 10,000 × (0.01 + 0.01) = <strong>$200</strong>, no risk penalty.</li>
-<li><strong>TWAP</strong> (2,000 per step): cost 5 × 2,000 × 0.012 = $120; risk 2 × 10⁻⁵ × (800² + 600² + 400² + 200²) = <span class="arithmatex">\(24; total **\)</span>144**.</li>
-<li><strong>Learned 4-2-2-1-1</strong> (thousands): cost 56 + 24 + 24 + 11 + 11 = $126; risk 2 × 10⁻⁵ × (600² + 400² + 200² + 100²) = <span class="arithmatex">\(11.4; total **\)</span>137.4**, the brute-force optimum.</li>
+<li><strong>TWAP</strong> (2,000 per step): cost 5 × 2,000 × 0.012 = $120; risk 2 × 10⁻⁵ × (800² + 600² + 400² + 200²) = $24; total <strong>$144</strong>.</li>
+<li><strong>Learned 4-2-2-1-1</strong> (thousands): cost 56 + 24 + 24 + 11 + 11 = $126; risk 2 × 10⁻⁵ × (600² + 400² + 200² + 100²) = $11.4; total <strong>$137.4</strong>, the brute-force optimum.</li>
 </ul>
 <p>One update by hand: from <span class="arithmatex">\(Q = 0\)</span>, selling 4 lots at <span class="arithmatex">\(t=0\)</span> gives <span class="arithmatex">\(r\)</span> = −(56 + 2 × 10⁻⁵ × 600²) = −63.2; next-state values are still 0, so <span class="arithmatex">\(Q\)</span> ← 0 + 0.1 × (−63.2 − 0) = <strong>−6.32</strong>. After convergence that entry reaches −137.4, the full cost-to-go.</p>
 <p>The toy front-loads, as Almgren-Chriss does in closed form. RL earns its keep only when the state carries information the closed form ignores, such as spread and imbalance.</p>
