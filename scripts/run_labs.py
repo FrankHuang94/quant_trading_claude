@@ -6,6 +6,7 @@ Usage: python scripts/run_labs.py [--smoke] [--max-seconds N] [--only 05 07 ...]
 from __future__ import annotations
 
 import argparse
+import os
 import subprocess
 import sys
 import time
@@ -25,10 +26,15 @@ def main() -> int:
         labs = [p for p in labs if p.parent.name[:2] in args.only]
     failures = []
     t_all = time.time()
+    # single-threaded BLAS: multi-threaded OpenBLAS can be ~100x slower on small eigh problems under load
+    env = os.environ.copy()
+    for var in ("OPENBLAS_NUM_THREADS", "OMP_NUM_THREADS", "MKL_NUM_THREADS"):
+        env.setdefault(var, "1")
+    env.setdefault("MPLBACKEND", "Agg")
     for lab in labs:
         cmd = [sys.executable, str(lab)] + (["--smoke"] if args.smoke else [])
         t0 = time.time()
-        res = subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True)
+        res = subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True, env=env)
         dt = time.time() - t0
         status = "ok" if res.returncode == 0 else f"FAILED (exit {res.returncode})"
         if res.returncode == 0 and args.max_seconds and dt > args.max_seconds:

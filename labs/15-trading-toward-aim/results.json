@@ -1,0 +1,233 @@
+{
+  "lab": "15-trading-toward-aim",
+  "smoke": false,
+  "seed": 7,
+  "n_stocks": 200,
+  "n_days": 2520,
+  "gamma_per_million_usd": 0.2,
+  "lam_per_million_usd": 3.460208,
+  "gp_trade_rate": 0.213247,
+  "myopic_trade_rate": 0.054642,
+  "measured_ic": {
+    "hl1": 0.009564,
+    "hl5": 0.009156,
+    "hl20": 0.01024,
+    "hl60": 0.010634
+  },
+  "hl1": {
+    "sharpe_gross_full_rebalance": 2.295899,
+    "sharpe_net_full_rebalance": -17.52077,
+    "sharpe_net_gp": 1.161464,
+    "sharpe_net_best_toward_markowitz": 0.717851,
+    "best_rate_utility_aim": 0.209227,
+    "best_rate_utility_markowitz": 0.064438,
+    "best_rate_sharpe_aim": 0.177828,
+    "best_rate_sharpe_markowitz": 0.08254,
+    "utility_musd_gp": 1.674336,
+    "utility_musd_best_toward_markowitz": 1.087034,
+    "utility_musd_full_rebalance": -222.206381
+  },
+  "hl5": {
+    "sharpe_gross_full_rebalance": 2.21146,
+    "sharpe_net_full_rebalance": -3.03187,
+    "sharpe_net_gp": 1.442716,
+    "sharpe_net_best_toward_markowitz": 1.358324,
+    "best_rate_utility_aim": 0.209535,
+    "best_rate_utility_markowitz": 0.138589,
+    "best_rate_sharpe_aim": 0.177828,
+    "best_rate_sharpe_markowitz": 0.14678,
+    "utility_musd_gp": 6.189989,
+    "utility_musd_best_toward_markowitz": 5.426888,
+    "utility_musd_full_rebalance": -48.055059
+  },
+  "hl20": {
+    "sharpe_gross_full_rebalance": 2.183976,
+    "sharpe_net_full_rebalance": 0.756015,
+    "sharpe_net_gp": 2.003828,
+    "sharpe_net_best_toward_markowitz": 1.985576,
+    "best_rate_utility_aim": 0.211444,
+    "best_rate_utility_markowitz": 0.189622,
+    "best_rate_sharpe_aim": 0.261016,
+    "best_rate_sharpe_markowitz": 0.215443,
+    "utility_musd_gp": 10.65517,
+    "utility_musd_best_toward_markowitz": 10.488197,
+    "utility_musd_full_rebalance": -2.850431
+  },
+  "hl60": {
+    "sharpe_gross_full_rebalance": 2.574623,
+    "sharpe_net_full_rebalance": 2.083821,
+    "sharpe_net_gp": 2.500615,
+    "sharpe_net_best_toward_markowitz": 2.516978,
+    "best_rate_utility_aim": 0.21173,
+    "best_rate_utility_markowitz": 0.204369,
+    "best_rate_sharpe_aim": 0.121153,
+    "best_rate_sharpe_markowitz": 0.1,
+    "utility_musd_gp": 12.437465,
+    "utility_musd_best_toward_markowitz": 12.409013,
+    "utility_musd_full_rebalance": 7.880987
+  },
+  "cost_sweep": [
+    {
+      "cost_mult": 0.0625,
+      "half_life": 1,
+      "gp_rate": 0.604658,
+      "grid_best_rate": 0.596257
+    },
+    {
+      "cost_mult": 0.0625,
+      "half_life": 5,
+      "gp_rate": 0.604658,
+      "grid_best_rate": 0.599454
+    },
+    {
+      "cost_mult": 0.0625,
+      "half_life": 20,
+      "gp_rate": 0.604658,
+      "grid_best_rate": 0.600948
+    },
+    {
+      "cost_mult": 0.0625,
+      "half_life": 60,
+      "gp_rate": 0.604658,
+      "grid_best_rate": 0.601593
+    },
+    {
+      "cost_mult": 0.25,
+      "half_life": 1,
+      "gp_rate": 0.378933,
+      "grid_best_rate": 0.371983
+    },
+    {
+      "cost_mult": 0.25,
+      "half_life": 5,
+      "gp_rate": 0.378933,
+      "grid_best_rate": 0.373824
+    },
+    {
+      "cost_mult": 0.25,
+      "half_life": 20,
+      "gp_rate": 0.378933,
+      "grid_best_rate": 0.375792
+    },
+    {
+      "cost_mult": 0.25,
+      "half_life": 60,
+      "gp_rate": 0.378933,
+      "grid_best_rate": 0.376693
+    },
+    {
+      "cost_mult": 1.0,
+      "half_life": 1,
+      "gp_rate": 0.213247,
+      "grid_best_rate": 0.209227
+    },
+    {
+      "cost_mult": 1.0,
+      "half_life": 5,
+      "gp_rate": 0.213247,
+      "grid_best_rate": 0.209535
+    },
+    {
+      "cost_mult": 1.0,
+      "half_life": 20,
+      "gp_rate": 0.213247,
+      "grid_best_rate": 0.211444
+    },
+    {
+      "cost_mult": 1.0,
+      "half_life": 60,
+      "gp_rate": 0.213247,
+      "grid_best_rate": 0.21173
+    },
+    {
+      "cost_mult": 4.0,
+      "half_life": 1,
+      "gp_rate": 0.1132,
+      "grid_best_rate": 0.11181
+    },
+    {
+      "cost_mult": 4.0,
+      "half_life": 5,
+      "gp_rate": 0.1132,
+      "grid_best_rate": 0.111534
+    },
+    {
+      "cost_mult": 4.0,
+      "half_life": 20,
+      "gp_rate": 0.1132,
+      "grid_best_rate": 0.112192
+    },
+    {
+      "cost_mult": 4.0,
+      "half_life": 60,
+      "gp_rate": 0.1132,
+      "grid_best_rate": 0.112138
+    },
+    {
+      "cost_mult": 16.0,
+      "half_life": 1,
+      "gp_rate": 0.058325,
+      "grid_best_rate": 0.057231
+    },
+    {
+      "cost_mult": 16.0,
+      "half_life": 5,
+      "gp_rate": 0.058325,
+      "grid_best_rate": 0.05711
+    },
+    {
+      "cost_mult": 16.0,
+      "half_life": 20,
+      "gp_rate": 0.058325,
+      "grid_best_rate": 0.057334
+    },
+    {
+      "cost_mult": 16.0,
+      "half_life": 60,
+      "gp_rate": 0.058325,
+      "grid_best_rate": 0.057552
+    }
+  ],
+  "combined_signal_half_lives": [
+    5,
+    60
+  ],
+  "combined_signal": {
+    "Full rebalance to Markowitz": {
+      "sharpe_gross": 3.462454,
+      "sharpe_net": -0.706763,
+      "utility_musd_per_year": -40.276522,
+      "expected_net_pnl_musd_per_year": -13.187476,
+      "cost_musd_per_year": 67.365568,
+      "turnover_x_per_year": 95.499938,
+      "avg_gross_book_musd": 855.874964
+    },
+    "Myopic cost-aware (rate g/(g+lam))": {
+      "sharpe_gross": 2.796999,
+      "sharpe_net": 2.743564,
+      "utility_musd_per_year": 15.054712,
+      "expected_net_pnl_musd_per_year": 30.393489,
+      "cost_musd_per_year": 0.657577,
+      "turnover_x_per_year": 12.658854,
+      "avg_gross_book_musd": 638.82507
+    },
+    "Toward Markowitz at GP rate": {
+      "sharpe_gross": 3.166136,
+      "sharpe_net": 2.781258,
+      "utility_musd_per_year": 17.111211,
+      "expected_net_pnl_musd_per_year": 38.745991,
+      "cost_musd_per_year": 5.58434,
+      "turnover_x_per_year": 30.884269,
+      "avg_gross_book_musd": 762.738877
+    },
+    "Garleanu-Pedersen (aim, GP rate)": {
+      "sharpe_gross": 3.158893,
+      "sharpe_net": 2.929142,
+      "utility_musd_per_year": 18.58271,
+      "expected_net_pnl_musd_per_year": 34.492708,
+      "cost_musd_per_year": 2.857218,
+      "turnover_x_per_year": 25.740313,
+      "avg_gross_book_musd": 654.181771
+    }
+  }
+}

@@ -82,10 +82,8 @@ def _jsonable(x: Any) -> Any:
         return {str(k): _jsonable(v) for k, v in x.items()}
     if isinstance(x, (list, tuple)):
         return [_jsonable(v) for v in x]
-    if isinstance(x, (np.floating,)):
-        return round(float(x), 6)
-    if isinstance(x, float):
-        return round(x, 6)
+    if isinstance(x, (np.floating, float)):
+        return float(f"{float(x):.6g}")   # 6 significant digits (keeps tiny values such as 2e-7)
     if isinstance(x, (np.integer,)):
         return int(x)
     if isinstance(x, np.ndarray):

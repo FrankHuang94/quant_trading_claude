@@ -1,0 +1,90 @@
+{
+  "lab": "14-risk-model-mvo",
+  "smoke": false,
+  "seed": 7,
+  "n_stocks": 500,
+  "window_days": 252,
+  "n_forecast_dates": 47,
+  "n_optimized_dates": 16,
+  "sample_cov_rank": 251,
+  "ledoit_wolf_shrinkage_mean": 0.078024,
+  "risk_aversion": 50.0,
+  "bias_statistic": {
+    "sample": {
+      "random_long_short": 0.997005,
+      "random_long_only": 1.00268,
+      "optimized_mvo": 2.780744
+    },
+    "ledoit_wolf": {
+      "random_long_short": 0.985199,
+      "random_long_only": 1.046566,
+      "optimized_mvo": 1.916279
+    },
+    "pca": {
+      "random_long_short": 0.996972,
+      "random_long_only": 1.000666,
+      "optimized_mvo": 0.995769
+    },
+    "oracle": {
+      "random_long_short": 0.999575,
+      "random_long_only": 1.013419,
+      "optimized_mvo": 0.919983
+    }
+  },
+  "optimized_vol_pct_predicted_vs_realized": {
+    "sample": [
+      1.151853,
+      3.195464
+    ],
+    "ledoit_wolf": [
+      1.613415,
+      3.10101
+    ],
+    "pca": [
+      2.141605,
+      2.173551
+    ],
+    "oracle": [
+      2.075224,
+      1.915078
+    ]
+  },
+  "frontier_true_over_predicted_vol_at_risk_aversion_50": {
+    "sample": 3.167684,
+    "ledoit_wolf": 2.253086,
+    "pca": 1.281736,
+    "oracle": 1.0
+  },
+  "frontier_expected_alpha_per_true_vol_at_risk_aversion_50": {
+    "sample": 2.026612,
+    "ledoit_wolf": 2.088852,
+    "pca": 2.483958,
+    "oracle": 2.576852
+  },
+  "cost_test_pca_biweekly": {
+    "cost_aversion_0": {
+      "sharpe_gross": 3.645529,
+      "sharpe_net": 2.418287,
+      "annual_turnover_x_capital": 19.429866,
+      "cost_bps_per_year": 316.440093,
+      "expected_alpha_bps_per_year": 809.77695,
+      "expected_net_alpha_bps_per_year": 493.336857
+    },
+    "cost_aversion_0.25": {
+      "sharpe_gross": 3.57395,
+      "sharpe_net": 2.627308,
+      "annual_turnover_x_capital": 15.032384,
+      "cost_bps_per_year": 243.901107,
+      "expected_alpha_bps_per_year": 793.394177,
+      "expected_net_alpha_bps_per_year": 549.49307
+    },
+    "cost_aversion_1": {
+      "sharpe_gross": 2.917099,
+      "sharpe_net": 2.428994,
+      "annual_turnover_x_capital": 7.414002,
+      "cost_bps_per_year": 119.334337,
+      "expected_alpha_bps_per_year": 659.918668,
+      "expected_net_alpha_bps_per_year": 540.584332
+    }
+  }
+}
