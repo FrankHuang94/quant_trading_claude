@@ -86,7 +86,7 @@ Take a passive market maker quoting both sides of a tick-constrained \$40 stock 
 | Adverse selection (markout to mid) | −\$0.0045 | −\$0.0030 `[Estimate]`, falls less than the spread |
 | Aggressive exits: 20% × (half-spread + take fee) | −\$0.0016 | −\$0.0007 |
 | Clearing and regulatory fees | −\$0.0002 | −\$0.0002 |
-| **Net** | **+$0.0016** | **−$0.0006** |
+| **Net** | **+\$0.0016** | **−\$0.0006** |
 
 Read it as an income statement. The rebate is 37% of today's \$0.0079 gross revenue, and without it the book loses \$0.0013 a share. If the 2024 rules took effect, both the tick rent and the rebate would shrink. Survival would then depend on better [markouts](../09-reference/glossary.md#markout), which means better short-horizon prediction, or on more volume per quote `[Estimate]`.
 

@@ -117,7 +117,7 @@ The wing test fits on strikes from 0.85 to 1.15 of spot and predicts the 0.80 an
   costs) with **R² = 0.82**: its mean is \$44.7, against \$42.3 actual. The cruder
   `vega x (IV - RV)` gets R² = 0.75.
 - **Unexplained sd $1.7.** Without the vanna and volga terms the unexplained sd would be
-  **$23.8**. For a straddle that drifts away from the money, the spot-vol cross term matters.
+  **\$23.8**. For a straddle that drifts away from the money, the spot-vol cross term matters.
 - **Pitfall: risk dwarfs edge.** With daily hedging, 35% of trades lose money, and the
   5th-percentile trade loses \$183, against a mean gain of \$47.
 
