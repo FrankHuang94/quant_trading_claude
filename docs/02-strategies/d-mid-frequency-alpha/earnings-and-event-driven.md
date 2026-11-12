@@ -20,7 +20,7 @@
 | Core algorithms used | [D1 Point-in-time data and cleaning](../../03-algorithms/a-data-and-signals/point-in-time-data-and-cleaning.md) · [D2 Feature engineering](../../03-algorithms/a-data-and-signals/feature-engineering.md) · [D4 Evaluating signals](../../03-algorithms/a-data-and-signals/evaluating-signals.md) · [V3 Backtest pitfalls](../../03-algorithms/c-validation-and-backtesting/backtest-pitfalls.md) · [E5 Auction, close and dark-liquidity algos](../../03-algorithms/e-execution-algorithms/auction-close-and-dark-liquidity-algos.md) |
 | Infra intensity | Moderate: minutes matter for the reaction, days for drift |
 | Capacity (rough $ range) | \$100M–\$2B for standalone PEAD `[Estimate]` (drift is concentrated in small, illiquid names and entries cluster on high-cost days) |
-| Typical Sharpe (gross vs net) | PEAD: ~4.2% per 60 days top-minus-bottom decile, gross, 1974–1985 academic backtest `[Reported]`; near zero in non-microcaps since 2006 `[Verified]` (Martineau 2022), contested. Merger arbitrage: ~4% a year excess return, 1963–1998 academic study `[Reported]` |
+| Typical Sharpe (gross vs net) | PEAD: ~4.2% per 60 days top-minus-bottom decile, gross, 1974–1985 academic backtest `[Reported]`; near zero in non-microcaps since 2006 `[Verified]` (Martineau 2022), contested. Merger arbitrage: ~4% a year excess, net of transaction costs, 1963–1998 academic study `[Verified]` |
 | Turnover | High and lumpy: positions open after each event and roll off within weeks |
 | Main risks / failure modes | Overnight gaps, guidance shocks, stale consensus, timestamp errors, deal breaks |
 | Crowding risk | High: everyone has the same consensus feed and the same SUE formula |
@@ -60,7 +60,7 @@ Earnings are a quarterly exam. The market grades it within seconds but historica
 
 The 2% is one leg's half of the historical 4.2% spread; whether it survives in large caps decides the trade.
 
-**Merger arbitrage (illustrative).** Cash offer \$50; target trades at \$47.50; expected close in six months; estimated break price $38. Spread = 2.50 / 47.50 = 5.3% (≈ 10.8% annualized). Market-implied completion probability, ignoring discounting: (47.50 − 38) / (50 − 38) = 79%. Payoff: +5.3% if it closes, −20% if it breaks, the shape of a short put.
+**Merger arbitrage (illustrative).** Cash offer \$50; target trades at \$47.50; expected close in six months; estimated break price \$38. Spread = 2.50 / 47.50 = 5.3% (≈ 10.8% annualized). Market-implied completion probability, ignoring discounting: (47.50 − 38) / (50 − 38) = 79%. Payoff: +5.3% if it closes, −20% if it breaks, the shape of a short put.
 
 ## Signals and algorithms under the hood
 
@@ -115,7 +115,7 @@ At 4% volatility, net Sharpe ≈ 0.25 `[Estimate]`: thin, which is why most firm
 - Chordia et al. (2009): drift concentrates in illiquid stocks; costs absorb most paper profits `[Reported]`.
 - Martineau (2022): no drift in large stocks since 2006, recently none in microcaps; prices now absorb surprises on the day `[Verified]`.
 - Subrahmanyam (2025) notes two 2025 papers reporting strong PEAD (t-statistics above 14) and attributes the disagreement to research design `[Reported]`. Evidence is mixed; no verdict here.
-- Mitchell & Pulvino (2001): merger arbitrage earned ~4% a year excess, with returns resembling short index puts in down markets `[Reported]`.
+- Mitchell & Pulvino (2001): 4,750 mergers, 1963–1998: ~4% a year excess after transaction costs; returns track the market only in sharp declines, like a short index put `[Verified]`.
 
 ## Capacity, crowding and decay
 
@@ -123,8 +123,8 @@ Drift lives where costs are highest, so capacity is small. Decay is central: the
 
 ## How it fails
 
-- **Gap risk.** On 3 February 2022 Meta fell roughly a quarter in one session after earnings `[Reported]`.
-- **Deal breaks.** In October 2014 AbbVie walked away from Shire after US anti-inversion rules changed, inflicting heavy losses on arbitrageurs `[Reported]`.
+- **Gap risk.** On 3 February 2022 Meta fell 26% in one session after earnings, erasing over \$230B of market value `[Reported]`.
+- **Deal breaks.** In October 2014 AbbVie abandoned its \$55B Shire deal after new US anti-inversion rules; merger-arbitrage funds lost and de-risked other deals `[Reported]`.
 - **Timing bugs.** Misdated releases create fictitious backtest drift.
 
 ## Textbook vs how it's done today
@@ -224,5 +224,8 @@ $$
 - [Reported] So, E. C. & Wang, S. (2014). "News-Driven Return Reversals: Liquidity Provision Ahead of Earnings Announcements." *Journal of Financial Economics* 114(1), 20–35. <https://doi.org/10.1016/j.jfineco.2014.07.003> (accessed 2026-11)
 - [Reported] Savor, P. & Wilson, M. (2016). "Earnings Announcements and Systematic Risk." *Journal of Finance* 71(1), 83–138. <https://doi.org/10.1111/jofi.12361> (accessed 2026-11)
 - [Reported] Livnat, J. & Mendenhall, R. R. (2006). "Comparing the Post-Earnings Announcement Drift for Surprises Calculated from Analyst and Time Series Forecasts." *Journal of Accounting Research* 44(1), 177–205. <https://doi.org/10.1111/j.1475-679X.2006.00196.x> (accessed 2026-11)
-- [Reported] Mitchell, M. & Pulvino, T. (2001). "Characteristics of Risk and Return in Risk Arbitrage." *Journal of Finance* 56(6), 2135–2175. <https://doi.org/10.1111/0022-1082.00401> (accessed 2026-11)
+- [Verified] Mitchell, M. & Pulvino, T. (2001). "Characteristics of Risk and Return in Risk Arbitrage." *Journal of Finance* 56(6), 2135–2175. <https://doi.org/10.1111/0022-1082.00401> (accessed 2026-11)
 - [Reported] Frazzini, A. & Lamont, O. A. (2007). "The Earnings Announcement Premium and Trading Volume." NBER Working Paper 13090. <https://www.nber.org/papers/w13090> (accessed 2026-11)
+- [Reported] Bloomberg (2022-02-03). "Meta Erases \$251 Billion in Value, Biggest Wipeout in History." <https://www.bloomberg.com/news/articles/2022-02-03/meta-set-for-200-billion-wipeout-among-worst-in-market-history> (accessed 2026-11)
+- [Reported] BioSpace (2014-10-16). "AbbVie Board Officially Abandons \$55 Billion Shire Merger." <https://www.biospace.com/abbvie-board-officially-abandons-55-billion-b-shire-b-merger> (accessed 2026-11)
+- [Reported] Reuters (2014-11-13). "Scuttled deals worth \$580 billion put hedge funds on back foot" (syndicated copy). <https://vcpost.com/articles/31741/20141113/scuttled-deals-worth-580-billion-put-hedge-funds-back-foot.htm> (accessed 2026-11)

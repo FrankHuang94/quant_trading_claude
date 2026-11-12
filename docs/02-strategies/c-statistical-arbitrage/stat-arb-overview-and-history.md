@@ -5,7 +5,7 @@
 > - [Statistical arbitrage](../../09-reference/glossary.md#statistical-arbitrage) holds thousands of small long and short bets on short-horizon relative mispricings, neutral to market, sectors and styles. Mostly it is paid for absorbing other investors' temporary price pressure.
 > - It began at Morgan Stanley in the early-to-mid 1980s (Gerry Bamberger's industry-group reversal system, scaled by Nunzio Tartaglia's group) and at Princeton-Newport Partners; D. E. Shaw, founded in 1988, carried it into the hedge-fund era `[Reported]`.
 > - The academic record (Lehmann 1990 to Avellaneda & Lee 2010) shows real but decaying profits `[Verified]`.
-> - Crowding is the signature risk: a simple contrarian strategy earned 1.38% a day in 1995 and 0.13% in 2007, needed about 9:1 leverage, and lost 6.85% unlevered in three days of August 2007 `[Verified]`.
+> - Crowding is the signature risk: a simple contrarian strategy's average daily return fell from 1.38% (1995) to 0.13% (2007), so it needed about 9:1 leverage to match 1998 returns, and it lost 6.85% unlevered in three days of August 2007 `[Verified]`.
 > - Today: 1,000–3,000 names, factor-neutral, 1–10 day holds, many signals, cost-aware optimizers.
 
 **Level:** Core · **Read time:** ~10 min · **Last verified:** 2026-11
@@ -65,36 +65,35 @@ Illustrative book: \$1B gross market value (GMV), 2,000 names, 30% traded per da
 
 Net: \$37.5M a year, 3.75% on GMV before borrow, financing and fees. Annualized Sharpe = 150,000 / 1,900,000 × √250 ≈ 1.25. At 5× leverage (GMV over equity) that is about 19% on \$200M of capital.
 
-The Fundamental Law shows why breadth is everything: an IC of 0.01 across 2,000 names and about 50 independent rebalances a year gives IR ≈ 0.01 × √100,000 ≈ 3.2 before costs and constraints. A transfer coefficient of 0.5 and costs bring it down to the 1.25 above.
+The [Fundamental Law](../../09-reference/glossary.md#fundamental-law-of-active-management) shows why breadth is everything: an IC of 0.01 across 2,000 names and about 50 independent rebalances a year gives IR ≈ 0.01 × √100,000 ≈ 3.2 before costs and constraints. The example's gross Sharpe is 2.5 (300,000 / 1,900,000 × √250), implying a transfer coefficient (the share of the forecast that survives constraints) near 0.8; costs then halve it to 1.25.
 
 ## Signals and algorithms under the hood
 
-The classic residual signal follows Avellaneda and Lee (2010): 15 PCA eigenportfolios as factors, residuals modeled as an [Ornstein-Uhlenbeck process](../../09-reference/glossary.md#ornstein-uhlenbeck-process), entries at |s| > 1.25. [Lab 09](https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/09-pca-residual-stat-arb) implements a version (names may differ). Production books feed such scores into [F5](../../03-algorithms/b-forecasting-models/alpha-combination-and-ensembling.md) and an optimizer rather than trading them directly.
+The classic residual signal follows Avellaneda and Lee (2010): 15 PCA eigenportfolios from a 252-day correlation matrix as factors, 60-day residuals modeled as an [Ornstein-Uhlenbeck process](../../09-reference/glossary.md#ornstein-uhlenbeck-process), entries at |s| > 1.25. [Lab 09](https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/09-pca-residual-stat-arb) runs this recipe on 500 synthetic stocks with a planted residual reversal: gross Sharpe 2.98, but 0.63 net for a \$10M book, with break-even near 10 bps per dollar traded (synthetic lab result; the clean, constant planted effect flatters it, against A&L's real 0.9–1.44 net). [Factor-residual mean reversion](factor-residual-mean-reversion.md) walks through it. Production books feed such scores into [F5](../../03-algorithms/b-forecasting-models/alpha-combination-and-ensembling.md) and an optimizer rather than trading them directly.
 
 ```python
-# PCA-residual s-scores and trading rule (Avellaneda-Lee style, simplified).
-WINDOW, N_FACTORS = 60, 15          # days of returns; number of PCA eigenportfolios
-S_OPEN, S_CLOSE_LONG, S_CLOSE_SHORT = 1.25, 0.50, 0.75   # thresholds from the paper
-MIN_KAPPA = 252 / 30                # keep residuals that revert within ~half the window
+# PCA-residual s-scores and trading rule, condensed from Lab 09 (pca_residuals, ou_sscore).
+CORR_WINDOW, RESID_WINDOW, N_FACTORS = 252, 60, 15        # correlation days, residual days, factors
+S_OPEN, S_CLOSE_LONG, S_CLOSE_SHORT = 1.25, 0.50, 0.75    # bands from the paper
+MAX_REVERSION_DAYS = 30             # trade only if 1/kappa < 30 days (about half the window)
 
-def s_scores(R):                    # R: WINDOW x N daily returns
-    Z = (R - R.mean(0)) / R.std(0)
-    _, eigvec = np.linalg.eigh(np.corrcoef(Z, rowvar=False))
-    V = eigvec[:, -N_FACTORS:] / R.std(0)[:, None]      # eigenportfolio weights
-    F = R @ V                                            # factor returns
-    beta = np.linalg.lstsq(F, R, rcond=None)[0]          # loadings
-    X = np.cumsum(R - F @ beta, axis=0)                  # cumulative residual: the OU level
-    a, b, resid_var = ar1_fit(X)                         # X[t+1] = a + b X[t] + e, per stock
-    kappa = -np.log(b) * 252
-    m, sig_eq = a / (1 - b), np.sqrt(resid_var / (1 - b**2))
-    s = (X[-1] - m) / sig_eq                             # distance from equilibrium, in sigmas
-    return np.where(kappa > MIN_KAPPA, s, np.nan)
+def s_scores(R):                    # R: CORR_WINDOW x N daily returns, last row = today
+    _, eigvec = np.linalg.eigh(np.corrcoef(R, rowvar=False))
+    Q = eigvec[:, -N_FACTORS:] / R.std(0)[:, None]       # eigenportfolio weights v / sigma
+    r = R[-RESID_WINDOW:]
+    X = np.column_stack([np.ones(RESID_WINDOW), r @ Q])  # drift + factor returns
+    cum = np.cumsum(r - X @ np.linalg.lstsq(X, r, rcond=None)[0], axis=0)  # OU level
+    a, b, var_zeta = ar1_fit(cum)                        # cum[t+1] = a + b cum[t] + zeta
+    m = a / (1 - b);  m = m - m.mean()                   # equilibrium, centered across stocks
+    s = (cum[-1] - m) / np.sqrt(var_zeta / (1 - b**2))   # cum[-1] = 0, so s = -m / sigma_eq
+    ok = (b > 0) & (b < 1) & (-1 / np.log(b) < MAX_REVERSION_DAYS)
+    return np.where(ok, s, np.nan)
 
-def target_side(s, current):        # +1 long, -1 short, 0 flat (hedge factors separately)
-    if s < -S_OPEN: return +1
-    if s > S_OPEN: return -1
-    if current == +1 and s > -S_CLOSE_LONG: return 0
-    if current == -1 and s < S_CLOSE_SHORT: return 0
+def target_side(s, current):        # one stock: +1 long, -1 short, 0 flat (factors hedged)
+    if np.isnan(s): return 0
+    if current == 0: return +1 if s < -S_OPEN else (-1 if s > S_OPEN else 0)
+    if (current == +1 and s > -S_CLOSE_LONG) or (current == -1 and s < S_CLOSE_SHORT):
+        return 0                    # converged: close
     return current
 ```
 
@@ -119,7 +118,7 @@ Illustrative, \$1B GMV, one year:
 | Financing spread | −4.0 | −0.4 |
 | **Net, before management and performance fees** | **+26.0** | **+2.6** |
 
-On \$200M of equity, 13% before fees. Costs take half the gross alpha: stat arb is an execution business.
+On \$200M of equity, 13% before fees. Costs take about two-thirds of gross alpha: stat arb is an execution business.
 
 ## Evidence
 
@@ -156,7 +155,7 @@ Doubling capital adds 17% to P&L; quadrupling erases it. As daily reversal decay
 
 ## How it fails
 
-- **Crowded unwind:** on 2007-08-07/08/09 the contrarian rule lost 1.16%, 2.83% and 2.86% (12 daily standard deviations), then gained 5.92% on August 10; at 8:1 leverage the three days cost over 25% `[Verified]`. Reported losses: Goldman Sachs Global Equity Opportunities over 30% in a week; Highbridge Statistical Opportunities 18% in the first eight days of August `[Reported]`. Khandani and Lo blame a forced liquidation of similar portfolios.
+- **Crowded unwind:** on 2007-08-07/08/09 the contrarian rule lost 1.16%, 2.83% and 2.86% (12 daily standard deviations), then gained 5.92% on August 10; at 8:1 leverage the three days cost over 25% `[Verified]`. Losses reported by the *Wall Street Journal* (quoted by Khandani and Lo): Goldman Sachs Global Equity Opportunities over 30% in a week; Highbridge Statistical Opportunities 18% in the first eight days of August `[Reported]`. Khandani and Lo blame a forced liquidation of similar portfolios.
 - **Liquidity spirals:** losses force deleveraging, which moves prices against everyone holding the same book (Brunnermeier & Pedersen 2009) `[Verified]`.
 - **Factor leakage:** an unhedged style bet (momentum, crowded shorts) dominates P&L on a factor reversal.
 

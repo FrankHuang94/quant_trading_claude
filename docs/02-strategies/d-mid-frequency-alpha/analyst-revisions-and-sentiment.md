@@ -20,7 +20,7 @@
 | Core algorithms used | [D2 Feature engineering](../../03-algorithms/a-data-and-signals/feature-engineering.md) · [D3 Signal transforms](../../03-algorithms/a-data-and-signals/signal-transforms.md) · [D4 Evaluating signals](../../03-algorithms/a-data-and-signals/evaluating-signals.md) · [F5 Alpha combination and ensembling](../../03-algorithms/b-forecasting-models/alpha-combination-and-ensembling.md) · [F4 LLMs and foundation models in quant](../../03-algorithms/b-forecasting-models/llms-and-foundation-models-in-quant.md) |
 | Infra intensity | Overnight batch; real-time feeds for news |
 | Capacity (rough $ range) | Revisions and short interest: \$1B–\$5B as a component `[Estimate]`; news and options signals: \$100M–\$1B `[Estimate]` (decay within days forces high turnover) |
-| Typical Sharpe (gross vs net) | Recommendation long-short: >4% a year gross, 1986–1996, not reliably positive after costs `[Reported]`; option-skew long-short: ~10.9% a year risk-adjusted, gross of costs, 1996–2005 `[Reported]`; both academic backtests, decayed since. Inside a composite: +0.2–0.5 net Sharpe contribution `[Lore]` |
+| Typical Sharpe (gross vs net) | Recommendation long-short: >4% a year gross, 1986–1996, not reliably positive after costs `[Verified]`; option-skew long-short: ~10.9% a year risk-adjusted, gross of costs, 1996–2005 `[Verified]`; both academic backtests, decayed since. Inside a composite: +0.2–0.5 net Sharpe contribution `[Lore]` |
 | Turnover | Revisions 100–400% a year; news sleeves 20–50% a day `[Lore]` |
 | Main risks / failure modes | Short squeezes, vendor-signal crowding, back-filled data, regime shifts in analyst behaviour |
 | Crowding risk | High: revisions and short interest are standard in commercial factor libraries; vendor sentiment is sold to many clients |
@@ -29,14 +29,14 @@
 
 ## Intuition (the story in plain English)
 
-Analysts are slow, careful and social: when news arrives, each moves part of the way and watches peers, so one upward revision predicts more. The market under-reacts too, and price follows the revision trail for weeks.
+Analysts are slow, careful and social: when news arrives, each moves part of the way and watches peers, so one upward revision predicts more. Prices under-react too, following the revision trail for weeks.
 
 Other signals read who is already acting on information: short sellers are, on average, informed, as are option traders buying puts before bad news. News and social tone is sometimes information and sometimes noise that reverses.
 
 ## Economic rationale: why should this make money at all?
 
 - **Partial adjustment and herding.** Gradual analyst updating makes [earnings revisions](../../09-reference/glossary.md#earnings-revision) autocorrelated, and prices drift after them (Givoly & Lakonishok 1979; Stickel 1991) `[Reported]`.
-- **Informed footprints.** Heavily shorted stocks underperform lightly shorted ones by about 1.16% over the next 20 trading days, risk-adjusted (Boehmer, Jones & Zhang 2008) `[Reported]`. Informed traders favour options, so skew leads stock prices (Xing, Zhang & Zhao 2010) `[Reported]`.
+- **Informed footprints.** Stocks with the heaviest short-selling flow underperform the lightest by 1.16% over the next 20 trading days, risk-adjusted (NYSE order data, 2000–2004; Boehmer, Jones & Zhang 2008) `[Verified]`. Informed traders favour options, so skew leads stock prices (Xing, Zhang & Zhao 2010) `[Verified]`.
 - **Noise versus news.** Tetlock (2007) found media pessimism pushes prices down and then reverses (noise); Tetlock, Saar-Tsechansky & Macskassy (2008) found negative words in firm news predict earnings and returns (information) `[Reported]`.
 
 ## The trade, step by step
@@ -111,10 +111,10 @@ At 4% volatility, gross Sharpe ≈ 1.5 and net ≈ 0.85 `[Estimate]`.
 ## Evidence
 
 - Chan, Jegadeesh & Lakonishok (1996): revisions and earnings surprises predict returns, and price momentum partly reflects earnings momentum `[Reported]`.
-- Womack (1996): downgrade drift lasts about six months, upgrade drift about a month `[Reported]`. Barber et al. (2001): consensus-recommendation strategies earned >4% gross, gone after costs `[Reported]`.
+- Womack (1996): new sell ratings drift −9.1% over six months; new buys +2.4%, briefly `[Verified]`. Barber et al. (2001): consensus-recommendation strategies earned >4% a year gross, not reliably positive net `[Verified]`.
 - Asquith, Pathak & Ritter (2005): high short interest plus low institutional ownership predicts underperformance `[Reported]`.
 - Chen et al. (2014): Seeking Alpha opinions predict returns and earnings surprises `[Reported]`.
-- Xing, Zhang & Zhao (2010): steepest-smirk stocks underperform by about 10.9% a year (1996–2005) `[Reported]`.
+- Xing, Zhang & Zhao (2010): steepest-smirk stocks underperform by about 10.9% a year, risk-adjusted (1996–2005) `[Verified]`.
 - McLean & Pontiff (2016): published predictors lose 58% post-publication `[Verified]`.
 
 ## Capacity, crowding and decay
@@ -123,7 +123,7 @@ Revisions and short interest sit in every commercial factor library, so standalo
 
 ## How it fails
 
-- **Short squeezes.** In January 2021, heavily shorted stocks such as GameStop rose many-fold within days as retail buying, options activity and short covering fed each other `[Verified]` (SEC staff report, 2021).
+- **Short squeezes.** In January 2021, GameStop and other heavily shorted stocks rose many-fold as retail buying, call options and short covering fed each other `[Verified]` (SEC staff report, 2021).
 - **Rule changes.** Regulation FD (effective October 2000) ended selective disclosure to analysts, changing what revisions contain `[Verified]`.
 - **Crowding and back-filled data** inflate backtests ([backtest pitfalls](../../03-algorithms/c-validation-and-backtesting/backtest-pitfalls.md)).
 
@@ -223,14 +223,16 @@ $$
 - [Reported] Givoly, D. & Lakonishok, J. (1979). "The Information Content of Financial Analysts' Forecasts of Earnings." *Journal of Accounting and Economics* 1(3), 165–185. <https://doi.org/10.1016/0165-4101(79)90006-5> (accessed 2026-11)
 - [Reported] Stickel, S. E. (1991). "Common Stock Returns Surrounding Earnings Forecast Revisions: More Puzzling Evidence." *The Accounting Review* 66(2), 402–416. <https://www.jstor.org/stable/247975> (accessed 2026-11)
 - [Reported] Chan, L. K. C., Jegadeesh, N. & Lakonishok, J. (1996). "Momentum Strategies." *Journal of Finance* 51(5), 1681–1713. <https://doi.org/10.1111/j.1540-6261.1996.tb05222.x> (accessed 2026-11)
-- [Reported] Womack, K. L. (1996). "Do Brokerage Analysts' Recommendations Have Investment Value?" *Journal of Finance* 51(1), 137–167. <https://doi.org/10.1111/j.1540-6261.1996.tb05205.x> (accessed 2026-11)
-- [Reported] Barber, B., Lehavy, R., McNichols, M. & Trueman, B. (2001). "Can Investors Profit from the Prophets? Security Analyst Recommendations and Stock Returns." *Journal of Finance* 56(2), 531–563. <https://doi.org/10.1111/0022-1082.00336> (accessed 2026-11)
-- [Reported] Boehmer, E., Jones, C. M. & Zhang, X. (2008). "Which Shorts Are Informed?" *Journal of Finance* 63(2), 491–527. <https://doi.org/10.1111/j.1540-6261.2008.01324.x> (accessed 2026-11)
+- [Verified] Womack, K. L. (1996). "Do Brokerage Analysts' Recommendations Have Investment Value?" *Journal of Finance* 51(1), 137–167. <https://doi.org/10.1111/j.1540-6261.1996.tb05205.x> (accessed 2026-11)
+- [Verified] Barber, B., Lehavy, R., McNichols, M. & Trueman, B. (2001). "Can Investors Profit from the Prophets? Security Analyst Recommendations and Stock Returns." *Journal of Finance* 56(2), 531–563. <https://doi.org/10.1111/0022-1082.00336> (accessed 2026-11)
+- [Verified] Boehmer, E., Jones, C. M. & Zhang, X. (2008). "Which Shorts Are Informed?" *Journal of Finance* 63(2), 491–527. <https://doi.org/10.1111/j.1540-6261.2008.01324.x> (accessed 2026-11)
 - [Reported] Asquith, P., Pathak, P. A. & Ritter, J. R. (2005). "Short Interest, Institutional Ownership, and Stock Returns." *Journal of Financial Economics* 78(2), 243–276. <https://doi.org/10.1016/j.jfineco.2004.06.006> (accessed 2026-11)
 - [Reported] Tetlock, P. C. (2007). "Giving Content to Investor Sentiment: The Role of Media in the Stock Market." *Journal of Finance* 62(3), 1139–1168. <https://doi.org/10.1111/j.1540-6261.2007.01232.x> (accessed 2026-11)
 - [Reported] Tetlock, P. C., Saar-Tsechansky, M. & Macskassy, S. (2008). "More than Words: Quantifying Language to Measure Firms' Fundamentals." *Journal of Finance* 63(3), 1437–1467. <https://doi.org/10.1111/j.1540-6261.2008.01362.x> (accessed 2026-11)
 - [Reported] Chen, H., De, P., Hu, Y. & Hwang, B.-H. (2014). "Wisdom of Crowds: The Value of Stock Opinions Transmitted through Social Media." *Review of Financial Studies* 27(5), 1367–1403. <https://doi.org/10.1093/rfs/hhu001> (accessed 2026-11)
-- [Reported] Xing, Y., Zhang, X. & Zhao, R. (2010). "What Does the Individual Option Volatility Smirk Tell Us About Future Equity Returns?" *Journal of Financial and Quantitative Analysis* 45(3), 641–662. <https://doi.org/10.1017/S0022109010000220> (accessed 2026-11)
+- [Verified] Xing, Y., Zhang, X. & Zhao, R. (2010). "What Does the Individual Option Volatility Smirk Tell Us About Future Equity Returns?" *Journal of Financial and Quantitative Analysis* 45(3), 641–662. <https://doi.org/10.1017/S0022109010000220> (accessed 2026-11)
+- [Reported] Cremers, M. & Weinbaum, D. (2010). "Deviations from Put-Call Parity and Stock Return Predictability." *Journal of Financial and Quantitative Analysis* 45(2), 335–367. <https://doi.org/10.1017/S002210901000013X> (accessed 2026-11)
+- [Reported] Heston, S. L. & Sinha, N. R. (2017). "News vs. Sentiment: Predicting Stock Returns from News Stories." *Financial Analysts Journal* 73(3), 67–83. <https://doi.org/10.2469/faj.v73.n3.3> (accessed 2026-11)
 - [Reported] Ljungqvist, A., Malloy, C. & Marston, F. (2009). "Rewriting History." *Journal of Finance* 64(4), 1935–1960. <https://doi.org/10.1111/j.1540-6261.2009.01484.x> (accessed 2026-11)
 - [Verified] U.S. SEC (2000). "Selective Disclosure and Insider Trading" (Regulation FD), Release No. 33-7881. <https://www.sec.gov/rules/final/33-7881.htm> (accessed 2026-11)
 - [Verified] U.S. SEC Staff (2021-10-14). "Staff Report on Equity and Options Market Structure Conditions in Early 2021." <https://www.sec.gov/files/staff-report-equity-options-market-struction-conditions-early-2021.pdf> (accessed 2026-11)

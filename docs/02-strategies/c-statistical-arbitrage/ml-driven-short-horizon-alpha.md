@@ -132,7 +132,7 @@ Impact grows with the square root of size ([P5](../../03-algorithms/d-portfolio-
 ## How it fails
 
 - **Crowded unwind (August 2007).** A simple contrarian strategy lost sharply over a few days, consistent with forced liquidation of similar quant books (Khandani & Lo 2011) `[Reported]`.
-- **Regime break (2020).** Pandemic volatility broke relationships learned on calmer data; a quant hedge fund index ended 2020 down about 5% `[Reported]`.
+- **Regime break (2020).** New pandemic-era drivers broke relationships learned on calmer data; Man FRM called 2020 a "blow to the head" for factor-based quant equity funds, and said even ML approaches felt "somewhat impotent" `[Reported]`.
 - **Overfitting and leakage.** Thousands of settings guarantee an in-sample winner ([V4](../../03-algorithms/c-validation-and-backtesting/overfitting-and-multiple-testing.md)); one feature using not-yet-public data makes it perfect ([V3](../../03-algorithms/c-validation-and-backtesting/backtest-pitfalls.md)).
 
 ## Textbook vs how it's done today
@@ -252,4 +252,4 @@ Purging drops training rows whose label window $[t_j, t_j + h]$ overlaps the tes
 - [Verified] XTX Markets (n.d.). Company website (research cluster of over 25,000 GPUs). <https://www.xtxmarkets.com/> (accessed 2026-11)
 - [Verified] Hudson River Trading (n.d.). "Machine Learning at HRT." <https://www.hudsonrivertrading.com/machine-learning/> (accessed 2026-11)
 - [Verified] CoreWeave (2026). "Hudson River Trading to Build Next-Gen Research Platform Powered by NVIDIA Vera Rubin NVL72 on CoreWeave Cloud." <https://coreweave.com/news/hudson-river-trading-to-build-next-gen-research-platform-powered-by-nvidia-vera-rubin-nvl72-on-coreweave-cloud> (accessed 2026-11)
-- [Reported] Hedgeweek (n.d.). "How COVID-19 shocks revealed machine-based hedge funds' Achilles heel." <https://www.hedgeweek.com/how-covid-19-shocks-revealed-machine-based-hedge-funds-achilles-heel/> (accessed 2026-11)
+- [Reported] Hedgeweek (2020-12-02). "How Covid-19 shocks revealed machine-based hedge funds' 'Achilles' heel'" (reporting a Man FRM commentary). <https://www.hedgeweek.com/how-covid-19-shocks-revealed-machine-based-hedge-funds-achilles-heel/> (accessed 2026-11)

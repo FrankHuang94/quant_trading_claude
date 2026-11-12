@@ -2,7 +2,7 @@
 
 > **TL;DR**
 >
-> - Activity is U-shaped: volume and volatility peak at the open and close; spreads are widest at the open. The closing auction alone prints roughly 7–10% of volume.
+> - Activity is U-shaped: volume and volatility peak at the open and close; spreads are widest at the open. The closing auction alone prints roughly 5–10% of volume (2025) `[Reported]`.
 > - Market intraday momentum: the day's return to 3:30 p.m. predicts the last half-hour in 60+ futures markets (1974–2020), tied to dealers' and leveraged ETFs' gamma hedging.
 > - Returns split into night and day: momentum and reversal profits accrue overnight, other strategies' intraday ("tug of war", Lou, Polk & Skouras 2019).
 > - Calendar effects (turn of month, same-month seasonality, pre-FOMC drift) are small, and some have faded.
@@ -72,7 +72,7 @@ Illustrative E-mini S&P 500 trade (\$50 per index point, 0.25-point tick):
 | Dealers estimated short gamma: scale × 1.5 | +0.072% = 3.6 points |
 | Position | Buy 100 contracts = 100 × \$50 × 5,060 = \$25.3M |
 | Expected gain | 3.6 × \$50 × 100 = **\$18,000** |
-| Costs: 1 tick round trip (\$1,250) + fees ~\$4 per contract (\$400) | **−\$1,650** |
+| Costs: 1 tick round trip (\$1,250) + fees ~\$4 per contract round trip (\$400) | **−\$1,650** |
 | Net expected | **\$16,350** |
 
 Last-half-hour volatility of ~0.25% (\$63,000) gives one day a mean-to-risk ratio near 0.26: the edge needs hundreds of days and a stable regime.

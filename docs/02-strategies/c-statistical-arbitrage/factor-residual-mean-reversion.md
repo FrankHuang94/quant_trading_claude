@@ -68,7 +68,7 @@ Illustrative stock XYZ, \$10M book, 1% per position.
 | AR(1) fit on 60 days | X[t+1] = a + b X[t] + ζ | b = 0.90, sd(ζ) = 1.2% |
 | Mean-reversion time | 1 / (−ln 0.90) | 9.5 days (under 30: tradeable) |
 | Equilibrium sd | 1.2% / √(1 − 0.81) | 2.75% |
-| s-score, with X = −3.6%, centered m = +0.4% | (−3.6% − 0.4%) / 2.75% | −1.45 → buy \$100k, hedge factors |
+| s-score: X today is 0 (the intercept makes residuals sum to zero); centered m = +4.0% | (0 − 4.0%) / 2.75% | −1.45 → buy \$100k, hedge factors |
 | OU-implied gain in 7 days | 4.0% × (1 − 0.9⁷) | 2.1%, \$2,100 |
 | Lab 09 realized gross per round trip | \$1.07M ÷ ~5,000 round trips | ~\$210 (21 bps) `[Estimate]` |
 | Costs per round trip | \$0.81M ÷ ~5,000 | ~\$160 (16 bps) |
@@ -237,7 +237,7 @@ $$
 \kappa = -252 \ln b, \qquad m = \frac{a}{1-b}, \qquad \sigma_{eq} = \frac{\sigma}{\sqrt{2\kappa}} = \sqrt{\frac{\operatorname{Var}(\zeta)}{1-b^2}}, \qquad s = \frac{X - m}{\sigma_{eq}} .
 $$
 
-A&L require $\kappa > 252/30 \approx 8.4$. With a residual drift $\alpha$, they define $s_{mod} = s - \alpha/(\kappa\,\sigma_{eq})$ and found it changed little.
+A&L require $\kappa > 252/30 \approx 8.4$. Because the regression has an intercept, the residuals sum to zero over the window, so $X_{60} = 0$ and $s = -m/\sigma_{eq}$: a stock is cheap when its fitted equilibrium sits above today's level. A&L (and Lab 09) subtract the cross-sectional mean of $m$. With a residual drift $\alpha$, they define $s_{mod} = s - \alpha/(\kappa\,\sigma_{eq})$ and found it changed little.
 
 **Break-even cost.** Gross return $g$ per year and dollars traded $T$ per dollar of capital give break-even cost $c^* \approx g/T$. Lab 09: $10.7\% / 107 \approx 10$ bps.
 

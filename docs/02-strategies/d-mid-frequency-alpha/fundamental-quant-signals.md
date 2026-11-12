@@ -56,17 +56,16 @@ Two explanations compete, and both have evidence:
 
 ## Worked example with numbers
 
-Illustrative: two semiconductor-equipment firms, same price and same trailing earnings of \$100M.
+Illustrative: two semiconductor-equipment firms, same market capitalization and same trailing earnings of \$100M.
 
 | Item ($M) | Firm X | Firm Y |
 |---|---|---|
 | Net income | 100 | 100 |
 | Operating cash flow | 40 | 130 |
-| Average total assets | 1,000 | 1,000 |
-| Accruals / assets | (100 − 40)/1,000 = **+6.0%** | (100 − 130)/1,000 = **−3.0%** |
-| Revenue − COGS | 320 | 300 |
-| Gross profitability | **32%** | **30%** |
 | Total assets, now vs a year ago | 1,000 vs 800 | 1,000 vs 950 |
+| Accruals / average assets | (100 − 40)/900 = **+6.7%** | (100 − 130)/975 = **−3.1%** |
+| Revenue − COGS | 320 | 300 |
+| Gross profitability (÷ current assets) | **32%** | **30%** |
 | Asset growth | **+25%** | **+5.3%** |
 
 Same E/P, different quality. Suppose within-sector z-scores are X: value 0, profitability +0.3, accruals −1.2 (sign flipped), asset growth −1.5; Y: 0, +0.1, +0.6, +0.2. Equal-weight composites: X = −0.60, Y = +0.23. With a monthly IC of 0.03, residual volatility of 7% a month and Grinold's alpha = IC × vol × score, the forecast spread is 0.03 × 7% × 0.83 ≈ 17 bps per month: tiny per name, which is why it needs breadth.
@@ -94,7 +93,7 @@ def fundamental_composite(s, mcap, sector):
     raw = pd.DataFrame({
         "value":   s.book_equity / mcap,                          # B/M
         "gp":      (s.revenue - s.cogs) / s.total_assets,           # Novy-Marx
-        "accrual": -(s.net_income - s.cfo) / s.total_assets,        # Sloan, sign flipped
+        "accrual": -(s.net_income - s.cfo) / ((s.total_assets + s.total_assets_lag) / 2),  # Sloan, flipped
         "invest":  -(s.total_assets / s.total_assets_lag - 1),      # asset growth, flipped
     })
     return raw.groupby(sector).transform(sector_z).mean(axis=1)  # then neutralize (D3)
