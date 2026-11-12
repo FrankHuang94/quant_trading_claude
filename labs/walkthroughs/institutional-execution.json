@@ -252,12 +252,12 @@
     "close_heavy": 17.8739,
     "pov10_pct_days_complete": 60.8,
     "vwap_minus_twap_bps": -1.25796,
-    "close_heavy_minus_vwap_bps": 5.10479
+    "close_heavy_minus_vwap_bps": 5.1048
   },
   "lab18_usd_on_order": {
-    "fee_greedy_minus_bandit_passive": 19826.8,
+    "fee_greedy_minus_bandit_passive": 19827.0,
     "fee_greedy_minus_bandit_aggressive": 13127.0,
     "fill_weighted_minus_bandit_passive": 67846.5,
-    "fill_weighted_minus_bandit_aggressive": 26444.3
+    "fill_weighted_minus_bandit_aggressive": 26444.5
   }
 }
