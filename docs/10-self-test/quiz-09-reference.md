@@ -142,6 +142,17 @@ Firm research blogs are high quality but written by asset managers with products
 
 </details>
 
+## Datasets and tools
+
+### Q15 (informed). An intern backtests a value strategy on free daily prices for today's S&P 500 members and gets a great Sharpe ratio. Name two dataset problems before you look at the strategy, and the kind of data that fixes them.
+
+<details markdown="1">
+<summary>Answer</summary>
+
+First, survivorship bias: a universe of today's members leaves out the delisted and dropped losers, which flatters value and small-cap backtests. Second, look-ahead in membership and fundamentals: index membership and restated accounting data were not known at the time. The fix is a survivorship-free security master with delisting returns (for example CRSP) and point-in-time fundamentals and index membership. → [Datasets and tools](../09-reference/datasets-and-tools.md) · [Point-in-time data](../03-algorithms/a-data-and-signals/point-in-time-data-and-cleaning.md)
+
+</details>
+
 ## Related pages
 
 - [Glossary](../09-reference/glossary.md)

@@ -2,11 +2,20 @@
 
 All notable changes to this knowledge base. Dates are build dates (YYYY-MM-DD).
 
-## [Unreleased]
+## [v1.0] - 2026-11-12
 
-### Phase 7-9 (in progress)
+### Added
 
-- Industry & firms, infrastructure, risk & regulation, conversation playbook, calibration, reference, self-test.
+- Module 00: learning paths (90-minute sprint, Core Path, 2-week deep path) and one-page cheat sheet.
+- Module 04: taxonomy, economics & revenue pools, roles & teams, competitive dynamics & M&A, 18 firm profiles.
+- Module 05: latency budgets, colocation & speed of light, tech stacks, semiconductor lens.
+- Module 06: risk management at quant firms, rules that shape strategies.
+- Module 07: 74 elevator explanations, 139 questions to ask, 6 mock conversations, how to talk to a quant, faux pas.
+- Module 08: 28 myths, 8 contested debates, sanity-checking checklist.
+- Module 09: glossary (444 terms), acronyms (194), books, papers, talks/podcasts/blogs, datasets & tools;
+  master bibliography with 1,058 unique sources.
+- Module 10: 10 quizzes (174 questions), 425 flashcards.
+- Final QA: strict anchor validation, markdownlint and lychee clean, README finalized.
 
 ## [v0.9-strategies-algorithms] - 2026-11-12
 

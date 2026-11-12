@@ -42,7 +42,7 @@ validation:
   omitted_files: warn
   absolute_links: info
   unrecognized_links: warn
-  anchors: info   # glossary anchors are checked by scripts/check_glossary_links.py
+  anchors: warn
 
 markdown_extensions:
   - abbr

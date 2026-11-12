@@ -23,7 +23,7 @@ Each question is marked basic, informed or sharp, and its answer sits in a colla
 | [Quiz 06](quiz-06-risk-and-regulation.md) | Risk and regulation | 14 |
 | [Quiz 07](quiz-07-conversation-playbook.md) | Conversation playbook | 15 |
 | [Quiz 08](quiz-08-calibration.md) | Calibration | 14 |
-| [Quiz 09](quiz-09-reference.md) | Reference | 12 |
+| [Quiz 09](quiz-09-reference.md) | Reference | 15 |
 
 ## The flashcards
 

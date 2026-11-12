@@ -14,10 +14,10 @@ walkthroughs) take priority until the Phase 6 gate passes.
 - [x] **Phase 4: Algorithms (03 a–g)**: 39 cards; all 20 labs built, run in 246 s, plots embedded
 - [x] **Phase 5: Walkthroughs + cross-cutting**: 4 walkthroughs (with `labs/walkthroughs/` helpers), comparison matrix, strategy × algorithm matrix, failure gallery, evolution, how firms combine
 - [x] **Phase 6: PRIORITY GATE**: 7 reviewers re-read all 02–03 pages; check_template 82/82; 49-claim fact-check logged below; all lab plots embedded; Mermaid 170/170 parse; tag `v0.9-strategies-algorithms`
-- [ ] **Phase 7: Industry & firms (04), infrastructure (05), risk & regulation (06)**
-- [ ] **Phase 8: Conversation playbook (07) + calibration (08)**
-- [ ] **Phase 9: Reference (09) + self-test (10)**
-- [ ] **Phase 10: Final QA**: tag `v1.0`, GitHub Pages, README site URL
+- [x] **Phase 7: Industry & firms (04), infrastructure (05), risk & regulation (06)**: 4 industry pages + 18 firm profiles + index; 4 infrastructure pages; 2 risk/regulation pages
+- [x] **Phase 8: Conversation playbook (07) + calibration (08)**: 74 elevator explanations, 139 questions, 6 mock conversations, faux pas, how-to-talk; 28 myths, 8 debates, sanity checklist
+- [x] **Phase 9: Reference (09) + self-test (10)**: glossary 444 terms (0 missing anchors), 194 acronyms, books/papers/talks/datasets, sources.md 1,058 unique; 10 quizzes (174 questions), 425 flashcards
+- [x] **Phase 10: Final QA**: all checks green (below); README final; tag `v1.0` created locally (owner must push tags); Pages publishes to `gh-pages` (owner must enable Pages once)
 
 ## Build approach (decisions log)
 
@@ -34,26 +34,51 @@ walkthroughs) take priority until the Phase 6 gate passes.
 - 2026-11-12: Lab links in pages use absolute GitHub URLs (labs live outside `docs/`); lab plots are
   committed under `docs/assets/labs/` so the site can embed them.
 
+## Definition of done: status (2026-11-12)
+
+| Item | Target | Status |
+|---|---|---|
+| Strategy dossiers / algorithm cards | ≥ 30 / ≥ 39, pass check_template | 30 / 39, all pass (`check_template --strict`: 100 pages ok) ✅ |
+| Modules 02+03 words | ≥ 75,000 (≈ 70% of KB) | 129,182 ✅; share 52% of total (56% excluding self-test) ⚠️ (support modules exceed their nominal budgets because of their required counts) |
+| Pseudocode, worked example, Mermaid, sourced textbook-vs-practice in every card/dossier | all | enforced by check_template ✅ |
+| Strategy fields (counterparty, edge, horizon, capacity, Sharpe w/ tags) | all 30 | enforced by check_template ✅ |
+| Four walkthroughs consistent with labs | 4 | 4, with helper scripts in `labs/walkthroughs/`; reviewer 7 reconciled every number ✅ |
+| Strategy × algorithm matrix | consistent | `check_matrix`: 0 problems ✅ |
+| Labs | 20 run, < 15 min, embedded | 20 run in 246 s; all 40 plots embedded; smoke 55 s ✅ |
+| Priority-gate fact-check | 40 claims logged | 49 logged (20 corrected/downgraded) ✅ |
+| Total words | ≥ 110,000 | ~250,800 ✅ |
+| Core Path | ≤ ~25k words, ≥ 60% from 02-03, no TODO(verify) | 24,746 words, 85%, none ✅ |
+| Mermaid | ≥ 140 total, ≥ 100 in 02-03; strict build | 218 / 146, all parse; `mkdocs build --strict` with anchor validation ✅ |
+| Glossary / acronyms | ≥ 400 terms / ≥ 150 | 444 (94% explained in 02-03) / 194 ✅ |
+| Elevator explanations / questions / mock conversations | ≥ 70 / by family & stage / 6 | 74 (66 strategy/algorithm) / 139 by family, stage and role / 6 ✅ |
+| Myths | ≥ 25 (≥ 15 strategy/algorithm) | 28 (23) ✅ |
+| Sources | ≥ 150 unique; numbers tagged; no TODO(verify) | 1,058; 0 TODO(verify) ✅ |
+| Quizzes / flashcards | every module, priority 2× / ≥ 300 | 10 quizzes, 174 questions (02 and 03: 30 each) / 425 cards, 69% strategy/algorithm ✅ |
+| Lychee, markdownlint, CI | pass | lychee offline 0 errors; markdownlint 0 errors; CI content/lint/link/labs jobs pass locally ✅ |
+| GitHub Pages live | live | workflow publishes `gh-pages` ✅; **owner must enable Pages once** (Settings → Pages → gh-pages) ⚠️ |
+| Tags | v0.9, v1.0 | created locally; **session cannot push tags (HTTP 403)**, owner must push ⚠️ |
+| README | module map, paths, site link, how built/limitations | done ✅ |
+
 ## Word count vs budget
 
 _Updated after each phase from `make wordcount`._
 
 | Module | Budget | Words | Pages written | Mermaid |
 |---|---|---|---|---|
-| 00 Start here | 2,500 | 1,357 | 1/3 | 2 |
+| 00 Start here | 2,500 | 3,248 | 3/3 | 4 |
 | 01 Market structure essentials | 8,000 | 10,858 | 9/9 | 20 |
-| 02 Strategies | 35,000 | 65,765 | 37/37 | 68 |
+| 02 Strategies | 35,000 | 65,783 | 37/37 | 68 |
 | 03 Algorithms & the trading pipeline | 42,000 | 63,399 | 46/46 | 78 |
-| 04 Industry & firms | 5,000 | 0 | 0/23 | 0 |
-| 05 Infrastructure | 3,500 | 0 | 0/4 | 0 |
-| 06 Risk & regulation | 2,500 | 0 | 0/2 | 0 |
-| 07 Conversation playbook | 5,000 | 0 | 0/5 | 0 |
-| 08 Calibration & skepticism | 2,500 | 0 | 0/3 | 0 |
-| 09 Reference | 5,500 | 10,456 | 1/6 | 0 |
-| 10 Self-test | 0 | 0 | 0/11 | 0 |
-| **Total** | **110,000** | **154,206** | | **170** |
+| 04 Industry & firms | 5,000 | 11,743 | 23/23 | 22 |
+| 05 Infrastructure | 3,500 | 3,820 | 4/4 | 5 |
+| 06 Risk & regulation | 2,500 | 2,608 | 2/2 | 4 |
+| 07 Conversation playbook | 5,000 | 26,938 | 5/5 | 7 |
+| 08 Calibration & skepticism | 2,500 | 4,511 | 3/3 | 3 |
+| 09 Reference | 5,500 | 36,752 | 6/6 | 4 |
+| 10 Self-test | 0 | 18,753 | 11/11 | 1 |
+| **Total** | **110,000** | **250,784** | | **218** |
 
-Modules 02+03: 129,164 words (84% of total; target ≥ 75,000 and ≈ 70%). Mermaid in 02–03: 146 (target ≥ 100). TODO(verify) markers: 0.
+Modules 02+03: 129,182 words (52% of total; target ≥ 75,000 and ≈ 70%). Mermaid in 02–03: 146 (target ≥ 100). TODO(verify) markers: 0.
 
 ## Labs
 
@@ -137,7 +162,7 @@ Completed 2026-11-12 by seven reviewers (49 claims, 20 corrected, downgraded or 
 
 ## Open TODO(verify) items
 
-_Collected from pages by `grep -rn "TODO(verify)" docs/`; updated after each phase._
+None (`grep -rn "TODO(verify)" docs/` returns nothing as of 2026-11-12).
 
 ## Page checklist
 
@@ -149,8 +174,8 @@ _Collected from pages by `grep -rn "TODO(verify)" docs/`; updated after each pha
 ### 00-start-here
 
 - [x] `00-start-here/the-big-picture.md` — The big picture (P1)
-- [ ] `00-start-here/learning-paths.md` — Learning paths (P5)
-- [ ] `00-start-here/one-page-cheat-sheet.md` — One-page cheat sheet (P5)
+- [x] `00-start-here/learning-paths.md` — Learning paths (P5)
+- [x] `00-start-here/one-page-cheat-sheet.md` — One-page cheat sheet (P5)
 
 ### 01-market-structure
 
@@ -255,75 +280,75 @@ _Collected from pages by `grep -rn "TODO(verify)" docs/`; updated after each pha
 
 ### 04-industry-and-firms
 
-- [ ] `04-industry-and-firms/taxonomy-of-quant-firms.md` — Taxonomy of quant firms (P7)
-- [ ] `04-industry-and-firms/economics-and-revenue-pools.md` — Economics and revenue pools (P7)
-- [ ] `04-industry-and-firms/roles-teams-and-careers.md` — Roles, teams and careers (P7)
-- [ ] `04-industry-and-firms/competitive-dynamics-and-ma.md` — Competitive dynamics and M&A (P7)
-- [ ] `04-industry-and-firms/firm-profiles/index.md` — Firm profiles (P7)
-- [ ] `04-industry-and-firms/firm-profiles/citadel-securities.md` — Citadel Securities (P7)
-- [ ] `04-industry-and-firms/firm-profiles/virtu-financial.md` — Virtu Financial (P7)
-- [ ] `04-industry-and-firms/firm-profiles/jane-street.md` — Jane Street (P7)
-- [ ] `04-industry-and-firms/firm-profiles/hudson-river-trading.md` — Hudson River Trading (P7)
-- [ ] `04-industry-and-firms/firm-profiles/jump-trading.md` — Jump Trading (P7)
-- [ ] `04-industry-and-firms/firm-profiles/tower-research-capital.md` — Tower Research Capital (P7)
-- [ ] `04-industry-and-firms/firm-profiles/optiver.md` — Optiver (P7)
-- [ ] `04-industry-and-firms/firm-profiles/imc.md` — IMC Trading (P7)
-- [ ] `04-industry-and-firms/firm-profiles/susquehanna-sig.md` — Susquehanna (SIG) (P7)
-- [ ] `04-industry-and-firms/firm-profiles/xtx-markets.md` — XTX Markets (P7)
-- [ ] `04-industry-and-firms/firm-profiles/renaissance-technologies.md` — Renaissance Technologies (P7)
-- [ ] `04-industry-and-firms/firm-profiles/de-shaw.md` — D. E. Shaw (P7)
-- [ ] `04-industry-and-firms/firm-profiles/two-sigma.md` — Two Sigma (P7)
-- [ ] `04-industry-and-firms/firm-profiles/millennium.md` — Millennium (quant pods) (P7)
-- [ ] `04-industry-and-firms/firm-profiles/cubist.md` — Cubist Systematic Strategies (P7)
-- [ ] `04-industry-and-firms/firm-profiles/aqr.md` — AQR Capital Management (P7)
-- [ ] `04-industry-and-firms/firm-profiles/man-group.md` — Man Group (AHL / Numeric) (P7)
-- [ ] `04-industry-and-firms/firm-profiles/high-flyer.md` — High-Flyer (P7)
+- [x] `04-industry-and-firms/taxonomy-of-quant-firms.md` — Taxonomy of quant firms (P7)
+- [x] `04-industry-and-firms/economics-and-revenue-pools.md` — Economics and revenue pools (P7)
+- [x] `04-industry-and-firms/roles-teams-and-careers.md` — Roles, teams and careers (P7)
+- [x] `04-industry-and-firms/competitive-dynamics-and-ma.md` — Competitive dynamics and M&A (P7)
+- [x] `04-industry-and-firms/firm-profiles/index.md` — Firm profiles (P7)
+- [x] `04-industry-and-firms/firm-profiles/citadel-securities.md` — Citadel Securities (P7)
+- [x] `04-industry-and-firms/firm-profiles/virtu-financial.md` — Virtu Financial (P7)
+- [x] `04-industry-and-firms/firm-profiles/jane-street.md` — Jane Street (P7)
+- [x] `04-industry-and-firms/firm-profiles/hudson-river-trading.md` — Hudson River Trading (P7)
+- [x] `04-industry-and-firms/firm-profiles/jump-trading.md` — Jump Trading (P7)
+- [x] `04-industry-and-firms/firm-profiles/tower-research-capital.md` — Tower Research Capital (P7)
+- [x] `04-industry-and-firms/firm-profiles/optiver.md` — Optiver (P7)
+- [x] `04-industry-and-firms/firm-profiles/imc.md` — IMC Trading (P7)
+- [x] `04-industry-and-firms/firm-profiles/susquehanna-sig.md` — Susquehanna (SIG) (P7)
+- [x] `04-industry-and-firms/firm-profiles/xtx-markets.md` — XTX Markets (P7)
+- [x] `04-industry-and-firms/firm-profiles/renaissance-technologies.md` — Renaissance Technologies (P7)
+- [x] `04-industry-and-firms/firm-profiles/de-shaw.md` — D. E. Shaw (P7)
+- [x] `04-industry-and-firms/firm-profiles/two-sigma.md` — Two Sigma (P7)
+- [x] `04-industry-and-firms/firm-profiles/millennium.md` — Millennium (quant pods) (P7)
+- [x] `04-industry-and-firms/firm-profiles/cubist.md` — Cubist Systematic Strategies (P7)
+- [x] `04-industry-and-firms/firm-profiles/aqr.md` — AQR Capital Management (P7)
+- [x] `04-industry-and-firms/firm-profiles/man-group.md` — Man Group (AHL / Numeric) (P7)
+- [x] `04-industry-and-firms/firm-profiles/high-flyer.md` — High-Flyer (P7)
 
 ### 05-infrastructure
 
-- [ ] `05-infrastructure/how-infrastructure-constrains-algorithms.md` — How infrastructure constrains algorithms (P7)
-- [ ] `05-infrastructure/colocation-networks-and-the-speed-of-light.md` — Colocation, networks and the speed of light (P7)
-- [ ] `05-infrastructure/trading-and-research-tech-stacks.md` — Trading and research tech stacks (P7)
-- [ ] `05-infrastructure/semiconductor-lens.md` — A semiconductor lens (P7)
+- [x] `05-infrastructure/how-infrastructure-constrains-algorithms.md` — How infrastructure constrains algorithms (P7)
+- [x] `05-infrastructure/colocation-networks-and-the-speed-of-light.md` — Colocation, networks and the speed of light (P7)
+- [x] `05-infrastructure/trading-and-research-tech-stacks.md` — Trading and research tech stacks (P7)
+- [x] `05-infrastructure/semiconductor-lens.md` — A semiconductor lens (P7)
 
 ### 06-risk-and-regulation
 
-- [ ] `06-risk-and-regulation/risk-management-at-quant-firms.md` — Risk management at quant firms (P7)
-- [ ] `06-risk-and-regulation/rules-that-shape-strategies.md` — Rules that shape strategies (P7)
+- [x] `06-risk-and-regulation/risk-management-at-quant-firms.md` — Risk management at quant firms (P7)
+- [x] `06-risk-and-regulation/rules-that-shape-strategies.md` — Rules that shape strategies (P7)
 
 ### 07-conversation-playbook
 
-- [ ] `07-conversation-playbook/how-to-talk-to-a-quant.md` — How to talk to a quant (P8)
-- [ ] `07-conversation-playbook/elevator-explanations.md` — Elevator explanations (P8)
-- [ ] `07-conversation-playbook/questions-to-ask.md` — Questions to ask (P8)
-- [ ] `07-conversation-playbook/mock-conversations.md` — Mock conversations (P8)
-- [ ] `07-conversation-playbook/faux-pas-and-naive-questions.md` — Faux pas and naive questions (P8)
+- [x] `07-conversation-playbook/how-to-talk-to-a-quant.md` — How to talk to a quant (P8)
+- [x] `07-conversation-playbook/elevator-explanations.md` — Elevator explanations (P8)
+- [x] `07-conversation-playbook/questions-to-ask.md` — Questions to ask (P8)
+- [x] `07-conversation-playbook/mock-conversations.md` — Mock conversations (P8)
+- [x] `07-conversation-playbook/faux-pas-and-naive-questions.md` — Faux pas and naive questions (P8)
 
 ### 08-calibration
 
-- [ ] `08-calibration/myths-vs-reality.md` — Myths vs reality (P8)
-- [ ] `08-calibration/contested-debates.md` — Contested debates (P8)
-- [ ] `08-calibration/sanity-checking-claims.md` — Sanity-checking claims (P8)
+- [x] `08-calibration/myths-vs-reality.md` — Myths vs reality (P8)
+- [x] `08-calibration/contested-debates.md` — Contested debates (P8)
+- [x] `08-calibration/sanity-checking-claims.md` — Sanity-checking claims (P8)
 
 ### 09-reference
 
 - [x] `09-reference/glossary.md` — Glossary (P9)
-- [ ] `09-reference/acronyms.md` — Acronyms (P9)
-- [ ] `09-reference/books.md` — Books (P9)
-- [ ] `09-reference/papers.md` — Papers (P9)
-- [ ] `09-reference/talks-podcasts-blogs.md` — Talks, podcasts and blogs (P9)
-- [ ] `09-reference/datasets-and-tools.md` — Datasets and tools (P9)
+- [x] `09-reference/acronyms.md` — Acronyms (P9)
+- [x] `09-reference/books.md` — Books (P9)
+- [x] `09-reference/papers.md` — Papers (P9)
+- [x] `09-reference/talks-podcasts-blogs.md` — Talks, podcasts and blogs (P9)
+- [x] `09-reference/datasets-and-tools.md` — Datasets and tools (P9)
 
 ### 10-self-test
 
-- [ ] `10-self-test/index.md` — Self-test (P9)
-- [ ] `10-self-test/quiz-00-start-here.md` — Quiz: Start here (P9)
-- [ ] `10-self-test/quiz-01-market-structure.md` — Quiz: Market structure (P9)
-- [ ] `10-self-test/quiz-02-strategies.md` — Quiz: Strategies (P9)
-- [ ] `10-self-test/quiz-03-algorithms.md` — Quiz: Algorithms (P9)
-- [ ] `10-self-test/quiz-04-industry-and-firms.md` — Quiz: Industry and firms (P9)
-- [ ] `10-self-test/quiz-05-infrastructure.md` — Quiz: Infrastructure (P9)
-- [ ] `10-self-test/quiz-06-risk-and-regulation.md` — Quiz: Risk and regulation (P9)
-- [ ] `10-self-test/quiz-07-conversation-playbook.md` — Quiz: Conversation playbook (P9)
-- [ ] `10-self-test/quiz-08-calibration.md` — Quiz: Calibration (P9)
-- [ ] `10-self-test/quiz-09-reference.md` — Quiz: Reference (P9)
+- [x] `10-self-test/index.md` — Self-test (P9)
+- [x] `10-self-test/quiz-00-start-here.md` — Quiz: Start here (P9)
+- [x] `10-self-test/quiz-01-market-structure.md` — Quiz: Market structure (P9)
+- [x] `10-self-test/quiz-02-strategies.md` — Quiz: Strategies (P9)
+- [x] `10-self-test/quiz-03-algorithms.md` — Quiz: Algorithms (P9)
+- [x] `10-self-test/quiz-04-industry-and-firms.md` — Quiz: Industry and firms (P9)
+- [x] `10-self-test/quiz-05-infrastructure.md` — Quiz: Infrastructure (P9)
+- [x] `10-self-test/quiz-06-risk-and-regulation.md` — Quiz: Risk and regulation (P9)
+- [x] `10-self-test/quiz-07-conversation-playbook.md` — Quiz: Conversation playbook (P9)
+- [x] `10-self-test/quiz-08-calibration.md` — Quiz: Calibration (P9)
+- [x] `10-self-test/quiz-09-reference.md` — Quiz: Reference (P9)
