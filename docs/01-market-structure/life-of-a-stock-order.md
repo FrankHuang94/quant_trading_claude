@@ -44,7 +44,7 @@ flowchart LR
 
 1. **Decision to order.** A portfolio manager's rebalance becomes an order in the OMS, for example "buy 2M XYZ today, implementation-shortfall benchmark".
 2. **Algo.** An in-house or broker algorithm (VWAP, POV, [implementation shortfall](../09-reference/glossary.md#implementation-shortfall)) cuts the parent into thousands of [child orders](../09-reference/glossary.md#child-order) over minutes to the full session. The point is to limit market impact.
-3. **Router.** For each child, the [smart order router](../09-reference/glossary.md#smart-order-router-sor) picks a venue and an order type. It can post passively on an exchange and wait in the queue, or ping [dark pools](../09-reference/glossary.md#dark-pool) with midpoint IOCs. It can sweep several lit venues at once with ISOs, or send market-on-close orders to the auction.
+3. **Router.** For each child, the [smart order router](../09-reference/glossary.md#smart-order-routing-sor) picks a venue and an order type. It can post passively on an exchange and wait in the queue, or ping [dark pools](../09-reference/glossary.md#dark-pool) with midpoint IOCs. It can sweep several lit venues at once with ISOs, or send market-on-close orders to the auction.
 4. **Feedback.** Fills stream back, the algo re-plans, and transaction cost analysis (TCA) scores the result afterwards.
 
 The other side of those child orders is whoever is resting in the book: market makers, other algos, and occasionally another institution in a block-crossing ATS.
