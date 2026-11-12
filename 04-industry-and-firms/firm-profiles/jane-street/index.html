@@ -4046,6 +4046,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Jane Street
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -4055,6 +4066,70 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-they-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      What they do
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#strategy-focus-and-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      Strategy focus and approach
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fact-vs-lore" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fact vs lore
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related pages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sources
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -5409,6 +5484,59 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-they-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      What they do
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#strategy-focus-and-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      Strategy focus and approach
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fact-vs-lore" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fact vs lore
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related pages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sources
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -5426,11 +5554,86 @@
 
 
 <h1 id="jane-street">Jane Street<a class="headerlink" href="#jane-street" title="Permanent link">&para;</a></h1>
-<!-- STUB -->
-<div class="admonition note">
-<p class="admonition-title">Not yet written</p>
-<p>This page is scheduled for Phase 7 of the build. See <code>PLAN.md</code> in the repository.</p>
-</div>
+<blockquote>
+<p><strong>TL;DR</strong></p>
+<ul>
+<li>Private trading firm founded in 2000. It made its name in ETFs and is now a major player in equities, bonds and options on more than 200 venues <code>[Verified]</code>.</li>
+<li>Reported 2025 net trading revenue was $39.6B, helped by gains on private stakes such as Anthropic, and Q1 2026 brought $16.1B <code>[Reported]</code>.</li>
+<li>It writes its software in OCaml and uses neural nets heavily. Its India manipulation case was unresolved as of 2026-11.</li>
+</ul>
+</blockquote>
+<p><strong>Type:</strong> proprietary trading firm and market maker · <strong>Last verified:</strong> 2026-11</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Type</td>
+<td>Proprietary trading firm; US broker-dealers Jane Street Capital and Jane Street Execution Services <code>[Verified]</code></td>
+</tr>
+<tr>
+<td>Scale</td>
+<td>~$39.6B net trading revenue in 2025, private-stake gains included <code>[Reported]</code>; ~24% of US ETF primary-market and ~16% of secondary activity in 2024 <code>[Reported]</code></td>
+</tr>
+<tr>
+<td>Horizon</td>
+<td>Sub-second quoting to multi-day ETF and bond inventory <code>[Estimate]</code></td>
+</tr>
+<tr>
+<td>Known strategies</td>
+<td><a href="../../../02-strategies/a-liquidity-provision/etf-market-making/">ETF market making</a> · <a href="../../../02-strategies/b-speed-and-structural/etf-and-index-arbitrage/">ETF and index arbitrage</a> · <a href="../../../02-strategies/a-liquidity-provision/options-market-making/">Options market making</a> · <a href="../../../02-strategies/a-liquidity-provision/equity-market-making/">Equity market making</a></td>
+</tr>
+<tr>
+<td>Tech signals</td>
+<td>OCaml as its primary language; in-house hardware design; neural nets fed by an event-driven feature system (2026 blog) <code>[Verified]</code></td>
+</tr>
+<tr>
+<td>Confidence</td>
+<td>Medium: technology from the firm; revenue from press</td>
+</tr>
+<tr>
+<td>Sources</td>
+<td>Firm site and blog, Reuters, Global Trading, Indian press (below)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="what-they-do">What they do<a class="headerlink" href="#what-they-do" title="Permanent link">&para;</a></h2>
+<p>Jane Street quotes ETFs, stocks, bonds and options for its own account. It is a large <a href="../../../09-reference/glossary/#authorized-participant">authorized participant</a> that creates and redeems ETF shares with issuers <code>[Reported]</code>. In 2024 it handled about 10% of US equity volume <code>[Reported]</code>.</p>
+<h2 id="strategy-focus-and-approach">Strategy focus and approach<a class="headerlink" href="#strategy-focus-and-approach" title="Permanent link">&para;</a></h2>
+<p>The franchise is <a href="../../../02-strategies/a-liquidity-provision/etf-market-making/">ETF market making</a>. The firm values the basket, quotes the ETF around that value, hedges fills with baskets or futures, and nets leftover inventory through <a href="../../../09-reference/glossary/#creation-and-redemption">creation and redemption</a>. For bond and foreign-stock ETFs, the hard part is pricing underlyings that trade rarely or are shut. Underneath sit <a href="../../../03-algorithms/a-data-and-signals/feature-engineering/">feature engineering</a> and <a href="../../../03-algorithms/b-forecasting-models/neural-nets-and-sequence-models/">neural nets</a>. Its Flex Model framework turns raw market events into the hundreds or thousands of features a model consumes <code>[Verified]</code>.</p>
+<pre class="mermaid"><code>flowchart LR
+    U["Underlying basket&lt;br/&gt;stocks, bonds, futures"] --&gt; FV["Basket fair value"]
+    FV --&gt; Q["Quote the ETF"]
+    Q --&gt; H["Hedge fills"]
+    H --&gt; CR["Create or redeem&lt;br/&gt;with the issuer"]</code></pre>
+<h2 id="fact-vs-lore">Fact vs lore<a class="headerlink" href="#fact-vs-lore" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Lore:</strong> "OCaml is the edge." <strong>Fact:</strong> OCaml is the firm's primary development platform <code>[Verified]</code>. Its P&amp;L contribution is unknowable <code>[Lore]</code>.</li>
+<li><strong>India.</strong> SEBI's 2025-07-03 interim order barred four Jane Street entities and impounded ₹4,843.57 crore, about $566M at ₹85.5 per dollar <code>[Estimate]</code>. It alleged Bank Nifty manipulation around weekly expiries <code>[Reported]</code>. Jane Street paid the sum into escrow and regained access in July 2025. It disputes the findings and appealed to the Securities Appellate Tribunal, which reserved an order on document disclosure in October 2026 <code>[Reported]</code>. These are allegations, not final findings.</li>
+</ul>
+<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../../../02-strategies/a-liquidity-provision/etf-market-making/">ETF market making</a> · <a href="../../../02-strategies/b-speed-and-structural/etf-and-index-arbitrage/">ETF and index arbitrage</a> · <a href="../../../03-algorithms/h-end-to-end-walkthroughs/walkthrough-etf-market-maker/">ETF market maker walkthrough</a></li>
+<li><a href="../../taxonomy-of-quant-firms/">Taxonomy of quant firms</a> · <a href="../optiver/">Optiver</a></li>
+</ul>
+<h2 id="sources">Sources<a class="headerlink" href="#sources" title="Permanent link">&para;</a></h2>
+<ul>
+<li>[Verified] Jane Street (n.d.). "Overview" (founding, venues, products). <a href="https://www.janestreet.com/what-we-do/overview/">https://www.janestreet.com/what-we-do/overview/</a> (accessed 2026-11)</li>
+<li>[Verified] Jane Street (n.d.). "Technology" (OCaml as primary development platform). <a href="https://www.janestreet.com/technology/">https://www.janestreet.com/technology/</a> (accessed 2026-11)</li>
+<li>[Verified] Maczka, S. (2026-10-13). "Flex Model: an event-driven feature engineering system." <em>Jane Street Blog</em>. <a href="https://blog.janestreet.com/flex-model-an-event-driven-feature-engineering-system/">https://blog.janestreet.com/flex-model-an-event-driven-feature-engineering-system/</a> (accessed 2026-11)</li>
+<li>[Verified] Ray, A. (2020-06-01). "Using ASCII waveforms to test hardware designs." <em>Jane Street Blog</em>. <a href="https://blog.janestreet.com/using-ascii-waveforms-to-test-hardware-designs/">https://blog.janestreet.com/using-ascii-waveforms-to-test-hardware-designs/</a> (accessed 2026-11)</li>
+<li>[Reported] Reuters via MarketScreener (2026-04-24). "Jane Street's $40 billion trading haul tops rivals, sources say." <a href="https://www.marketscreener.com/news/jane-street-s-40-billion-trading-haul-tops-rivals-sources-say-ce7f59dfdf8ff52d">https://www.marketscreener.com/news/jane-street-s-40-billion-trading-haul-tops-rivals-sources-say-ce7f59dfdf8ff52d</a> (accessed 2026-11)</li>
+<li>[Reported] Reuters via MarketScreener (2026). "Jane Street rakes in record first-quarter trading haul of $16.1 billion, sources say." <a href="https://uk.marketscreener.com/news/jane-street-rakes-in-record-first-quarter-trading-haul-of-16-1-billion-sources-say-ce7f5bdbdf8af521">https://uk.marketscreener.com/news/jane-street-rakes-in-record-first-quarter-trading-haul-of-16-1-billion-sources-say-ce7f5bdbdf8af521</a> (accessed 2026-11)</li>
+<li>[Reported] Global Trading (2025). "Jane Street took 10% of US equity market in 2024." <a href="https://www.globaltrading.net/?p=38181">https://www.globaltrading.net/?p=38181</a> (accessed 2026-11)</li>
+<li>[Reported] Mondaq (2025-07). "SEBI Update: Interim Order Against Jane Street Group For Alleged Index Manipulation." <a href="https://www.mondaq.com/india/securities/1648508/sebi-update-%7c-interim-order-against-jane-street-group-for-alleged-index-manipulation">https://www.mondaq.com/india/securities/1648508/sebi-update-%7c-interim-order-against-jane-street-group-for-alleged-index-manipulation</a> (accessed 2026-11)</li>
+<li>[Reported] The Week (2025-07-14). "Jane Street folds to Sebi order on market manipulation, deposits over ₹4,800 crore in escrow accounts." <a href="https://www.theweek.in/news/biz-tech/2025/07/14/jane-street-folds-to-sebi-order-on-market-manipulation-deposits-over-4800-crore-rupees-in-escrow-accounts.amp.html">https://www.theweek.in/news/biz-tech/2025/07/14/jane-street-folds-to-sebi-order-on-market-manipulation-deposits-over-4800-crore-rupees-in-escrow-accounts.amp.html</a> (accessed 2026-11)</li>
+<li>[Reported] Business Today (2026-10-06). "Sebi tells SAT that Jane Street has enough data to respond to market manipulation charges." <a href="https://www.businesstoday.in/markets/story/sebi-tells-sat-that-jane-street-has-enough-data-to-respond-to-market-manipulation-charges-559953-2026-10-06">https://www.businesstoday.in/markets/story/sebi-tells-sat-that-jane-street-has-enough-data-to-respond-to-market-manipulation-charges-559953-2026-10-06</a> (accessed 2026-11)</li>
+<li>[Reported] NewsBytes (2026-10). "SAT reserves order in Jane Street document disclosure case." <a href="https://www.newsbytesapp.com/news/business/sat-reserves-order-in-jane-street-document-disclosure-case/story">https://www.newsbytesapp.com/news/business/sat-reserves-order-in-jane-street-document-disclosure-case/story</a> (accessed 2026-11)</li>
+</ul>
 
 
 

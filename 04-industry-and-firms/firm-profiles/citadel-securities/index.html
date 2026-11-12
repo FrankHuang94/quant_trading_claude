@@ -4004,6 +4004,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Citadel Securities
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -4013,6 +4024,70 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-they-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      What they do
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#strategy-focus-and-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      Strategy focus and approach
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fact-vs-lore" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fact vs lore
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related pages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sources
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -5409,6 +5484,59 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-they-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      What they do
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#strategy-focus-and-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      Strategy focus and approach
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fact-vs-lore" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fact vs lore
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related pages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sources
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -5426,11 +5554,84 @@
 
 
 <h1 id="citadel-securities">Citadel Securities<a class="headerlink" href="#citadel-securities" title="Permanent link">&para;</a></h1>
-<!-- STUB -->
-<div class="admonition note">
-<p class="admonition-title">Not yet written</p>
-<p>This page is scheduled for Phase 7 of the build. See <code>PLAN.md</code> in the repository.</p>
-</div>
+<blockquote>
+<p><strong>TL;DR</strong></p>
+<ul>
+<li>The largest US retail <a href="../../../09-reference/glossary/#wholesaler">wholesaler</a>: it says it executes about 35% of US-listed retail volume <code>[Reported]</code>, and it is the largest NYSE <a href="../../../09-reference/glossary/#designated-market-maker-dmm">designated market maker</a> <code>[Verified]</code>.</li>
+<li>A separate company from Citadel the hedge fund. Record 2025 trading revenue of about $12B <code>[Reported]</code>.</li>
+<li>Its edge is flow segmentation plus scale: it prices known retail flow, then hedges the residue on exchanges.</li>
+</ul>
+</blockquote>
+<p><strong>Type:</strong> wholesaler and electronic market maker · <strong>Last verified:</strong> 2026-11</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Type</td>
+<td>Private market maker and broker-dealer, separate from the Citadel hedge fund <code>[Reported]</code></td>
+</tr>
+<tr>
+<td>Scale</td>
+<td>~$12B net trading revenue in 2025 <code>[Reported]</code>; ~35% of US-listed retail volume (firm claim, 1H 2026) <code>[Reported]</code></td>
+</tr>
+<tr>
+<td>Horizon</td>
+<td>Milliseconds to minutes for retail fills; DMM and options books hold longer <code>[Estimate]</code></td>
+</tr>
+<tr>
+<td>Known strategies</td>
+<td><a href="../../../02-strategies/a-liquidity-provision/retail-flow-internalization/">Retail flow internalization</a> · <a href="../../../02-strategies/a-liquidity-provision/equity-market-making/">Equity market making</a> · <a href="../../../02-strategies/a-liquidity-provision/options-market-making/">Options market making</a> · <a href="../../../02-strategies/a-liquidity-provision/auctions-and-closing-liquidity/">Auctions and closing liquidity</a></td>
+</tr>
+<tr>
+<td>Tech signals</td>
+<td>Automated internalization algorithms, described in SEC orders <code>[Verified]</code></td>
+</tr>
+<tr>
+<td>Confidence</td>
+<td>Medium: revenue comes from press; market shares are self-reported</td>
+</tr>
+<tr>
+<td>Sources</td>
+<td>SEC orders, firm releases, Bloomberg (below)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="what-they-do">What they do<a class="headerlink" href="#what-they-do" title="Permanent link">&para;</a></h2>
+<p>Citadel Securities buys marketable retail orders from brokers, paying <a href="../../../09-reference/glossary/#payment-for-order-flow-pfof">PFOF</a> in equities and options. It fills them as principal at or inside the NBBO. In 2016 it bought KCG's NYSE DMM unit, giving it the largest floor footprint, about 1,500 issues at the time <code>[Verified]</code>. It also quotes on exchanges and makes markets in options, ETFs, Treasuries and FX. In July 2026 it opened an Amsterdam hub for European equity options <code>[Reported]</code>.</p>
+<h2 id="strategy-focus-and-approach">Strategy focus and approach<a class="headerlink" href="#strategy-focus-and-approach" title="Permanent link">&para;</a></h2>
+<p>The core is <a href="../../../02-strategies/a-liquidity-provision/retail-flow-internalization/">retail internalization</a>. Each order is priced against a <a href="../../../03-algorithms/f-market-making-and-hft-algorithms/fair-value-and-microprice/">fair-value model</a>, then filled or routed out. Retail flow is less informed than the average exchange order, so filling it inside the spread still pays; <a href="../../../03-algorithms/f-market-making-and-hft-algorithms/adverse-selection-and-markouts/">markouts</a> by broker segment check that. The DMM franchise adds the opening and <a href="../../../09-reference/glossary/#closing-auction">closing auctions</a>. Options books are run on a <a href="../../../03-algorithms/f-market-making-and-hft-algorithms/options-pricing-and-vol-surfaces-for-mm/">vol surface</a> and <a href="../../../03-algorithms/f-market-making-and-hft-algorithms/hedging-algorithms/">hedged</a>.</p>
+<pre class="mermaid"><code>flowchart LR
+    B["Retail brokers"] --&gt;|"orders plus PFOF"| W["Pricing engine"]
+    W --&gt;|"fill at or inside NBBO"| K["Principal book"]
+    W --&gt;|"route out"| X["Exchanges"]
+    D["NYSE DMM and auctions"] --&gt; K
+    K --&gt; H["Hedge on exchanges"]</code></pre>
+<h2 id="fact-vs-lore">Fact vs lore<a class="headerlink" href="#fact-vs-lore" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Lore:</strong> "PFOF lets Citadel front-run retail." <strong>Fact:</strong> the SEC has sanctioned the firm twice for other conduct. In 2017 it paid $22.6M because two algorithms did not fill retail orders at the best price they observed or sought, contrary to what it told clients <code>[Verified]</code>. In 2023 it paid $7M after a coding error mis-marked millions of short sales from 2015 to 2020 <code>[Verified]</code>. Neither order alleged front-running.</li>
+<li><strong>Lore:</strong> "Citadel made brokers halt GameStop buying." <strong>Fact:</strong> on 2021-01-27, NSCC called $6.9B of intraday margin from 36 members, and brokers then restricted buying <code>[Verified]</code>.</li>
+</ul>
+<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../../../02-strategies/a-liquidity-provision/retail-flow-internalization/">Retail flow internalization</a> · <a href="../../../02-strategies/a-liquidity-provision/equity-market-making/">Equity market making</a> · <a href="../../../02-strategies/a-liquidity-provision/options-market-making/">Options market making</a></li>
+<li><a href="../../../01-market-structure/venues-and-retail-flow/">Venues and retail flow</a> · <a href="../virtu-financial/">Virtu Financial</a> · <a href="../../taxonomy-of-quant-firms/">Taxonomy of quant firms</a></li>
+</ul>
+<h2 id="sources">Sources<a class="headerlink" href="#sources" title="Permanent link">&para;</a></h2>
+<ul>
+<li>[Reported] Bloomberg (2026-03-24). "Citadel Securities Nets Record $12 Billion Trading Haul in 2025." <a href="https://www.bloomberg.com/news/articles/2026-03-24/citadel-securities-nets-record-12-billion-trading-haul-in-2025">https://www.bloomberg.com/news/articles/2026-03-24/citadel-securities-nets-record-12-billion-trading-haul-in-2025</a> (accessed 2026-11)</li>
+<li>[Reported] Citadel Securities (2026). "Global Market Intelligence: 1H 2026 Market Structure and Flows" (retail share claim). <a href="https://www.citadelsecurities.com/news-and-insights/global-market-intelligence/1h-2026-market-structure-flows/">https://www.citadelsecurities.com/news-and-insights/global-market-intelligence/1h-2026-market-structure-flows/</a> (accessed 2026-11)</li>
+<li>[Verified] Citadel Securities (2016-02-05). "Citadel Securities to Become #1 Designated Market Maker on NYSE" (press release). <em>Markets Media</em>. <a href="https://www.marketsmedia.com/citadel-securities-to-become-1-designated-market-maker-on-nyse">https://www.marketsmedia.com/citadel-securities-to-become-1-designated-market-maker-on-nyse</a> (accessed 2026-11)</li>
+<li>[Verified] SEC (2017-01). "Citadel Securities Paying $22 Million for Misleading Clients About Pricing Trades," press release 2017-11. <a href="https://www.sec.gov/newsroom/press-releases/2017-11">https://www.sec.gov/newsroom/press-releases/2017-11</a> (accessed 2026-11)</li>
+<li>[Verified] SEC (2023-09-22). "SEC Charges Citadel Securities for Violating Order Marking Requirements of Short Sale Rules," press release 2023-192. <a href="https://www.sec.gov/news/press-release/2023-192">https://www.sec.gov/news/press-release/2023-192</a> (accessed 2026-11)</li>
+<li>[Verified] U.S. SEC Staff (2021-10-14). "Staff Report on Equity and Options Market Structure Conditions in Early 2021." <a href="https://www.sec.gov/files/staff-report-equity-options-market-struction-conditions-early-2021.pdf">https://www.sec.gov/files/staff-report-equity-options-market-struction-conditions-early-2021.pdf</a> (accessed 2026-11)</li>
+<li>[Reported] FOW (2026-07). "Citadel Securities boosts European footprint with Amsterdam derivatives office." <a href="https://www.fow.com/insights/citadel-securities-boosts-european-footprint-with-amsterdam-derivatives-office">https://www.fow.com/insights/citadel-securities-boosts-european-footprint-with-amsterdam-derivatives-office</a> (accessed 2026-11)</li>
+<li>[Reported] Global Trading (2025-11-11). "Citadel Securities, IMC paid US$420m for retail flows as options surged." <a href="https://www.globaltrading.net/?p=40423">https://www.globaltrading.net/?p=40423</a> (accessed 2026-11)</li>
+</ul>
 
 
 
