@@ -58,7 +58,7 @@ flowchart LR
 
 ## Worked example: an imbalance moves the close
 
-Illustrative numbers. XYZ last traded at $50.00. At the cutoff the closing book has 1.2M shares of MOC buys and 0.9M of MOC sells, a 300,000-share **buy imbalance**. Sell-side limit interest (LOC, IO and continuous-book orders) is 100,000 at $50.02, 150,000 at $50.05 and 200,000 at $50.10.
+Illustrative numbers. XYZ last traded at $50.00. At the cutoff the closing book has 1.2M shares of MOC buys and 0.9M of MOC sells, a 300,000-share **buy imbalance**. Sell-side limit interest (LOC, IO and continuous-book orders) is 100,000 at \$50.02, 150,000 at \$50.05 and 200,000 at $50.10.
 
 | Candidate price | Buy volume | Sell volume | Matched |
 |---|---|---|---|
@@ -67,7 +67,7 @@ Illustrative numbers. XYZ last traded at $50.00. At the cutoff the closing book 
 | 50.05 | 1.20M | 1.15M | 1.15M |
 | 50.10 | 1.20M | 1.35M | **1.20M** |
 
-The close prints at $50.10, 20 bps above the last trade: MOC buyers pay about $120,000 more than at $50.00, and sellers who offered at $50.02 get 8 cents better than their limit. That price concession is what [auction liquidity providers](../02-strategies/a-liquidity-provision/auctions-and-closing-liquidity.md) compete for. In reality the published imbalance would attract more sellers before 4:00 p.m. and shrink the move.
+The close prints at \$50.10, 20 bps above the last trade: MOC buyers pay about \$120,000 more than at \$50.00, and sellers who offered at \$50.02 get 8 cents better than their limit. That price concession is what [auction liquidity providers](../02-strategies/a-liquidity-provision/auctions-and-closing-liquidity.md) compete for. In reality the published imbalance would attract more sellers before 4:00 p.m. and shrink the move.
 
 ## How big the close is
 
@@ -78,7 +78,7 @@ Measures differ (share vs dollar volume, NYSE-listed vs all stocks), but the tre
 | 2010 | about 3.1% | Daily dollar volume; academic estimate `[Reported]` |
 | 2011 → 2017 | 3.6% → 5.5% | Average daily volume; Greenwich Associates `[Reported]` |
 | 2018 | about 7.5% | Daily dollar volume; academic estimate `[Reported]` |
-| Q2 2024 | 9.44% (record), $55.5B/day | Notional, all US equities; NYSE Research `[Reported]` |
+| Q2 2024 | 9.44% (record), \$55.5B/day | Notional, all US equities; NYSE Research `[Reported]` |
 | 2024 typical day | about 9%; about 20% on rebalance and expiry days | Notional; BMLL `[Reported]` |
 | 2025, monthly | 5.2%–9.7% (December 9.74%) | Share volume; Rosenblatt `[Reported]` |
 | December 2025 | about 15% (Europe about 35%) | Instinet data via SSGA; broader definition, quarter-end month `[Reported]` |
@@ -107,7 +107,7 @@ The driver is passive investing: index funds and ETFs are benchmarked to closing
 - [Venues and retail flow](venues-and-retail-flow.md)
 - [Fees, rebates and ticks](fees-rebates-and-ticks.md)
 - [Recent changes (as of 2026-11)](recent-changes.md)
-- [Walkthrough: executing a $500M buy order](../03-algorithms/h-end-to-end-walkthroughs/walkthrough-institutional-execution.md)
+- [Walkthrough: executing a \$500M buy order](../03-algorithms/h-end-to-end-walkthroughs/walkthrough-institutional-execution.md)
 
 ## Sources
 

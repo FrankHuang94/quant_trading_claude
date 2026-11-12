@@ -6,7 +6,7 @@
   `sinh(kappa (T - t)) / sinh(kappa T)`, where the urgency `kappa = sqrt(lambda sigma^2 / eta)` grows
   with risk aversion `lambda`. `lambda = 0` gives TWAP (a straight line).
 - The **efficient frontier** of expected implementation shortfall (IS) vs its standard deviation,
-  traced by sweeping `lambda`, for an illustrative **$500M sell order in a stock with $1B ADV**
+  traced by sweeping `lambda`, for an illustrative **\$500M sell order in a stock with \$1B ADV**
   (50% of ADV, 5 trading days).
 - A **Monte Carlo** of 40,000 simulated orders per schedule (common random numbers) for TWAP, AC at
   four `lambda` values and a front-loaded heuristic (50% on day 1). The closed-form mean and variance
@@ -32,7 +32,7 @@ python labs/16-almgren-chriss-frontier/lab.py --seed 3     # another Monte Carlo
 
 ## Expected output
 
-Full run, seed 7. Costs are in bps of the $500M order notional (1 bp = $50,000); `+` = cost.
+Full run, seed 7. Costs are in bps of the \$500M order notional (1 bp = \$50,000); `+` = cost.
 
 | Schedule | E[IS] closed form | sd closed form | MC mean | MC sd | MC p95 | E[IS] if impact is square-root | Peak rate (% ADV/day) |
 |---|---|---|---|---|---|---|---|
@@ -47,7 +47,7 @@ Full run, seed 7. Costs are in bps of the $500M order notional (1 bp = $50,000);
   the MC standard deviations within 0.3% (`mc_mean_max_error_in_standard_errors`,
   `mc_sd_max_relative_error`).
 - **TWAP cost decomposition:** 25.0 bps permanent impact (`gamma X / 2`) + 19.5 bps temporary impact
-  + 1.5 bps half-spread = **46.0 bps, about $2.3M**, but with a 254 bps (about $12.7M) standard
+  + 1.5 bps half-spread = **46.0 bps, about \$2.3M**, but with a 254 bps (about \$12.7M) standard
   deviation: over 5 days, price risk dwarfs impact cost.
 - **The trade-off:** AC with `lambda = 1e-7` roughly doubles expected cost (96 vs 46 bps) but cuts
   the standard deviation from 254 to 110 bps and the 95th-percentile shortfall from 465 to 277 bps.
@@ -93,12 +93,12 @@ square-root impact law. They are not a calibration to any real stock.
 
 | Parameter | Value | Meaning / how chosen |
 |---|---|---|
-| `S0` | $50 | arrival price |
-| ADV | 20M shares ($1B/day) | stock's average daily volume |
-| `X` | 10M shares ($500M) | order size: 50% of ADV |
+| `S0` | \$50 | arrival price |
+| ADV | 20M shares (\$1B/day) | stock's average daily volume |
+| `X` | 10M shares (\$500M) | order size: 50% of ADV |
 | `T`, `n` | 5 days, 50 intervals | 10 intervals per day (about 39 minutes each) |
-| `sigma` | 2% per day = $1.00/share/sqrt(day) | about 32% annualized, typical of a large-cap stock `[Estimate]` |
-| `epsilon` | 1.5 bps = $0.0075/share | half of a 3 bps quoted spread `[Estimate]` |
+| `sigma` | 2% per day = \$1.00/share/sqrt(day) | about 32% annualized, typical of a large-cap stock `[Estimate]` |
+| `epsilon` | 1.5 bps = \$0.0075/share | half of a 3 bps quoted spread `[Estimate]` |
 | `eta` | 5e-8 $/share per (share/day) | temporary impact of 20 bps when trading at 10% of ADV per day (the TWAP rate) |
 | `gamma` | 2.5e-8 $/share per share | permanent impact of 50 bps once the full order (50% of ADV) is done |
 | `lambda` | 0, 1e-9, 1e-8, 1e-7, 1e-6 per $ | risk aversion; urgency half-lives of infinity, 4.8, 1.5, 0.48 and 0.15 days |

@@ -19,8 +19,8 @@
 | Data required | direct feeds; markout history per broker segment; competitors' Rule 605 statistics |
 | Core algorithms used | [M5 Adverse selection and markouts](../../03-algorithms/f-market-making-and-hft-algorithms/adverse-selection-and-markouts.md) · [M2 Fair value and microprice](../../03-algorithms/f-market-making-and-hft-algorithms/fair-value-and-microprice.md) · [M4 Quoting and inventory control](../../03-algorithms/f-market-making-and-hft-algorithms/quoting-and-inventory-control.md) · [M9 Algorithmic risk controls](../../03-algorithms/f-market-making-and-hft-algorithms/algorithmic-risk-controls.md) |
 | Infra intensity | high: microsecond pricing of millions of orders a day, but no queue race |
-| Capacity (rough $ range) | set by retail volume, not capital: industry gross capture several $B/yr `[Estimate]` (it must exceed the $4.9B+/yr of equity and options PFOF in 2025 Rule 606 data `[Reported]`) |
-| Typical Sharpe (gross vs net) | not meaningful on capital; thin margin, few losing days `[Lore]`. No segment disclosure; Virtu's FY2025 Market Making adjusted net trading income was $1,666M, all asset classes `[Reported]` |
+| Capacity (rough $ range) | set by retail volume, not capital: industry gross capture several $B/yr `[Estimate]` (it must exceed the \$4.9B+/yr of equity and options PFOF in 2025 Rule 606 data `[Reported]`) |
+| Typical Sharpe (gross vs net) | not meaningful on capital; thin margin, few losing days `[Lore]`. No segment disclosure; Virtu's FY2025 Market Making adjusted net trading income was \$1,666M, all asset classes `[Reported]` |
 | Turnover | shares held seconds to minutes `[Lore]` |
 | Main risks / failure modes | correlated retail surges, mis-segmented flow, code errors, margin calls, PFOF bans |
 | Crowding risk | moderate: competition is for broker routing, not queue position |
@@ -29,7 +29,7 @@
 
 ## Intuition (the story in plain English)
 
-A customer taps "buy 200 shares." The broker's router sends the order to a [wholesaler](../../09-reference/glossary.md#wholesaler), which sells from its own book at $40.0076 when the best offer is $40.01: a quarter-cent of [price improvement](../../09-reference/glossary.md#price-improvement). No queue, no race. The order arrived because of who sent it, and the only question is what that broker's flow is worth given how prices move afterwards: its [markout](../../09-reference/glossary.md#markout).
+A customer taps "buy 200 shares." The broker's router sends the order to a [wholesaler](../../09-reference/glossary.md#wholesaler), which sells from its own book at \$40.0076 when the best offer is \$40.01: a quarter-cent of [price improvement](../../09-reference/glossary.md#price-improvement). No queue, no race. The order arrived because of who sent it, and the only question is what that broker's flow is worth given how prices move afterwards: its [markout](../../09-reference/glossary.md#markout).
 
 ## Economic rationale: why should this make money at all?
 
@@ -48,17 +48,17 @@ Wholesalers may also fill in sub-pennies, which exchanges cannot for displayed o
 
 ## Worked example with numbers
 
-Illustrative: NBBO $39.99 × $40.01, microprice $40.002, client buys 200 shares.
+Illustrative: NBBO \$39.99 × \$40.01, microprice \$40.002, client buys 200 shares.
 
 | Cost item | $/share |
 |---|---|
 | Expected 60-second markout | 0.0012 |
-| PFOF ($0.10 per 100 shares) | 0.0010 |
+| PFOF (\$0.10 per 100 shares) | 0.0010 |
 | Hedge, fees, clearing | 0.0005 |
 | Minimum margin | 0.0005 |
 | **Floor edge** | **0.0032** |
 
-Lowest acceptable sale price: 40.002 + 0.0032 = $40.0052, leaving 0.48¢ to the offer. Giving the client half: fill at $40.0076, 0.24¢ improvement. Expected profit: 0.56 − 0.12 − 0.10 − 0.05 = 0.29¢/share; on 50M shares a day from this broker, about $145,000 a day. A segment marking out at 0.9¢ needs a $40.013 floor, above the offer, so it is routed to an exchange.
+Lowest acceptable sale price: 40.002 + 0.0032 = \$40.0052, leaving 0.48¢ to the offer. Giving the client half: fill at \$40.0076, 0.24¢ improvement. Expected profit: 0.56 − 0.12 − 0.10 − 0.05 = 0.29¢/share; on 50M shares a day from this broker, about \$145,000 a day. A segment marking out at 0.9¢ needs a \$40.013 floor, above the offer, so it is routed to an exchange.
 
 ## Signals and algorithms under the hood
 
@@ -108,19 +108,19 @@ Illustrative wholesaler, 1 billion shares a day, 250 days; averages include rout
 
 ## Evidence
 
-- SEC (December 2022): over 90% of marketable individual-investor orders went to six wholesalers; auctions would save an estimated $1.5B a year `[Verified]`. The Order Competition Rule was withdrawn on 2025-06-12 `[Verified]`.
+- SEC (December 2022): over 90% of marketable individual-investor orders went to six wholesalers; auctions would save an estimated \$1.5B a year `[Verified]`. The Order Competition Rule was withdrawn on 2025-06-12 `[Verified]`.
 - Schwarz et al. (2025, *JF*): 85,000 simultaneous orders across six accounts; wholesalers priced the same trade differently by broker, and PFOF did not explain the gap `[Verified]`.
-- Over $4.9B a year was paid for equity and options flow in 2025 `[Reported]`; Robinhood's Q4 2025 revenue included $314M from options and $94M from equities `[Reported]`.
-- December 2020: Robinhood paid a $65M SEC penalty for misleading customers about PFOF and for execution that cost them $34.1M `[Verified]`.
+- Over \$4.9B a year was paid for equity and options flow in 2025 `[Reported]`; Robinhood's Q4 2025 revenue included \$314M from options and \$94M from equities `[Reported]`.
+- December 2020: Robinhood paid a \$65M SEC penalty for misleading customers about PFOF and for execution that cost them \$34.1M `[Verified]`.
 
 ## Capacity, crowding and decay
 
-Fixed costs favor scale, hence concentration. Margins face amended Rule 605 comparisons, a $0.005 tick for tick-constrained stocks due by November 2027 `[Verified]`, and the EU PFOF ban, whose national exemptions ended 30 June 2026 `[Reported]`.
+Fixed costs favor scale, hence concentration. Margins face amended Rule 605 comparisons, a \$0.005 tick for tick-constrained stocks due by November 2027 `[Verified]`, and the EU PFOF ban, whose national exemptions ended 30 June 2026 `[Reported]`.
 
 ## How it fails
 
-- **Correlated retail.** Netting fails and hedges move prices. On 2021-01-27 NSCC called $6.9B of intraday margin from 36 members; brokers then restricted buying, and wholesalers routed GameStop out `[Verified]`.
-- **Code errors.** On 2012-08-01 Knight Capital, a leading wholesaler, deployed code for NYSE's Retail Liquidity Program; 212 small retail orders became 4 million executions in 45 minutes and a loss over $460M `[Verified]`.
+- **Correlated retail.** Netting fails and hedges move prices. On 2021-01-27 NSCC called \$6.9B of intraday margin from 36 members; brokers then restricted buying, and wholesalers routed GameStop out `[Verified]`.
+- **Code errors.** On 2012-08-01 Knight Capital, a leading wholesaler, deployed code for NYSE's Retail Liquidity Program; 212 small retail orders became 4 million executions in 45 minutes and a loss over \$460M `[Verified]`.
 - **Mis-segmentation:** professionals hiding in retail flow.
 
 ## Textbook vs how it's done today

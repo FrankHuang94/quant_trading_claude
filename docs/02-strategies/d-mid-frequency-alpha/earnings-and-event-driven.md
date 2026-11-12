@@ -19,7 +19,7 @@
 | Data required | Point-in-time release timestamps, actuals and consensus (for example I/B/E/S), guidance, intraday prices; deal terms |
 | Core algorithms used | [D1 Point-in-time data and cleaning](../../03-algorithms/a-data-and-signals/point-in-time-data-and-cleaning.md) · [D2 Feature engineering](../../03-algorithms/a-data-and-signals/feature-engineering.md) · [D4 Evaluating signals](../../03-algorithms/a-data-and-signals/evaluating-signals.md) · [V3 Backtest pitfalls](../../03-algorithms/c-validation-and-backtesting/backtest-pitfalls.md) · [E5 Auction, close and dark-liquidity algos](../../03-algorithms/e-execution-algorithms/auction-close-and-dark-liquidity-algos.md) |
 | Infra intensity | Moderate: minutes matter for the reaction, days for drift |
-| Capacity (rough $ range) | $100M–$2B for standalone PEAD `[Estimate]` (drift is concentrated in small, illiquid names and entries cluster on high-cost days) |
+| Capacity (rough $ range) | \$100M–\$2B for standalone PEAD `[Estimate]` (drift is concentrated in small, illiquid names and entries cluster on high-cost days) |
 | Typical Sharpe (gross vs net) | PEAD: ~4.2% per 60 days top-minus-bottom decile, gross, 1974–1985 academic backtest `[Reported]`; near zero in non-microcaps since 2006 `[Verified]` (Martineau 2022), contested. Merger arbitrage: ~4% a year excess return, 1963–1998 academic study `[Reported]` |
 | Turnover | High and lumpy: positions open after each event and roll off within weeks |
 | Main risks / failure modes | Overnight gaps, guidance shocks, stale consensus, timestamp errors, deal breaks |
@@ -49,18 +49,18 @@ Earnings are a quarterly exam. The market grades it within seconds but historica
 
 ## Worked example with numbers
 
-**PEAD (illustrative).** EPS $1.20 against consensus $1.05; past surprises have a standard deviation of $0.10, so SUE = 0.15 / 0.10 = 1.5 (top decile). The stock gaps +6% at the open. Buy $5M over two days.
+**PEAD (illustrative).** EPS \$1.20 against consensus \$1.05; past surprises have a standard deviation of \$0.10, so SUE = 0.15 / 0.10 = 1.5 (top decile). The stock gaps +6% at the open. Buy \$5M over two days.
 
 | Line | If drift exists | If it does not |
 |---|---|---|
-| Drift capture (+2% of $5M) | +$100,000 | $0 |
-| Entry: 10 bps spread + 15 bps impact on event days | −$12,500 | −$12,500 |
-| Exit: 10 bps | −$5,000 | −$5,000 |
-| **Net** | **+$82,500** | **−$17,500** |
+| Drift capture (+2% of \$5M) | +\$100,000 | \$0 |
+| Entry: 10 bps spread + 15 bps impact on event days | −\$12,500 | −\$12,500 |
+| Exit: 10 bps | −\$5,000 | −\$5,000 |
+| **Net** | **+\$82,500** | **−\$17,500** |
 
 The 2% is one leg's half of the historical 4.2% spread; whether it survives in large caps decides the trade.
 
-**Merger arbitrage (illustrative).** Cash offer $50; target trades at $47.50; expected close in six months; estimated break price $38. Spread = 2.50 / 47.50 = 5.3% (≈ 10.8% annualized). Market-implied completion probability, ignoring discounting: (47.50 − 38) / (50 − 38) = 79%. Payoff: +5.3% if it closes, −20% if it breaks, the shape of a short put.
+**Merger arbitrage (illustrative).** Cash offer \$50; target trades at \$47.50; expected close in six months; estimated break price $38. Spread = 2.50 / 47.50 = 5.3% (≈ 10.8% annualized). Market-implied completion probability, ignoring discounting: (47.50 − 38) / (50 − 38) = 79%. Payoff: +5.3% if it closes, −20% if it breaks, the shape of a short put.
 
 ## Signals and algorithms under the hood
 
@@ -97,7 +97,7 @@ def pead_weights(events, today, hold_days=40, entry_lag=1, half_life=20):
 
 ## P&L decomposition
 
-Illustrative large-cap PEAD book, $500M GMV, ~30-day holds ($8.4B traded per year):
+Illustrative large-cap PEAD book, \$500M GMV, ~30-day holds (\$8.4B traded per year):
 
 | Line | % of GMV per year |
 |---|---|

@@ -92,11 +92,11 @@ def q_learning_execution(n_lots=10, lot=1_000, T=5, max_sell=4, half_spread=0.01
 
 ## Worked example with numbers
 
-*Illustrative.* Sell 10,000 shares in 5 steps; half-spread $0.01; impact $0.001 per 1,000 shares sold in a step; σ = $0.10 per share per step; risk aversion 2 × 10⁻⁵ per dollar.
+*Illustrative.* Sell 10,000 shares in 5 steps; half-spread \$0.01; impact \$0.001 per 1,000 shares sold in a step; σ = \$0.10 per share per step; risk aversion 2 × 10⁻⁵ per dollar.
 
 - **All at once**: 10,000 × (0.01 + 0.01) = **$200**, no risk penalty.
-- **TWAP** (2,000 per step): cost 5 × 2,000 × 0.012 = $120; risk 2 × 10⁻⁵ × (800² + 600² + 400² + 200²) = $24; total **$144**.
-- **Learned 4-2-2-1-1** (thousands): cost 56 + 24 + 24 + 11 + 11 = $126; risk 2 × 10⁻⁵ × (600² + 400² + 200² + 100²) = $11.4; total **$137.4**, the brute-force optimum.
+- **TWAP** (2,000 per step): cost 5 × 2,000 × 0.012 = \$120; risk 2 × 10⁻⁵ × (800² + 600² + 400² + 200²) = \$24; total **$144**.
+- **Learned 4-2-2-1-1** (thousands): cost 56 + 24 + 24 + 11 + 11 = \$126; risk 2 × 10⁻⁵ × (600² + 400² + 200² + 100²) = \$11.4; total **$137.4**, the brute-force optimum.
 
 One update by hand: from $Q = 0$, selling 4 lots at $t=0$ gives $r$ = −(56 + 2 × 10⁻⁵ × 600²) = −63.2; next-state values are still 0, so $Q$ ← 0 + 0.1 × (−63.2 − 0) = **−6.32**. After convergence that entry reaches −137.4, the full cost-to-go.
 

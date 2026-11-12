@@ -39,7 +39,7 @@ python labs/18-smart-order-router/lab.py --seed 3     # another seed
 
 ## Expected output
 
-Full run, seed 7. All-in cost per share in bps of price; `+` = cost. At $50, 1 bp = $0.005/share.
+Full run, seed 7. All-in cost per share in bps of price; `+` = cost. At \$50, 1 bp = \$0.005/share.
 
 | Policy | Passive | Aggressive |
 |---|---|---|
@@ -48,7 +48,7 @@ Full run, seed 7. All-in cost per share in bps of price; `+` = cost. At $50, 1 b
 | **Net-of-toxicity (bandit)** | **1.48** | **1.44** |
 | Oracle (knows truth) | 1.41 | 1.40 |
 
-- **Pricing toxicity pays.** The net-of-toxicity router saves **0.40 bp** (passive; about $1,980
+- **Pricing toxicity pays.** The net-of-toxicity router saves **0.40 bp** (passive; about \$1,980
   per million shares) and **0.26 bp** (aggressive) relative to fee-greedy routing. Its regret
   relative to the oracle is only 0.07 and 0.05 bp.
 - **Chasing fills backfires.** The fill-weighted router sends **94%** of passive and **98%** of
@@ -92,17 +92,17 @@ Full run, seed 7. All-in cost per share in bps of price; `+` = cost. At $50, 1 b
   its participants adapt.
 - **Fees are flat.** Real fee schedules are tiered by monthly volume (top rebates need very large
   volume) and differ by tape, displayed vs non-displayed, midpoint peg and auction. They change
-  often through exchange fee filings. Fees also matter more in bps for cheap stocks: $0.0030 is
-  0.6 bp at $50 but 3 bps at $10.
+  often through exchange fee filings. Fees also matter more in bps for cheap stocks: \$0.0030 is
+  0.6 bp at \$50 but 3 bps at $10.
 - **Regulation may compress fees.** In September 2024 the SEC amended Rule 610(c) to cut the
-  access-fee cap from $0.0030 to **$0.0010 per share** for quotes at or above $1.00 (Release
+  access-fee cap from \$0.0030 to **\$0.0010 per share** for quotes at or above \$1.00 (Release
   34-101070) `[Verified]`. The original compliance date, the first business day of **November
   2025**, did **not** take effect: an SEC exemptive order dated 2025-10-31 postponed Rule 610(c)
   compliance to the first business day of November 2026 `[Verified]`. A further order (Release
   34-105656, June 2026) extended the relief again. It moved compliance to the first
   business day of **November 2027** `[Verified]` (SEC Rel. 34-105656, 2026-06-11).
-  - **What that means here:** as of 2026-11, fee levels like this toy's (up to $0.0030) appear to
-    still apply. Under a $0.0010 cap, maker rebates would shrink, fee-greedy routing would matter
+  - **What that means here:** as of 2026-11, fee levels like this toy's (up to \$0.0030) appear to
+    still apply. Under a \$0.0010 cap, maker rebates would shrink, fee-greedy routing would matter
     less, and fill rates and toxicity would matter relatively more.
 - **Conflicts and obligations are out of scope.** Agency brokers that route for rebates can hurt
   limit-order execution quality (Battalio, Corwin & Jennings 2016). Best-execution duties (FINRA Rule
@@ -114,7 +114,7 @@ Full run, seed 7. All-in cost per share in bps of price; `+` = cost. At $50, 1 b
 ## Key parameters
 
 Everything below is **illustrative**. The fee levels are typical in size for US equities under the
-$0.0030 cap, but they are **not any real venue's fee schedule**. The fill rates and markouts are
+\$0.0030 cap, but they are **not any real venue's fee schedule**. The fill rates and markouts are
 invented to be plausible.
 
 **Venues.** Fees are in $/share: `+` = fee paid, `-` = rebate received. Markouts are in bps, `+` = adverse.
@@ -134,7 +134,7 @@ The last two columns are the true expected all-in cost (bps) of always routing t
 
 | Parameter | Value | Meaning |
 |---|---|---|
-| Price, spread | $50, 1 cent (2 bps) | half-spread 1 bp; a $0.0010 fee = 0.2 bp |
+| Price, spread | \$50, 1 cent (2 bps) | half-spread 1 bp; a \$0.0010 fee = 0.2 bp |
 | Passive non-fill cost | 2.6 bp (+ 3 bp noise) | cross later: half-spread 1.0 + take fee 0.6 + drift while waiting 1.0 |
 | Aggressive miss cost | 2.1 bp (+ 3 bp noise) | re-route: half-spread 1.0 + take fee 0.6 + markout 0.3 + quote fade 0.2 |
 | Markout noise per fill | 5 bp passive, 4 bp aggressive | about the 10-second price noise of a 2%-daily-vol stock `[Estimate]` |
@@ -146,10 +146,10 @@ The last two columns are the true expected all-in cost (bps) of always routing t
 Fee-level context. These are typical ranges, not quotes of current schedules, and were not
 re-checked this session:
 
-- **Maker-taker:** take fees at or near the $0.0030 cap; maker rebates of roughly $0.0015–$0.0032
+- **Maker-taker:** take fees at or near the \$0.0030 cap; maker rebates of roughly \$0.0015–\$0.0032
   depending on tier. `[Lore]` (check current exchange fee schedules; tiers change often).
 - **Inverted venues:** charge makers and pay takers, each typically below $0.0020. `[Lore]`
-- **Midpoint dark pools (ATSs):** typically charge about $0.0005–$0.0010 per side. `[Lore]`
+- **Midpoint dark pools (ATSs):** typically charge about \$0.0005–\$0.0010 per side. `[Lore]`
 
 Sources:
 

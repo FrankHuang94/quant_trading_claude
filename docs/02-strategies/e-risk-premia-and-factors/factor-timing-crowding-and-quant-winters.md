@@ -51,7 +51,7 @@ A premium drought is a long recession in one industry: nothing is forced, the bu
 
 ## Worked example with numbers
 
-Illustrative [deleveraging](../../09-reference/glossary.md#deleveraging) spiral: $1,000M NAV, gross 8× ($4,000M long, $4,000M short), prime-broker cap 8×.
+Illustrative [deleveraging](../../09-reference/glossary.md#deleveraging) spiral: \$1,000M NAV, gross 8× (\$4,000M long, \$4,000M short), prime-broker cap 8×.
 
 | Day | Spread move | P&L ($M) | NAV ($M) | Gross allowed ($M) | Forced trading ($M) |
 |---|---|---|---|---|---|
@@ -96,7 +96,7 @@ def factor_weight(base_w, spread_z, ret_12m, crowd_z, vol, target_vol=0.05,
 
 ## P&L decomposition
 
-Illustrative: $1B style book, 8% volatility, one year.
+Illustrative: \$1B style book, 8% volatility, one year.
 
 | Line | % of NAV |
 |---|---|
@@ -112,7 +112,7 @@ Illustrative: $1B style book, 8% volatility, one year.
 - **Timing works.** Haddad, Kozak & Santosh (2020): market-neutral equity factors are strongly predictable, and exploiting this substantially improves on static factor investing `[Verified]`.
 - **Timing disappoints.** Asness et al. (2017): value-spread timing inside a portfolio that already holds value adds little over a strategic value allocation `[Verified]`.
 - **Spreads can widen for years.** Our computation from French data: value-over-growth book-to-market at June formation ranked at the 10th percentile of 1951–2026 in 2007, the 86th in 2017, the 99th in 2022 and the widest on record in June 2026 `[Verified]`; intangibles may inflate book-based spreads. Value lost 51% from January 2017 to September 2020.
-- **Quant winter, firm level.** AQR's Style Premia Alternative Fund fell 19.2% in 2020 (Institutional Investor, citing a private database) `[Reported]`. AQR's regulated assets fell from $248.9B in 2019 to $164.4B in 2020 `[Reported]`. AQR argues the losses came from value spreads widening, not crowded unwinds `[Verified]` (firm white paper, 2026).
+- **Quant winter, firm level.** AQR's Style Premia Alternative Fund fell 19.2% in 2020 (Institutional Investor, citing a private database) `[Reported]`. AQR's regulated assets fell from \$248.9B in 2019 to \$164.4B in 2020 `[Reported]`. AQR argues the losses came from value spreads widening, not crowded unwinds `[Verified]` (firm white paper, 2026).
 
 ## Capacity, crowding and decay
 
@@ -120,7 +120,7 @@ Crowding depends on capital, leverage and overlap, not the idea. A crowded facto
 
 ## How it fails
 
-- **August 2007.** The sustained unwind started at the open on 6 August; market makers withdrew from 8 August (Khandani & Lo 2011) `[Verified]`. Goldman and outside investors put $3B into its Global Equity Opportunities fund on 13 August `[Verified]`.
+- **August 2007.** The sustained unwind started at the open on 6 August; market makers withdrew from 8 August (Khandani & Lo 2011) `[Verified]`. Goldman and outside investors put \$3B into its Global Equity Opportunities fund on 13 August `[Verified]`.
 - **2020.** HML lost 13.8% in March; momentum lost 12.6% in November's vaccine rotation (our computation) `[Verified]`.
 - **2025–2026.** Systematic equity funds, on pace for a record monthly loss in a junk rally, finished July 2025 down about 2%; a June–July 2026 AI-stock reversal cut their year-to-date return from 14.4% to 10.8% (Goldman prime-brokerage data via press) `[Reported]`.
 
@@ -238,7 +238,7 @@ $$
 - [Verified] Hanson, S. G. & Sunderam, A. (2014). "The Growth and Limits of Arbitrage: Evidence from Short Interest." *Review of Financial Studies* 27(4), 1238–1286. <https://doi.org/10.1093/rfs/hht066> (accessed 2026-11)
 - [Verified] Khandani, A. E. & Lo, A. W. (2011). "What Happened to the Quants in August 2007? Evidence from Factors and Transactions Data." *Journal of Financial Markets* 14(1), 1–46. <https://doi.org/10.1016/j.finmar.2010.07.005> (accessed 2026-11)
 - [Reported] Khandani, A. E. & Lo, A. W. (2007). "What Happened to the Quants in August 2007?" *Journal of Investment Management* 5(4). <https://www.joim.com/what-happened-to-the-quants-in-august-2007/> (accessed 2026-11)
-- [Verified] Goldman Sachs (2007-08-13). "Goldman Sachs and Various Investors Including C.V. Starr & Co., Inc., Perry Capital LLC and Eli Broad Invest $3 Billion in Global Equity Opportunities Fund." <https://www.goldmansachs.com/pressroom/press-releases/2007/2007-08-13> (accessed 2026-11)
+- [Verified] Goldman Sachs (2007-08-13). "Goldman Sachs and Various Investors Including C.V. Starr & Co., Inc., Perry Capital LLC and Eli Broad Invest \$3 Billion in Global Equity Opportunities Fund." <https://www.goldmansachs.com/pressroom/press-releases/2007/2007-08-13> (accessed 2026-11)
 - [Reported] Institutional Investor (2021-04-28). "After Its 'Toughest Period' Ever, AQR Is Making a Big Comeback." <https://www.institutionalinvestor.com/article/b1rlvd4dqdwzm4/After-Its-Toughest-Period-Ever-AQR-Is-Making-a-Big-Comeback> (accessed 2026-11)
 - [Verified] Maloney, T. & Moskowitz, T. (2026-08). "Academic Alpha: A (Re)Introduction to Style Premia Investing." AQR white paper. <https://www.aqr.com/-/media/AQR/Documents/White-Papers/Academic-Alpha-A-Re-Introduction-to-Style-Premia-Investing.pdf> (accessed 2026-11)
 - [Reported] Hedgeweek (2025-08-08). "Quant hedge funds pare back July losses after challenging summer." <https://www.hedgeweek.com/quant-hedge-funds-pare-back-july-losses-after-challenging-summer/> (accessed 2026-11)

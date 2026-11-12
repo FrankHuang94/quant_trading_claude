@@ -23,7 +23,7 @@ Maintainer notes (keep this structure when growing the glossary to 400+ terms):
 
 ### Access fee
 
-The fee an exchange charges to execute against a resting quote, capped by Reg NMS Rule 610(c) for protected quotations at $0.003 per share (30 mils) for stocks priced at $1 or more since 2005. The September 2024 amendments cut the cap to $0.001 (10 mils), but compliance has been postponed twice, most recently to the first business day of November 2027 (SEC order of 2026-06-11), and the SEC chairman has said staff will review Rule 610(c), so the 30-mil cap still applies as of 2026-11 `[Verified]`. Because maker rebates are funded from take fees, the cap also bounds rebates and the whole maker-taker economy. **See:** [Fees, rebates and ticks](../01-market-structure/fees-rebates-and-ticks.md) · [Fee- and microstructure-driven strategies](../02-strategies/b-speed-and-structural/fee-and-microstructure-driven-strategies.md)
+The fee an exchange charges to execute against a resting quote, capped by Reg NMS Rule 610(c) for protected quotations at \$0.003 per share (30 mils) for stocks priced at \$1 or more since 2005. The September 2024 amendments cut the cap to \$0.001 (10 mils), but compliance has been postponed twice, most recently to the first business day of November 2027 (SEC order of 2026-06-11), and the SEC chairman has said staff will review Rule 610(c), so the 30-mil cap still applies as of 2026-11 `[Verified]`. Because maker rebates are funded from take fees, the cap also bounds rebates and the whole maker-taker economy. **See:** [Fees, rebates and ticks](../01-market-structure/fees-rebates-and-ticks.md) · [Fee- and microstructure-driven strategies](../02-strategies/b-speed-and-structural/fee-and-microstructure-driven-strategies.md)
 
 ### Adverse selection
 
@@ -289,7 +289,7 @@ The position size that maximizes the expected logarithm of wealth; for a continu
 
 ### Kill switch
 
-An automated or manual control that immediately cancels a firm's or strategy's open orders and blocks new ones when a limit is breached: position, loss, message rate, or a mismatch between expected and actual positions. Knight Capital's August 2012 malfunction, which lost about $460 million in roughly 45 minutes and led to SEC charges under the Market Access Rule, is the standard case for why it must exist `[Reported]`. **See:** [Algorithmic risk controls](../03-algorithms/f-market-making-and-hft-algorithms/algorithmic-risk-controls.md) · [Rules that shape strategies](../06-risk-and-regulation/rules-that-shape-strategies.md)
+An automated or manual control that immediately cancels a firm's or strategy's open orders and blocks new ones when a limit is breached: position, loss, message rate, or a mismatch between expected and actual positions. Knight Capital's August 2012 malfunction, which lost about \$460 million in roughly 45 minutes and led to SEC charges under the Market Access Rule, is the standard case for why it must exist `[Reported]`. **See:** [Algorithmic risk controls](../03-algorithms/f-market-making-and-hft-algorithms/algorithmic-risk-controls.md) · [Rules that shape strategies](../06-risk-and-regulation/rules-that-shape-strategies.md)
 
 ## L
 
@@ -307,7 +307,7 @@ A covariance estimator that blends the sample covariance $S$ with a structured t
 
 ### Limit Up-Limit Down (LULD)
 
-The single-stock volatility mechanism, a national market system plan in effect since 2013 `[Reported]`, that blocks trades outside price bands around a rolling five-minute reference price: 5% for Tier 1 stocks (S&P 500, Russell 1000, selected ETPs) and 10% for Tier 2 stocks above $3, wider for low-priced stocks `[Reported]`. If quotes sit at a band for 15 seconds the stock enters a five-minute trading pause and reopens by auction; market-wide circuit breakers (7%, 13% and 20% S&P 500 declines) are a separate mechanism. **See:** [Rules that shape strategies](../06-risk-and-regulation/rules-that-shape-strategies.md) · [Order types and auctions](../01-market-structure/order-types-and-auctions.md)
+The single-stock volatility mechanism, a national market system plan in effect since 2013 `[Reported]`, that blocks trades outside price bands around a rolling five-minute reference price: 5% for Tier 1 stocks (S&P 500, Russell 1000, selected ETPs) and 10% for Tier 2 stocks above \$3, wider for low-priced stocks `[Reported]`. If quotes sit at a band for 15 seconds the stock enters a five-minute trading pause and reopens by auction; market-wide circuit breakers (7%, 13% and 20% S&P 500 declines) are a separate mechanism. **See:** [Rules that shape strategies](../06-risk-and-regulation/rules-that-shape-strategies.md) · [Order types and auctions](../01-market-structure/order-types-and-auctions.md)
 
 ### Locate
 
@@ -325,7 +325,7 @@ The finding that low-volatility and low-beta stocks have earned risk-adjusted re
 
 ### Maker-taker
 
-The dominant US exchange pricing model: the venue pays a rebate to the order that adds (makes) liquidity and charges a fee to the order that removes (takes) it, keeping the difference. Top-tier rebates have run around $0.002-0.003 per share against take fees at the $0.003 cap `[Reported]`, a meaningful fraction of a one-cent spread in tick-constrained stocks; the 10-mil cap adopted in 2024 would compress this range, but its compliance date is now November 2027 `[Verified]`. **See:** [Fees, rebates and ticks](../01-market-structure/fees-rebates-and-ticks.md) · [Fee- and microstructure-driven strategies](../02-strategies/b-speed-and-structural/fee-and-microstructure-driven-strategies.md)
+The dominant US exchange pricing model: the venue pays a rebate to the order that adds (makes) liquidity and charges a fee to the order that removes (takes) it, keeping the difference. Top-tier rebates have run around $0.002-0.003 per share against take fees at the \$0.003 cap `[Reported]`, a meaningful fraction of a one-cent spread in tick-constrained stocks; the 10-mil cap adopted in 2024 would compress this range, but its compliance date is now November 2027 `[Verified]`. **See:** [Fees, rebates and ticks](../01-market-structure/fees-rebates-and-ticks.md) · [Fee- and microstructure-driven strategies](../02-strategies/b-speed-and-structural/fee-and-microstructure-driven-strategies.md)
 
 ### Market Access Rule
 
@@ -451,7 +451,7 @@ A limit order that may only rest on the book: if it would execute on arrival, th
 
 ### Price improvement
 
-Execution at a better price than the NBBO prevailing when the order arrived, e.g., a retail buy filled at $10.004 against a $10.01 offer. Wholesalers compete for broker flow on price-improvement statistics reported under Rules 605 and 606; its value depends on the benchmark, since the NBBO omits odd-lot and hidden liquidity that was often already better. **See:** [Retail flow internalization](../02-strategies/a-liquidity-provision/retail-flow-internalization.md) · [Venues and retail flow](../01-market-structure/venues-and-retail-flow.md)
+Execution at a better price than the NBBO prevailing when the order arrived, e.g., a retail buy filled at \$10.004 against a \$10.01 offer. Wholesalers compete for broker flow on price-improvement statistics reported under Rules 605 and 606; its value depends on the benchmark, since the NBBO omits odd-lot and hidden liquidity that was often already better. **See:** [Retail flow internalization](../02-strategies/a-liquidity-provision/retail-flow-internalization.md) · [Venues and retail flow](../01-market-structure/venues-and-retail-flow.md)
 
 ### Price-time priority
 
@@ -523,7 +523,7 @@ Allocating so that each asset or strategy contributes equally to portfolio risk,
 
 ### Round lot
 
-The standard trading unit, historically 100 shares for almost all NMS stocks; only round-lot quotes count toward the NBBO and protected quotations. Since 2025-11-03 it has been defined by price tier, 100 shares up to $250, 40 up to $1,000, 10 up to $10,000 and 1 share above `[Reported]`, which brings smaller quotes in high-priced stocks into the NBBO. **See:** [NBBO and market data](../01-market-structure/nbbo-and-market-data.md) · [Recent changes (as of 2026-11)](../01-market-structure/recent-changes.md)
+The standard trading unit, historically 100 shares for almost all NMS stocks; only round-lot quotes count toward the NBBO and protected quotations. Since 2025-11-03 it has been defined by price tier, 100 shares up to \$250, 40 up to \$1,000, 10 up to \$10,000 and 1 share above `[Reported]`, which brings smaller quotes in high-priced stocks into the NBBO. **See:** [NBBO and market data](../01-market-structure/nbbo-and-market-data.md) · [Recent changes (as of 2026-11)](../01-market-structure/recent-changes.md)
 
 ### Rule 605
 
@@ -583,7 +583,7 @@ The standard US settlement cycle for most broker-dealer securities trades since 
 
 ### Tick size
 
-The minimum price increment for quotes and orders. For US stocks priced at $1 or more it has been one cent since decimalization (2001), codified in Rule 612 (2005). The 2024 amendments add a half-cent increment for tick-constrained stocks (time-weighted average quoted spread of $0.015 or less), but compliance has been postponed to the first business day of November 2027 and the rule is under staff review `[Verified]`. **See:** [Fees, rebates and ticks](../01-market-structure/fees-rebates-and-ticks.md) · [Queue position and order placement](../03-algorithms/f-market-making-and-hft-algorithms/queue-position-and-order-placement.md)
+The minimum price increment for quotes and orders. For US stocks priced at \$1 or more it has been one cent since decimalization (2001), codified in Rule 612 (2005). The 2024 amendments add a half-cent increment for tick-constrained stocks (time-weighted average quoted spread of \$0.015 or less), but compliance has been postponed to the first business day of November 2027 and the rule is under staff review `[Verified]`. **See:** [Fees, rebates and ticks](../01-market-structure/fees-rebates-and-ticks.md) · [Queue position and order placement](../03-algorithms/f-market-making-and-hft-algorithms/queue-position-and-order-placement.md)
 
 ### Tick-constrained stock
 
@@ -599,7 +599,7 @@ Going long assets whose own past return (typically over 12 months) is positive a
 
 ### Trade-through rule
 
-Reg NMS Rule 611, the Order Protection Rule: trading centers must maintain policies that prevent trade-throughs, i.e., executions at a price inferior to a protected quotation displayed on another venue, such as buying at $10.02 while $10.01 is displayed elsewhere. Exceptions such as ISOs let a sender clear better prices itself; it is the rule that forces routing and makes the NBBO binding, and on 2026-06-11 the SEC proposed repealing it `[Verified]`. **See:** [NBBO and market data](../01-market-structure/nbbo-and-market-data.md) · [Rules that shape strategies](../06-risk-and-regulation/rules-that-shape-strategies.md)
+Reg NMS Rule 611, the Order Protection Rule: trading centers must maintain policies that prevent trade-throughs, i.e., executions at a price inferior to a protected quotation displayed on another venue, such as buying at \$10.02 while \$10.01 is displayed elsewhere. Exceptions such as ISOs let a sender clear better prices itself; it is the rule that forces routing and makes the NBBO binding, and on 2026-06-11 the SEC proposed repealing it `[Verified]`. **See:** [NBBO and market data](../01-market-structure/nbbo-and-market-data.md) · [Rules that shape strategies](../06-risk-and-regulation/rules-that-shape-strategies.md)
 
 ### Trading toward the aim
 

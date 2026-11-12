@@ -20,7 +20,7 @@
 | Data required | Years of tick and depth-of-book history, cross-asset prices, corporate events, borrow |
 | Core algorithms used | [F2 Tree ensembles](../../03-algorithms/b-forecasting-models/tree-ensembles.md) · [F3 Neural nets and sequence models](../../03-algorithms/b-forecasting-models/neural-nets-and-sequence-models.md) · [F5 Alpha combination and ensembling](../../03-algorithms/b-forecasting-models/alpha-combination-and-ensembling.md) · [V1 Time-series cross-validation](../../03-algorithms/c-validation-and-backtesting/time-series-cross-validation.md) · [P5 Transaction cost and impact models](../../03-algorithms/d-portfolio-construction/transaction-cost-and-impact-models.md) · [D2 Feature engineering](../../03-algorithms/a-data-and-signals/feature-engineering.md) |
 | Infra intensity | High: GPU and CPU research clusters, intraday feature pipelines, fast in-house execution |
-| Capacity (rough $ range) | $200M–$2B GMV per book `[Estimate]` (participation capped at ~1–3% of ADV across ~3,000 names; edges of 2–5 bps per trade; square-root impact) |
+| Capacity (rough $ range) | \$200M–\$2B GMV per book `[Estimate]` (participation capped at ~1–3% of ADV across ~3,000 names; edges of 2–5 bps per trade; square-root impact) |
 | Typical Sharpe (gross vs net) | Academic daily ML stat arb, S&P 500: >0.45% a day before costs, 1992–2015, shrinking later `[Reported]`; an LSTM variant, same period: Sharpe 5.8 gross `[Reported]`. Practitioner net: 2–6 for small intraday books, 1–2 at scale `[Lore]` |
 | Turnover | 50–200% of GMV a day `[Estimate]` |
 | Main risks / failure modes | Overfitting, leakage, regime breaks, crowded deleveraging, cost-model error, outages |
@@ -61,7 +61,7 @@ Illustrative. Forecasts are z-scored; expected residual return = IC × σ × z, 
 | Round-trip cost, passive fills and crossing | 2.5 bps | 2.5 bps |
 | Net per leg, best case | **−0.8 bps** | **+1.7 bps** |
 
-The faster forecast is more accurate but loses alone; it earns its keep by timing slower forecasts' trades. A $500M GMV book at 100% daily turnover nets $500M × 1.7 bps = $85,000 a day, $21.4M a year (4.3%). At ~4% volatility, Sharpe ≈ 1.1 `[Estimate]`.
+The faster forecast is more accurate but loses alone; it earns its keep by timing slower forecasts' trades. A \$500M GMV book at 100% daily turnover nets \$500M × 1.7 bps = \$85,000 a day, \$21.4M a year (4.3%). At ~4% volatility, Sharpe ≈ 1.1 `[Estimate]`.
 
 ## Signals and algorithms under the hood
 
@@ -104,7 +104,7 @@ def cost_gated_trades(alpha_bps, cost_bps, w_now, w_target):
 
 ## P&L decomposition
 
-Illustrative $1B GMV book, % of GMV a year:
+Illustrative \$1B GMV book, % of GMV a year:
 
 | Line | % |
 |---|---|

@@ -23,7 +23,7 @@
 | Typical Sharpe (gross vs net) | Academic backtest, gross, 1972–2012: within-class average 0.74, global carry factor 1.10 `[Verified]` (Koijen et al., working paper). Live multi-style fund holding carry: net 0.54 since 2013 (AQR Style Premia Alternative) `[Verified]` |
 | Turnover | Monthly rebalancing plus futures rolls; a few times notional a year `[Estimate]` |
 | Main risks / failure modes | Crashes in high-yielders, synchronized losses in recessions, funding squeezes, central-bank surprises |
-| Crowding risk | High in FX carry: BIS estimates about ¥40 trillion ($250B) of yen-funded carry before August 2024 `[Verified]` |
+| Crowding risk | High in FX carry: BIS estimates about ¥40 trillion (\$250B) of yen-funded carry before August 2024 `[Verified]` |
 | Firm types that run it | Macro funds, CTAs, style-premia managers, bank index desks, risk-parity managers |
 | Lab | — |
 
@@ -54,7 +54,7 @@ Illustrative inputs, annualized:
 | Asset | Inputs | Carry |
 |---|---|---|
 | Long AUD vs JPY | AUD rate 4.35%, JPY rate 0.25% | 4.35 − 0.25 = **+4.1%** |
-| Long crude, [backwardated](../../09-reference/glossary.md#backwardation) | front $80.00, next month $78.50 | (80.00 − 78.50) / 78.50 × 12 = **+22.9%** |
+| Long crude, [backwardated](../../09-reference/glossary.md#backwardation) | front \$80.00, next month \$78.50 | (80.00 − 78.50) / 78.50 × 12 = **+22.9%** |
 | Long 10-year bond future ([roll-down](../../09-reference/glossary.md#roll-down)) | yield 4.20%, repo 4.00%, 9-year yield 4.10%, duration 8 | (4.20 − 4.00) + 8 × 0.10 = **+1.0%** |
 | Long S&P 500 future | dividend yield 1.3%, financing 4.0% | 1.3 − 4.0 = **−2.7%** |
 
@@ -97,7 +97,7 @@ def carry_portfolio(assets, vol, target_vol=0.10):
 
 ## P&L decomposition
 
-Illustrative: $1B NAV, four equal-risk sleeves, 10% volatility target.
+Illustrative: \$1B NAV, four equal-risk sleeves, 10% volatility target.
 
 | Line | % of NAV a year |
 |---|---|

@@ -48,7 +48,7 @@ flowchart LR
 3. **Minimum variance**: w ∝ Σ⁻¹1, usually long-only with caps.
 4. **HRP**: cluster on correlation distance √(½(1−ρ)), order similar assets together, then split the list in halves recursively, giving the lower-variance half more weight.
 5. **Black–Litterman**: back out market-implied returns π = δΣw_mkt, blend with views by confidence, then run MVO.
-6. **Rank weights**: wᵢ ∝ rank(signalᵢ) − average rank, scaled to $1 long and $1 short (Asness, Moskowitz and Pedersen).
+6. **Rank weights**: wᵢ ∝ rank(signalᵢ) − average rank, scaled to \$1 long and \$1 short (Asness, Moskowitz and Pedersen).
 
 ```python
 import numpy as np

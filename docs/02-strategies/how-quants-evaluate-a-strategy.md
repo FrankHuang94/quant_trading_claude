@@ -68,7 +68,7 @@ Novy-Marx and Velikov agree: most anomalies with under 50% monthly one-sided tur
 
 ### Capacity
 
-Capacity is the size at which marginal net alpha reaches zero, or net Sharpe hits the hurdle; impact rises roughly with the square root of participation. An AQR study using live execution data estimated break-even fund sizes for US long-short size, value and momentum factors of roughly $52–103B `[Reported]` (2012 draft; one manager's costs). For latency-sensitive strategies, capacity is better counted in P&L than in capital: the edge per trade is a fraction of a tick, and the whole global latency-arbitrage pool in equities has been estimated at about $5B a year (Aquilina, Budish and O'Neill) `[Reported]`.
+Capacity is the size at which marginal net alpha reaches zero, or net Sharpe hits the hurdle; impact rises roughly with the square root of participation. An AQR study using live execution data estimated break-even fund sizes for US long-short size, value and momentum factors of roughly \$52–103B `[Reported]` (2012 draft; one manager's costs). For latency-sensitive strategies, capacity is better counted in P&L than in capital: the edge per trade is a fraction of a tick, and the whole global latency-arbitrage pool in equities has been estimated at about \$5B a year (Aquilina, Budish and O'Neill) `[Reported]`.
 
 ### Correlation to the book: the marginal Sharpe test
 
@@ -92,7 +92,7 @@ Candidate C, the weakest standalone, adds the most; D, the best on paper, adds n
 - **Tail risk.** Sharpe treats upside and downside alike. Insurance-selling strategies (short volatility, carry, much liquidity provision) show smooth returns and negative skew. Ask for the worst day, week and month; Khandani and Lo's simulated market maker lost heavily in the week of August 6, 2007 `[Verified]`. See the [failure gallery](h-cross-cutting/strategy-failure-gallery.md).
 - **Decay.** Across 97 published predictors, returns were 26% lower out-of-sample and 58% lower after publication (McLean and Pontiff) `[Verified]`. Falck, Rej and Thesmar find out-of-sample performance around half of in-sample, with publication date the main predictor of [alpha decay](../09-reference/glossary.md#alpha-decay) `[Verified]`. Monitor live decay with [L2](../03-algorithms/g-live-trading/alpha-decay-detection-and-model-retirement.md).
 - **Crowding.** Warning signs: P&L correlated with published factors or peers, falling alpha per unit of turnover, violent reversals on de-risking days ([crowding](e-risk-premia-and-factors/factor-timing-crowding-and-quant-winters.md)).
-- **Data and infrastructure.** Investment managers spent roughly $2.8B on alternative data in 2025, up 17% `[Reported]`. Fixed costs set a minimum size: a $1M-a-year dataset needs $25M of GMV at 4% net alpha to pay for itself `[Estimate]`. For HFT, colocation, feeds and hardware make breakeven a dollar figure, not a basis-point one.
+- **Data and infrastructure.** Investment managers spent roughly \$2.8B on alternative data in 2025, up 17% `[Reported]`. Fixed costs set a minimum size: a \$1M-a-year dataset needs \$25M of GMV at 4% net alpha to pay for itself `[Estimate]`. For HFT, colocation, feeds and hardware make breakeven a dollar figure, not a basis-point one.
 
 ## How a PM or CIO decides to fund a strategy
 
@@ -128,8 +128,8 @@ A researcher proposes a 1–3 day residual-reversal strategy on ~1,000 liquid US
 2. **Haircut gross, not net.** Apply a 30–50% decay haircut (the range from the studies above) to gross alpha: 6.0–8.4%. Costs stay at 4.8% (60 × 8 bp), so net becomes 1.2–3.6%, Sharpe 0.3–0.9. A 50% haircut to gross is an 83% haircut to net.
 3. **Marginal test.** The hurdle is 0.3 × 2.0 = 0.6. The planning range of 0.3–0.9 straddles it. Not fundable as designed.
 4. **Redesign.** A no-trade band and [trading toward the aim](../03-algorithms/d-portfolio-construction/multi-period-and-trading-toward-aim.md) cut turnover to 35× while keeping, say, 80% of gross alpha (9.6%). Costs drop to 2.8%. After the same haircut: net 2.0–3.9%, Sharpe 0.5–1.0. The midpoint (0.75) clears 0.6; the low end does not, which is why it gets small capital rather than a full allocation.
-5. **Funding plan.** Shadow-trade for 2–3 months. Then $50M GMV at 4% volatility: about $2M of annual risk, about $126k daily. Ramp to $150M, then $300M, if realized costs stay within 25% of the model, re-fitting impact at each step.
-6. **Kill criteria, written first.** Hard stop at a drawdown of 1.5× the annual volatility budget ($3M at stage one); review if realized cost runs 50% above model for a month or live P&L stops tracking the backtest replayed on live dates.
+5. **Funding plan.** Shadow-trade for 2–3 months. Then \$50M GMV at 4% volatility: about \$2M of annual risk, about \$126k daily. Ramp to \$150M, then \$300M, if realized costs stay within 25% of the model, re-fitting impact at each step.
+6. **Kill criteria, written first.** Hard stop at a drawdown of 1.5× the annual volatility budget (\$3M at stage one); review if realized cost runs 50% above model for a month or live P&L stops tracking the backtest replayed on live dates.
 
 Why judge implementation, not P&L, early? At a true Sharpe of 0.75, the chance of losing money over six months is about 30%, over a year about 23% `[Estimate]` (normal approximation). In simulation, the 1.5× stop trips within a year about 8% of the time at Sharpe 0.75 but only 23% of the time when alpha is zero `[Estimate]`. Stops limit damage; they are weak detectors of dead strategies. Cost, fill and tracking diagnostics carry the early decision ([L1](../03-algorithms/g-live-trading/live-monitoring-and-pnl-attribution.md)).
 

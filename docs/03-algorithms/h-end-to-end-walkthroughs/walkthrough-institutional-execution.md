@@ -1,4 +1,4 @@
-# Walkthrough: executing a $500M buy order
+# Walkthrough: executing a \$500M buy order
 
 <!-- STUB -->
 !!! note "Not yet written"

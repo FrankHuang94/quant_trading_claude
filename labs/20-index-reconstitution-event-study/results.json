@@ -1,0 +1,85 @@
+{
+  "lab": "20-index-reconstitution-event-study",
+  "smoke": false,
+  "seed": 7,
+  "n_adds": 254,
+  "n_deletes": 255,
+  "n_reconstitutions": 9,
+  "car_adds_pct": {
+    "anticipation_R_to_A": -0.232078,
+    "announcement_day_A": 1.120354,
+    "run_up_A_to_E": 2.542527,
+    "effective_day_E": 0.375665,
+    "reversal_E_to_E20": -2.586042,
+    "total_R_to_E20": 0.844761
+  },
+  "car_deletes_pct": {
+    "anticipation_R_to_A": -0.822449,
+    "announcement_day_A": -1.153843,
+    "run_up_A_to_E": -1.403328,
+    "effective_day_E": -0.367857,
+    "reversal_E_to_E20": 1.884592,
+    "total_R_to_E20": -1.495027
+  },
+  "planted_car_adds_pct": {
+    "anticipation_R_to_A": 0.51343,
+    "announcement_day_A": 1.283576,
+    "run_up_A_to_E": 2.053722,
+    "effective_day_E": 0.51343,
+    "reversal_E_to_E20": -1.925364,
+    "total_R_to_E20": 1.925364
+  },
+  "band_coverage_of_truth_adds_deletes": [
+    0.983607,
+    1.0
+  ],
+  "naive_cross_sectional_band_coverage_adds_deletes": [
+    0.934426,
+    0.852459
+  ],
+  "se_dependence_over_se_cross_median": 1.376372,
+  "e_day_volume_multiple_median": 7.471633,
+  "strategy_net_bps_per_trade_base": 177.335198,
+  "strategy_net_ci95_bps": 109.328367,
+  "strategy_gross_bps_per_trade_base": 197.180827,
+  "strategy_hit_rate": 0.630648,
+  "hold_to_E_plus_20_net_bps_per_trade": -50.103648,
+  "net_bps_by_crowding": {
+    "0": 407.052818,
+    "0.1": 280.709258,
+    "0.25": 177.335198,
+    "0.5": 96.930969,
+    "1": 39.496694,
+    "2": 10.087583,
+    "4": -1.351501
+  },
+  "arb_profit_musd_per_year_by_crowding": {
+    "0": 0.0,
+    "0.1": 60.655613,
+    "0.25": 96.758237,
+    "0.5": 108.142202,
+    "1": 94.310733,
+    "2": 63.69919,
+    "4": 30.203253
+  },
+  "planted_arb_profit_musd_per_year_by_crowding": {
+    "0": 0.0,
+    "0.1": 57.320743,
+    "0.25": 88.264209,
+    "0.5": 90.914296,
+    "1": 59.522706,
+    "2": -6.195817,
+    "4": -109.801478
+  },
+  "crowding_at_max_expected_total_arb_profit": 0.5,
+  "index_demand_usd_bn_per_year": 20.105601,
+  "mean_round_trip_cost_bps": 19.845629,
+  "pitfall_selection_car_year_before_rank_day_pct": {
+    "add": 38.261488,
+    "delete": -33.906943
+  },
+  "pitfall_intercept_bias_total_car_pct": {
+    "add": -9.171194,
+    "delete": 8.106398
+  }
+}

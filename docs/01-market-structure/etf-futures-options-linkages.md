@@ -28,7 +28,7 @@ An [authorized participant](../09-reference/glossary.md#authorized-participant) 
 
 **NAV** is struck once a day from closing prices. The intraday indicative value (**iNAV**) is a slow public estimate, and Rule 6c-11 itself does not require it `[Verified]`. Professional desks compute their own fair value in real time from the basket, futures and correlated ETFs (see [fair value and microprice](../03-algorithms/f-market-making-and-hft-algorithms/fair-value-and-microprice.md)).
 
-**Worked example (illustrative).** The basket is worth $100.00 per ETF share. One creation unit is 50,000 shares, or $5.0M. Trading the basket costs about 3 bp and the creation fee is $500, about 1 bp. Arbitrage therefore starts once the premium or discount exceeds about ±4 bp. Suppose the ETF bid is $100.06, a 6 bp premium. The AP sells 50,000 ETF shares for $5,003,000, buys the basket for $5,000,000, pays $1,500 in trading costs and $500 to create, and delivers. Profit is $1,000, or 2 bp. In practice an ETF market maker rarely creates per trade. It hedges with futures or the basket, nets inventory through the day and creates or redeems at the close.
+**Worked example (illustrative).** The basket is worth \$100.00 per ETF share. One creation unit is 50,000 shares, or \$5.0M. Trading the basket costs about 3 bp and the creation fee is \$500, about 1 bp. Arbitrage therefore starts once the premium or discount exceeds about ±4 bp. Suppose the ETF bid is \$100.06, a 6 bp premium. The AP sells 50,000 ETF shares for \$5,003,000, buys the basket for \$5,000,000, pays \$1,500 in trading costs and \$500 to create, and delivers. Profit is \$1,000, or 2 bp. In practice an ETF market maker rarely creates per trade. It hedges with futures or the basket, nets inventory through the day and creates or redeems at the close.
 
 ```mermaid
 sequenceDiagram
@@ -45,13 +45,13 @@ sequenceDiagram
 
 ## Index futures: fair value and basis
 
-The E-mini S&P 500 pays $50 times the index, expires quarterly and settles in cash. It trades nearly 23 hours a day on CME Globex `[Verified]`. Holding the basket costs financing and earns dividends, so the no-arbitrage futures price is
+The E-mini S&P 500 pays \$50 times the index, expires quarterly and settles in cash. It trades nearly 23 hours a day on CME Globex `[Verified]`. Holding the basket costs financing and earns dividends, so the no-arbitrage futures price is
 
 $$
 F = S \, e^{(r - q)T},
 $$
 
-and the [basis](../09-reference/glossary.md#basis) $F - S$ is the net carry. With $S$ = 6,000, financing $r$ = 4.30%, dividend yield $q$ = 1.30% and $T$ = 0.25, fair value is 6,045.2 (illustrative). Suppose ES trades at 6,052. Desks restate that gap as the **implied financing rate**: about 4.75%, or 45 bp over the 4.30% financing rate `[Estimate]`. The futures are rich. An arbitrageur sells futures and buys the basket. Ten contracts capture 6.8 points × $50 × 10 = $3,400, before roughly $600–$1,200 of basket trading costs. The implied financing spread moves with demand for leveraged long exposure and with dealers' balance-sheet costs. That makes it a traded quantity in its own right, not a constant `[Lore]`.
+and the [basis](../09-reference/glossary.md#basis) $F - S$ is the net carry. With $S$ = 6,000, financing $r$ = 4.30%, dividend yield $q$ = 1.30% and $T$ = 0.25, fair value is 6,045.2 (illustrative). Suppose ES trades at 6,052. Desks restate that gap as the **implied financing rate**: about 4.75%, or 45 bp over the 4.30% financing rate `[Estimate]`. The futures are rich. An arbitrageur sells futures and buys the basket. Ten contracts capture 6.8 points × \$50 × 10 = \$3,400, before roughly \$600–\$1,200 of basket trading costs. The implied financing spread moves with demand for leveraged long exposure and with dealers' balance-sheet costs. That makes it a traded quantity in its own right, not a constant `[Lore]`.
 
 ## Who leads: price discovery between futures and cash
 
@@ -71,7 +71,7 @@ Violations are arbitraged through the stock or the future. In single stocks, a p
 
 **[Delta hedging](../09-reference/glossary.md#delta-hedging)** is the second channel. Market makers neutralize delta in the underlying or the future, and [gamma](../09-reference/glossary.md#gamma) makes that hedge trade along with the market. A dealer who is net short gamma buys as prices rise and sells as they fall, which amplifies moves. A dealer who is net long gamma does the opposite, which dampens them.
 
-Here is a first-order illustrative example. With 3 hours left, an at-the-money SPX 0DTE option at 15% volatility has a gamma of about 0.0104 per index point. Take a dealer net short 2,000 contracts. After a 1% move of 60 points, it must trade about $750M of index exposure, roughly 2,500 ES contracts.
+Here is a first-order illustrative example. With 3 hours left, an at-the-money SPX 0DTE option at 15% volatility has a gamma of about 0.0104 per index point. Take a dealer net short 2,000 contracts. After a 1% move of 60 points, it must trade about \$750M of index exposure, roughly 2,500 ES contracts.
 
 [0DTE](../09-reference/glossary.md#0dte) options were a record 66.2% of SPX volume in July 2026 `[Verified]`. Same-day index options averaged about 3.4M contracts a day in Q3 2026 `[Reported]`. The evidence on their effect cuts both ways:
 

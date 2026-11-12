@@ -20,7 +20,7 @@
 | Data required | Timestamped machine-readable news, EDGAR filings with acceptance times, call transcripts and audio, point-in-time entity mapping |
 | Core algorithms used | [F4 LLMs and foundation models in quant](../../03-algorithms/b-forecasting-models/llms-and-foundation-models-in-quant.md) · [D2 Feature engineering](../../03-algorithms/a-data-and-signals/feature-engineering.md) · [D3 Signal transforms](../../03-algorithms/a-data-and-signals/signal-transforms.md) · [D4 Evaluating signals](../../03-algorithms/a-data-and-signals/evaluating-signals.md) |
 | Infra intensity | News: millisecond feed handling and fast execution. Filings and calls: overnight batch, GPU inference |
-| Capacity (rough $ range) | News sleeves $50M–$500M `[Estimate]` (30–100% daily turnover); filing and call signals $1B–$5B as composite components `[Estimate]` (monthly rebalancing, large caps) |
+| Capacity (rough $ range) | News sleeves \$50M–\$500M `[Estimate]` (30–100% daily turnover); filing and call signals \$1B–\$5B as composite components `[Estimate]` (monthly rebalancing, large caps) |
 | Typical Sharpe (gross vs net) | Lazy Prices: up to 188 bps a month alpha, gross, 1995–2014 academic backtest `[Verified]`. Look-ahead-free LLM headline signal: Sharpe 3.20 gross, pre-cost, 2026 academic test on 2013–2024-era headlines `[Verified]`. In a composite: +0.2–0.5 net `[Lore]` |
 | Turnover | News 30–100% of GMV a day; filing signals 100–300% a year `[Estimate]` |
 | Main risks / failure modes | Pretraining look-ahead, bad timestamps, silent model updates, fake news, boilerplate drift |
@@ -110,7 +110,7 @@ def lazy_prices_signal(filings, asof):
 
 ## P&L decomposition
 
-Illustrative $500M GMV text composite, % of GMV a year:
+Illustrative \$500M GMV text composite, % of GMV a year:
 
 | Line | % |
 |---|---|
@@ -149,7 +149,7 @@ flowchart LR
 
 ## How it fails
 
-- **Fake news (April 23, 2013).** A hacked AP account tweeted explosions at the White House; the Dow fell about 143 points and the S&P 500 briefly lost ~$136B of value, recovering within minutes `[Reported]`. Speed amplifies misreads.
+- **Fake news (April 23, 2013).** A hacked AP account tweeted explosions at the White House; the Dow fell about 143 points and the S&P 500 briefly lost ~\$136B of value, recovering within minutes `[Reported]`. Speed amplifies misreads.
 - **Look-ahead.** A model that has read the future flatters every pre-cutoff backtest ([backtest pitfalls](../../03-algorithms/c-validation-and-backtesting/backtest-pitfalls.md)).
 - **Silent drift.** Boilerplate, vendor re-scoring or hosted-model updates change the series without notice `[Lore]`.
 

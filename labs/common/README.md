@@ -115,7 +115,7 @@ mom_signal = simulate.momentum_signal(mr)       # 12-1 month specific return, z-
 
 Calibration on the default config (selftest): realized market vol ~16.6%, average pairwise
 stock correlation ~0.26 (0.38 within sector), daily specific vol 1-2.3% (5th-95th
-percentile), betas 0.60-1.49, mean ADV $7M-$540M, 2-3 stress episodes in 5 years. Planting or
+percentile), betas 0.60-1.49, mean ADV \$7M-\$540M, 2-3 stress episodes in 5 years. Planting or
 removing alphas does not change the factor returns or the specific noise for a given seed.
 
 ## Order book flow (simulate_lob)

@@ -90,19 +90,19 @@ def factor_attribution(h_start, h_end, px_prev, px_close, fills, X, f, model_cos
 
 ## Worked example with numbers
 
-*Illustrative.* One factor (beta). Long $10M of A (beta 1.2), short $10M of B (beta 0.8). Factor return −2.0%; A returns −1.5%, B −3.0%.
+*Illustrative.* One factor (beta). Long \$10M of A (beta 1.2), short \$10M of B (beta 0.8). Factor return −2.0%; A returns −1.5%, B −3.0%.
 
-- Dollar beta 10 × 1.2 − 10 × 0.8 = +$4M → factor P&L = **−$80,000**.
-- $u_A$ = −1.5% + 2.4% = +0.9% → +$90,000; $u_B$ = −3.0% + 1.6% = −1.4%, short earns +$140,000 → specific **+$230,000**.
-- Holding: −$150,000 + $300,000 = +$150,000 = −80,000 + 230,000 ✓.
+- Dollar beta 10 × 1.2 − 10 × 0.8 = +\$4M → factor P&L = **−\$80,000**.
+- $u_A$ = −1.5% + 2.4% = +0.9% → +\$90,000; $u_B$ = −3.0% + 1.6% = −1.4%, short earns +\$140,000 → specific **+\$230,000**.
+- Holding: −\$150,000 + \$300,000 = +\$150,000 = −80,000 + 230,000 ✓.
 
-The book also bought 50,000 A: arrival $99.80, average fill $99.86, close $98.50.
+The book also bought 50,000 A: arrival \$99.80, average fill \$99.86, close $98.50.
 
-- Trading P&L = 50,000 × (98.50 − 99.86) = **−$68,000**.
-- Slippage vs arrival = −50,000 × 0.06 = −$3,000 (6 bps); the model said 8 bps (−$3,992), so execution beat it by $992.
-- The other −$65,000 is A falling after arrival: a timing question, not execution.
+- Trading P&L = 50,000 × (98.50 − 99.86) = **−\$68,000**.
+- Slippage vs arrival = −50,000 × 0.06 = −\$3,000 (6 bps); the model said 8 bps (−\$3,992), so execution beat it by $992.
+- The other −\$65,000 is A falling after arrival: a timing question, not execution.
 
-Total +$82,000. The alpha made $230,000; an unintended beta tilt cost $80,000. Fix the hedge, not the alpha.
+Total +\$82,000. The alpha made \$230,000; an unintended beta tilt cost \$80,000. Fix the hedge, not the alpha.
 
 A market maker's day as an income statement:
 
@@ -141,7 +141,7 @@ flowchart TD
 - **Holding vs trading** is Perold's paper-vs-real portfolio gap (1988) `[Verified]`.
 - **Linking**: daily lines do not sum to compounded returns; Menchero (2004) finds one linking method meets all his criteria `[Verified]`.
 - **Market makers**: Menkveld's study of one HFT market maker found ≈ €1.55 per trade of spread capture net of fees against ≈ €0.68 of positioning losses `[Verified]` (working-paper figures).
-- **Monitoring**: before Knight Capital's 2012 loss, 97 automated emails flagged an error pre-open, but were not designed as alerts and went unread; the SEC's first market access rule case followed ($12M penalty) `[Verified]`.
+- **Monitoring**: before Knight Capital's 2012 loss, 97 automated emails flagged an error pre-open, but were not designed as alerts and went unread; the SEC's first market access rule case followed (\$12M penalty) `[Verified]`.
 
 ## How to tell if it's working
 
@@ -155,7 +155,7 @@ flowchart TD
 
 - **Bad marks**: stale closes or missed splits book phantom specific P&L.
 - **Leakage**: an alpha with a momentum tilt shows as factor P&L; hedging it away hedges away alpha.
-- **Pro-rata sleeves**: sleeves wanting +$6M and −$2M; pro-rating the +$4M net misstates both.
+- **Pro-rata sleeves**: sleeves wanting +\$6M and −\$2M; pro-rating the +\$4M net misstates both.
 - **Alert fatigue**: amber lights train people to ignore red ones.
 
 ## How practitioners talk about it
@@ -212,4 +212,4 @@ Cost is $O(NK)$ per day.
 - [Verified] Menkveld, A. J. (2011). "High frequency trading and the new-market makers." Tinbergen Institute Discussion Paper 11-076/2. <https://tinbergen.nl/discussion-paper/5443/11-076-2-high-frequency-trading-and-the-new-market-makers> (accessed 2026-11)
 - [Verified] MSCI (n.d.). "MSCI MAC Performance Attribution Factsheet." <https://www.msci.com/downloads/web/msci-com/data-and-analytics/portfolio-management/MSCI%20MAC%20Performance%20Attribution%20Factsheet.pdf> (accessed 2026-11)
 - [Verified] U.S. SEC (2013-10-16). "SEC charges Knight Capital with violations of market access rule." Press release 2013-222. <https://www.sec.gov/news/press-release/2013-222> (accessed 2026-11)
-- [Reported] WilmerHale (2013). "Knight Capital settles Rule 15c3-5 violations with SEC, agrees to pay $12 million." <https://www.wilmerhale.com/insights/client-alerts/knight-capital-settles-rule-15c3-5-violations-with-sec-agrees-to-pay-12-million> (accessed 2026-11)
+- [Reported] WilmerHale (2013). "Knight Capital settles Rule 15c3-5 violations with SEC, agrees to pay \$12 million." <https://www.wilmerhale.com/insights/client-alerts/knight-capital-settles-rule-15c3-5-violations-with-sec-agrees-to-pay-12-million> (accessed 2026-11)

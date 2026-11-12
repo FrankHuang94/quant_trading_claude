@@ -22,7 +22,7 @@ Only **[protected quotes](../09-reference/glossary.md#protected-quote)** count: 
 - midpoint pegs and most dark-pool pricing.
 - wholesaler fills to retail.
 
-**Round lots changed on November 3, 2025.** The round lot is now 100 shares for stocks up to $250, 40 shares from $250.01 to $1,000, 10 shares from $1,000.01 to $10,000, and 1 share above that `[Verified]`. Nasdaq estimated that over 200 stocks were affected `[Reported]`. Illustration: in a $900 stock, the best 100-share quotes might be $899.80 × $900.20 while 40-share orders sit at $899.95 × $900.05, so the official NBBO narrows from 40 cents to 10.
+**Round lots changed on November 3, 2025.** The round lot is now 100 shares for stocks up to \$250, 40 shares from \$250.01 to \$1,000, 10 shares from \$1,000.01 to \$10,000, and 1 share above that `[Verified]`. Nasdaq estimated that over 200 stocks were affected `[Reported]`. Illustration: in a \$900 stock, the best 100-share quotes might be \$899.80 × \$900.20 while 40-share orders sit at \$899.95 × \$900.05, so the official NBBO narrows from 40 cents to 10.
 
 **Odd-lot data comes next.** The SIPs were scheduled to begin carrying each exchange's best odd-lot quote at or better than the NBBO, plus a consolidated best odd-lot order (BOLO), from late April and May 2026 `[Verified]`. TODO(verify): confirm the go-live happened as scheduled. Odd-lot quotes are not protected and can lock or cross the NBBO `[Verified]`. A January 2026 SEC exemptive order deferred odd-lot depth of book to May 2028 `[Verified]`.
 
@@ -56,7 +56,7 @@ flowchart LR
 
 ## Why "the SIP is slower" matters: stale quotes
 
-Here is an illustrative race. The NBBO is $20.00 × $20.01 everywhere. A large seller sweeps every $20.00 bid, so the true market is now about $19.99 × $20.00. A dark pool that prices its [midpoint pegs](../09-reference/glossary.md#midpoint-peg) off the SIP still shows $20.005 for a few hundred microseconds. A trader on direct feeds sells to the resting midpoint buyer at $20.005 and buys back around $19.995 once market makers re-quote. That is about 1 cent per share, paid by the slow peg. This is [latency arbitrage](../09-reference/glossary.md#latency-arbitrage) in its purest form.
+Here is an illustrative race. The NBBO is \$20.00 × \$20.01 everywhere. A large seller sweeps every \$20.00 bid, so the true market is now about \$19.99 × $20.00. A dark pool that prices its [midpoint pegs](../09-reference/glossary.md#midpoint-peg) off the SIP still shows \$20.005 for a few hundred microseconds. A trader on direct feeds sells to the resting midpoint buyer at \$20.005 and buys back around \$19.995 once market makers re-quote. That is about 1 cent per share, paid by the slow peg. This is [latency arbitrage](../09-reference/glossary.md#latency-arbitrage) in its purest form.
 
 ```mermaid
 sequenceDiagram
@@ -73,7 +73,7 @@ sequenceDiagram
     Note over HF,DP: About 1 cent per share moves from the slow peg to the fast trader
 ```
 
-How big is it? Using exchange message data for London's FTSE 100 stocks, Aquilina, Budish and O'Neill (2022) found latency-arbitrage races in about 20% of trading volume. They work out a cost equal to roughly a 0.5 bp tax on trading, about $5B a year across global equity markets `[Verified]`. Bartlett and McCrary, by contrast, argued that arbitrage against the US SIP specifically was too small after 2015 to explain the arms race `[Reported]`, and many venues now price off direct feeds `[Lore]`. The evidence is mixed.
+How big is it? Using exchange message data for London's FTSE 100 stocks, Aquilina, Budish and O'Neill (2022) found latency-arbitrage races in about 20% of trading volume. They work out a cost equal to roughly a 0.5 bp tax on trading, about \$5B a year across global equity markets `[Verified]`. Bartlett and McCrary, by contrast, argued that arbitrage against the US SIP specifically was too small after 2015 to explain the arms race `[Reported]`, and many venues now price off direct feeds `[Lore]`. The evidence is mixed.
 
 ## The Market Data Infrastructure rule: status
 

@@ -4,7 +4,7 @@
 >
 > - Latency arbitrage trades against quotes left stale for microseconds after public news (a futures tick, a sweep on another venue) moved fair value. Whoever reaches the matching engine first wins.
 > - It is a race, not a forecast: in London Stock Exchange data the winner beat the first loser by a modal 5–10 µs, and races were about 22% of FTSE 100 volume `[Verified]`.
-> - Sniped quoters pay first and investors pay last, through wider spreads: a "tax" of roughly 0.5 bp of trading volume, about $5B a year globally `[Verified]`.
+> - Sniped quoters pay first and investors pay last, through wider spreads: a "tax" of roughly 0.5 bp of trading volume, about \$5B a year globally `[Verified]`.
 > - The edge is rank, not capital. Speed bumps (IEX) blunt it on one venue only.
 
 **Level:** Deep dive · **Read time:** ~8 min · **Last verified:** 2026-11
@@ -19,7 +19,7 @@
 | Data required | direct feeds from every venue and CME; synchronized hardware timestamps |
 | Core algorithms used | [M1 Anatomy of an HFT trading loop](../../03-algorithms/f-market-making-and-hft-algorithms/anatomy-of-an-hft-trading-loop.md) · [M2 Fair value and microprice](../../03-algorithms/f-market-making-and-hft-algorithms/fair-value-and-microprice.md) · [M3 Order-book and trade-flow signals](../../03-algorithms/f-market-making-and-hft-algorithms/order-book-and-trade-flow-signals.md) · [M9 Algorithmic risk controls](../../03-algorithms/f-market-making-and-hft-algorithms/algorithmic-risk-controls.md) |
 | Infra intensity | extreme: colocation, FPGA tick-to-trade, microwave or millimeter-wave links |
-| Capacity (rough $ range) | P&L-limited, not capital-limited: US pool roughly $1–3B/yr, a top firm tens to low hundreds of $M `[Estimate]` (from ABO's ~$5B global figure and top-6 concentration) |
+| Capacity (rough $ range) | P&L-limited, not capital-limited: US pool roughly \$1–3B/yr, a top firm tens to low hundreds of $M `[Estimate]` (from ABO's ~\$5B global figure and top-6 concentration) |
 | Typical Sharpe (gross vs net) | Not meaningful on capital. Fastest firm: gross daily Sharpe far above 5; runner-up near zero `[Lore]`. No fund disclosures. Profits track latency rank (Baron et al. 2019, academic) `[Verified]`; per-race profit held flat 2005–2011 (BCS) `[Verified]` |
 | Turnover | extreme: about one race per minute per FTSE 100 stock `[Verified]` |
 | Main risks / failure modes | rank loss, false triggers, hedge-leg slippage, rain fade, runaway code, venue redesign |
@@ -44,7 +44,7 @@ Budish, Cramton & Shim (2015) call it a design flaw. A continuous [limit order b
 
 ## Worked example with numbers
 
-Illustrative. Index 6,000, SPY ≈ $600. ES ticks up 0.25 points (4.2 bps); SPY fair value rises ≈ $0.025, from a 599.995 mid to ≈ 600.02. Three venues still offer 2,000 shares at 600.00.
+Illustrative. Index 6,000, SPY ≈ $600. ES ticks up 0.25 points (4.2 bps); SPY fair value rises ≈ \$0.025, from a 599.995 mid to ≈ 600.02. Three venues still offer 2,000 shares at 600.00.
 
 | Step | Calculation | $ |
 |---|---|---|
@@ -54,7 +54,7 @@ Illustrative. Index 6,000, SPY ≈ $600. ES ticks up 0.25 points (4.2 bps); SPY 
 | Exit slippage | 1,200 × 0.005 | −6.00 |
 | **Net** | | **+14.40** (≈ 0.2 bps) |
 
-The market maker who sold lost $24.00, less a ~$2.40 rebate. About a penny a share: only volume and win rate matter.
+The market maker who sold lost \$24.00, less a ~\$2.40 rebate. About a penny a share: only volume and win rate matter.
 
 ## Signals and algorithms under the hood
 
@@ -100,13 +100,13 @@ Illustrative: 8M shares/day of race fills, 250 days.
 | Links, colocation, FPGA team | | −5.0 |
 | **Net** | | **+2.0** |
 
-Double the wins and net rises to $9M: rank is operating leverage.
+Double the wins and net rises to \$9M: rank is operating leverage.
 
 ## Evidence
 
 - **Budish, Cramton & Shim (2015, *QJE*):** the median ES–SPY opportunity shrank from 97 ms (2005) to 7 ms (2011), with profit per opportunity roughly flat `[Verified]`.
 - **Aquilina, Budish & O'Neill (2022, *QJE*):** about 20% of FTSE 100 trading volume in races, a latency-arbitrage tax of roughly 0.5 bp of trading volume, top 6 firms in over 80% of race wins and losses; removing races would cut the cost of liquidity ~17% `[Verified]`.
-- **Wah (2016):** over $3B of potential 2014 profit in S&P 500 stocks, an upper bound `[Reported]`.
+- **Wah (2016):** over \$3B of potential 2014 profit in S&P 500 stocks, an upper bound `[Reported]`.
 - **Shkilko & Sokolov (2020, *JF*):** when rain disables microwave links, adverse selection falls and liquidity improves `[Verified]`.
 - **Counterpoint:** Bartlett & McCrary (2016) find US SIP-based arbitrage too small to explain the arms race `[Reported]`; Menkveld (2013) and Baron et al. (2019) show speed also serving market making `[Verified]`. Net welfare is contested.
 

@@ -19,7 +19,7 @@
 | Data required | Point-in-time estimates and recommendations (for example I/B/E/S), short interest, lending utilization and fees, scored news, option implied volatilities |
 | Core algorithms used | [D2 Feature engineering](../../03-algorithms/a-data-and-signals/feature-engineering.md) · [D3 Signal transforms](../../03-algorithms/a-data-and-signals/signal-transforms.md) · [D4 Evaluating signals](../../03-algorithms/a-data-and-signals/evaluating-signals.md) · [F5 Alpha combination and ensembling](../../03-algorithms/b-forecasting-models/alpha-combination-and-ensembling.md) · [F4 LLMs and foundation models in quant](../../03-algorithms/b-forecasting-models/llms-and-foundation-models-in-quant.md) |
 | Infra intensity | Overnight batch; real-time feeds for news |
-| Capacity (rough $ range) | Revisions and short interest: $1B–$5B as a component `[Estimate]`; news and options signals: $100M–$1B `[Estimate]` (decay within days forces high turnover) |
+| Capacity (rough $ range) | Revisions and short interest: \$1B–\$5B as a component `[Estimate]`; news and options signals: \$100M–\$1B `[Estimate]` (decay within days forces high turnover) |
 | Typical Sharpe (gross vs net) | Recommendation long-short: >4% a year gross, 1986–1996, not reliably positive after costs `[Reported]`; option-skew long-short: ~10.9% a year risk-adjusted, gross of costs, 1996–2005 `[Reported]`; both academic backtests, decayed since. Inside a composite: +0.2–0.5 net Sharpe contribution `[Lore]` |
 | Turnover | Revisions 100–400% a year; news sleeves 20–50% a day `[Lore]` |
 | Main risks / failure modes | Short squeezes, vendor-signal crowding, back-filled data, regime shifts in analyst behaviour |
@@ -54,9 +54,9 @@ Then z-score within sector, orthogonalize to surprise and momentum, IC-weight, n
 
 ## Worked example with numbers
 
-**Revisions (illustrative).** Twelve analysts; over 60 days seven raised next-year EPS and one cut. Net revision ratio = (7 − 1) / 12 = 0.50. Consensus moved $4.00 → $4.20 on an $80 stock: revision-to-price = 0.20 / 80 = 0.25%. Within sector these z-score to +1.6 and +1.2; average +1.4.
+**Revisions (illustrative).** Twelve analysts; over 60 days seven raised next-year EPS and one cut. Net revision ratio = (7 − 1) / 12 = 0.50. Consensus moved \$4.00 → \$4.20 on an \$80 stock: revision-to-price = 0.20 / 80 = 0.25%. Within sector these z-score to +1.6 and +1.2; average +1.4.
 
-**The short-side trap (illustrative).** Days-to-cover = 6M shares short / 0.5M ADV = 12 days, top decile; the model wants to short $2M. Expected underperformance 1.0% a month = +$20,000. Borrow fee 25% a year = 2.1% a month = −$41,700. Net ≈ −$21,700 a month before squeeze risk: fee-adjusted alpha is what matters.
+**The short-side trap (illustrative).** Days-to-cover = 6M shares short / 0.5M ADV = 12 days, top decile; the model wants to short \$2M. Expected underperformance 1.0% a month = +\$20,000. Borrow fee 25% a year = 2.1% a month = −\$41,700. Net ≈ −\$21,700 a month before squeeze risk: fee-adjusted alpha is what matters.
 
 ## Signals and algorithms under the hood
 
@@ -94,7 +94,7 @@ def sentiment_composite(rev, dtc, news, skew, sector):
 
 ## P&L decomposition
 
-Illustrative $1B GMV sleeve:
+Illustrative \$1B GMV sleeve:
 
 | Line | % of GMV per year |
 |---|---|

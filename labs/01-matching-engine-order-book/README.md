@@ -9,7 +9,7 @@
    forward, and that a marketable limit order trades and then rests its remainder.
 2. **Why queue position has value.** The synthetic order-book simulator
    (`labs/common/simulate.py`, which runs the same matching engine) generates a day of order flow
-   for a $50 stock with a 1-cent tick: liquidity providers, noise traders and informed traders
+   for a \$50 stock with a 1-cent tick: liquidity providers, noise traders and informed traders
    who know the latent fair value. A probe agent posts a real 100-share order at the back of the
    best bid or ask every 5 seconds (14,000 probes over three simulated days) and cancels it
    after 60 seconds if it is still unfilled. Because queue lengths vary, probes start with
@@ -70,7 +70,7 @@ and rests 100 shares as the new best bid. Part B (full run, seed 7):
 
 ![Fill probability falls as the queue ahead grows](../../docs/assets/labs/lab01-fill-prob-vs-queue.png)
 
-*Fill probability of 100-share probes vs shares ahead when posted (synthetic $50 stock, 1-cent tick).*
+*Fill probability of 100-share probes vs shares ahead when posted (synthetic \$50 stock, 1-cent tick).*
 
 | Markout of fills, ticks per share | at 0 s | at 10 s | at 30 s |
 |---|---|---|---|
@@ -88,7 +88,7 @@ Every fill starts near +0.5 ticks (the passive order earned half a 1-tick spread
 from the back of a long queue give most of that back, and more, within 10 seconds. Combining
 both effects, the expected value of a posted order at 30 seconds (fill probability x markout) is
 about **+0.28 ticks per share in the shortest-queue quartile vs -0.29 in the longest**: queue
-priority is worth roughly half a tick, or $0.56 per 100 shares, in this toy. Exact numbers vary
+priority is worth roughly half a tick, or \$0.56 per 100 shares, in this toy. Exact numbers vary
 with `--seed` by a few hundredths of a tick; the ordering does not.
 
 ## What this toy misses vs the real world
@@ -110,6 +110,6 @@ with `--seed` by a few hundredths of a tick; the ordering does not.
   their own (small) effect on the queue behind them, and they assume orders ahead never
   re-enter. Production queue models also estimate unseen cancellations from market-by-price
   data, since most feeds do not identify individual orders.
-- **One tick size and price level.** A $50 stock with a 1-cent tick is a "large-tick" name
+- **One tick size and price level.** A \$50 stock with a 1-cent tick is a "large-tick" name
   where queues matter a lot; for high-priced or volatile stocks the spread is many ticks wide
   and price improvement, not queue position, dominates.

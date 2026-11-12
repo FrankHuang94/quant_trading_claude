@@ -15,7 +15,7 @@
 | Inputs → Outputs | Vendor prices, corporate actions, timestamped filings, estimates, identifiers, index membership → clean panel keyed by permanent ID and knowledge time; universe per date |
 | Used by strategies | [Fundamental signals](../../02-strategies/d-mid-frequency-alpha/fundamental-quant-signals.md) · [Earnings and events](../../02-strategies/d-mid-frequency-alpha/earnings-and-event-driven.md) · [Cross-sectional alpha](../../02-strategies/d-mid-frequency-alpha/cross-sectional-alpha-and-neutralization.md) · [Analyst revisions](../../02-strategies/d-mid-frequency-alpha/analyst-revisions-and-sentiment.md) · [Value, quality, low vol](../../02-strategies/e-risk-premia-and-factors/value-quality-low-vol.md) · [Momentum](../../02-strategies/e-risk-premia-and-factors/momentum.md) · [Reversal](../../02-strategies/c-statistical-arbitrage/short-term-cross-sectional-reversal.md) · [Flow-driven](../../02-strategies/d-mid-frequency-alpha/flow-driven-strategies.md) · [Alternative data](../../02-strategies/d-mid-frequency-alpha/alternative-data.md) · [NLP signals](../../02-strategies/d-mid-frequency-alpha/nlp-and-llm-signals.md) |
 | Latency / compute regime | Overnight batch: as-of joins over ~10⁸ stock-days take minutes on a columnar store `[Estimate]`; tick filters run per message |
-| Key parameters | Lag after public timestamp (minutes to one session); delisting imputation −30% / −55%; bad-tick limits (spread > 50× daily median); price ≥ $5, ADV ≥ $1–10M |
+| Key parameters | Lag after public timestamp (minutes to one session); delisting imputation −30% / −55%; bad-tick limits (spread > 50× daily median); price ≥ \$5, ADV ≥ \$1–10M |
 | Main failure modes | Restated or period-end-dated data; survivorship; split errors; reused tickers; time-zone slips; silent vendor revisions |
 | Lab | — |
 
@@ -82,13 +82,13 @@ def universe(snap, min_price=5.0, min_adv_usd=5e6, top_n=3000):
 
 ## Worked example with numbers
 
-Company figures are illustrative. A firm's 10-K is accepted Wednesday 2025-02-26 at 18:05 ET. Filings started after 5:30 p.m. are dated the next business day `[Verified]`, so EDGAR shows 2025-02-27. EPS is $2.00; in August 2025 it is restated to $1.60.
+Company figures are illustrative. A firm's 10-K is accepted Wednesday 2025-02-26 at 18:05 ET. Filings started after 5:30 p.m. are dated the next business day `[Verified]`, so EDGAR shows 2025-02-27. EPS is \$2.00; in August 2025 it is restated to $1.60.
 
-| Data treatment | First decision that sees FY2024 EPS | EPS in March 2025 | E/P at $40 |
+| Data treatment | First decision that sees FY2024 EPS | EPS in March 2025 | E/P at \$40 |
 |---|---|---|---|
-| Period-end dating | 2024-12-31 (59 days early) | $2.00 | 5.0% |
-| As-restated | 2024-12-31 | $1.60 | 4.0% |
-| PIT, 1-day lag | Fri 2025-02-28 close | $2.00 | 5.0% |
+| Period-end dating | 2024-12-31 (59 days early) | \$2.00 | 5.0% |
+| As-restated | 2024-12-31 | \$1.60 | 4.0% |
+| PIT, 1-day lag | Fri 2025-02-28 close | \$2.00 | 5.0% |
 
 Against a median E/P of 4.5%, the stock is cheap on PIT data and expensive on restated data. A restated-data value backtest skips or shorts it from March and banks any August drop on the news, which nothing public predicted.
 
@@ -98,7 +98,7 @@ Against a median E/P of 4.5%, the stock is cheap on PIT data and expensive on re
 
 - **Lag.** 10-Ks are due 60, 75 or 90 days after year-end by filer size `[Verified]`; academic sorts often assume six months `[Reported]`. Practitioners use acceptance time plus a buffer, from minutes to a session `[Lore]`. Forms 4 and 13D filed until 10 p.m. keep same-day dates `[Verified]`, so the filing date misleads.
 - **Bad ticks.** Barndorff-Nielsen et al. (2009) rules drop quotes with spreads above 50× the day's median, mids beyond 10 median absolute deviations of a 50-quote centered median, and trades over one spread outside the quote `[Verified]`.
-- **Screens.** A $5 floor removes penny stocks; NYSE size breakpoints and value weights stop microcaps dominating (Hou, Xue & Zhang) `[Verified]`.
+- **Screens.** A \$5 floor removes penny stocks; NYSE size breakpoints and value weights stop microcaps dominating (Hou, Xue & Zhang) `[Verified]`.
 
 ## Textbook version vs what firms actually do
 

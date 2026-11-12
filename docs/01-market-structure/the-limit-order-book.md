@@ -19,7 +19,7 @@ Three events change the book:
 - **Cancel:** a resting order leaves. Most US equity orders are cancelled, not filled.
 - **Execute:** a marketable order matches against the front of the best opposite queue.
 
-On US exchanges the minimum quoting increment ([tick size](../09-reference/glossary.md#tick-size)) is $0.01 for stocks priced at $1 or more. The SEC's 2024 amendments add a $0.005 tick for stocks whose spread is pinned at one tick, but compliance has been pushed to the first business day of November 2027 `[Verified]`. See [fees, rebates and ticks](fees-rebates-and-ticks.md).
+On US exchanges the minimum quoting increment ([tick size](../09-reference/glossary.md#tick-size)) is \$0.01 for stocks priced at \$1 or more. The SEC's 2024 amendments add a \$0.005 tick for stocks whose spread is pinned at one tick, but compliance has been pushed to the first business day of November 2027 `[Verified]`. See [fees, rebates and ticks](fees-rebates-and-ticks.md).
 
 ```mermaid
 flowchart TD
@@ -70,7 +70,7 @@ The mid is 100.005 and the spread is one tick. A market buy for 1,000 shares arr
 - 500 at 100.02 (C, then D)
 - 100 at 100.03 (A; B is untouched)
 
-Average price = (400 × 100.01 + 500 × 100.02 + 100 × 100.03) / 1,000 = **100.017**. That is 1.2 cents, or about 1.2 bps, above the pre-trade mid: $12 of cost on a $100k order. The book after the trade shows 100.00 bid and 100.03 ask, a 3-cent spread. How fast market makers re-quote 100.01 and 100.02 is the book's **resilience**; in liquid names it is often milliseconds `[Lore]`. In practice a router would sweep several venues at once with ISOs rather than walk one book (see [order types and auctions](order-types-and-auctions.md)). [Lab 01](https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/01-matching-engine-order-book) implements a price-time matching engine you can replay this on.
+Average price = (400 × 100.01 + 500 × 100.02 + 100 × 100.03) / 1,000 = **100.017**. That is 1.2 cents, or about 1.2 bps, above the pre-trade mid: \$12 of cost on a \$100k order. The book after the trade shows 100.00 bid and 100.03 ask, a 3-cent spread. How fast market makers re-quote 100.01 and 100.02 is the book's **resilience**; in liquid names it is often milliseconds `[Lore]`. In practice a router would sweep several venues at once with ISOs rather than walk one book (see [order types and auctions](order-types-and-auctions.md)). [Lab 01](https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/01-matching-engine-order-book) implements a price-time matching engine you can replay this on.
 
 ## Queue value: why being early is worth money
 
@@ -92,7 +92,7 @@ Illustrative numbers, per share, for a resting bid that gets filled. The [markou
 
 The front is worth about half a cent a share more than the back, roughly the half-spread, a common rule of thumb for large-tick names `[Lore]`. Most of the gap is adverse selection, not fill rate. That is why HFT market makers race to the front when a new price level opens, and why the [queue-position card](../03-algorithms/f-market-making-and-hft-algorithms/queue-position-and-order-placement.md) models the two together. Academic queue models include Cont, Stoikov and Talreja (2010) and Huang, Lehalle and Rosenbaum's queue-reactive model (2015).
 
-[Lab 01](https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/01-matching-engine-order-book) measures the same effect in a simulated order book with informed and noise traders. It posts 14,004 probe orders at different depths in the queue. Orders in the front quartile filled within 10 s 86% of the time, against 47% for the back quartile. Their 10-second markouts were +0.28 vs −0.23 ticks. Comparing the front and back of the same queue puts priority at about $0.56 per 100 shares (synthetic lab result).
+[Lab 01](https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/01-matching-engine-order-book) measures the same effect in a simulated order book with informed and noise traders. It posts 14,004 probe orders at different depths in the queue. Orders in the front quartile filled within 10 s 86% of the time, against 47% for the back quartile. Their 10-second markouts were +0.28 vs −0.23 ticks. Comparing the front and back of the same queue puts priority at about \$0.56 per 100 shares (synthetic lab result).
 
 ![Lab 01: fill probability vs shares ahead in the queue](../assets/labs/lab01-fill-prob-vs-queue.png)
 

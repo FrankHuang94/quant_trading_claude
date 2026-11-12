@@ -47,16 +47,16 @@ Informed traders concentrate in the leader, so it carries most of the [informati
 
 **Speed** `[Estimate]`: Aurora to New Jersey is ~1,175 km, 3.92 ms at vacuum light speed; microwave reached 3.982 ms (2016) and the best fiber took 6.65 ms (2013) `[Reported]`. Fiber users arrive ~2.7 ms after the race ends.
 
-**Fair value** (illustrative): ES at 6,000 ticks up 0.25; a $200 stock has 100 ms beta 1.3, shrunk by 0.5.
+**Fair value** (illustrative): ES at 6,000 ticks up 0.25; a \$200 stock has 100 ms beta 1.3, shrunk by 0.5.
 
 | Step | Calculation | Result |
 |---|---|---|
 | Leader return | 0.25 / 6,000 | +4.17 bps |
-| Implied follower move | 0.5 × 1.3 × 4.17 bps × $200 | +$0.054 |
+| Implied follower move | 0.5 × 1.3 × 4.17 bps × \$200 | +\$0.054 |
 | New fair value | mid 199.99 + 0.054 | 200.044 |
 | Edge on stale 200.00 ask after 0.3¢ fee | 4.4¢ − 0.3¢ | 4.1¢/share |
-| Expected P&L, 500 shares | 500 × $0.041 | +$20.50 |
-| Hedge | 500 × $200 × 1.3 ÷ $30,000 per Micro E-mini | sell ≈ 4 contracts |
+| Expected P&L, 500 shares | 500 × \$0.041 | +\$20.50 |
+| Hedge | 500 × \$200 × 1.3 ÷ \$30,000 per Micro E-mini | sell ≈ 4 contracts |
 
 ## Signals and algorithms under the hood
 
@@ -89,7 +89,7 @@ def decide(fv, best_bid, best_ask, take_fee=0.003, edge_ticks=0.5, tick=0.01):
 - **Event time, not clock time.** Asynchronous trading depresses measured correlation at short horizons (the [Epps effect](../../09-reference/glossary.md#epps-effect)); sample on leader updates.
 - **Timestamps.** Estimate lags with exchange timestamps, not your receive times.
 - **Leader set.** ES, NQ, the sector ETF and top holdings; ridge keeps them from fighting.
-- **Hedge size.** ES is $50 × index; Micro E-minis ($5 × index) hedge finer at higher cost.
+- **Hedge size.** ES is \$50 × index; Micro E-minis (\$5 × index) hedge finer at higher cost.
 
 ## P&L decomposition
 

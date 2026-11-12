@@ -65,16 +65,16 @@ A [prime broker](../09-reference/glossary.md#prime-broker) finances longs and le
 
 ## Worked example: borrow and financing drag
 
-Take an illustrative dollar-neutral book with $250M of capital, $500M long and $500M short (4x gross). In a dollar-neutral book the benchmark interest roughly nets out. What is left are the spreads and fees.
+Take an illustrative dollar-neutral book with \$250M of capital, \$500M long and \$500M short (4x gross). In a dollar-neutral book the benchmark interest roughly nets out. What is left are the spreads and fees.
 
 | Cost line | Calculation | Annual cost |
 |---|---|---|
-| Long financing spread | 0.40% × $500M | $2.00M |
-| GC borrow on 90% of shorts | 0.30% × $450M | $1.35M |
-| HTB borrow on 10% of shorts | 8% average × $50M | $4.00M |
-| **Total drag** | | **$7.35M = 2.9% of capital** |
+| Long financing spread | 0.40% × \$500M | \$2.00M |
+| GC borrow on 90% of shorts | 0.30% × \$450M | \$1.35M |
+| HTB borrow on 10% of shorts | 8% average × \$50M | \$4.00M |
+| **Total drag** | | **\$7.35M = 2.9% of capital** |
 
-If the gross alpha is 10% on capital ($25M), carrying the book eats about 29% of it. The 10% of shorts that are hard to borrow cost more than the whole GC book and the long financing combined. That is why production systems treat borrow cost as a per-name negative expected return, cap or exclude HTB names, and build recall risk into sizing. A backtest that ignores this overstates short-side returns exactly where the signal looks strongest.
+If the gross alpha is 10% on capital (\$25M), carrying the book eats about 29% of it. The 10% of shorts that are hard to borrow cost more than the whole GC book and the long financing combined. That is why production systems treat borrow cost as a per-name negative expected return, cap or exclude HTB names, and build recall risk into sizing. A backtest that ignores this overstates short-side returns exactly where the signal looks strongest.
 
 ```mermaid
 flowchart LR
@@ -86,7 +86,7 @@ flowchart LR
 
 ## Disclosure rules in limbo (as of 2026-11)
 
-- **Rule 13f-2 / Form SHO.** Institutional managers above set thresholds ($10M, or a 2.5% monthly average of shares outstanding, for reporting issuers) would report gross short positions monthly `[Reported]`. The SEC would publish aggregates.
+- **Rule 13f-2 / Form SHO.** Institutional managers above set thresholds (\$10M, or a 2.5% monthly average of shares outstanding, for reporting issuers) would report gross short positions monthly `[Reported]`. The SEC would publish aggregates.
 - **Rule 10c-1a.** Lenders would report loan terms, including fees, to FINRA for publication.
 - **Status.** In August 2025 the Fifth Circuit remanded both rules to the SEC without vacating them. On Dec 3, 2025, the SEC deferred compliance to Jan 2, 2028 for Form SHO (first filings due Feb 14, 2028), and to Sep 28, 2028 for 10c-1a reporting, with public dissemination from Mar 29, 2029 `[Reported]`.
 

@@ -21,7 +21,7 @@
 
 ## Intuition
 
-A raw price of $412 says nothing; "fell 8% in five days while its sector fell 2%, on twice its usual volume" says a lot. Feature engineering is the analyst's normalization of comps: EV/EBITDA instead of raw EBITDA, adjusted for one-offs, on a common calendar. Each feature should be comparable across stocks and decades, known at decision time, and tied to an economic story.
+A raw price of \$412 says nothing; "fell 8% in five days while its sector fell 2%, on twice its usual volume" says a lot. Feature engineering is the analyst's normalization of comps: EV/EBITDA instead of raw EBITDA, adjusted for one-offs, on a common calendar. Each feature should be comparable across stocks and decades, known at decision time, and tied to an economic story.
 
 | Family | Examples | Typical windows |
 |---|---|---|
@@ -99,9 +99,9 @@ def make_target(px, horizon=5):
 
 ## Worked example with numbers
 
-One stock, four days (illustrative): returns +2.0%, −1.0%, −3.0%, +1.0% on dollar volumes $40M, $25M, $60M, $20M.
+One stock, four days (illustrative): returns +2.0%, −1.0%, −3.0%, +1.0% on dollar volumes \$40M, \$25M, \$60M, \$20M.
 
-**Amihud** (|return| ÷ dollar volume × 10⁶, averaged): 0.02/40 = 0.00050; 0.01/25 = 0.00040; 0.03/60 = 0.00050; 0.01/20 = 0.00050. Mean 0.000475: about 4.75 bps of price move per $1M traded. A mega-cap moving 1% on $10B gives 0.000001, a ratio of 475×. That is why the code takes logs: ln 0.000475 = −7.65 versus ln 0.000001 = −13.8.
+**Amihud** (|return| ÷ dollar volume × 10⁶, averaged): 0.02/40 = 0.00050; 0.01/25 = 0.00040; 0.03/60 = 0.00050; 0.01/20 = 0.00050. Mean 0.000475: about 4.75 bps of price move per \$1M traded. A mega-cap moving 1% on \$10B gives 0.000001, a ratio of 475×. That is why the code takes logs: ln 0.000475 = −7.65 versus ln 0.000001 = −13.8.
 
 **Reversal:** cumulative return = 1.02 × 0.99 × 0.97 × 1.01 − 1 = −1.07%, so raw reversal is +1.07% (buy). The sector median fell 2.5%, so the stock *outperformed* by 1.43% and the sector-relative reversal is −1.43% (sell). If the sector-relative feature's cross-sectional median is about zero and its MAD-scaled spread 3%, the z-score is −0.48. Normalization flipped the trade.
 

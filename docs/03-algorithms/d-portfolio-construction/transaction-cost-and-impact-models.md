@@ -83,20 +83,20 @@ def calibrate_Y(slip_bps, spread_bps, sigma_daily, participation, n_bins=10):
 
 ## Worked example with numbers
 
-*Illustrative.* $50 stock, ADV 4M shares ($200M), σ = 2% a day (200 bps), spread 4 bps, commission 0.5¢. Buy 5% of ADV: 200,000 shares, $10M.
+*Illustrative.* \$50 stock, ADV 4M shares (\$200M), σ = 2% a day (200 bps), spread 4 bps, commission 0.5¢. Buy 5% of ADV: 200,000 shares, \$10M.
 
 - √0.05 = 0.2236. **Peak impact** = Y × 200 × 0.2236 = **22.4 bps (Y = 0.5) to 44.7 bps (Y = 1)**.
 - At a steady rate the average fill pays 2/3 of the peak (Go deeper): **14.9–29.8 bps**.
 - Half-spread 2 bps if every fill crosses; commission 1 bp.
-- **Total ≈ 18–33 bps: $18,000–$33,000.**
+- **Total ≈ 18–33 bps: \$18,000–\$33,000.**
 
 Scaling (peak impact, Y = 0.5) vs a linear model matched at 5%:
 
 | % of ADV | Square-root | Linear | Square-root $ |
 |---|---|---|---|
-| 1% ($2M) | 10.0 bps | 4.5 bps | $2,000 |
-| 5% ($10M) | 22.4 bps | 22.4 bps | $22,400 |
-| 20% ($40M) | 44.7 bps | 89.4 bps | $178,900 |
+| 1% (\$2M) | 10.0 bps | 4.5 bps | \$2,000 |
+| 5% (\$10M) | 22.4 bps | 22.4 bps | \$22,400 |
+| 20% (\$40M) | 44.7 bps | 89.4 bps | \$178,900 |
 
 Four times the size: twice the cost per share, eight times the dollars. The linear model halves small-trade costs and doubles large ones.
 
@@ -113,7 +113,7 @@ Four times the size: twice the cost per share, eight times the dollars. The line
 - **Textbook:** linear temporary and permanent impact, so quadratic costs ([Almgren & Chriss 2000](https://doi.org/10.21314/JOR.2001.041)). That gives Gârleanu and Pedersen's closed-form partial trading rule `[Verified]` ([P6](multi-period-and-trading-toward-aim.md)).
 - **Measured impact is concave:** exponent ≈ 0.6 on about 700,000 Citigroup US orders (Almgren et al. 2005); 0.5–0.6 on nearly 500,000 CFM futures trades `[Verified]` (both per Tóth et al.). About 400,000 European metaorders confirm the square root `[Verified]` (Bacry et al.).
 - **Contested at the edges:** a logarithm fits almost five orders of magnitude of size, the square root about two `[Verified]` (Zarinelli et al.); tiny orders look linear `[Verified]` (Bucci et al.).
-- **Academic estimates are too high:** on $1.7 trillion of AQR live trades (21 markets, 19 years), costs were an order of magnitude below earlier studies; a calibrated model beat the literature out of sample `[Verified]`. AQR trades patiently with limit orders, so this may not transfer `[Reported]`.
+- **Academic estimates are too high:** on \$1.7 trillion of AQR live trades (21 markets, 19 years), costs were an order of magnitude below earlier studies; a calibrated model beat the literature out of sample `[Verified]`. AQR trades patiently with limit orders, so this may not transfer `[Reported]`.
 
 ## How to tell if it's working
 

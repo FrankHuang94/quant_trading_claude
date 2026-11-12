@@ -21,6 +21,7 @@ labs-smoke:
 	$(PY) scripts/run_labs.py --smoke --max-seconds 60
 
 check:
+	$(PY) scripts/fix_dollars.py --check
 	$(PY) scripts/check_template.py --quiet
 	$(PY) scripts/check_matrix.py
 	$(PY) scripts/check_glossary_links.py
@@ -28,6 +29,7 @@ check:
 	$(MKDOCS) build --strict --quiet
 
 check-strict:
+	$(PY) scripts/fix_dollars.py --check
 	$(PY) scripts/check_template.py --strict --quiet
 	$(PY) scripts/check_matrix.py
 	$(PY) scripts/check_glossary_links.py --strict

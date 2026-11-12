@@ -4,7 +4,7 @@
 >
 > - Implementation shortfall (Perold 1988) charges execution against the decision price, unfilled shares included. IS algos minimize it.
 > - Almgren-Chriss minimizes E[IS] + λ·Var[IS]: impact punishes speed, risk punishes waiting. Holdings decay like sinh; λ = 0 is TWAP.
-> - [Lab 16](https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/16-almgren-chriss-frontier), $500M at 50% of a $1B ADV over 5 days (synthetic): TWAP expects 46 bps, SD 254; a risk-averse schedule 96 bps, SD 110.
+> - [Lab 16](https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/16-almgren-chriss-frontier), \$500M at 50% of a \$1B ADV over 5 days (synthetic): TWAP expects 46 bps, SD 254; a risk-averse schedule 96 bps, SD 110.
 > - Real IS algos expose urgency, cap participation, adapt to prices and route dark and lit.
 > - Under square-root impact the fastest schedule costs 84 bps, not the linear model's 242. On single orders TWAP beats the risk-averse schedule 61% of the time.
 
@@ -92,26 +92,26 @@ def pre_trade_report(X, T, n, S0, sigma, eta, gamma, epsilon, lam, adv, cap=0.25
 
 ## Worked example with numbers
 
-Lab 16's calibration (synthetic): sell X = 10M shares at $50 ($500M, 1 bp = $50,000), ADV 20M shares, T = 5 days in 50 intervals (τ = 0.1 day), σ = $1.00 per √day (2%), half-spread ε = $0.0075, η = 5×10⁻⁸, γ = 2.5×10⁻⁸.
+Lab 16's calibration (synthetic): sell X = 10M shares at \$50 (\$500M, 1 bp = \$50,000), ADV 20M shares, T = 5 days in 50 intervals (τ = 0.1 day), σ = \$1.00 per √day (2%), half-spread ε = \$0.0075, η = 5×10⁻⁸, γ = 2.5×10⁻⁸.
 
 **TWAP by hand** (200,000 shares per interval):
 
-- Permanent: ½γX² = 0.5 × 2.5×10⁻⁸ × 10¹⁴ = $1.25M = **25.0 bps**.
-- Temporary: η̃ = η − ½γτ = 4.875×10⁻⁸; (η̃/τ) × Σn² = 4.875×10⁻⁷ × 50 × (2×10⁵)² = $0.975M = **19.5 bps**.
-- Spread: εX = $75,000 = **1.5 bps**. Total **46.0 bps, $2.3M**.
-- Risk: σ²τΣx² = 0.1 × 10¹⁴ × 16.17 → SD $12.7M = **254 bps**, dwarfing the impact.
+- Permanent: ½γX² = 0.5 × 2.5×10⁻⁸ × 10¹⁴ = \$1.25M = **25.0 bps**.
+- Temporary: η̃ = η − ½γτ = 4.875×10⁻⁸; (η̃/τ) × Σn² = 4.875×10⁻⁷ × 50 × (2×10⁵)² = \$0.975M = **19.5 bps**.
+- Spread: εX = \$75,000 = **1.5 bps**. Total **46.0 bps, \$2.3M**.
+- Risk: σ²τΣx² = 0.1 × 10¹⁴ × 16.17 → SD \$12.7M = **254 bps**, dwarfing the impact.
 
 **Risk-averse, λ = 10⁻⁷.** κ ≈ √(10⁻⁷ × 1 / 5×10⁻⁸) = 1.41 per day (1.43 with the discrete formula), a half-life of ln 2 ÷ 1.43 = 0.48 days. About 1 − e^(−1.43) = 76% is sold on day 1, and the first interval runs at 67% of ADV.
 
 | Schedule (Lab 16) | E[IS] | SD | 95th pct | E[IS], square-root impact | Peak rate |
 |---|---|---|---|---|---|
-| TWAP | 46 bps ($2.3M) | 254 bps | 465 bps | 47 bps | 10% ADV |
+| TWAP | 46 bps (\$2.3M) | 254 bps | 465 bps | 47 bps | 10% ADV |
 | AC λ = 10⁻⁸ | 51 bps | 197 bps | 377 bps | 49 bps | 23% |
-| AC λ = 10⁻⁷ | 96 bps ($4.8M) | 110 bps | 277 bps | 61 bps | 67% |
-| AC λ = 10⁻⁶ | 242 bps ($12.1M) | 52 bps | 328 bps | 84 bps | 181% |
+| AC λ = 10⁻⁷ | 96 bps (\$4.8M) | 110 bps | 277 bps | 61 bps | 67% |
+| AC λ = 10⁻⁶ | 242 bps (\$12.1M) | 52 bps | 328 bps | 84 bps | 181% |
 | Front-loaded, 50% day 1 | 57 bps | 186 bps | 365 bps | 50 bps | 25% |
 
-λ = 10⁻⁷ pays $2.5M more expected cost to cut the standard deviation by $7.2M. Whether that is worth it is the client's call, not the model's.
+λ = 10⁻⁷ pays \$2.5M more expected cost to cut the standard deviation by \$7.2M. Whether that is worth it is the client's call, not the model's.
 
 ## Key parameters and how practitioners tune them
 
@@ -190,7 +190,7 @@ Discretely, $\tilde\eta = \eta - \gamma\tau/2$ and $\cosh(\kappa\tau) = 1 + \tfr
 - [Transaction cost and impact models](../d-portfolio-construction/transaction-cost-and-impact-models.md)
 - [VWAP, TWAP and POV](vwap-twap-pov.md)
 - [Smart order routing](smart-order-routing.md)
-- [Walkthrough: executing a $500M buy order](../h-end-to-end-walkthroughs/walkthrough-institutional-execution.md)
+- [Walkthrough: executing a \$500M buy order](../h-end-to-end-walkthroughs/walkthrough-institutional-execution.md)
 
 ## Sources
 

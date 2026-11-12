@@ -84,7 +84,7 @@ def orders_needed(sd_bps=60.0, diff_bps=5.0, z_alpha=1.96, z_power=0.84):
 
 ## Worked example with numbers
 
-*Illustrative.* The PM decides to buy 100,000 shares at yesterday's close, $50.00 ($5M; 1 bp = $500). The algo starts at $50.10, fills 80,000 at an average $50.25 when the mid averaged $50.23, and stops at a participation cap. The close is $50.60. Commissions are $800. The market (β = 1) rose 0.10% while the order worked.
+*Illustrative.* The PM decides to buy 100,000 shares at yesterday's close, \$50.00 (\$5M; 1 bp = \$500). The algo starts at \$50.10, fills 80,000 at an average \$50.25 when the mid averaged \$50.23, and stops at a participation cap. The close is $50.60. Commissions are $800. The market (β = 1) rose 0.10% while the order worked.
 
 | Component | Calculation | $ | bps |
 |---|---|---|---|
@@ -96,9 +96,9 @@ def orders_needed(sd_bps=60.0, diff_bps=5.0, z_alpha=1.96, z_power=0.84):
 | Fees | | 800 | 1.6 |
 | **Total** | | **32,800** | **65.6** |
 
-Check: paper P&L = 100,000 × 0.60 = $60,000; real = 80,000 × 0.35 − 800 = $27,200; gap $32,800.
+Check: paper P&L = 100,000 × 0.60 = \$60,000; real = 80,000 × 0.35 − 800 = \$27,200; gap \$32,800.
 
-Interval VWAP was $50.28, so a VWAP report says the algo **beat its benchmark by 6 bps**. Shortfall says 65.6 bps went missing, most of it from *not finishing*. Owners: the desk (delay), the algo (spread and impact, 16 bps), the participation cap (opportunity).
+Interval VWAP was \$50.28, so a VWAP report says the algo **beat its benchmark by 6 bps**. Shortfall says 65.6 bps went missing, most of it from *not finishing*. Owners: the desk (delay), the algo (spread and impact, 16 bps), the participation cap (opportunity).
 
 ## Key parameters and how practitioners tune them
 
@@ -172,7 +172,7 @@ Price noise for a steady schedule over $T$ days: $\mathrm{sd}(IS) \approx \sigma
 - [VWAP, TWAP and POV](vwap-twap-pov.md)
 - [Live monitoring and P&L attribution](../g-live-trading/live-monitoring-and-pnl-attribution.md)
 - [Venues and retail flow](../../01-market-structure/venues-and-retail-flow.md)
-- [Walkthrough: executing a $500M buy order](../h-end-to-end-walkthroughs/walkthrough-institutional-execution.md)
+- [Walkthrough: executing a \$500M buy order](../h-end-to-end-walkthroughs/walkthrough-institutional-execution.md)
 
 ## Sources
 

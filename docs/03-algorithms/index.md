@@ -88,7 +88,7 @@ The capstones. Each follows one business through a full cycle with numbers taken
 - [A mid-frequency stat-arb book](h-end-to-end-walkthroughs/walkthrough-mid-frequency-stat-arb.md): universe → three alphas → IC-weighted combination → risk model → optimizer with costs → VWAP/IS execution → next-day attribution.
 - [A day at an ETF market maker](h-end-to-end-walkthroughs/walkthrough-etf-market-maker.md): fair value from basket and futures, quoting, inventory, creation/redemption, hedging, markouts, end-of-day P&L.
 - [An options market maker](h-end-to-end-walkthroughs/walkthrough-options-market-maker.md): vol surface → theoretical values → quotes → delta/vega hedging → Greeks P&L attribution.
-- [Executing a $500M buy order](h-end-to-end-walkthroughs/walkthrough-institutional-execution.md): schedule choice, child orders, venues, the close, and the TCA report.
+- [Executing a \$500M buy order](h-end-to-end-walkthroughs/walkthrough-institutional-execution.md): schedule choice, child orders, venues, the close, and the TCA report.
 
 ## Related pages
 

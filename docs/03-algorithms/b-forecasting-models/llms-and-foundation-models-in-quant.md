@@ -79,9 +79,9 @@ def embedding_features(docs, embed, pca_mean, pca_components):
 
 ## Worked example with numbers
 
-**Compute cost (`[Estimate]`).** 20,000 headlines a day × ~200 tokens (prompt plus headline) = 4 million tokens a day, ~1 billion a year. At $0.10–$3 per million input tokens (small to mid-size models; prices vary and keep falling), that is $100–$3,000 a year. Earnings calls: 3,000 firms × 4 calls × 12,000 tokens = 144 million tokens, $14–$430. Inference is cheap next to the news-feed license.
+**Compute cost (`[Estimate]`).** 20,000 headlines a day × ~200 tokens (prompt plus headline) = 4 million tokens a day, ~1 billion a year. At \$0.10–\$3 per million input tokens (small to mid-size models; prices vary and keep falling), that is \$100–\$3,000 a year. Earnings calls: 3,000 firms × 4 calls × 12,000 tokens = 144 million tokens, \$14–$430. Inference is cheap next to the news-feed license.
 
-**Does it survive costs? (illustrative)** A $100M long-short book ($50M a side) whose longs beat its shorts by 10 bps a day earns $50M × 0.10% = **$50,000 a day**. Full daily turnover trades $100M; at 5 bps per dollar, costs are **$50,000 a day**. Net ≈ 0: a daily-turnover headline signal needs slower holding, cheaper execution, or a place in a [combined forecast](alpha-combination-and-ensembling.md).
+**Does it survive costs? (illustrative)** A \$100M long-short book (\$50M a side) whose longs beat its shorts by 10 bps a day earns \$50M × 0.10% = **\$50,000 a day**. Full daily turnover trades \$100M; at 5 bps per dollar, costs are **\$50,000 a day**. Net ≈ 0: a daily-turnover headline signal needs slower holding, cheaper execution, or a place in a [combined forecast](alpha-combination-and-ensembling.md).
 
 ## Key parameters and how practitioners tune them
 

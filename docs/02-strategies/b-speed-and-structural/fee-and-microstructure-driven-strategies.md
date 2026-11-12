@@ -20,7 +20,7 @@
 | Data required | fee schedules and tier status; direct feeds with odd lots; queue estimates; venue-level markouts |
 | Core algorithms used | [E4 Smart order routing](../../03-algorithms/e-execution-algorithms/smart-order-routing.md) · [M6 Queue position and order placement](../../03-algorithms/f-market-making-and-hft-algorithms/queue-position-and-order-placement.md) · [M4 Quoting and inventory control](../../03-algorithms/f-market-making-and-hft-algorithms/quoting-and-inventory-control.md) · [M5 Adverse selection and markouts](../../03-algorithms/f-market-making-and-hft-algorithms/adverse-selection-and-markouts.md) |
 | Infra intensity | medium-high: colocation and direct feeds to manage queues; microwave not required |
-| Capacity (rough $ range) | $10–100M/yr net for a large market maker `[Estimate]` (a fraction of a mil to a few mils per share on 100–500M shares/day) |
+| Capacity (rough $ range) | \$10–100M/yr net for a large market maker `[Estimate]` (a fraction of a mil to a few mils per share on 100–500M shares/day) |
 | Typical Sharpe (gross vs net) | rarely standalone; part of very stable market-making P&L `[Lore]`; net near zero for sub-scale players `[Estimate]`; no disclosures; would shrink under the 2027 rules |
 | Turnover | very high; flat by the close |
 | Main risks / failure modes | fee and tier changes; rule changes; adverse selection outrunning rebates; enforcement |
@@ -30,11 +30,11 @@
 
 ## Intuition (the story in plain English)
 
-A one-cent spread in a $10 stock is a hard floor: no exchange can display $10.005. Fee schedules let traders deal in fractions of a cent anyway: the same $10.00 bid nets a passive buyer less than $10.00 on a rebate-paying venue and more on an inverted one. The displayed price is not the price; the net-of-fee price is. Strategies live in that gap: earning rebates, buying priority, posting [odd lots](../../09-reference/glossary.md#odd-lot) inside the spread, and exploiting order-type behavior ([Fees, rebates and ticks](../../01-market-structure/fees-rebates-and-ticks.md)).
+A one-cent spread in a \$10 stock is a hard floor: no exchange can display $10.005. Fee schedules let traders deal in fractions of a cent anyway: the same \$10.00 bid nets a passive buyer less than \$10.00 on a rebate-paying venue and more on an inverted one. The displayed price is not the price; the net-of-fee price is. Strategies live in that gap: earning rebates, buying priority, posting [odd lots](../../09-reference/glossary.md#odd-lot) inside the spread, and exploiting order-type behavior ([Fees, rebates and ticks](../../01-market-structure/fees-rebates-and-ticks.md)).
 
 ## Economic rationale: why should this make money at all?
 
-Reg NMS caps take fees at 30 mils ($0.0030) and fixes a one-cent tick above $1, but leaves rebates and tiers to exchanges. In [tick-constrained](../../09-reference/glossary.md#tick-constrained-stock) names competition moves from spread to queue position and fees. Rebates attract displayed size, which attracts fee-paying takers. Firms that model net economics venue by venue collect what slower routers leave behind.
+Reg NMS caps take fees at 30 mils (\$0.0030) and fixes a one-cent tick above \$1, but leaves rebates and tiers to exchanges. In [tick-constrained](../../09-reference/glossary.md#tick-constrained-stock) names competition moves from spread to queue position and fees. Rebates attract displayed size, which attracts fee-paying takers. Firms that model net economics venue by venue collect what slower routers leave behind.
 
 ## The trade, step by step
 
@@ -46,22 +46,22 @@ Reg NMS caps take fees at 30 mils ($0.0030) and fixes a one-cent tick above $1, 
 
 ## Worked example with numbers
 
-Illustrative schedules, close to Nasdaq's top tier and Cboe BYX's inverted schedule `[Verified]`: venue A charges takers 30 mils and pays makers 29; venue B charges makers 15 mils and pays takers 2. Stock quoted $10.00 × $10.01.
+Illustrative schedules, close to Nasdaq's top tier and Cboe BYX's inverted schedule `[Verified]`: venue A charges takers 30 mils and pays makers 29; venue B charges makers 15 mils and pays takers 2. Stock quoted \$10.00 × $10.01.
 
-| At the $10.00 bid | Venue A | Venue B |
+| At the \$10.00 bid | Venue A | Venue B |
 |---|---|---|
-| Passive buyer's net price | $9.9971 | $10.0015 |
-| Taking seller's net price | $9.9970 | $10.0002 |
+| Passive buyer's net price | \$9.9971 | \$10.0015 |
+| Taking seller's net price | \$9.9970 | \$10.0002 |
 | Shares queued ahead | 80,000 | 3,000 |
 
 Sellers hit B first (0.32¢ more), so 0.44¢ buys the front of the line.
 
-Rebate capture: buy 1,000 shares passively at $10.00 on A ($ per 1,000 shares).
+Rebate capture: buy 1,000 shares passively at \$10.00 on A ($ per 1,000 shares).
 
 | Outcome (probability) | Today: 1¢ tick, 29-mil rebate | Under 2024 rules: ½¢ tick, 9-mil rebate |
 |---|---|---|
 | Sell passively one tick up (40%) | 10.00 + 5.80 = +15.80 | 5.00 + 1.80 = +6.80 |
-| Scratch passively at $10.00 (35%) | +5.80 | +1.80 |
+| Scratch passively at \$10.00 (35%) | +5.80 | +1.80 |
 | Stop out, take one tick down (25%) | −10.00 + 2.90 − 3.00 = −10.10 | −5.00 + 0.90 − 1.00 = −5.10 |
 | **Expected value** | **+5.83** | **+2.08** |
 
@@ -113,7 +113,7 @@ Illustrative, per 1M shares of passive volume, from the "today" column above.
 
 ## Evidence
 
-- **SEC 2024 amendments** (adopted 2024-09-18): $0.005 tick for tick-constrained stocks, 10-mil access-fee cap, price-tiered round lots and odd-lot data in the SIP `[Verified]`. Compliance moved from 2025-11-03 to 2026-11-02, then to the first business day of November 2027 (order of 2026-06-11), with staff told to review Rules 610(c) and 612 `[Verified]`.
+- **SEC 2024 amendments** (adopted 2024-09-18): \$0.005 tick for tick-constrained stocks, 10-mil access-fee cap, price-tiered round lots and odd-lot data in the SIP `[Verified]`. Compliance moved from 2025-11-03 to 2026-11-02, then to the first business day of November 2027 (order of 2026-06-11), with staff told to review Rules 610(c) and 612 `[Verified]`.
 - **Industry:** MEMX asked for a 15-mil cap in half-penny names; SIFMA sought delay pending the Rule 611 review `[Reported]`.
 - **Routing conflicts:** Battalio, Corwin & Jennings (2016, *JF*) link rebate-maximizing limit-order routing to worse execution quality `[Reported]`.
 
@@ -126,7 +126,7 @@ Fee schedules set the pool; queues lengthen until rebate ≈ adverse selection p
 - **Schedule risk:** a missed tier reprices a whole month.
 - **Adverse selection:** a long queue fills you mainly when the level is about to break.
 - **Rule risk:** firms ready for 2025-11-03 faced two delays; the rules may yet change `[Verified]`.
-- **Enforcement:** spoofing and layering are illegal. Regulators charged Navinder Sarao with E-mini spoofing in 2015 `[Reported]` and Avalon FA and Lek Securities with layering US stocks in 2017 (alleged profits ~$21M) `[Verified]`. See [rules that shape strategies](../../06-risk-and-regulation/rules-that-shape-strategies.md).
+- **Enforcement:** spoofing and layering are illegal. Regulators charged Navinder Sarao with E-mini spoofing in 2015 `[Reported]` and Avalon FA and Lek Securities with layering US stocks in 2017 (alleged profits ~\$21M) `[Verified]`. See [rules that shape strategies](../../06-risk-and-regulation/rules-that-shape-strategies.md).
 
 ## Textbook vs how it's done today
 

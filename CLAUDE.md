@@ -341,6 +341,7 @@ publisher/regulator URL; SSRN/arXiv are fine for papers.
 - Practitioner voice: plain English, precise, concrete numbers, no hype. US English.
 - Order: intuition → mechanics → numbers → pseudocode → math (math collapsible in `<details markdown="1">`).
 - Math: `$…$` inline and `$$…$$` display (arithmatex). Leave a blank line before and after `$$` blocks.
+- **Currency: write dollar amounts as `\$500M`, `\$0.0030`** (backslash-escaped). Unescaped `$50M–$200M` is parsed as inline math and garbles the page. `python scripts/fix_dollars.py` escapes them automatically; `--check` reports any left.
 - Define terms on first use and link them to the glossary. Each page links to ≥ 3 related pages.
 - Tables for comparisons; date-stamp anything time-sensitive ("as of 2026-11").
 - Contested topics: each side's strongest evidence; no verdict where evidence is mixed.

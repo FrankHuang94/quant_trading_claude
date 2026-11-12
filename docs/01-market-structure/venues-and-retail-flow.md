@@ -40,13 +40,13 @@ flowchart LR
 
 ## Wholesalers and payment for order flow
 
-When the SEC proposed its Order Competition Rule in December 2022, it found that brokers sent more than 90% of individual investors' marketable orders to six wholesalers `[Verified]`. Academic work using 2019–2022 data finds that two of them, Citadel Securities and Virtu, handled over 70% of US retail flow `[Reported]`. Wholesalers fill those orders as principal at or better than the [NBBO](../09-reference/glossary.md#nbbo), usually with [price improvement](../09-reference/glossary.md#price-improvement), and pay the broker [PFOF](../09-reference/glossary.md#payment-for-order-flow-pfof). Robinhood's 2025 Rule 606 reports show payments from tens of cents to about a dollar per 100 shares, depending on wholesaler, order type and stock group `[Reported]`. Citadel Securities paid about $341M for US retail equity and options flow in Q2 2025 alone `[Reported]`.
+When the SEC proposed its Order Competition Rule in December 2022, it found that brokers sent more than 90% of individual investors' marketable orders to six wholesalers `[Verified]`. Academic work using 2019–2022 data finds that two of them, Citadel Securities and Virtu, handled over 70% of US retail flow `[Reported]`. Wholesalers fill those orders as principal at or better than the [NBBO](../09-reference/glossary.md#nbbo), usually with [price improvement](../09-reference/glossary.md#price-improvement), and pay the broker [PFOF](../09-reference/glossary.md#payment-for-order-flow-pfof). Robinhood's 2025 Rule 606 reports show payments from tens of cents to about a dollar per 100 shares, depending on wholesaler, order type and stock group `[Reported]`. Citadel Securities paid about \$341M for US retail equity and options flow in Q2 2025 alone `[Reported]`.
 
-A wholesaler's per-share income statement for a 100-share retail buy (illustrative: $50 stock, NBBO $49.99 × $50.01):
+A wholesaler's per-share income statement for a 100-share retail buy (illustrative: \$50 stock, NBBO \$49.99 × \$50.01):
 
 | Line | ¢ per share |
 |---|---|
-| Sell at $50.006 (0.4¢ price improvement); spread captured vs mid $50.00 | +0.60 |
+| Sell at \$50.006 (0.4¢ price improvement); spread captured vs mid \$50.00 | +0.60 |
 | Adverse selection: mid drifts 0.10¢ up over the next minute | −0.10 |
 | PFOF to the broker | −0.15 |
 | Hedging, exchange fees, clearing, technology | −0.10 |
@@ -61,7 +61,7 @@ Run the same fill against an informed taker whose one-minute markout is 1.5¢ an
 Retail marketable orders are small, uncorrelated across accounts and rarely timed on information that matters over the next seconds to minutes, so their markouts are small. The key difference is **segmentation**. A wholesaler knows which broker sent the order, so it knows the flow is retail. An exchange sees anonymous orders and must price for the average counterparty. The two sides of the debate:
 
 - **For the current model:** retail gets better-than-NBBO fills and zero commissions, paid for by the low cost of serving uninformed flow.
-- **Against:** the SEC estimated a $1.5B-a-year "competitive shortfall" versus order-by-order auctions `[Verified]`. Critics also argue that taking benign flow off exchanges leaves lit quotes facing more toxic flow, so lit spreads are wider for everyone.
+- **Against:** the SEC estimated a \$1.5B-a-year "competitive shortfall" versus order-by-order auctions `[Verified]`. Critics also argue that taking benign flow off exchanges leaves lit quotes facing more toxic flow, so lit spreads are wider for everyone.
 
 The evidence is mixed. This KB takes no side.
 
@@ -92,7 +92,7 @@ quadrantChart
 | December 2022 proposal | What it would do | Status as of 2026-11 |
 |---|---|---|
 | Rule 605 amendments | Modernize execution-quality disclosure | Adopted 2024-03-06; compliance 2026-08-01 `[Verified]` |
-| Regulation NMS: ticks, access fees, round lots | $0.005 tick for stocks pinned at one tick; access-fee cap 30 → 10 mils; price-tiered round lots; odd-lot data | Adopted 2024-09-18; upheld by the D.C. Circuit 2025-10-14; round lots live 2025-11-03; tick and fee compliance pushed to the first business day of November 2027 `[Verified]` |
+| Regulation NMS: ticks, access fees, round lots | \$0.005 tick for stocks pinned at one tick; access-fee cap 30 → 10 mils; price-tiered round lots; odd-lot data | Adopted 2024-09-18; upheld by the D.C. Circuit 2025-10-14; round lots live 2025-11-03; tick and fee compliance pushed to the first business day of November 2027 `[Verified]` |
 | Order Competition Rule (proposed Rule 615) | Expose retail marketable orders to open auctions before internalization | Withdrawn 2025-06-12 `[Verified]` |
 | Regulation Best Execution | SEC-level best-execution rule | Withdrawn 2025-06-12 `[Verified]` |
 

@@ -19,7 +19,7 @@
 | Data required | Point-in-time fundamentals with filing dates (vendor PIT archives or SEC XBRL), prices, estimates, industry codes |
 | Core algorithms used | [D1 Point-in-time data and cleaning](../../03-algorithms/a-data-and-signals/point-in-time-data-and-cleaning.md) · [D2 Feature engineering](../../03-algorithms/a-data-and-signals/feature-engineering.md) · [D3 Signal transforms](../../03-algorithms/a-data-and-signals/signal-transforms.md) · [D4 Evaluating signals](../../03-algorithms/a-data-and-signals/evaluating-signals.md) · [P1 Risk models](../../03-algorithms/d-portfolio-construction/risk-models.md) |
 | Infra intensity | Negligible latency sensitivity; data engineering is the main cost |
-| Capacity (rough $ range) | $1B–$20B+ per strategy `[Estimate]` (turnover ~1–3× a year versus 25–100× for daily books, so impact per dollar of alpha is an order of magnitude lower) |
+| Capacity (rough $ range) | \$1B–\$20B+ per strategy `[Estimate]` (turnover ~1–3× a year versus 25–100× for daily books, so impact per dollar of alpha is an order of magnitude lower) |
 | Typical Sharpe (gross vs net) | Single academic long-short factors (value, profitability, investment): gross roughly 0.3–0.5 over 1963–2020s, weaker post-publication `[Estimate]`; diversified sector-neutral composite: net 0.5–1.0 `[Lore]` |
 | Turnover | 100–300% of GMV per year `[Lore]` |
 | Main risks / failure modes | Long value drawdowns, junk rallies, look-ahead in data, sector concentration |
@@ -56,7 +56,7 @@ Two explanations compete, and both have evidence:
 
 ## Worked example with numbers
 
-Illustrative: two semiconductor-equipment firms, same price and same trailing earnings of $100M.
+Illustrative: two semiconductor-equipment firms, same price and same trailing earnings of \$100M.
 
 | Item ($M) | Firm X | Firm Y |
 |---|---|---|
@@ -110,14 +110,14 @@ def fundamental_composite(s, mcap, sector):
 
 ## P&L decomposition
 
-Illustrative: $1B GMV sector-neutral composite, turnover 200% a year ($2B traded).
+Illustrative: \$1B GMV sector-neutral composite, turnover 200% a year (\$2B traded).
 
 | Line | $M per year | % of GMV |
 |---|---|---|
 | Residual alpha captured | +40.0 | +4.0% |
 | Factor P&L (value, quality tilt not neutralized) | ±15 realized | ≈ 0 expected |
-| Trading costs (15 bps × $2B) | −3.0 | −0.3% |
-| Borrow (0.4% on $500M short) | −2.0 | −0.2% |
+| Trading costs (15 bps × \$2B) | −3.0 | −0.3% |
+| Borrow (0.4% on \$500M short) | −2.0 | −0.2% |
 | Financing spread, net | −3.0 | −0.3% |
 | **Net** | **+32.0** | **+3.2%** |
 

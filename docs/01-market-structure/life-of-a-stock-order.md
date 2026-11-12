@@ -80,10 +80,10 @@ sequenceDiagram
 
 | Intermediary | What it does | How it is paid | Order of magnitude |
 |---|---|---|---|
-| Retail broker | App, custody, routing | PFOF, interest on cash and margin; commission usually zero | Tens of cents to about $1 per 100 shares in 2025 Rule 606 reports `[Reported]` |
-| Wholesaler | Fills retail as principal | Spread captured, minus price improvement, minus PFOF | Citadel Securities paid about $341M for US retail equity and options flow in Q2 2025 `[Reported]` |
+| Retail broker | App, custody, routing | PFOF, interest on cash and margin; commission usually zero | Tens of cents to about \$1 per 100 shares in 2025 Rule 606 reports `[Reported]` |
+| Wholesaler | Fills retail as principal | Spread captured, minus price improvement, minus PFOF | Citadel Securities paid about \$341M for US retail equity and options flow in Q2 2025 `[Reported]` |
 | Institutional broker | Algos, router, capital | Commission per share | Roughly 0.5–2 cents/share for execution-only algos `[Lore]` |
-| Exchange | Matching, protected quotes | Taker (access) fees, market data and connectivity; pays maker rebates | Access-fee cap 30 mils ($0.0030/share), 10 mils once the 2024 amendment takes effect `[Verified]` |
+| Exchange | Matching, protected quotes | Taker (access) fees, market data and connectivity; pays maker rebates | Access-fee cap 30 mils (\$0.0030/share), 10 mils once the 2024 amendment takes effect `[Verified]` |
 | ATS / dark pool | Non-displayed matching | Per-share fees | About 19% of TRF volume in 2025 `[Verified]` |
 | NSCC and DTC | Clearing, netting, settlement | Per-trade fees; clearing-fund margin | Fees tiny; margin is the real cost `[Lore]` |
 | Clearing broker | Access to NSCC, financing | Clearing fees, financing spread, stock-loan fees | See [shorting and settlement](shorting-financing-and-settlement.md) |
@@ -106,7 +106,7 @@ From about 10 μs to one day (roughly 10<sup>11</sup> μs) is ten orders of magn
 ## Why this matters for strategies & algorithms
 
 - **The retail pipe is a business.** Wholesalers run [retail flow internalization](../02-strategies/a-liquidity-provision/retail-flow-internalization.md). Its edge is the low toxicity of the flow, measured with [markouts](../03-algorithms/f-market-making-and-hft-algorithms/adverse-selection-and-markouts.md).
-- **The institutional pipe is the execution stack.** The parent-to-child cascade is covered in [Execution algorithms overview](../03-algorithms/e-execution-algorithms/execution-algorithms-overview.md), [VWAP, TWAP and POV](../03-algorithms/e-execution-algorithms/vwap-twap-pov.md), [Smart order routing](../03-algorithms/e-execution-algorithms/smart-order-routing.md) and [Transaction cost analysis](../03-algorithms/e-execution-algorithms/transaction-cost-analysis.md). [Walkthrough: executing a $500M buy order](../03-algorithms/h-end-to-end-walkthroughs/walkthrough-institutional-execution.md) tells the whole story with numbers.
+- **The institutional pipe is the execution stack.** The parent-to-child cascade is covered in [Execution algorithms overview](../03-algorithms/e-execution-algorithms/execution-algorithms-overview.md), [VWAP, TWAP and POV](../03-algorithms/e-execution-algorithms/vwap-twap-pov.md), [Smart order routing](../03-algorithms/e-execution-algorithms/smart-order-routing.md) and [Transaction cost analysis](../03-algorithms/e-execution-algorithms/transaction-cost-analysis.md). [Walkthrough: executing a \$500M buy order](../03-algorithms/h-end-to-end-walkthroughs/walkthrough-institutional-execution.md) tells the whole story with numbers.
 - **The child orders are someone's revenue.** [Equity market making](../02-strategies/a-liquidity-provision/equity-market-making.md) quotes against them. [Auctions and closing liquidity](../02-strategies/a-liquidity-provision/auctions-and-closing-liquidity.md) is about the end-of-day share of them.
 - **The latency table is a cost structure.** [Latency arbitrage](../02-strategies/b-speed-and-structural/latency-arbitrage.md) and the [HFT trading loop](../03-algorithms/f-market-making-and-hft-algorithms/anatomy-of-an-hft-trading-loop.md) live in the microsecond rows. Mid-frequency books such as [factor-residual mean reversion](../02-strategies/c-statistical-arbitrage/factor-residual-mean-reversion.md) live in the minutes-to-hours rows and pay for settlement, borrow and financing.
 

@@ -5,7 +5,7 @@
 > - "Quant trading" in US equities is at least seven different businesses that share one toolkit: electronic market makers, HFT prop shops, quant hedge funds, multi-manager quant pods, systematic factor managers, CTAs and agency execution desks.
 > - Two coordinates place any of them: **holding horizon** (microseconds to months) and **edge source** (speed, liquidity provision, structural/regulatory, informational, behavioral, risk premium). Those two coordinates predict capital source, capacity, Sharpe ratio and how the strategy dies.
 > - Every strategy runs the same pipeline (signal → forecast → portfolio → orders → fills → P&L); only the clock speed changes.
-> - The economics are lopsided: short-horizon firms earn very large revenue on modest capital (Jane Street reportedly made $39.6B of 2025 net trading revenue `[Reported]`), while slow strategies run hundreds of billions at single-digit returns.
+> - The economics are lopsided: short-horizon firms earn very large revenue on modest capital (Jane Street reportedly made \$39.6B of 2025 net trading revenue `[Reported]`), while slow strategies run hundreds of billions at single-digit returns.
 > - The question that matters most: **who pays you, and why do they accept it?**
 
 **Level:** Core · **Read time:** ~8 min · **Last verified:** 2026-11
@@ -86,14 +86,14 @@ Every dollar of quant P&L is somebody's cost or somebody's risk premium. Grossma
 
 | Pool | Who pays, and why they accept it | Who earns it | Rough scale |
 |---|---|---|---|
-| Spread and immediacy | Retail, institutions and other algos pay half-spreads and impact to trade now | Market makers, PTFs | Non-bank liquidity providers earned ~$25.6B of market-making revenue in 2024, global and all asset classes `[Reported]`; their total revenue pool hit ~$114B in 2025, of which pure market making was only ~30% `[Reported]` |
-| Speed races | Slow quoters whose stale quotes get sniped, and ultimately investors through wider spreads | HFT | ~$5B a year in global equities, roughly a 0.5 bp tax on trading (academic estimate from UK exchange data) `[Reported]` |
-| Retail flow access | Wholesalers pay brokers for low-toxicity retail orders, then improve on the NBBO | Wholesalers, net of payments | Citadel Securities paid ~$943M for retail equity and options flow, Apr–Dec 2024 (Rule 606 data) `[Reported]` |
-| Execution service | Institutions pay commissions to have orders worked | Agency brokers | US equity commission wallet just under $7B in 2025, up from a $5.4B low in 2023 (survey) `[Reported]` |
-| Forecasting alpha | Slower or constrained investors trade at predictably wrong prices | Quant hedge funds, pods | Hedge fund industry capital ~$5.15T at end-2025 `[Reported]`; the largest quant managers ran ~$46–78B each in mid-2025, depending on AUM definition `[Reported]` |
-| Risk premia | Investors pay to shed risks they dislike (crashes, distress, leverage constraints) | Factor managers, CTAs, vol sellers | Managed-futures assets ~$365B in Q4 2025 `[Reported]` |
+| Spread and immediacy | Retail, institutions and other algos pay half-spreads and impact to trade now | Market makers, PTFs | Non-bank liquidity providers earned ~\$25.6B of market-making revenue in 2024, global and all asset classes `[Reported]`; their total revenue pool hit ~\$114B in 2025, of which pure market making was only ~30% `[Reported]` |
+| Speed races | Slow quoters whose stale quotes get sniped, and ultimately investors through wider spreads | HFT | ~\$5B a year in global equities, roughly a 0.5 bp tax on trading (academic estimate from UK exchange data) `[Reported]` |
+| Retail flow access | Wholesalers pay brokers for low-toxicity retail orders, then improve on the NBBO | Wholesalers, net of payments | Citadel Securities paid ~\$943M for retail equity and options flow, Apr–Dec 2024 (Rule 606 data) `[Reported]` |
+| Execution service | Institutions pay commissions to have orders worked | Agency brokers | US equity commission wallet just under \$7B in 2025, up from a \$5.4B low in 2023 (survey) `[Reported]` |
+| Forecasting alpha | Slower or constrained investors trade at predictably wrong prices | Quant hedge funds, pods | Hedge fund industry capital ~\$5.15T at end-2025 `[Reported]`; the largest quant managers ran ~\$46–78B each in mid-2025, depending on AUM definition `[Reported]` |
+| Risk premia | Investors pay to shed risks they dislike (crashes, distress, leverage constraints) | Factor managers, CTAs, vol sellers | Managed-futures assets ~\$365B in Q4 2025 `[Reported]` |
 
-Firm-level anchors for 2025: Jane Street ~$39.6B of net trading revenue (helped by gains on private stakes), Hudson River Trading ~$12.3B and Citadel Securities ~$12.2B, all from unnamed sources `[Reported]`. Virtu's adjusted net trading income was $2.15B, of which market making was $1.67B `[Verified]`. These are global, multi-asset figures; none of these firms discloses a US-equities-only number. History shows how fast a pool can compress: Tabb Group estimated US-equity HFT revenue fell from $7.2B in 2009 to ~$1.1B in 2016 `[Reported]`. Options volume, by contrast, set a sixth straight record in 2025: 15.26B contracts cleared, up 24% `[Verified]`.
+Firm-level anchors for 2025: Jane Street ~\$39.6B of net trading revenue (helped by gains on private stakes), Hudson River Trading ~\$12.3B and Citadel Securities ~\$12.2B, all from unnamed sources `[Reported]`. Virtu's adjusted net trading income was \$2.15B, of which market making was \$1.67B `[Verified]`. These are global, multi-asset figures; none of these firms discloses a US-equities-only number. History shows how fast a pool can compress: Tabb Group estimated US-equity HFT revenue fell from \$7.2B in 2009 to ~\$1.1B in 2016 `[Reported]`. Options volume, by contrast, set a sixth straight record in 2025: 15.26B contracts cleared, up 24% `[Verified]`.
 
 The structural lesson `[Estimate]` (reasoning: the pools above): liquidity and speed businesses earn tens of billions on balance sheets of a few billion each, because they recycle capital many times a day. Forecasting and premia businesses earn single-digit to low-teens percent on hundreds of billions. That asymmetry explains a lot: why the biggest market makers rarely take outside money, why factor managers compete on fees, and why pods pay up for PMs with genuine short-horizon alpha.
 
@@ -117,15 +117,15 @@ The structural lesson `[Estimate]` (reasoning: the pools above): liquidity and s
 ## Sources
 
 - [Verified] Virtu Financial, Inc. (2026-02). Form 10-K for fiscal year 2025 (adjusted net trading income by segment). *SEC EDGAR*. <https://www.sec.gov/Archives/edgar/data/1592386/000159238626000009/virt-20251231.htm> (accessed 2026-11)
-- [Reported] Reuters via MarketScreener (2026-04-24). "Jane Street's $40 billion trading haul tops rivals, sources say." <https://www.marketscreener.com/news/jane-street-s-40-billion-trading-haul-tops-rivals-sources-say-ce7f59dfdf8ff52d> (accessed 2026-11)
-- [Reported] Bloomberg (2026-03-24). "Citadel Securities Nets Record $12 Billion Trading Haul in 2025." <https://www.bloomberg.com/news/articles/2026-03-24/citadel-securities-nets-record-12-billion-trading-haul-in-2025> (accessed 2026-11)
+- [Reported] Reuters via MarketScreener (2026-04-24). "Jane Street's \$40 billion trading haul tops rivals, sources say." <https://www.marketscreener.com/news/jane-street-s-40-billion-trading-haul-tops-rivals-sources-say-ce7f59dfdf8ff52d> (accessed 2026-11)
+- [Reported] Bloomberg (2026-03-24). "Citadel Securities Nets Record \$12 Billion Trading Haul in 2025." <https://www.bloomberg.com/news/articles/2026-03-24/citadel-securities-nets-record-12-billion-trading-haul-in-2025> (accessed 2026-11)
 - [Reported] Coalition Greenwich (2025). Executive summary on non-bank liquidity provider market-making revenue, 2024. <https://www.greenwich.com/node/155746> (accessed 2026-11)
 - [Reported] The TRADE (2026). "NBLPs knock on the door, banks still own the house." <https://www.thetradenews.com/nblps-knock-on-the-door-banks-still-own-the-house/> (accessed 2026-11)
 - [Verified] Aquilina, M., Budish, E. & O'Neill, P. (2022). "Quantifying the High-Frequency Trading 'Arms Race'." *Quarterly Journal of Economics* 137(1), 493–564. <https://doi.org/10.1093/qje/qjab032> (accessed 2026-11)
 - [Reported] Global Trading (2025). "Citadel Securities paid US$943m for retail US equity, options order flow in nine months." <https://www.globaltrading.net/?p=37640> (accessed 2026-11)
 - [Reported] Markets Media (2025). "U.S. equity trading commissions rebounded in 2024" (Coalition Greenwich data). <https://marketsmedia.com/u-s-equity-trading-commissions-rebounded-in-2024> (accessed 2026-11)
 - [Reported] Coalition Greenwich (2025). "U.S. Equity Market Trends 2025: Don't Call It a Comeback." <https://www.greenwich.com/node/158259> (accessed 2026-11)
-- [Reported] Hedgeweek (2026). "Global hedge fund assets surpass $5tn for the first time, says HFR." <https://www.hedgeweek.com/global-hedge-fund-assets-surpass-5tn-for-the-first-time-says-hfr/> (accessed 2026-11)
+- [Reported] Hedgeweek (2026). "Global hedge fund assets surpass \$5tn for the first time, says HFR." <https://www.hedgeweek.com/global-hedge-fund-assets-surpass-5tn-for-the-first-time-says-hfr/> (accessed 2026-11)
 - [Reported] With Intelligence (2025). "Billion Dollar Club Report H1 2025: Top 20 hedge funds." <https://www.withintelligence.com/insights/billion-dollar-club-h1-2025/> (accessed 2026-11)
 - [Reported] BarclayHedge (2026). CTA industry assets under management (quarterly table). <https://ionanalytics.com/barclayhedge/solutions/assets-under-management/cta-industry-assets-under-management/> (accessed 2026-11)
 - [Verified] OCC (2026-01-05). "OCC Annual 2025 and December 2025 Volume." <https://www.theocc.com/newsroom/views/2026/01-05-occ-annual-2025-and-december-2025-volume> (accessed 2026-11)

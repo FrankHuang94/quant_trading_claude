@@ -5,8 +5,8 @@
 > - Alternative data (card transactions, app and web traffic, satellite and location counts, job postings, supply-chain links, scraped prices, text) estimates a company's numbers before it reports: mostly a revenue nowcast ahead of earnings.
 > - The edge is in the plumbing: panel-bias correction, ticker mapping, as-delivered history, backfill detection.
 > - Evidence is real but narrow: satellite parking-lot counts earned ~4–5% in the three days around retailer earnings (2011–2017) `[Reported]`. Edges shrink as vendors add clients.
-> - Legal review binds first: MNPI and provenance (App Annie's $10M SEC penalty, 2021), scraping law, privacy.
-> - Most buyers spend $0.5–2.5M a year on data `[Reported]`, a fixed cost against small capacity, so each dataset has a break-even size.
+> - Legal review binds first: MNPI and provenance (App Annie's \$10M SEC penalty, 2021), scraping law, privacy.
+> - Most buyers spend \$0.5–2.5M a year on data `[Reported]`, a fixed cost against small capacity, so each dataset has a break-even size.
 
 **Level:** Core · **Read time:** ~8 min · **Last verified:** 2026-11
 
@@ -20,7 +20,7 @@
 | Data required | Vendor panels with as-delivered history; merchant-to-ticker maps; point-in-time consensus; reported KPIs |
 | Core algorithms used | [D1 Point-in-time data and cleaning](../../03-algorithms/a-data-and-signals/point-in-time-data-and-cleaning.md) · [D2 Feature engineering](../../03-algorithms/a-data-and-signals/feature-engineering.md) · [D4 Evaluating signals](../../03-algorithms/a-data-and-signals/evaluating-signals.md) · [F2 Tree ensembles](../../03-algorithms/b-forecasting-models/tree-ensembles.md) |
 | Infra intensity | Low latency sensitivity; heavy data engineering (entity resolution, terabyte-scale location data) |
-| Capacity (rough $ range) | $50M–$500M GMV per dataset sleeve `[Estimate]` (100–500 names, edge concentrated before earnings, mid-cap impact) |
+| Capacity (rough $ range) | \$50M–\$500M GMV per dataset sleeve `[Estimate]` (100–500 names, edge concentrated before earnings, mid-cap impact) |
 | Typical Sharpe (gross vs net) | Satellite lots: ~4–5% gross over three event days, 2011–2017, academic study via author interview `[Reported]`. Customer-supplier links: >150 bps a month gross alpha, pre-2008 academic backtest `[Verified]`. Single-dataset sleeves: net 0.3–1.0 `[Lore]`, falling as vendors add clients |
 | Turnover | 200–600% a year, lumpy around reporting seasons `[Estimate]` |
 | Main risks / failure modes | Panel drift, backfilled history, vendor shutdown, MNPI exposure, earnings-day gaps |
@@ -54,16 +54,16 @@ Illustrative card-panel nowcast for retailer XYZ:
 
 | Step | Value |
 |---|---|
-| Panel spend, quarter to date, vs last year | $41.6M vs $38.0M → +9.5% |
+| Panel spend, quarter to date, vs last year | \$41.6M vs \$38.0M → +9.5% |
 | Panel active cardholders (a new bank joined) | +3.0% |
 | Per-user growth: 1.095 / 1.030 − 1 | **+6.3%** |
-| Calibration (16 quarters): 0.5% + 0.85 × 6.3% | **+5.9%** → revenue $10.59B on last year's $10.00B |
-| Consensus | $10.40B (+4.0%) |
+| Calibration (16 quarters): 0.5% + 0.85 × 6.3% | **+5.9%** → revenue \$10.59B on last year's \$10.00B |
+| Consensus | \$10.40B (+4.0%) |
 | Surprise; model s.e. 1.2% | +1.9% → z ≈ +1.6 |
 
 Without the per-user step: +8.6%, as panel growth masquerades as sales.
 
-**Trade.** History says a 1% surprise moves the stock ~1.5% over three days; halve that because rivals own the panel. Expected return = 1.9 × 1.5 × 0.5 ≈ 1.4%, or $71,000 on a $5M hedged long, minus ~16 bps round-trip costs ($8,000): ~$63,000. Earnings-day volatility of 6% ($300,000) makes each trade a tilted coin flip; breadth across names does the work. A $750,000 license needs ~12 such trades a year to break even.
+**Trade.** History says a 1% surprise moves the stock ~1.5% over three days; halve that because rivals own the panel. Expected return = 1.9 × 1.5 × 0.5 ≈ 1.4%, or \$71,000 on a \$5M hedged long, minus ~16 bps round-trip costs (\$8,000): ~\$63,000. Earnings-day volatility of 6% (\$300,000) makes each trade a tilted coin flip; breadth across names does the work. A \$750,000 license needs ~12 such trades a year to break even.
 
 ## Signals and algorithms under the hood
 
@@ -101,14 +101,14 @@ def earnings_window_book(z, days_to_report, gross=50e6, lo=2, hi=10):
 
 ## P&L decomposition
 
-Illustrative $300M GMV sleeve, % of GMV a year:
+Illustrative \$300M GMV sleeve, % of GMV a year:
 
 | Line | % |
 |---|---|
 | Earnings-window alpha | +4.0 |
 | Between-event drift | +0.8 |
 | Trading costs (~400% turnover) | −1.0 |
-| Data licenses ($1.5M) | −0.5 |
+| Data licenses (\$1.5M) | −0.5 |
 | Data engineering staff | −0.3 |
 | Borrow and financing | −0.2 |
 | **Net** | **+2.8** |
@@ -119,7 +119,7 @@ At 5% volatility, net Sharpe ≈ 0.56 `[Estimate]`. Data and staff are fixed cos
 
 - **Satellites:** Katona, Painter, Patatoukas & Zeng (*JFQA* 2025): RS Metrics images of 44 US retailers, 2011–2017; trading on bad-news quarters was profitable `[Verified]`, ~4–5% over three days per an author interview `[Reported]`.
 - **Other sources:** real-time sales indices predict surprises (Froot et al. 2017) `[Reported]`; job-posting changes predict performance (Gutiérrez et al. 2020) `[Verified]`; Glassdoor ratings (Green et al. 2019) and Google search volume (Da, Engelberg & Gao 2011) predict returns `[Reported]`.
-- **Budgets:** 84% of firms in a 2026 vendor survey spent $0.5–2.5M a year `[Reported]`.
+- **Budgets:** 84% of firms in a 2026 vendor survey spent \$0.5–2.5M a year `[Reported]`.
 
 ## Capacity, crowding and decay
 
@@ -143,8 +143,8 @@ quadrantChart
 
 ## How it fails
 
-- **Provenance (September 2021).** App Annie and its founder paid $10M and $300,000 to settle SEC fraud charges: it had used confidential app data in its estimates despite promising not to. No buying fund was charged `[Reported]`.
-- **Scraping (December 2022).** *hiQ v. LinkedIn* narrowed computer-fraud claims over public data, but LinkedIn's anti-scraping terms were held enforceable; hiQ accepted a $500,000 consent judgment and deleted its data `[Reported]`.
+- **Provenance (September 2021).** App Annie and its founder paid \$10M and \$300,000 to settle SEC fraud charges: it had used confidential app data in its estimates despite promising not to. No buying fund was charged `[Reported]`.
+- **Scraping (December 2022).** *hiQ v. LinkedIn* narrowed computer-fraud claims over public data, but LinkedIn's anti-scraping terms were held enforceable; hiQ accepted a \$500,000 consent judgment and deleted its data `[Reported]`.
 - **Panel drift.** A bank partner leaves, an SDK changes, a privacy rule cuts location data, and the series breaks `[Lore]`.
 
 ## Textbook vs how it's done today
@@ -247,7 +247,7 @@ so \$1.2M of costs at 2% net alpha needs \$60M of GMV.
 - [Verified] Gutiérrez, E., Lourie, B., Nekrasov, A. & Shevlin, T. (2020). "Are Online Job Postings Informative to Investors?" *Management Science* 66(7), 3133–3141. <https://doi.org/10.1287/mnsc.2019.3450> (accessed 2026-11)
 - [Reported] Green, T. C., Huang, R., Wen, Q. & Zhou, D. (2019). "Crowdsourced employer reviews and stock returns." *Journal of Financial Economics* 134(1), 236–251. <https://doi.org/10.1016/j.jfineco.2019.03.012> (accessed 2026-11)
 - [Reported] Da, Z., Engelberg, J. & Gao, P. (2011). "In Search of Attention." *Journal of Finance* 66(5), 1461–1499. <https://doi.org/10.1111/j.1540-6261.2011.01679.x> (accessed 2026-11)
-- [Reported] Simpson Thacher (2021-09-15). "App Annie and Its Founder to Pay $10 Million to Settle First SEC Enforcement Action Against Alternative Data Provider." <https://www.stblaw.com/about-us/publications/view/2021/09/15/app-annie-and-its-founder-to-pay-$10-million-to-settle-first-sec-enforcement-action-against-alternative-data-provider> (accessed 2026-11)
+- [Reported] Simpson Thacher (2021-09-15). "App Annie and Its Founder to Pay \$10 Million to Settle First SEC Enforcement Action Against Alternative Data Provider." <https://www.stblaw.com/about-us/publications/view/2021/09/15/app-annie-and-its-founder-to-pay-$10-million-to-settle-first-sec-enforcement-action-against-alternative-data-provider> (accessed 2026-11)
 - [Reported] Proskauer New Media and Technology Law Blog (2022-12-08). "hiQ and LinkedIn Reach Proposed Settlement in Landmark Scraping Case." <https://newmedialaw.proskauer.com/2022/12/08/hiq-and-linkedin-reach-proposed-settlement-in-landmark-scraping-case/> (accessed 2026-11)
 - [Reported] Debevoise & Plimpton (2022-05). "The SEC's New Risk Alert Warns about the Use of Alternative Data." <https://www.debevoise.com/insights/publications/2022/05/the-secs-new-risk-alert-warns> (accessed 2026-11)
 - [Reported] Lowenstein Sandler (2025). "2025 Alternative Data Report." <https://www.lowenstein.com/media/jujd45bp/alt-data-report-2025_final.pdf> (accessed 2026-11)

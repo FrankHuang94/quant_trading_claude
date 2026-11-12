@@ -5,7 +5,7 @@
 > - A smart order router (SOR) decides venue, order type, size and sequence for each child order, minimizing all-in cost: spread + fees − rebates + markout + non-fill cleanup.
 > - Aggressive orders ping dark midpoint pools, then sweep every protected quote at once with intermarket sweep orders (ISOs). Passive orders go where fill odds, rebate and toxicity net out best.
 > - Venue quality must be learned and forgotten. High fill rates often signal toxicity: in [Lab 18](https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/18-smart-order-router) a fill-chasing router cost 2.83 bps vs 1.48 for a markout-aware bandit (synthetic).
-> - Rules in flux (2026-11): Rule 611's repeal was proposed in June 2026; the $0.0010 access-fee cap is deferred to November 2027.
+> - Rules in flux (2026-11): Rule 611's repeal was proposed in June 2026; the \$0.0010 access-fee cap is deferred to November 2027.
 
 **Level:** Core · **Pipeline stage:** execution · **Last verified:** 2026-11
 
@@ -116,7 +116,7 @@ sequenceDiagram
 
 ## Worked example with numbers
 
-Lab 18's true parameters for passive orders (synthetic): $50 stock, half-spread 1 bp, cleanup 2.6 bps if unfilled. Fees: $0.0025 ÷ $50 = 0.5 bp.
+Lab 18's true parameters for passive orders (synthetic): \$50 stock, half-spread 1 bp, cleanup 2.6 bps if unfilled. Fees: \$0.0025 ÷ $50 = 0.5 bp.
 
 | Venue | Fee (+) or rebate (−) | Fill rate | Markout | True all-in | What a fill-chaser sees |
 |---|---|---|---|---|---|
@@ -131,7 +131,7 @@ Venue B by hand: 0.40 × (−1.00 − 0.32 + 0.60) + 0.60 × 2.6 = −0.29 + 1.5
 - **Fill-chasing** ignores markouts, so F looks cheapest (0.85) and costs 2.95.
 - **Net-of-toxicity** picks B. If B's markout jumps to 2.4, B costs 0.40 × 1.08 + 1.56 = 1.99 and D (1.52) wins.
 
-The lab's 0.40 bp saving over fee-greedy is about $1,980 per million shares.
+The lab's 0.40 bp saving over fee-greedy is about \$1,980 per million shares.
 
 ## Key parameters and how practitioners tune them
 
@@ -143,7 +143,7 @@ The lab's 0.40 bp saving over fee-greedy is about $1,980 per million shares.
 ## Textbook version vs what firms actually do
 
 - **Order protection:** Rule 611 makes *trading centers* prevent trade-throughs of protected quotes, except for ISOs whose sender takes every better quote simultaneously `[Verified]` ([17 CFR 242.611](https://www.ecfr.gov/current/title-17/section-242.611)). ISOs were 46% of trades and 41% of volume in one sample `[Verified]` ([Chakravarty et al. 2012](https://doi.org/10.1017/S0022109012000129)).
-- **Rule change:** on 2026-06-11 the SEC proposed rescinding Rule 611 and the locked/crossed ban (Release 34-105655; comments closed 2026-08-17) `[Verified]`. The $0.0010 access-fee cap is deferred to the first business day of November 2027 (Release 34-105656) `[Verified]`. Without Rule 611, fill odds and markouts would weigh more `[Estimate]`.
+- **Rule change:** on 2026-06-11 the SEC proposed rescinding Rule 611 and the locked/crossed ban (Release 34-105655; comments closed 2026-08-17) `[Verified]`. The \$0.0010 access-fee cap is deferred to the first business day of November 2027 (Release 34-105656) `[Verified]`. Without Rule 611, fill odds and markouts would weigh more `[Estimate]`.
 - **Learning:** dark-pool allocation as censored-exploration bandit, tested on broker data `[Verified]` ([Ganchev et al. 2010](https://doi.org/10.1145/1735223.1735247)); stochastic split algorithms `[Verified]` ([Laruelle, Lehalle & Pagès 2011](https://doi.org/10.1137/090780596)).
 - **Synchronized sweeps:** RBC's THOR staggers sends so slices land together `[Reported]` (company claim).
 - **Agency vs principal:** agency routers owe best execution and publish Rule 606 reports; routing client limit orders for rebates worsens fills `[Verified]` ([Battalio, Corwin & Jennings 2016](https://doi.org/10.1111/jofi.12422)). Principal routers optimize the firm's own markouts, latency and tiers `[Lore]`.
@@ -212,7 +212,7 @@ fills per venue.
 - [Auction, close and dark-liquidity algos](auction-close-and-dark-liquidity-algos.md)
 - [Queue position and order placement](../f-market-making-and-hft-algorithms/queue-position-and-order-placement.md)
 - [Implementation shortfall and Almgren-Chriss](implementation-shortfall-and-almgren-chriss.md)
-- [Walkthrough: executing a $500M buy order](../h-end-to-end-walkthroughs/walkthrough-institutional-execution.md)
+- [Walkthrough: executing a \$500M buy order](../h-end-to-end-walkthroughs/walkthrough-institutional-execution.md)
 
 ## Sources
 

@@ -5,7 +5,7 @@
 > - The close is about 9% of US notional, about 20% on rebalance days. Close algos size MOC/LOC orders before the cutoff (NYSE 3:50 p.m., Nasdaq 3:55 p.m.), then react to the imbalance.
 > - After the cutoff you may only add on the side that offsets the imbalance, which is exactly when the auction pays a price concession.
 > - Dark algos rest midpoint pegs and conditional orders across dark pools and block venues, using minimum fill sizes against probing.
-> - Every dark fill trades fill probability against adverse selection: judge venues by markouts, not fill rates. Leakage is the hidden cost; regulators have fined dark-pool operators up to $84.3M.
+> - Every dark fill trades fill probability against adverse selection: judge venues by markouts, not fill rates. Leakage is the hidden cost; regulators have fined dark-pool operators up to \$84.3M.
 
 **Level:** Core · **Pipeline stage:** execution · **Last verified:** 2026-11
 
@@ -87,9 +87,9 @@ def allocate_dark(remaining, venues, max_dark_pct=0.5, min_fill_frac=0.02):
 
 ## Worked example with numbers
 
-*Illustrative.* Buy 400,000 shares of a $40 stock, 30% meant for the close; the median closing print is 360,000 shares.
+*Illustrative.* Buy 400,000 shares of a \$40 stock, 30% meant for the close; the median closing print is 360,000 shares.
 
-**Close.** Want 0.30 × 400,000 = 120,000; cap 0.15 × 360,000 = **54,000 MOC**; the other 66,000 join the afternoon schedule. At 3:50 p.m. NYSE shows a **500,000-share sell imbalance** with 80,000 shares still unfilled. Offset: min(80,000, 0.25 × 500,000) = **80,000 LOC**. The close prints $39.90, 10¢ under the last sale, saving $13,400 on 134,000 shares. A buy imbalance would have pushed the MOC fill up, with nothing to add.
+**Close.** Want 0.30 × 400,000 = 120,000; cap 0.15 × 360,000 = **54,000 MOC**; the other 66,000 join the afternoon schedule. At 3:50 p.m. NYSE shows a **500,000-share sell imbalance** with 80,000 shares still unfilled. Offset: min(80,000, 0.25 × 500,000) = **80,000 LOC**. The close prints \$39.90, 10¢ under the last sale, saving \$13,400 on 134,000 shares. A buy imbalance would have pushed the MOC fill up, with nothing to add.
 
 **Dark.** Midday, 200,000 shares left; spread 2¢ (5 bps), so a midpoint fill saves 2.5 bps.
 
@@ -115,7 +115,7 @@ Budget 100,000; minimum fill 4,000. Venue B fills most and is dropped: its fills
 - **Dark selection**: in Zhu's model, informed traders crowd one side, so they fill less in the dark, and dark pools attract the less informed `[Verified]`.
 - **Venue defenses**: Nasdaq's M-ELO midpoint order must rest before trading, 500 ms at launch and 10 ms from May 2020, a cut Nasdaq estimated cost 0.10 bps of markout `[Verified]`.
 - **Block venues**: Cboe BIDS takes firm or conditional orders with minimum sizes and counterparty scorecards `[Verified]`.
-- **Leakage is real**: Barclays ($70M) and Credit Suisse ($84.3M) settled SEC and New York charges over dark-pool representations in 2016; ITG paid $20.3M in 2015 for a secret desk using subscribers' order information `[Verified]`.
+- **Leakage is real**: Barclays (\$70M) and Credit Suisse (\$84.3M) settled SEC and New York charges over dark-pool representations in 2016; ITG paid \$20.3M in 2015 for a secret desk using subscribers' order information `[Verified]`.
 
 ## How to tell if it's working
 
@@ -171,7 +171,7 @@ The auction uncross maximizes matched volume $\min(B(p), S(p))$ over price $p$, 
 - [Smart order routing](smart-order-routing.md)
 - [VWAP, TWAP and POV](vwap-twap-pov.md)
 - [Transaction cost analysis](transaction-cost-analysis.md)
-- [Walkthrough: executing a $500M buy order](../h-end-to-end-walkthroughs/walkthrough-institutional-execution.md)
+- [Walkthrough: executing a \$500M buy order](../h-end-to-end-walkthroughs/walkthrough-institutional-execution.md)
 
 ## Sources
 

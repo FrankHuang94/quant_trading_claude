@@ -4,7 +4,7 @@
 >
 > - Controls come in layers (strategy, firm or broker gateway, exchange port, market-wide), each assuming the one before has failed.
 > - SEC Rule 15c3-5 (2010) makes broker-dealers with market access automatically reject orders that breach pre-set credit or capital thresholds or price and size limits, or that look duplicative `[Verified]`.
-> - Knight Capital, 1 August 2012: 212 retail orders became over 4 million executions in 154 stocks in 45 minutes, and a loss of over $460 million `[Verified]`.
+> - Knight Capital, 1 August 2012: 212 retail orders became over 4 million executions in 154 stocks in 45 minutes, and a loss of over \$460 million `[Verified]`.
 > - Good controls are strict on the way in and generous on the way out: cancels and risk-reducing orders always pass.
 
 **Level:** Core · **Pipeline stage:** market making · **Last verified:** 2026-11
@@ -92,16 +92,16 @@ def pre_trade_check(order, state, limits):
 
 ## Worked example with numbers
 
-Illustrative: XYZ quoted $50.00 × $50.02 (reference $50.01); collar 2%; maximum 5,000 shares or $250,000 per order; position limit ±10,000; position +8,000 with 3,000 shares of open buys; 5% LULD bands around $50.00, so $47.50–$52.50.
+Illustrative: XYZ quoted \$50.00 × \$50.02 (reference \$50.01); collar 2%; maximum 5,000 shares or \$250,000 per order; position limit ±10,000; position +8,000 with 3,000 shares of open buys; 5% LULD bands around \$50.00, so \$47.50–$52.50.
 
 | Order | Check | Result |
 |---|---|---|
 | Buy 1,000 @ 50.01 | worst case 8,000 + 3,000 + 1,000 = 12,000 > 10,000 | reject: position |
 | Sell 2,000 @ 50.02 | position falls to 6,000 | accept, even in reduce-only |
 | Buy 500 @ 51.50 | (51.50 − 50.01) ÷ 50.01 = 2.98% > 2% | reject: collar (inside LULD, so the market would accept it) |
-| Buy 50,000 @ 50.01 | 50,000 > 5,000 shares; $2.5M > $250k | reject: fat finger |
+| Buy 50,000 @ 50.01 | 50,000 > 5,000 shares; \$2.5M > \$250k | reject: fat finger |
 
-**Knight's arithmetic** `[Estimate]`. Final positions of $3.5 billion long and $3.15 billion short are $6.65 billion gross built in 2,700 seconds, about $2.5 million a second. A $50 million firm-wide gross cap would have tripped after about 20 seconds (50 ÷ 2.46). The loss was about $1.16 per share traded ($460M ÷ 397M shares).
+**Knight's arithmetic** `[Estimate]`. Final positions of \$3.5 billion long and \$3.15 billion short are \$6.65 billion gross built in 2,700 seconds, about \$2.5 million a second. A \$50 million firm-wide gross cap would have tripped after about 20 seconds (50 ÷ 2.46). The loss was about \$1.16 per share traded (\$460M ÷ 397M shares).
 
 ```mermaid
 stateDiagram-v2
@@ -126,10 +126,10 @@ stateDiagram-v2
 ## Textbook version vs what firms actually do
 
 - **The rule:** 15c3-5 also requires pre-order regulatory checks, authorized-only access, immediate post-trade reports to surveillance, direct and exclusive broker control, and a CEO-certified annual review `[Verified]`.
-- **Knight's findings:** the SEC's first market-access case found no check comparing orders leaving the router with those entering it, an account limit not linked to any automated firm-wide control, and reliance on people instead of automated alerts; penalty $12 million `[Verified]`. A repurposed flag had woken dead code on one of eight servers missed in a deployment `[Verified]`.
+- **Knight's findings:** the SEC's first market-access case found no check comparing orders leaving the router with those entering it, an account limit not linked to any automated firm-wide control, and reliance on people instead of automated alerts; penalty \$12 million `[Verified]`. A repurposed flag had woken dead code on one of eight servers missed in a deployment `[Verified]`.
 - **Exchange ports:** Cboe offers fat-finger rejection through the NBBO, notional cutoffs, duplicate-order protection, [cancel-on-disconnect](../../09-reference/glossary.md#cancel-on-disconnect) and [self-trade prevention](../../09-reference/glossary.md#self-trade-prevention) `[Verified]`.
-- **Market-wide:** LULD bands are 5% for Tier 1 stocks above $3 (10% for Tier 2); a 15-second limit state becomes a 5-minute pause `[Verified]`. [Circuit breakers](../../09-reference/glossary.md#market-wide-circuit-breaker) halt everything for 15 minutes on S&P 500 falls of 7% or 13% before 3:25 p.m., and for the day at 20%; Level 1 fired four times in March 2020 `[Verified]`. Regular-hours trades inside the bands are generally not bustable as clearly erroneous, so a firm keeps its mistakes `[Verified]`.
-- **Surveillance:** [spoofing](../../09-reference/glossary.md#spoofing) and [layering](../../09-reference/glossary.md#layering) post orders meant to be cancelled to push the price, then trade the other way. FINRA Rule 5210 bans them `[Verified]`; in 2019 a jury found Avalon FA liable for layering and cross-market manipulation that made over $25 million `[Verified]`. Intent is invisible pre-trade, so detection is post-trade `[Lore]`.
+- **Market-wide:** LULD bands are 5% for Tier 1 stocks above \$3 (10% for Tier 2); a 15-second limit state becomes a 5-minute pause `[Verified]`. [Circuit breakers](../../09-reference/glossary.md#market-wide-circuit-breaker) halt everything for 15 minutes on S&P 500 falls of 7% or 13% before 3:25 p.m., and for the day at 20%; Level 1 fired four times in March 2020 `[Verified]`. Regular-hours trades inside the bands are generally not bustable as clearly erroneous, so a firm keeps its mistakes `[Verified]`.
+- **Surveillance:** [spoofing](../../09-reference/glossary.md#spoofing) and [layering](../../09-reference/glossary.md#layering) post orders meant to be cancelled to push the price, then trade the other way. FINRA Rule 5210 bans them `[Verified]`; in 2019 a jury found Avalon FA liable for layering and cross-market manipulation that made over \$25 million `[Verified]`. Intent is invisible pre-trade, so detection is post-trade `[Lore]`.
 
 ## How to tell if it's working
 
@@ -190,7 +190,7 @@ A token bucket of capacity $b$ and refill rate $r$ allows bursts of $b$ messages
 - [Verified] 17 CFR 240.15c3-5, "Risk management controls for brokers or dealers with market access." Legal Information Institute. <https://www.law.cornell.edu/cfr/text/17/240.15c3-5> (accessed 2026-11)
 - [Verified] U.S. SEC (2010-11-03). "Risk Management Controls for Brokers or Dealers with Market Access," Release No. 34-63241. <https://www.sec.gov/rules/final/2010/34-63241.pdf> (accessed 2026-11)
 - [Verified] U.S. SEC (2013-10-16). *In the Matter of Knight Capital Americas LLC*, Release No. 34-70694. <https://www.sec.gov/litigation/admin/2013/34-70694.pdf> (accessed 2026-11)
-- [Reported] WilmerHale (2013). "Knight Capital settles Rule 15c3-5 violations with SEC, agrees to pay $12 million." <https://www.wilmerhale.com/insights/client-alerts/knight-capital-settles-rule-15c3-5-violations-with-sec-agrees-to-pay-12-million> (accessed 2026-11)
+- [Reported] WilmerHale (2013). "Knight Capital settles Rule 15c3-5 violations with SEC, agrees to pay \$12 million." <https://www.wilmerhale.com/insights/client-alerts/knight-capital-settles-rule-15c3-5-violations-with-sec-agrees-to-pay-12-million> (accessed 2026-11)
 - [Verified] Cboe (2026-10-05). "Cboe Titanium U.S. Equities BOE Specification," version 2.4.58 (port attributes). <https://cdn.cboe.com/resources/techspec/technical-specifications-cboe-titanium-u-s-equities-boe-specification.md> (accessed 2026-11)
 - [Verified] LULD Plan Participants. "Limit Up Limit Down: overview and price bands." <https://www.luldplan.com/> (accessed 2026-11)
 - [Verified] Nasdaq Trader. "Market Wide Circuit Breaker." <https://www.nasdaqtrader.com/trader.aspx?id=CircuitBreaker> (accessed 2026-11)

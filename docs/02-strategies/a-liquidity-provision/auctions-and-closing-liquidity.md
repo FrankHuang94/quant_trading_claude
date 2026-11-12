@@ -4,7 +4,7 @@
 >
 > - In the [closing auction](../../09-reference/glossary.md#closing-auction), index funds, ETFs and benchmarked managers trade at whatever price clears. When their orders don't balance, someone with balance sheet takes the other side.
 > - Auction liquidity providers read the published imbalance, offer the other side and earn the price concession, which reverts "quickly and almost completely" on average (Bogousslavsky & Muravyev 2023) `[Verified]`.
-> - The close keeps growing: about 3.1% of dollar volume in 2010, a record 9.4% of notional in Q2 2024, about 20% on rebalance days `[Reported]`. Nasdaq's cross printed a record $334B on the June 2026 Russell reconstitution `[Reported]`.
+> - The close keeps growing: about 3.1% of dollar volume in 2010, a record 9.4% of notional in Q2 2024, about 20% on rebalance days `[Reported]`. Nasdaq's cross printed a record \$334B on the June 2026 Russell reconstitution `[Reported]`.
 > - Edge per share is small; the risk is overnight inventory and informed imbalances. Trading to move the close is manipulation.
 
 **Level:** Core · **Read time:** ~7 min · **Last verified:** 2026-11
@@ -19,7 +19,7 @@
 | Data required | real-time imbalance feeds; index event calendars; auction and next-day price history |
 | Core algorithms used | [E5 Auction, close and dark-liquidity algos](../../03-algorithms/e-execution-algorithms/auction-close-and-dark-liquidity-algos.md) · [M4 Quoting and inventory control](../../03-algorithms/f-market-making-and-hft-algorithms/quoting-and-inventory-control.md) · [M5 Adverse selection and markouts](../../03-algorithms/f-market-making-and-hft-algorithms/adverse-selection-and-markouts.md) · [P5 Transaction cost and impact models](../../03-algorithms/d-portfolio-construction/transaction-cost-and-impact-models.md) |
 | Infra intensity | moderate: one-second imbalance updates, hard cutoffs, an overnight risk model |
-| Capacity (rough $ range) | $50M to $500M of overnight inventory per large provider per day, more on event days `[Estimate]` (imbalances are a few percent of $50B+ of daily closing notional) |
+| Capacity (rough $ range) | \$50M to \$500M of overnight inventory per large provider per day, more on event days `[Estimate]` (imbalances are a few percent of \$50B+ of daily closing notional) |
 | Typical Sharpe (gross vs net) | no public figures; positive on most event days with a fat left tail from news after the cutoff `[Lore]` |
 | Turnover | about 100% of inventory per day |
 | Main risks / failure modes | overnight gaps, informed imbalances, crowded event days, manipulation exposure |
@@ -49,7 +49,7 @@ The concession is small: closing prices typically match pre-close bid or ask pri
 
 ## Worked example with numbers
 
-Illustrative, extending the example in [order types and auctions](../../01-market-structure/order-types-and-auctions.md). XYZ last $50.00; [MOC](../../09-reference/glossary.md#market-on-close-moc) buys 1.2M, MOC sells 0.9M; other sell limits: 100k at $50.02, 150k at $50.05, 200k at $50.10. Alone, the close would print $50.10. We add a 100k sell at limit $50.04.
+Illustrative, extending the example in [order types and auctions](../../01-market-structure/order-types-and-auctions.md). XYZ last \$50.00; [MOC](../../09-reference/glossary.md#market-on-close-moc) buys 1.2M, MOC sells 0.9M; other sell limits: 100k at \$50.02, 150k at \$50.05, 200k at $50.10. Alone, the close would print $50.10. We add a 100k sell at limit $50.04.
 
 | Price | Buys | Sells | Matched |
 |---|---|---|---|
@@ -57,7 +57,7 @@ Illustrative, extending the example in [order types and auctions](../../01-marke
 | 50.05 | 1.20M | 1.25M | **1.20M** |
 | 50.10 | 1.20M | 1.45M | 1.20M |
 
-The close is $50.05 (maximum volume, smallest surplus); MOC buyers pay $60,000 less. Next morning we buy back at $50.015.
+The close is \$50.05 (maximum volume, smallest surplus); MOC buyers pay \$60,000 less. Next morning we buy back at $50.015.
 
 | Line | $ |
 |---|---|
@@ -67,7 +67,7 @@ The close is $50.05 (maximum volume, smallest surplus); MOC buyers pay $60,000 l
 | Futures hedge slippage | −100 |
 | **Expected net** | **+2,965** |
 
-One overnight standard deviation of residual risk (1% of $5M) is $50,000, seventeen times the expected profit: the trade works only across hundreds of hedged names.
+One overnight standard deviation of residual risk (1% of \$5M) is \$50,000, seventeen times the expected profit: the trade works only across hundreds of hedged names.
 
 ## Signals and algorithms under the hood
 
@@ -102,7 +102,7 @@ def size_auction_offer(msg, s):
 
 ## P&L decomposition
 
-Illustrative provider absorbing $300M of imbalances a day, $75B a year.
+Illustrative provider absorbing \$300M of imbalances a day, \$75B a year.
 
 | Line | bps | $M/yr |
 |---|---|---|
@@ -118,7 +118,7 @@ Illustrative provider absorbing $300M of imbalances a day, $75B a year.
 
 - **Size of the close:** about 3.1% of dollar volume (2010) → 7.5% (2018) → record 9.4% of notional in Q2 2024; 2025 monthly 5–10% of share volume `[Reported]`.
 - **Reversion:** auction price deviations revert quickly and almost completely, on average (Bogousslavsky & Muravyev 2023, *JFM*) `[Verified]`.
-- **Events:** Nasdaq's June 26, 2026 Russell cross executed 4.59B shares, $334.0B `[Reported]`. Russell went semi-annual in 2026; the next reconstitution takes effect after the close on 2026-12-11 `[Verified]`.
+- **Events:** Nasdaq's June 26, 2026 Russell cross executed 4.59B shares, \$334.0B `[Reported]`. Russell went semi-annual in 2026; the next reconstitution takes effect after the close on 2026-12-11 `[Verified]`.
 - **Manipulation detection:** Comerton-Forde & Putniņš (2011) build an index of closing-price manipulation from prosecuted cases `[Verified]`.
 
 ## Capacity, crowding and decay
@@ -129,7 +129,7 @@ Capacity scales with imbalances, so it grows with passive assets and peaks on a 
 
 - **Informed imbalance:** news after the cutoff makes the concession permanent.
 - **Crowded events:** too many offsets flip the imbalance and the close prints against providers.
-- **Manipulation:** in 2009 Athena Capital Research traded so heavily in the last two seconds (over 70% of Nasdaq volume in the affected stocks) that it moved closing prices in favor of its imbalance orders; it settled with the SEC in October 2014 for $1M `[Verified]`. In 2015 the D.C. Circuit upheld marking-the-close findings against an adviser (*Koch v. SEC*) `[Verified]`.
+- **Manipulation:** in 2009 Athena Capital Research traded so heavily in the last two seconds (over 70% of Nasdaq volume in the affected stocks) that it moved closing prices in favor of its imbalance orders; it settled with the SEC in October 2014 for \$1M `[Verified]`. In 2015 the D.C. Circuit upheld marking-the-close findings against an adviser (*Koch v. SEC*) `[Verified]`.
 
 ## Textbook vs how it's done today
 
@@ -198,7 +198,7 @@ $$
 \Delta = A\,L\,(L-1)\,r .
 $$
 
-Illustrative: $10B of 3× funds on a +2% day buy 10 × 3 × 2 × 0.02 = $1.2B into the close `[Estimate]`.
+Illustrative: \$10B of 3× funds on a +2% day buy 10 × 3 × 2 × 0.02 = \$1.2B into the close `[Estimate]`.
 
 </details>
 
@@ -207,7 +207,7 @@ Illustrative: $10B of 3× funds on a +2% day buy 10 × 3 × 2 × 0.02 = $1.2B in
 - [Order types and auctions](../../01-market-structure/order-types-and-auctions.md)
 - [E5 Auction, close and dark-liquidity algos](../../03-algorithms/e-execution-algorithms/auction-close-and-dark-liquidity-algos.md)
 - [Flow-driven strategies](../d-mid-frequency-alpha/flow-driven-strategies.md)
-- [Walkthrough: executing a $500M buy order](../../03-algorithms/h-end-to-end-walkthroughs/walkthrough-institutional-execution.md)
+- [Walkthrough: executing a \$500M buy order](../../03-algorithms/h-end-to-end-walkthroughs/walkthrough-institutional-execution.md)
 - [Rules that shape strategies](../../06-risk-and-regulation/rules-that-shape-strategies.md)
 
 ## Sources

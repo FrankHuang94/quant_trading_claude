@@ -196,7 +196,7 @@ flowchart LR
 - [Algorithms: overview](index.md): how to read a card; labs; walkthroughs
 - [Strategy x algorithm matrix](../02-strategies/h-cross-cutting/strategy-x-algorithm-matrix.md): which strategies use which cards
 - [Walkthrough: a day at an ETF market maker](h-end-to-end-walkthroughs/walkthrough-etf-market-maker.md)
-- [Walkthrough: executing a $500M buy order](h-end-to-end-walkthroughs/walkthrough-institutional-execution.md)
+- [Walkthrough: executing a \$500M buy order](h-end-to-end-walkthroughs/walkthrough-institutional-execution.md)
 
 ## Sources
 

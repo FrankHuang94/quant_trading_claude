@@ -19,7 +19,7 @@
 | Data required | Point-in-time prices, corporate actions, fundamentals, estimates; industry codes; a factor risk model; spread, ADV and volatility for costs; borrow fees |
 | Core algorithms used | [D3 Signal transforms](../../03-algorithms/a-data-and-signals/signal-transforms.md) · [D4 Evaluating signals](../../03-algorithms/a-data-and-signals/evaluating-signals.md) · [F5 Alpha combination and ensembling](../../03-algorithms/b-forecasting-models/alpha-combination-and-ensembling.md) · [P1 Risk models](../../03-algorithms/d-portfolio-construction/risk-models.md) · [P3 Mean-variance optimization](../../03-algorithms/d-portfolio-construction/mean-variance-optimization.md) · [P5 Transaction cost and impact models](../../03-algorithms/d-portfolio-construction/transaction-cost-and-impact-models.md) |
 | Infra intensity | Low latency sensitivity; heavy batch research compute; seconds per optimizer solve |
-| Capacity (rough $ range) | $1B–$10B gross market value (GMV) per book `[Estimate]` (square-root impact: total cost grows like size^1.5, alpha like size) |
+| Capacity (rough $ range) | \$1B–\$10B gross market value (GMV) per book `[Estimate]` (square-root impact: total cost grows like size^1.5, alpha like size) |
 | Typical Sharpe (gross vs net) | Diversified multi-alpha book: gross 1.5–3, net 1–2 `[Lore]` (practitioner estimates, 2010s–2020s; no audited disclosure). Single published anomalies are weaker and lose ~58% of in-sample return after publication `[Verified]` (McLean & Pontiff 2016) |
 | Turnover | 10–40% of GMV per day `[Lore]` (about 25–100× per year) |
 | Main risks / failure modes | Crowded deleveraging, cost-model error, factor leakage, alpha decay, look-ahead, short squeezes |
@@ -78,9 +78,9 @@ flowchart LR
 | C | Banks | 1.1 | −0.3 | −1.0 | +0.7 |
 | D | Banks | 0.9 | −1.7 | −1.0 | −0.7 |
 
-The raw signal is mostly "long semis, short banks". Sector-neutral, the book is long A and C, short B and D. At $100M GMV ($41.7M per unit of score): A +$20.8M, C +$29.2M, B −$20.8M, D −$29.2M. Net beta dollars: 20.8×1.4 + 29.2×1.1 − 20.8×1.3 − 29.2×0.9 = +$7.9M, so a 2% market drop costs ~$158k. **Sector-neutral is not beta-neutral**: add beta to the regression or hedge with ~$7.9M of index futures.
+The raw signal is mostly "long semis, short banks". Sector-neutral, the book is long A and C, short B and D. At \$100M GMV (\$41.7M per unit of score): A +\$20.8M, C +\$29.2M, B −\$20.8M, D −\$29.2M. Net beta dollars: 20.8×1.4 + 29.2×1.1 − 20.8×1.3 − 29.2×0.9 = +\$7.9M, so a 2% market drop costs ~\$158k. **Sector-neutral is not beta-neutral**: add beta to the regression or hedge with ~\$7.9M of index futures.
 
-**B. Dollar- vs beta-neutral (illustrative).** $500M long at beta 0.8 against $500M short at beta 1.2 is dollar-neutral but carries −$200M of beta: a +1% market day loses ~$2M.
+**B. Dollar- vs beta-neutral (illustrative).** \$500M long at beta 0.8 against \$500M short at beta 1.2 is dollar-neutral but carries −\$200M of beta: a +1% market day loses ~\$2M.
 
 **C. Fundamental Law (illustrative).** IC 0.03, 2,000 stocks, 5-day horizon (≈ 50 periods a year): nominal breadth 100,000, √ ≈ 316, IR ≈ 9.5; with a transfer coefficient of 0.4, 3.8. If correlated residuals and overlapping holds leave 10% of bets truly independent, √10,000 = 100 and IR ≈ 0.03 × 100 × 0.4 = 1.2, where real books live.
 
@@ -124,7 +124,7 @@ def daily_forecast(raw_alphas, exposures, ic, resid_vol, ic_combo=0.04):
 
 ## P&L decomposition
 
-Illustrative: $1B GMV, turnover 15% per day ($37.8B traded per year).
+Illustrative: \$1B GMV, turnover 15% per day (\$37.8B traded per year).
 
 | Line | $M per year | % of GMV |
 |---|---|---|
@@ -133,7 +133,7 @@ Illustrative: $1B GMV, turnover 15% per day ($37.8B traded per year).
 | Half-spread (3 bps traded) | −11.3 | −1.1% |
 | Market impact (4 bps) | −15.1 | −1.5% |
 | Commissions and fees (1 bp) | −3.8 | −0.4% |
-| Borrow (0.4% on $500M short) | −2.0 | −0.2% |
+| Borrow (0.4% on \$500M short) | −2.0 | −0.2% |
 | Financing spread, net | −3.0 | −0.3% |
 | **Net** | **+44.8** | **+4.5%** |
 
@@ -149,7 +149,7 @@ At 4% annualized volatility on GMV, gross Sharpe ≈ 2.0 and net ≈ 1.1: costs 
 
 ## Capacity, crowding and decay
 
-**Capacity.** Under square-root impact, doubling the book raises impact per dollar ~41%. In the table, a $4B book pays ~8 bps impact and ~12 bps all-in, about 4.5% of GMV a year, unless it slows down and drops its fastest alphas `[Estimate]`.
+**Capacity.** Under square-root impact, doubling the book raises impact per dollar ~41%. In the table, a \$4B book pays ~8 bps impact and ~12 bps all-in, about 4.5% of GMV a year, unless it slows down and drops its fastest alphas `[Estimate]`.
 
 **Crowding.** Shared vendors, academic signals and risk models make residual books overlap; one forced seller hurts all (see the diagram).
 

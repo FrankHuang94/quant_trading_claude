@@ -19,7 +19,7 @@
 | Data required | Point-in-time book, gross profit, earnings, leverage, accruals; 1–5 years of daily returns for betas and volatility |
 | Core algorithms used | [D3 Signal transforms](../../03-algorithms/a-data-and-signals/signal-transforms.md) · [P1 Risk models](../../03-algorithms/d-portfolio-construction/risk-models.md) · [P3 Mean-variance optimization](../../03-algorithms/d-portfolio-construction/mean-variance-optimization.md) · [P4 Alternatives to MVO](../../03-algorithms/d-portfolio-construction/alternatives-to-mvo.md) |
 | Infra intensity | No latency sensitivity; monthly batch |
-| Capacity (rough $ range) | $10B+ per long-short manager; long-only far larger `[Estimate]` (slow large-cap rebalancing; high capacity per Novy-Marx & Velikov 2016) |
+| Capacity (rough $ range) | \$10B+ per long-short manager; long-only far larger `[Estimate]` (slow large-cap rebalancing; high capacity per Novy-Marx & Velikov 2016) |
 | Typical Sharpe (gross vs net) | Gross academic long-short (our computation from French and AQR data): HML 0.34 and RMW 0.37 (1963–2026), QMJ 0.48 (1957–2026), BAB 0.70 (1930–2026); since 2010: HML −0.06, RMW 0.22, QMJ 0.25, BAB 0.76 `[Verified]`. Net of costs and fees, subtract roughly 0.1–0.3 `[Estimate]` |
 | Turnover | 30–80% a year for value and quality; more for beta sorts `[Estimate]` |
 | Main risks / failure modes | Growth bubbles, junk rallies, rate shocks for low-vol, funding squeezes for levered low beta |
@@ -54,12 +54,12 @@ Illustrative betting-against-beta (BAB) leg sizing. Low-beta portfolio β = 0.7,
 
 | Step | Calculation | Result |
 |---|---|---|
-| Long low-beta, scaled to β = 1 | $1 / 0.7 | $1.43 |
-| Short high-beta, scaled to β = 1 | $1 / 1.4 | $0.71 |
+| Long low-beta, scaled to β = 1 | $1 / 0.7 | \$1.43 |
+| Short high-beta, scaled to β = 1 | $1 / 1.4 | \$0.71 |
 | CAPM excess returns | 0.7 × 6% and 1.4 × 6% | 4.2% and 8.4% |
 | BAB return if CAPM holds | 1.43 × 4.2 − 0.71 × 8.4 | **≈ 0%** |
 | "Flat" market line: 6% and 7% | 1.43 × 6 − 0.71 × 7 | **+3.6%** |
-| Funding spread on $0.71 net long at 0.5% | 0.71 × 0.5 | −0.36% |
+| Funding spread on \$0.71 net long at 0.5% | 0.71 × 0.5 | −0.36% |
 
 The trade earns exactly the flatness of the security market line, which Frazzini & Pedersen attribute to leverage-constrained buyers of high beta.
 
@@ -95,19 +95,19 @@ Simplified: Frazzini & Pedersen rank-weight within legs; this sketch equal-weigh
 - **Which value.** Plain B/M penalizes firms whose assets are expensed R&D and brands; capitalizing intangibles changes what looks cheap (Eisfeldt, Kim & Papanikolaou 2022) `[Reported]`.
 - **Which quality.** One ratio (gross profitability) or a composite of profitability, growth and safety (QMJ); composites are steadier `[Lore]`.
 - **Sector control.** Unconstrained low-vol loads on utilities and staples, a bond-rate bet `[Lore]`.
-- **BAB construction.** Its results rest on choices that effectively equal-weight, putting $1.05 per $1 into the smallest 1% of stocks (Novy-Marx & Velikov 2022) `[Verified]`.
+- **BAB construction.** Its results rest on choices that effectively equal-weight, putting \$1.05 per \$1 into the smallest 1% of stocks (Novy-Marx & Velikov 2022) `[Verified]`.
 - **Integrate or stack.** One composite avoids buying a stock in one sleeve while selling it in another `[Lore]`.
 
 ## P&L decomposition
 
-Illustrative: $1B NAV, $1B long and $1B short, equal-risk value, quality and low-beta sleeves, 6% volatility.
+Illustrative: \$1B NAV, \$1B long and \$1B short, equal-risk value, quality and low-beta sleeves, 6% volatility.
 
 | Line | % of NAV a year |
 |---|---|
 | Value premium | +1.0 |
 | Quality premium | +1.2 |
 | Low-beta premium (after leverage) | +1.6 |
-| Trading costs (60% turnover × $2B × 10 bps) | −0.12 |
+| Trading costs (60% turnover × \$2B × 10 bps) | −0.12 |
 | Borrow and financing | −0.5 |
 | **Net before fees** | **+3.2 (Sharpe ≈ 0.53)** |
 

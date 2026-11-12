@@ -20,7 +20,7 @@
 | Data required | point-in-time prices, volumes, corporate actions; sector codes; a factor risk model; borrow rates |
 | Core algorithms used | [D3 Signal transforms](../../03-algorithms/a-data-and-signals/signal-transforms.md) · [F5 Alpha combination and ensembling](../../03-algorithms/b-forecasting-models/alpha-combination-and-ensembling.md) · [P1 Risk models](../../03-algorithms/d-portfolio-construction/risk-models.md) · [P3 Mean-variance optimization](../../03-algorithms/d-portfolio-construction/mean-variance-optimization.md) · [P5 Transaction cost and impact models](../../03-algorithms/d-portfolio-construction/transaction-cost-and-impact-models.md) |
 | Infra intensity | moderate: daily to intraday rebalances, optimizer solves in seconds; not microsecond-sensitive |
-| Capacity (rough $ range) | $0.5B to $5B gross market value per book `[Estimate]` (with square-root impact, costs overtake alpha within a few multiples of optimal size; see below) |
+| Capacity (rough $ range) | \$0.5B to \$5B gross market value per book `[Estimate]` (with square-root impact, costs overtake alpha within a few multiples of optimal size; see below) |
 | Typical Sharpe (gross vs net) | academic: PCA residual strategy 1.44 net of 10 bps round-trip costs, 1997–2007, falling to 0.9 in 2003–2007 `[Verified]`; practitioner: diversified books net 1–3 `[Lore]`; simple reversal decayed sharply after 1995 `[Verified]` |
 | Turnover | 20–60% of gross market value per day `[Lore]` (roughly one over the holding period) |
 | Main risks / failure modes | crowded deleveraging, factor leakage, cost-model error, alpha decay, short squeezes |
@@ -54,16 +54,16 @@ The first explanation dominates practitioner thinking `[Lore]`, and it predicts 
 
 ## Worked example with numbers
 
-Illustrative book: $1B gross market value (GMV), 2,000 names, 30% traded per day, 5 bps one-way cost per dollar traded, annual volatility 3% of GMV.
+Illustrative book: \$1B gross market value (GMV), 2,000 names, 30% traded per day, 5 bps one-way cost per dollar traded, annual volatility 3% of GMV.
 
 | Item | Calculation | Per day |
 |---|---|---|
-| Gross alpha | $1B × 3 bps | +$300,000 |
-| Trading cost | $300M × 5 bps | −$150,000 |
-| **Net** | | **+$150,000** |
-| P&L volatility | $1B × 3% / √250 | $1.90M |
+| Gross alpha | \$1B × 3 bps | +\$300,000 |
+| Trading cost | \$300M × 5 bps | −\$150,000 |
+| **Net** | | **+\$150,000** |
+| P&L volatility | \$1B × 3% / √250 | \$1.90M |
 
-Net: $37.5M a year, 3.75% on GMV before borrow, financing and fees. Annualized Sharpe = 150,000 / 1,900,000 × √250 ≈ 1.25. At 5× leverage (GMV over equity) that is about 19% on $200M of capital.
+Net: \$37.5M a year, 3.75% on GMV before borrow, financing and fees. Annualized Sharpe = 150,000 / 1,900,000 × √250 ≈ 1.25. At 5× leverage (GMV over equity) that is about 19% on \$200M of capital.
 
 The Fundamental Law shows why breadth is everything: an IC of 0.01 across 2,000 names and about 50 independent rebalances a year gives IR ≈ 0.01 × √100,000 ≈ 3.2 before costs and constraints. A transfer coefficient of 0.5 and costs bring it down to the 1.25 above.
 
@@ -108,7 +108,7 @@ def target_side(s, current):        # +1 long, -1 short, 0 flat (hedge factors s
 
 ## P&L decomposition
 
-Illustrative, $1B GMV, one year:
+Illustrative, \$1B GMV, one year:
 
 | Line | $M | % of GMV |
 |---|---|---|
@@ -119,7 +119,7 @@ Illustrative, $1B GMV, one year:
 | Financing spread | −4.0 | −0.4 |
 | **Net, before management and performance fees** | **+26.0** | **+2.6** |
 
-On $200M of equity, 13% before fees. Costs take half the gross alpha: stat arb is an execution business.
+On \$200M of equity, 13% before fees. Costs take half the gross alpha: stat arb is an execution business.
 
 ## Evidence
 
@@ -127,8 +127,8 @@ On $200M of equity, 13% before fees. Costs take half the gross alpha: stat arb i
 
 - **1979–80:** Ed Thorp's Princeton-Newport "indicators project" found short-term reversal, then shelved it `[Reported]`.
 - **1982–85:** Gerry Bamberger at Morgan Stanley traded reversal live from about 1983, dollar-neutral within industry groups of 2–13 stocks; by 1985 it was a significant profit center. His boss Nunzio Tartaglia expanded it, and Bamberger left, joining Princeton-Newport in 1985 (Thorp's account) `[Reported]`. Princeton-Newport later replaced industry groups with factor analysis, and BARRA found its returns essentially factor-neutral `[Reported]`.
-- **1987–89:** Tartaglia's group reportedly made $50M in 1987 and disbanded in 1989 after bad years (Gatev et al., citing a 1989 *Institutional Investor* article) `[Reported]`. Thorp relays a rumor of a 1988 expansion to about $900M a side and losses of 6–12% `[Lore]`.
-- **1988:** David E. Shaw, described by Gatev et al. as an early Tartaglia protégé, left Morgan Stanley `[Reported]` and founded D. E. Shaw with six employees and $28M `[Verified]`.
+- **1987–89:** Tartaglia's group reportedly made \$50M in 1987 and disbanded in 1989 after bad years (Gatev et al., citing a 1989 *Institutional Investor* article) `[Reported]`. Thorp relays a rumor of a 1988 expansion to about \$900M a side and losses of 6–12% `[Lore]`.
+- **1988:** David E. Shaw, described by Gatev et al. as an early Tartaglia protégé, left Morgan Stanley `[Reported]` and founded D. E. Shaw with six employees and \$28M `[Verified]`.
 - **1992:** Peter Muller started Morgan Stanley's Process Driven Trading, which made most of its money from stat arb, former employees say `[Reported]`.
 
 ### What the papers show
@@ -148,9 +148,9 @@ Capacity, with the example's costs scaling as the square root of size `[Estimate
 
 | GMV | Traded per day | Cost per $ | Net per day |
 |---|---|---|---|
-| $1B | $300M | 5.0 bps | +$150k |
-| $2B | $600M | 7.1 bps | +$176k |
-| $4B | $1.2B | 10.0 bps | $0 |
+| \$1B | \$300M | 5.0 bps | +\$150k |
+| \$2B | \$600M | 7.1 bps | +\$176k |
+| \$4B | \$1.2B | 10.0 bps | \$0 |
 
 Doubling capital adds 17% to P&L; quadrupling erases it. As daily reversal decayed, firms moved to intraday horizons, more signals and ML combination `[Lore]`.
 
@@ -262,7 +262,7 @@ so negative own-autocovariance (overreaction) and positive cross-autocovariance 
 - [Reported] Thorp, E. O. (2004–2005). "Statistical Arbitrage – Part II." *Wilmott* magazine (copy hosted by a third party). <https://c.mql5.com/forextsd/forum/70/statistical_arbitrage_-_part_ii.pdf> (accessed 2026-11)
 - [Reported] Thorp, E. O. (2004–2005). "Statistical Arbitrage – Part III." *Wilmott* magazine. <https://c.mql5.com/forextsd/forum/70/statistical_arbitrage_-_part_iii.pdf> (accessed 2026-11)
 - [Verified] Gatev, E., Goetzmann, W. N. & Rouwenhorst, K. G. (2006). "Pairs Trading: Performance of a Relative-Value Arbitrage Rule." *Review of Financial Studies* 19(3), 797–827 (history section in NBER WP 7032). <https://doi.org/10.1093/rfs/hhj020> (accessed 2026-11)
-- [Verified] D. E. Shaw & Co. (n.d.). "Who We Are" (founded 1988; six employees; $28M). <https://www.deshaw.com/who-we-are> (accessed 2026-11)
+- [Verified] D. E. Shaw & Co. (n.d.). "Who We Are" (founded 1988; six employees; \$28M). <https://www.deshaw.com/who-we-are> (accessed 2026-11)
 - [Reported] CNBC (2010). "Morgan Stanley May Ax Quantitative Trading Unit." <https://www.cnbc.com/id/40147765> (accessed 2026-11)
 - [Verified] Lehmann, B. N. (1990). "Fads, Martingales, and Market Efficiency." *Quarterly Journal of Economics* 105(1), 1–28. <https://doi.org/10.2307/2937816> (accessed 2026-11)
 - [Verified] Lo, A. W. & MacKinlay, A. C. (1990). "When Are Contrarian Profits Due to Stock Market Overreaction?" *Review of Financial Studies* 3(2), 175–205. <https://doi.org/10.1093/rfs/3.2.175> (accessed 2026-11)

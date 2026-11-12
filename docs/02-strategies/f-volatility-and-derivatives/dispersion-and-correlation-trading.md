@@ -48,15 +48,15 @@ Outside the US, supply runs the other way: retail autocallables in Korea, Japan 
 
 ## Worked example with numbers
 
-Illustrative: 50 equal-weight stocks (2% each), each at 30% implied; index at 16%. Implied correlation = (0.0256 − 0.0018) / 0.0882 = 0.27. Short an index variance swap with $1M vega (variance notional $1M / (2 × 16) = $31,250 per vol² point); long 50 stock variance swaps with $20,000 vega each, or $333 per vol² point.
+Illustrative: 50 equal-weight stocks (2% each), each at 30% implied; index at 16%. Implied correlation = (0.0256 − 0.0018) / 0.0882 = 0.27. Short an index variance swap with \$1M vega (variance notional \$1M / (2 × 16) = \$31,250 per vol² point); long 50 stock variance swaps with \$20,000 vega each, or \$333 per vol² point.
 
 | Realized outcome | Index vol | Index leg | Stock legs | Net |
 |---|---|---|---|---|
-| Calm: stocks 30%, correlation 0.20 | 13.9% | +$1.93M | $0 | **+$1.93M** |
-| Vol up: stocks 35%, correlation 0.27 | 18.7% | −$2.89M | +$5.42M | **+$2.52M** |
-| Crash: stocks 45%, correlation 0.70 | 37.8% | −$36.7M | +$18.75M | **−$17.9M** |
+| Calm: stocks 30%, correlation 0.20 | 13.9% | +\$1.93M | \$0 | **+\$1.93M** |
+| Vol up: stocks 35%, correlation 0.27 | 18.7% | −\$2.89M | +\$5.42M | **+\$2.52M** |
+| Crash: stocks 45%, correlation 0.70 | 37.8% | −\$36.7M | +\$18.75M | **−\$17.9M** |
 
-Calm row: 31,250 × (16² − 13.9²) = $1.93M. Equal vega leaves the book net long volatility (row 2) yet still loses heavily when correlation jumps (row 3). Variance-swap caps, often 2.5× strike `[Lore]`, limit the crash row.
+Calm row: 31,250 × (16² − 13.9²) = \$1.93M. Equal vega leaves the book net long volatility (row 2) yet still loses heavily when correlation jumps (row 3). Variance-swap caps, often 2.5× strike `[Lore]`, limit the crash row.
 
 ## Signals and algorithms under the hood
 
@@ -91,7 +91,7 @@ def dispersion_trade(sig_idx, w, sig, cov_fcst, index_vega=1_000_000, weighting=
 
 ## P&L decomposition
 
-Illustrative: $1M index vega, rolled quarterly, $M per year.
+Illustrative: \$1M index vega, rolled quarterly, $M per year.
 
 | Line | $M/yr |
 |---|---|

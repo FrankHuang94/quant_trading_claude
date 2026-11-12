@@ -110,16 +110,16 @@ def run_backtest(bars, strategy, cm, cash=1e7, latency_bars=1):
 
 ## Worked example with numbers
 
-Illustrative: buy 50,000 shares of a $40 stock with a 2¢ spread, 2% daily volatility, 1M shares ADV, a $0.003 per-share take fee and k = 0.7.
+Illustrative: buy 50,000 shares of a \$40 stock with a 2¢ spread, 2% daily volatility, 1M shares ADV, a \$0.003 per-share take fee and k = 0.7.
 
 | Component | Calculation | $ | bps |
 |---|---|---|---|
-| Half-spread | $0.01 × 50,000 | 500 | 2.5 |
-| Fees | $0.003 × 50,000 | 150 | 0.75 |
-| Impact | 0.7 × 0.02 × √(50,000 / 1,000,000) × $2,000,000 | 6,261 | 31.3 |
+| Half-spread | \$0.01 × 50,000 | 500 | 2.5 |
+| Fees | \$0.003 × 50,000 | 150 | 0.75 |
+| Impact | 0.7 × 0.02 × √(50,000 / 1,000,000) × \$2,000,000 | 6,261 | 31.3 |
 | **Total** | | **6,911** | **34.6** |
 
-A flat 5 bps charge books $1,000, about 7× too little. Against 30 bps of expected alpha, the flat model reports +25 bps net; the realistic one, −4.6 bps. With a 10% participation cap, a 150,000-share order on a 1M-share day fills 100,000 today and 50,000 tomorrow while the alpha decays.
+A flat 5 bps charge books \$1,000, about 7× too little. Against 30 bps of expected alpha, the flat model reports +25 bps net; the realistic one, −4.6 bps. With a 10% participation cap, a 150,000-share order on a 1M-share day fills 100,000 today and 50,000 tomorrow while the alpha decays.
 
 **Passive fills:** you join a 10,000-share bid with 500 shares. Then 3,000 trade at your price and 2,000 cancel. A fill-on-touch engine fills you. A risk-averse [queue model](../../09-reference/glossary.md#queue-position) puts the cancels behind you, leaving 7,000 ahead. A probabilistic model leaves 5,000–7,000 ahead.
 
@@ -129,7 +129,7 @@ A flat 5 bps charge books $1,000, about 7× too little. Against 30 bps of expect
 - **Impact coefficient:** order 1 in the [square-root law](../../09-reference/glossary.md#square-root-law) literature ([Tóth et al. 2011](https://doi.org/10.1103/PhysRevX.1.021006)) `[Reported]`. Firms refit it on their own fills via [TCA](../e-execution-algorithms/transaction-cost-analysis.md) `[Lore]`.
 - **Latency:** HFT engines sample measured distributions, not constants `[Lore]`.
 - **Borrow:** general collateral about 0.25–0.50% a year, hard-to-borrow 5–50%+ `[Lore]` ([shorting](../../01-market-structure/shorting-financing-and-settlement.md)).
-- **Fees:** take fees are capped at $0.0030 per share `[Verified]`.
+- **Fees:** take fees are capped at \$0.0030 per share `[Verified]`.
 
 ## Textbook version vs what firms actually do
 

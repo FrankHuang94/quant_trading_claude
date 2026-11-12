@@ -3,7 +3,7 @@
 > **TL;DR**
 >
 > - A resting order is worth P(fill) × (half-spread + rebate + markout). Both terms worsen with every share queued ahead of you.
-> - In large-tick stocks priority is worth about half a tick: $0.56 per 100 shares in [Lab 01](https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/01-matching-engine-order-book) (synthetic), above a market maker's net margin.
+> - In large-tick stocks priority is worth about half a tick: \$0.56 per 100 shares in [Lab 01](https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/01-matching-engine-order-book) (synthetic), above a market maker's net margin.
 > - Position is estimated: exact with order-level feeds, a guess about cancels with level-only feeds.
 > - Placement compares expected values: stay, join elsewhere, improve, step back, take, or pay an inverted venue for priority.
 
@@ -90,7 +90,7 @@ def place(options, hysteresis_ticks=0.02):
 
 ## Worked example with numbers
 
-*Illustrative.* You join a $19.99 bid with 500 shares behind 4,000; 1,500 join behind you. A 1,000-share sell prints, leaving 3,000 ahead. Then the level shrinks by 1,200 with no print: cancels.
+*Illustrative.* You join a \$19.99 bid with 500 shares behind 4,000; 1,500 join behind you. A 1,000-share sell prints, leaving 3,000 ahead. Then the level shrinks by 1,200 with no print: cancels.
 
 | Cancel model | Share of the 1,200 assumed ahead | Shares ahead after |
 |---|---|---|
@@ -111,7 +111,7 @@ On Lab 01's curve: 10-second fill probability about 43% vs 33% (synthetic).
 
 A 0.44-tick fee swing buys 0.64 ticks of markout: +0.18 ticks net.
 
-**Why half a cent matters.** The market maker's income statement in [fees, rebates and ticks](../../01-market-structure/fees-rebates-and-ticks.md) nets 0.16¢ a share; a 0.56¢ priority gap is 3.5 times that. Posting 20M shares a day from the back instead of the front costs about $112,000 a day `[Estimate]` (illustrative volume).
+**Why half a cent matters.** The market maker's income statement in [fees, rebates and ticks](../../01-market-structure/fees-rebates-and-ticks.md) nets 0.16¢ a share; a 0.56¢ priority gap is 3.5 times that. Posting 20M shares a day from the back instead of the front costs about \$112,000 a day `[Estimate]` (illustrative volume).
 
 ## Key parameters and how practitioners tune them
 

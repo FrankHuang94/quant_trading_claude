@@ -20,7 +20,7 @@
 | Data required | Intraday bars, auction imbalance feeds, option open interest by strike (for gamma estimates), event calendars |
 | Core algorithms used | [D2 Feature engineering](../../03-algorithms/a-data-and-signals/feature-engineering.md) · [E5 Auction, close and dark-liquidity algos](../../03-algorithms/e-execution-algorithms/auction-close-and-dark-liquidity-algos.md) · [M3 Order-book and trade-flow signals](../../03-algorithms/f-market-making-and-hft-algorithms/order-book-and-trade-flow-signals.md) · [V3 Backtest pitfalls](../../03-algorithms/c-validation-and-backtesting/backtest-pitfalls.md) |
 | Infra intensity | Moderate: minute data and a real-time imbalance feed; sub-second speed matters only near the close |
-| Capacity (rough $ range) | Futures intraday momentum $100M–$1B `[Estimate]` (deep market, one trade a day at a few bps); single-stock patterns $50M–$300M `[Estimate]`; as execution timing, the whole book |
+| Capacity (rough $ range) | Futures intraday momentum \$100M–\$1B `[Estimate]` (deep market, one trade a day at a few bps); single-stock patterns \$50M–\$300M `[Estimate]`; as execution timing, the whole book |
 | Typical Sharpe (gross vs net) | SPY intraday momentum timing: ~6–7% a year gross, 1993–2013 academic backtest `[Reported]`. Pre-FOMC: +49 bps per meeting, 1994–2011, weaker since 2016 `[Reported]`. Standalone net 0.3–0.8 now `[Lore]` |
 | Turnover | One round trip a day for intraday sleeves; monthly for calendar tilts |
 | Main risks / failure modes | Hedging-regime flips, event days, crowded closes, calendar data snooping |
@@ -63,19 +63,19 @@ timeline
 
 ## Worked example with numbers
 
-Illustrative E-mini S&P 500 trade ($50 per index point, 0.25-point tick):
+Illustrative E-mini S&P 500 trade (\$50 per index point, 0.25-point tick):
 
 | Step | Value |
 |---|---|
 | Prior close → 15:30 | 5,000.00 → 5,060.00: +1.20% |
 | Base forecast, β = 0.04 | +0.048% = 2.4 points |
 | Dealers estimated short gamma: scale × 1.5 | +0.072% = 3.6 points |
-| Position | Buy 100 contracts = 100 × $50 × 5,060 = $25.3M |
-| Expected gain | 3.6 × $50 × 100 = **$18,000** |
-| Costs: 1 tick round trip ($1,250) + fees ~$4 per contract ($400) | **−$1,650** |
-| Net expected | **$16,350** |
+| Position | Buy 100 contracts = 100 × \$50 × 5,060 = \$25.3M |
+| Expected gain | 3.6 × \$50 × 100 = **\$18,000** |
+| Costs: 1 tick round trip (\$1,250) + fees ~\$4 per contract (\$400) | **−\$1,650** |
+| Net expected | **\$16,350** |
 
-Last-half-hour volatility of ~0.25% ($63,000) gives one day a mean-to-risk ratio near 0.26: the edge needs hundreds of days and a stable regime.
+Last-half-hour volatility of ~0.25% (\$63,000) gives one day a mean-to-risk ratio near 0.26: the edge needs hundreds of days and a stable regime.
 
 ## Signals and algorithms under the hood
 
@@ -110,7 +110,7 @@ def contracts(pred, price, multiplier=50, risk_notional=25e6, min_edge=1.5e-4):
 
 ## P&L decomposition
 
-Illustrative $200M-capital sleeve, % a year:
+Illustrative \$200M-capital sleeve, % a year:
 
 | Line | % |
 |---|---|
@@ -122,7 +122,7 @@ Illustrative $200M-capital sleeve, % a year:
 | Margin and financing | −0.2 |
 | **Net** | **+1.9** |
 
-At 3% volatility, net Sharpe ≈ 0.6 `[Estimate]`. Execution is often bigger: a $5B book trading 20% a day that saves 1 bp by timing gains $5B × 0.2 × 252 × 0.0001 = $25.2M a year `[Estimate]`.
+At 3% volatility, net Sharpe ≈ 0.6 `[Estimate]`. Execution is often bigger: a \$5B book trading 20% a day that saves 1 bp by timing gains \$5B × 0.2 × 252 × 0.0001 = \$25.2M a year `[Estimate]`.
 
 ## Evidence
 
