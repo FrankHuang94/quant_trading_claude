@@ -4,7 +4,7 @@
 >
 > - The canonical mid-frequency quant equity book ranks 1,000–3,000 US stocks *against each other* every day on many weak signals ("alphas") and holds the top against the bottom for days to weeks, with near-zero market exposure.
 > - The pipeline: raw alphas → transforms (winsorize, rank or z-score) → neutralization (regress out beta, industries, styles) → combination → risk model → optimizer with a cost model → trades.
-> - The Fundamental Law (IR ≈ TC · IC · √breadth) explains the design: each alpha is barely better than a coin flip (IC 0.01–0.05), so the edge comes from many nearly independent bets.
+> - The Fundamental Law (IR ≈ TC · IC · √breadth) explains the design: each alpha is barely better than a coin flip (daily IC roughly 0.005–0.05), so the edge comes from many nearly independent bets.
 > - It fails through costs (turnover of 10–40% of the book per day), crowding (August 2007) and decay of known signals.
 
 **Level:** Core · **Read time:** ~11 min · **Last verified:** 2026-11
@@ -91,8 +91,13 @@ Transforms and IC: [D3](../../03-algorithms/a-data-and-signals/signal-transforms
 ```python
 import numpy as np
 
+def winsorize(x, pct=0.01):
+    """Clip raw values at the date's 1st/99th percentiles (bad prints, outliers)."""
+    lo, hi = np.nanquantile(x, [pct, 1 - pct])
+    return np.clip(x, lo, hi)
+
 def zscore(x, clip=3.0):
-    """Cross-sectional z-score on one date, winsorized at +/- clip sigma."""
+    """Cross-sectional z-score on one date, then clipped at +/- clip sd."""
     z = (x - np.nanmean(x)) / np.nanstd(x)
     return np.clip(z, -clip, clip)
 
@@ -106,11 +111,11 @@ def daily_forecast(raw_alphas, exposures, ic, resid_vol, ic_combo=0.04):
     """raw_alphas: {name: N-vector}; ic: {name: trailing rank IC}; returns daily alpha."""
     combo = np.zeros(len(resid_vol))
     for name, x in raw_alphas.items():
-        s = neutralize(zscore(x), exposures)
+        s = neutralize(zscore(winsorize(x)), exposures)
         combo += max(ic[name], 0.0) * s / np.std(s)   # IC-weighted; ignores alpha correlations
-    score = neutralize(zscore(combo), exposures)      # re-neutralize after winsorizing
+    score = neutralize(zscore(combo), exposures)      # re-neutralize after clipping
     return ic_combo * resid_vol * score              # Grinold: alpha = IC * vol * score
-# Names follow Lab 11 (zscore, neutralize); simplified: no NaN handling, unweighted regression.
+# Names follow Lab 11 (winsorize, zscore, neutralize); simplified: no NaN handling, unweighted regression.
 ```
 
 ## Implementation choices that matter
@@ -144,7 +149,7 @@ At 4% annualized volatility on GMV, gross Sharpe ≈ 2.0 and net ≈ 1.1: costs 
 - Kakushadze (2016) published 101 real-life trading alphas with average holding periods of about 0.6–6.4 days and average pairwise correlation of 15.9% `[Verified]`; low correlation is what makes breadth across alphas valuable.
 - McLean & Pontiff (2016): across 97 predictors, returns are 26% lower out-of-sample and 58% lower post-publication `[Verified]`.
 - Grinold (1989) derived IR ≈ IC·√breadth; Clarke, de Silva & Thorley (2002) added the transfer coefficient and showed constraints shrink realized IR `[Verified]`.
-- Daily rank ICs of 0.01–0.05 per alpha are the practitioner norm; above 0.1 on a large universe usually means a bug `[Lore]`.
+- Daily rank ICs of roughly 0.005–0.03 per alpha are the practitioner norm (0.05 is exceptional); above 0.1 on a large universe usually means a bug `[Lore]`.
 - Tulchinsky et al. (*Finding Alphas*) and Isichenko (2021) describe this pipeline at industrial scale `[Reported]`.
 
 ## Capacity, crowding and decay
@@ -267,7 +272,7 @@ With $IC = 0.03$, $\omega = 30\%$ and $z = 2$: 1.8% a year, which is why costs d
 
 ## Sources
 
-- [Verified] Kakushadze, Z. (2016). "101 Formulaic Alphas." *Wilmott* 2016(84), 72–80. <https://arxiv.org/abs/1601.00991> (accessed 2026-11)
+- [Verified] Kakushadze, Z. (2016). "101 Formulaic Alphas." *Wilmott* 2016(84), 72–81. <https://arxiv.org/abs/1601.00991> (accessed 2026-11)
 - [Verified] McLean, R. D. & Pontiff, J. (2016). "Does Academic Research Destroy Stock Return Predictability?" *Journal of Finance* 71(1), 5–32. <https://doi.org/10.1111/jofi.12365> (accessed 2026-11)
 - [Verified] Grinold, R. C. (1989). "The Fundamental Law of Active Management." *Journal of Portfolio Management* 15(3), 30–37. <https://doi.org/10.3905/jpm.1989.409211> (accessed 2026-11)
 - [Verified] Clarke, R., de Silva, H. & Thorley, S. (2002). "Portfolio Constraints and the Fundamental Law of Active Management." *Financial Analysts Journal* 58(5), 48–66. <https://doi.org/10.2469/faj.v58.n5.2468> (accessed 2026-11)
