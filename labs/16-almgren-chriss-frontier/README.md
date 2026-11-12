@@ -112,8 +112,8 @@ How the impact parameters were chosen `[Estimate]`:
     profile is 2/3 of the peak, about 21 bps. The linear model here charges 25 bps for that order
     (5 bps permanent + 20 bps temporary);
   - **the full order (50% of ADV):** peak impact 71 bps. If impact then relaxes to about 2/3 of its
-    peak, the permanent effect is about 47 bps, close to the 50 bps used for `gamma`. Bacry et al.
-    (2015) report relaxation of roughly this size. `[Reported]`
+    peak, the permanent effect is about 47 bps, close to the 50 bps used for `gamma`. Empirical work
+    (Zarinelli et al. 2015) and theory (Farmer et al. 2013) suggest relaxation of roughly this size. `[Reported]`
 - **Almgren & Chriss (2000) rule of thumb**, paraphrased from their worked example: set `gamma` so
   that trading 10% of daily volume moves the price by one bid-ask spread, and set `eta` so that
   trading 1% of daily volume in a day costs one spread. For this stock (3 bps spread) that gives
@@ -124,7 +124,7 @@ How the impact parameters were chosen `[Estimate]`:
 Sources. Bibliographic details checked against Crossref (2026-11).
 
 - [Verified] Almgren, R. & Chriss, N. (2000). "Optimal execution of portfolio transactions." *Journal of Risk* 3(2), 5–39 (usually cited as 2000; the DOI carries 2001). <https://doi.org/10.21314/JOR.2001.041> (accessed 2026-11)
-- [Verified] Almgren, R., Thum, C., Hauptmann, E. & Li, H. (2005). "Direct estimation of equity market impact." *Risk* 18(7), 58–62.
+- [Verified] Almgren, R., Thum, C., Hauptmann, E. & Li, H. (2005). "Equity market impact." *Risk* 18(7), 57–62 (preprint title "Direct estimation of equity market impact").
 - [Verified] Tóth, B., Lempérière, Y., Deremble, C., de Lataillade, J., Kockelkoren, J. & Bouchaud, J.-P. (2011). "Anomalous price impact and the critical nature of liquidity in financial markets." *Physical Review X* 1, 021006. <https://doi.org/10.1103/PhysRevX.1.021006>
 - [Verified] Bacry, E., Iuga, A., Lasnier, M. & Lehalle, C.-A. (2015). "Market impacts and the life cycle of investors orders." *Market Microstructure and Liquidity* 1(2).
 - [Verified] Obizhaeva, A. & Wang, J. (2013). "Optimal trading strategy and supply/demand dynamics." *Journal of Financial Markets* 16(1), 1–32.
