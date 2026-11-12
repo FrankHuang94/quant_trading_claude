@@ -211,7 +211,7 @@ def prose_words(text: str, drop_sources: bool = True) -> int:
     t = re.sub(r"\[([^\]]*)\]\([^)]*\)", r"\1", t)
     t = re.sub(r"<https?://[^>]+>", " ", t)
     t = re.sub(r"https?://\S+", " ", t)
-    t = re.sub(r"<[^>]+>", " ", t)
+    t = re.sub(r"</?[A-Za-z][^<>\n]*>", " ", t)   # real HTML tags only; a bare '<' (as in 'x < 5') is kept
     t = re.sub(r"[#>*_|`]", " ", t)
     return sum(1 for w in t.split() if re.search(r"[A-Za-z0-9]", w))
 
