@@ -5918,7 +5918,7 @@
 <h2 id="the-trade-step-by-step">The trade, step by step<a class="headerlink" href="#the-trade-step-by-step" title="Permanent link">&para;</a></h2>
 <ol>
 <li>Measure implied variance: the <a href="../../../09-reference/glossary/#variance-swap">variance swap</a> rate from the whole strip, as the VIX does (<a href="../../../03-algorithms/f-market-making-and-hft-algorithms/options-pricing-and-vol-surfaces-for-mm/">M8</a>).</li>
-<li>Forecast realized volatility to expiry (for example a HAR model).</li>
+<li>Forecast realized volatility to expiry (for example a HAR model on daily, weekly and monthly realized vol).</li>
 <li>Trade when implied² exceeds forecast² by a margin; stand aside when the VIX curve is inverted.</li>
 <li>Size to a stress loss such as a VIX doubling (<a href="../../../03-algorithms/d-portfolio-construction/position-sizing-and-risk-budgeting/">P7</a>).</li>
 <li>Sell variance, straddles or puts and <a href="../../../09-reference/glossary/#delta-hedging">delta-hedge</a> (<a href="../../../03-algorithms/f-market-making-and-hft-algorithms/hedging-algorithms/">M7</a>); buy far tail protection; roll monthly.</li>
@@ -5945,7 +5945,7 @@
 <td>−$1.60M</td>
 </tr>
 <tr>
-<td>45 (crash; a 2.5× cap, common in practice <code>[Lore]</code>, binds)</td>
+<td>45 or more (crash; a 2.5× cap, common in practice <code>[Lore]</code>, binds)</td>
 <td>2,778 × (324 − 2,025)</td>
 <td>−$4.73M</td>
 </tr>
@@ -6027,12 +6027,12 @@
 <li><strong>PUT index, 2010–2026:</strong> 8.2% a year at 12.0% volatility against 12.0% at 17.2% for S&amp;P 500 price returns (dividends excluded): return per unit of risk 0.69 vs 0.70 <code>[Verified]</code> (our computation).</li>
 </ul>
 <h2 id="capacity-crowding-and-decay">Capacity, crowding and decay<a class="headerlink" href="#capacity-crowding-and-decay" title="Permanent link">&para;</a></h2>
-<p>Dew-Becker &amp; Giglio (2025) find a break around 2010: traded-option CAPM alphas converge to zero and dealers' net SPX gamma moves from negative to zero or positive <code>[Verified]</code>. In 2018 about $4B of inverse and leveraged VIX products had to buy into a spike <code>[Verified]</code> (BIS). Whether systematic selling suppresses realized volatility is contested (<a href="../../../01-market-structure/etf-futures-options-linkages/">linkages</a>).</p>
+<p>Dew-Becker &amp; Giglio (2025) find a break around 2010: traded-option CAPM alphas converge to zero and dealers' net SPX gamma moves from negative to zero or positive <code>[Verified]</code>. In February 2018, inverse and leveraged VIX products, about $4B of assets at end-2017, had to buy futures into a spike <code>[Verified]</code> (BIS). Whether systematic selling suppresses realized volatility is contested (<a href="../../../01-market-structure/etf-futures-options-linkages/">linkages</a>).</p>
 <h2 id="how-it-fails">How it fails<a class="headerlink" href="#how-it-fails" title="Permanent link">&para;</a></h2>
 <p>Losses, wider quotes and margin calls coincide.</p>
 <ul>
 <li><strong>2008-10:</strong> the PUT index fell 17.7% in a month <code>[Verified]</code> (our computation).</li>
-<li><strong>2018-02-05:</strong> VIX +115.6% to 37.32; XIV fell 96% and was terminated <code>[Verified]</code> (<a href="../../h-cross-cutting/strategy-failure-gallery/">failure gallery</a>).</li>
+<li><strong>2018-02-05:</strong> VIX +115.6% to 37.32 <code>[Verified]</code>; XIV's indicative value fell about 96% (BIS: 84%) and the note was terminated <code>[Reported]</code> (<a href="../../h-cross-cutting/strategy-failure-gallery/">failure gallery</a>).</li>
 <li><strong>2020-03-16:</strong> record VIX close 82.69; a swap struck 2020-02-10 at 15.0 realized 50.9 <code>[Verified]</code> (our computation).</li>
 <li><strong>2024-08-05:</strong> VIX near 66 before the open <code>[Verified]</code> (BIS). <strong>2025-04-08:</strong> close of 52.33 <code>[Verified]</code> (Cboe).</li>
 </ul>

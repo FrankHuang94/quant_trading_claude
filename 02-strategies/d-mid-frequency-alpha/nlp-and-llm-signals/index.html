@@ -5884,11 +5884,11 @@
 </tr>
 <tr>
 <td>Typical Sharpe (gross vs net)</td>
-<td>Lazy Prices: up to 188 bps a month alpha, gross, 1995–2014 academic backtest <code>[Verified]</code>. Look-ahead-free LLM headline signal: Sharpe 3.20 gross, pre-cost, 2026 academic test on 2013–2024-era headlines <code>[Verified]</code>. In a composite: +0.2–0.5 net <code>[Lore]</code></td>
+<td>Lazy Prices: up to 188 bps a month alpha, gross, 1995–2014 academic backtest <code>[Verified]</code>. Look-ahead-free LLM headline signal: Sharpe 3.20 gross, before costs, on 61,000 firm-day headlines from 2013–2024 (DatedGPT, 2026 preprint) <code>[Verified]</code>. In a composite: +0.2–0.5 net <code>[Lore]</code></td>
 </tr>
 <tr>
 <td>Turnover</td>
-<td>News 30–100% of GMV a day; filing signals 100–300% a year <code>[Estimate]</code></td>
+<td>News 30–100% of <a href="../../../09-reference/glossary/#gross-market-value-gmv">GMV</a> a day; filing signals 100–300% a year <code>[Estimate]</code></td>
 </tr>
 <tr>
 <td>Main risks / failure modes</td>
@@ -5960,7 +5960,7 @@
 </tr>
 </tbody>
 </table>
-<p>Then standardize daily, test incremental IC over earnings surprise, and blend (<a href="../../../03-algorithms/b-forecasting-models/alpha-combination-and-ensembling/">F5</a>).</p>
+<p>Then standardize daily, test incremental <a href="../../../09-reference/glossary/#information-coefficient-ic">IC</a> over earnings surprise, and blend (<a href="../../../03-algorithms/b-forecasting-models/alpha-combination-and-ensembling/">F5</a>).</p>
 <h2 id="worked-example-with-numbers">Worked example with numbers<a class="headerlink" href="#worked-example-with-numbers" title="Permanent link">&para;</a></h2>
 <p><strong>Filing similarity (illustrative).</strong> Last year's risk section counts "risk" 10, "supplier" 4, "litigation" 1; this year 11, 4, 6.</p>
 <div class="arithmatex">\[
@@ -6083,7 +6083,7 @@
 <li><strong>Filing changes:</strong> up to 188 bps a month, 1995–2014; executive, litigation and risk-factor changes matter most (Cohen, Malloy &amp; Nguyen 2020) <code>[Verified]</code>.</li>
 <li><strong>Calls:</strong> tone adds to the earnings surprise in explaining reaction and drift (Price et al. 2012); vocal affect predicts performance (Mayew &amp; Venkatachalam 2012) <code>[Reported]</code>.</li>
 <li><strong>News:</strong> return-trained sentiment on Dow Jones Newswires beats generic scores (Ke, Kelly &amp; Xiu 2019); LLM news embeddings in 16 markets beat older text methods (Chen, Kelly &amp; Xiu, working paper) <code>[Reported]</code>.</li>
-<li><strong>LLMs:</strong> GPT-4 calls ~90% of the direction of the non-tradable initial reaction and predicts drift, mostly in small stocks and bad news (Lopez-Lira &amp; Tang 2026) <code>[Verified]</code>. Models trained only on past text do nearly as well (He et al. 2025); one 2026 study puts the look-ahead premium at 26.4 bps per standard deviation of signal <code>[Verified]</code>.</li>
+<li><strong>LLMs:</strong> portfolios sorted on GPT-4 headline scores match the direction of the same-day, non-tradable reaction on about 90% of days, a portfolio-day hit rate, not per-headline accuracy; predictability of the later drift is much weaker and concentrated in small stocks and bad news (Lopez-Lira &amp; Tang 2026) <code>[Verified]</code>. Models trained only on past text do nearly as well (He et al. 2025); DatedGPT (Yan et al. 2026) puts the look-ahead premium at 26.4 bps per standard deviation of signal <code>[Verified]</code>.</li>
 </ul>
 <h2 id="capacity-crowding-and-decay">Capacity, crowding and decay<a class="headerlink" href="#capacity-crowding-and-decay" title="Permanent link">&para;</a></h2>
 <p>Fast news is capped by depth in the first seconds and contested by HFT firms. Slow text has capacity but is public; published predictors lose about 58% after publication (McLean &amp; Pontiff 2016) <code>[Verified]</code>. After Loughran &amp; McDonald, firms with heavy machine readership avoided its negative words (Cao et al. 2023) <code>[Verified]</code>. The signal changed its own input.</p>

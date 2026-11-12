@@ -5957,7 +5957,7 @@
 </tr>
 </tbody>
 </table>
-<p>Calm row: 31,250 × (16² − 13.9²) = $1.93M. Equal vega leaves the book net long volatility (row 2) yet still loses heavily when correlation jumps (row 3). Variance-swap caps, often 2.5× strike <code>[Lore]</code>, limit the crash row.</p>
+<p>Calm row: 31,250 × (16² − 13.9²) = $1.93M. Equal vega leaves the book net long volatility (row 2) yet still loses heavily when correlation jumps (row 3). A 2.5× strike cap, common in practice <code>[Lore]</code>, would not bind here (40 vol on the index).</p>
 <h2 id="signals-and-algorithms-under-the-hood">Signals and algorithms under the hood<a class="headerlink" href="#signals-and-algorithms-under-the-hood" title="Permanent link">&para;</a></h2>
 <p>Surfaces and Greeks come from <a href="../../../03-algorithms/f-market-making-and-hft-algorithms/options-pricing-and-vol-surfaces-for-mm/">M8</a>; <a href="https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/06-options-mm-delta-hedging">Lab 06</a> shows delta-hedging P&amp;L for one leg; this book runs 51 legs.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Dispersion signal and leg sizing (simplified). Vols are annualized decimals.</span>
@@ -5978,6 +5978,8 @@
 <a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    <span class="n">stock_vega</span> <span class="o">=</span> <span class="n">scale</span> <span class="o">*</span> <span class="n">index_vega</span> <span class="o">*</span> <span class="p">(</span><span class="n">w</span> <span class="o">*</span> <span class="n">sig</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">w</span> <span class="o">*</span> <span class="n">sig</span><span class="p">)</span>
 <a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>    <span class="k">return</span> <span class="p">{</span><span class="s2">"index"</span><span class="p">:</span> <span class="o">-</span><span class="n">index_vega</span><span class="p">,</span> <span class="s2">"stocks"</span><span class="p">:</span> <span class="n">stock_vega</span><span class="p">}</span>  <span class="c1"># delta-hedge every leg daily (M7)</span>
 </code></pre></div>
+<p><img alt="Lab 06: P&amp;L attribution of a delta-hedged short straddle" src="../../../assets/labs/lab06-pnl-attribution.png" /></p>
+<p><em>Lab 06, one short straddle, synthetic data. Bottom right: hedged P&amp;L tracks dollar-gamma-weighted implied minus realized variance (R² 0.82); the rest is path noise. An options-based dispersion book carries that noise on all 51 legs.</em></p>
 <h2 id="implementation-choices-that-matter">Implementation choices that matter<a class="headerlink" href="#implementation-choices-that-matter" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Instrument:</strong> options need delta hedging and their P&amp;L depends on the path; variance swaps are cleaner but capped; correlation swaps are OTC.</li>
@@ -6025,11 +6027,11 @@
 <ul>
 <li><strong>DMV (2009, <em>JF</em>):</strong> S&amp;P 100 index options versus options on all members; correlation risk is priced, but the premium "cannot be exploited with realistic trading frictions" <code>[Verified]</code>.</li>
 <li><strong>DMV (2013 working paper):</strong> S&amp;P 500, 30-day implied minus realized correlation was 12.5 points in 1996–2001, 3.2 in 2002–2007 and 4.5 in 2008–2012 <code>[Verified]</code>.</li>
-<li><strong>Public gauges:</strong> COR3M (launched July 2021; top 50 S&amp;P 500 stocks) <code>[Verified]</code> closed at 11.8 on 2026-11-11, against a 2006–2026 median of 41 <code>[Verified]</code>. The Cboe S&amp;P 500 Dispersion Index (DSPX, launched September 2023) read 38.1 <code>[Verified]</code>.</li>
+<li><strong>Public gauges:</strong> COR3M (launched July 2021; top 50 S&amp;P 500 stocks) <code>[Verified]</code> closed at 11.8 on 2026-11-11, against a 2006–2026 median of 41 <code>[Verified]</code>. The Cboe S&amp;P 500 Dispersion Index (DSPX, launched September 2023) read 38.1 that day <code>[Verified]</code>.</li>
 <li><strong>2026:</strong> a bank trader called dispersion returns "phenomenal" <code>[Reported]</code>.</li>
 </ul>
 <h2 id="capacity-crowding-and-decay">Capacity, crowding and decay<a class="headerlink" href="#capacity-crowding-and-decay" title="Permanent link">&para;</a></h2>
-<p>The shrinking gap after 2001 fits more arbitrage capital. Crowding showed in 2024: COR3M fell to its lowest since at least 2006, then jumped nearly nine points in the week of August 5 <code>[Reported]</code>. In 2026 it set new lows, and some managers called the trade crowded and bought reverse dispersion <code>[Reported]</code>.</p>
+<p>The shrinking gap after 2001 fits more arbitrage capital. Crowding showed in 2024 <code>[Reported]</code>: COR3M fell to 7.6 on 3 July, then jumped from 14.0 on 31 July to 35.7 on 5 August <code>[Verified]</code>. In 2026 it set new lows, and some managers called the trade crowded and bought reverse dispersion <code>[Reported]</code>.</p>
 <h2 id="how-it-fails">How it fails<a class="headerlink" href="#how-it-fails" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Mechanism:</strong> in a selloff stocks move together, index gamma losses explode, single-name options gap and widen, and margin calls force exits.</li>
