@@ -56,7 +56,7 @@ Industry moved toward intraday horizons, hundreds of combined signals and ML for
 
 The [latency arbitrage](../../09-reference/glossary.md#latency-arbitrage) data show what competition does at the top speed tier. Budish, Cramton and Shim found the median ES–SPY arbitrage window shrank from 97 ms in 2005 to 7 ms in 2011 while profit per opportunity stayed roughly flat `[Verified]`: competition raised the speed required, not the price paid. Baron, Brogaard, Hagströmer and Kirilenko (2019) show that relative latency rank drives HFT trading performance `[Verified]`, a recipe for winner-take-most. Consolidation followed: Virtu bought KCG for \$1.4B, DRW bought Chopper Trading and RGM Advisors, and Teza sold its HFT business to Quantlab `[Reported]`.
 
-The pool then migrated rather than died. For 2025 the largest liquidity providers were reported to earn record revenues, global and multi-asset: Jane Street about \$39.6B of net trading revenue (helped by gains on private stakes), Hudson River Trading about \$12.3B and Citadel Securities about \$12.2B `[Reported]`. Listed options volume set a sixth straight record in 2025 at 15.26B contracts `[Verified]`. The rent moved to options, ETFs, bonds and other markets, and onto the balance sheets of a handful of firms (see [equity market making](../a-liquidity-provision/equity-market-making.md) and [options market making](../a-liquidity-provision/options-market-making.md)).
+The pool then migrated rather than died. For 2025 the largest liquidity providers were reported to earn record revenues, global and multi-asset: Jane Street about \$39.6B of net trading revenue (helped by gains on private stakes), Hudson River Trading about \$12.3B and Citadel Securities about \$12.2B `[Reported]`. OCC-cleared volume set a sixth straight annual record in 2025 at 15.26B contracts, 15.21B of them options `[Verified]`. The rent moved to options, ETFs, bonds and other markets, and onto the balance sheets of a handful of firms (see [equity market making](../a-liquidity-provision/equity-market-making.md) and [options market making](../a-liquidity-provision/options-market-making.md)).
 
 ### Data edges: alternative data, then LLMs
 
@@ -84,7 +84,7 @@ timeline
         2011-17 : Satellite parking-lot data in use
         2016 : McLean and Pontiff decay study
         2017 : HFT revenue below 1B, Virtu buys KCG
-        2018-20 : Quant winter in value
+        2017-20 : Quant winter in value
     section 2020s
         2020-25 : Options boom, liquidity revenue records
         2023-26 : LLM signals, returns fall with adoption
@@ -96,7 +96,7 @@ timeline
 | Distance-based pairs | Desk era of the 1980s `[Reported]`; up to 11% a year in 1962–2002 backtests `[Verified]` | Declining trend, more pairs that never converge (Do & Faff) | One special case of multi-name residual models |
 | PCA-residual stat arb | 1997–2002 (above the 1.44 period average) `[Verified]` | Crowding; Sharpe 0.9 in 2003–2007 | Volume-time signals, many signals, ML |
 | Published equity anomalies | Before publication | −58% after publication; halved after decimalization | Composite signals, less liquid names, other markets |
-| Value | Before arbitrage capital grew (from the late 1980s) `[Verified]` | Arbitrage capital; the 2018–2020 drought | Multi-factor composites, quality-adjusted value |
+| Value | Before arbitrage capital grew (from the late 1980s) `[Verified]` | Arbitrage capital; the 2017–2020 drought (HML −51%) `[Verified]` | Multi-factor composites, quality-adjusted value |
 | [Momentum](../../09-reference/glossary.md#momentum) | Persisted after publication through the 1990s `[Verified]` | Crashes in sharp rebounds ([momentum](../e-risk-premia-and-factors/momentum.md)); crowding | A risk factor that pods hedge |
 | Latency arbitrage | Mid-2000s | Arms race: window 97 ms → 7 ms | Microwave, FPGAs; ~\$5B a year in global equities `[Reported]` |
 | US equity HFT market making | 2008–2009 (\$7.2B) `[Reported]` | Low volatility, data costs, speed parity | Consolidation, options, ETFs, bonds, other regions |
@@ -111,7 +111,7 @@ Not everything decays at the same rate. Momentum kept working through the 1990s 
 
 Firms treat decay as a cost line, not a surprise.
 
-- **Haircut every backtest.** 30–60% of gross alpha is a common planning range ([L2](../../03-algorithms/g-live-trading/alpha-decay-detection-and-model-retirement.md)).
+- **Haircut every backtest.** 30–60% of gross alpha is a common planning range `[Lore]`, bracketing McLean and Pontiff's 26% out-of-sample and 58% post-publication declines ([L2](../../03-algorithms/g-live-trading/alpha-decay-detection-and-model-retirement.md)).
 - **Budget research as maintenance capex.** Illustrative: if a signal's alpha halves every three years, it loses 1 − 0.5^(1/3) ≈ 21% a year. A book needs that much new alpha every year just to stand still; with a two-year half-life, 29%.
 - **Monitor crowding, not just P&L:** rising correlation with peers and published factors, falling alpha per unit of [turnover](../../09-reference/glossary.md#turnover), violent reversals on de-risking days.
 - **Refuse to lever a decaying edge** to defend a return target. That choice turned 2007 from a drought into a crash.

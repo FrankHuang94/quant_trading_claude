@@ -6,7 +6,7 @@
 > - Real single signals have daily ICs of about 0.005–0.03; stability, decay, turnover and cost separate them.
 > - Mean IC ÷ its sd, annualized, approximates the pre-cost Sharpe: the Fundamental Law in disguise.
 > - Overlapping returns inflate t-stats (Lab 11: naive 45 vs Newey–West 25, synthetic lab result).
-> - A new signal helps only if its IR exceeds its correlation with the book times the book's IR.
+> - A new signal earns a positive weight only if its IR exceeds its correlation with the book times the book's IR.
 
 **Level:** Core · **Pipeline stage:** signal · **Last verified:** 2026-11
 
@@ -114,7 +114,7 @@ def evaluate(signal, resid_ret, cost_bps=8.0, max_h=20):
 
 - **Fundamental Law:** IR ≈ IC × √breadth (Grinold 1989), times a transfer coefficient (Clarke, de Silva & Thorley 2002) `[Verified]`.
 - **IC volatility:** Qian & Hua (2004) estimate IR as mean IC ÷ sd of IC, since IC varies over time `[Reported]`. Daily IC 0.01 at Sharpe 1.5 implies IC sd ≈ 0.11, five times the sampling noise of 2,000 names `[Estimate]`.
-- **Real alphas:** of 4,000 WorldQuant US-equity alphas (holding 0.7–19 days), the positive-Sharpe ones had a median Sharpe of 1.49 before costs; profit per share fell in proportion to turnover (Kakushadze & Tulchinsky 2016) `[Verified]`.
+- **Real alphas:** of 4,000 WorldQuant US-equity alphas (holding 0.7–19 days), the positive-Sharpe ones had a median Sharpe of 1.49 before costs; cents per share scaled as 1/turnover (Kakushadze & Tulchinsky 2016) `[Verified]`.
 - **Costs:** anomalies with monthly turnover under 50% mostly survive costs; faster ones mostly do not (Novy-Marx & Velikov 2016) `[Verified]`.
 - **Tooling:** Alphalens reports rank IC, quantile returns, turnover and rank autocorrelation `[Verified]`. Patton & Timmermann (2010) test monotonicity formally `[Verified]`.
 
@@ -173,7 +173,7 @@ $$
 IR_{12}^2 = \frac{IR_1^2 + IR_2^2 - 2\rho\, IR_1 IR_2}{1-\rho^2},
 $$
 
-which beats $IR_1$ only if $IR_2 > \rho\, IR_1$. Illustrative: 1.5 and 1.0 give 1.505 at $\rho = 0.6$, 1.80 at $\rho = 0$.
+which gives stream 2 a positive weight only if $IR_2 > \rho\, IR_1$ (below that, only as a short hedge). Illustrative: 1.5 and 1.0 give 1.505 at $\rho = 0.6$, 1.80 at $\rho = 0$.
 
 </details>
 
@@ -188,7 +188,7 @@ which beats $IR_1$ only if $IR_2 > \rho\, IR_1$. Illustrative: 1.5 and 1.0 give 
 
 - [Verified] Grinold, R. C. (1989). "The Fundamental Law of Active Management." *Journal of Portfolio Management* 15(3), 30–37. <https://doi.org/10.3905/jpm.1989.409211> (accessed 2026-11)
 - [Verified] Clarke, R., de Silva, H. & Thorley, S. (2002). "Portfolio Constraints and the Fundamental Law of Active Management." *Financial Analysts Journal* 58(5), 48–66. <https://doi.org/10.2469/faj.v58.n5.2468> (accessed 2026-11)
-- [Reported] Qian, E. & Hua, R. (2004). "Active Risk and Information Ratio." *Journal of Investment Management* 2(3), 1–15. <https://joim.com/journal-issue/2004/third-quarter-2004> (accessed 2026-11)
+- [Reported] Qian, E. & Hua, R. (2004). "Active Risk and Information Ratio." *Journal of Investment Management* 2(3), 1–15. <https://joim.com/active-risk-and-information-ratio/> (accessed 2026-11)
 - [Verified] Kakushadze, Z. & Tulchinsky, I. (2016). "Performance v. Turnover: A Story by 4,000 Alphas." *Journal of Investment Strategies* 5(2), 75–89. <https://arxiv.org/abs/1509.08110> (accessed 2026-11)
 - [Verified] Novy-Marx, R. & Velikov, M. (2016). "A Taxonomy of Anomalies and Their Trading Costs." *Review of Financial Studies* 29(1), 104–147. <https://doi.org/10.1093/rfs/hhv063> (accessed 2026-11)
 - [Verified] Newey, W. K. & West, K. D. (1987). "A Simple, Positive Semi-Definite, Heteroskedasticity and Autocorrelation Consistent Covariance Matrix." *Econometrica* 55(3), 703–708. <https://doi.org/10.2307/1913610> (accessed 2026-11)

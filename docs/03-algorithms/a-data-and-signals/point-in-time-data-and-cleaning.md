@@ -21,7 +21,7 @@
 
 ## Intuition
 
-A database says "FY2024 EPS = $1.60." A backtest needs what the market believed FY2024 EPS was at 3:45 p.m. on 2025-03-31. To an accountant: the fiscal period is not the filing date, and a restatement overwrites the number investors actually traded on.
+A database says "FY2024 EPS = \$1.60." A backtest needs what the market believed FY2024 EPS was at 3:45 p.m. on 2025-03-31. To an accountant: the fiscal period is not the filing date, and a restatement overwrites the number investors actually traded on.
 
 [Point-in-time](../../09-reference/glossary.md#point-in-time-data) data keeps both clocks, valid time and knowledge time, and appends every revision instead of overwriting. Cleaning is the other half: prices comparable across splits, one identity per security, and dead stocks kept with their final losses (no [survivorship bias](../../09-reference/glossary.md#survivorship-bias)).
 
@@ -82,7 +82,7 @@ def universe(snap, min_price=5.0, min_adv_usd=5e6, top_n=3000):
 
 ## Worked example with numbers
 
-Company figures are illustrative. A firm's 10-K is accepted Wednesday 2025-02-26 at 18:05 ET. Filings started after 5:30 p.m. are dated the next business day `[Verified]`, so EDGAR shows 2025-02-27. EPS is \$2.00; in August 2025 it is restated to $1.60.
+Company figures are illustrative. A firm's 10-K is accepted Wednesday 2025-02-26 at 18:05 ET. Filings started after 5:30 p.m. are dated the next business day `[Verified]`, so EDGAR shows 2025-02-27. EPS is \$2.00; in August 2025 it is restated to \$1.60.
 
 | Data treatment | First decision that sees FY2024 EPS | EPS in March 2025 | E/P at \$40 |
 |---|---|---|---|

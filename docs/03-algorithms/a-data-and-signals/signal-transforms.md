@@ -4,7 +4,7 @@
 >
 > - Transforms turn a raw, dirty signal into a clean cross-sectional score: winsorize, z-score or rank, neutralize, smooth, scale.
 > - Winsorize *before* z-scoring, or one bad print sets everyone's scale.
-> - Neutralization is a per-date regression on beta, industries and styles; keep the residual. In Lab 11 it lifts a dirty signal's IC from 0.012 to 0.025 (synthetic lab result).
+> - Neutralization is a per-date regression on beta, industries and styles; keep the residual. In Lab 11 it lifts a winsorized signal's IC from 0.019 to 0.025 (synthetic lab result).
 > - Smoothing trades a little IC for much less turnover.
 > - Optimizers need expected returns: alpha = IC × volatility × score (Grinold 1994).
 
