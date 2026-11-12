@@ -1,0 +1,17 @@
+# Link checker config. CI runs lychee in --offline mode (internal links) as a blocking check,
+# and a weekly non-blocking job checks external URLs (many publishers block bots).
+exclude_path = ["site", "node_modules", ".git", "BUILD_SPEC.md"]
+include_fragments = false
+accept = ["200..=299", "403", "429"]
+max_retries = 2
+timeout = 20
+exclude = [
+  "^https://www.linkedin.com",
+  "^https://twitter.com",
+  "^https://x.com",
+  "^https://papers.ssrn.com",
+  "^https://www.jstor.org",
+  "^https://onlinelibrary.wiley.com",
+  "^https://www.sciencedirect.com",
+  "^https://frankhuang94.github.io",
+]

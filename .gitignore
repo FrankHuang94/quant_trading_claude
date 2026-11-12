@@ -1,0 +1,12 @@
+site/
+__pycache__/
+*.pyc
+.venv/
+venv/
+.ipynb_checkpoints/
+labs/_smoke/
+node_modules/
+.DS_Store
+*.egg-info/
+.cache/
+.lycheecache

@@ -1,0 +1,256 @@
+site_name: Quant Trading Knowledge Base
+site_description: How quantitative trading firms trade US equities - strategies and algorithms first.
+site_url: https://frankhuang94.github.io/quant_trading_claude/
+repo_url: https://github.com/FrankHuang94/quant_trading_claude
+repo_name: FrankHuang94/quant_trading_claude
+edit_uri: edit/main/docs/
+copyright: Prose CC BY 4.0 · Code MIT
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - navigation.footer
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+    - content.tabs.link
+    - toc.follow
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: teal
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: teal
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+plugins:
+  - search
+
+validation:
+  omitted_files: warn
+  absolute_links: info
+  unrecognized_links: warn
+  anchors: info   # glossary anchors are checked by scripts/check_glossary_links.py
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js
+
+nav:
+  - Home: index.md
+  - Labs: labs.md
+  - "Start here":
+    - "The big picture": 00-start-here/the-big-picture.md
+    - "Learning paths": 00-start-here/learning-paths.md
+    - "One-page cheat sheet": 00-start-here/one-page-cheat-sheet.md
+  - "Market structure":
+    - "Life of a stock order": 01-market-structure/life-of-a-stock-order.md
+    - "The limit order book": 01-market-structure/the-limit-order-book.md
+    - "Order types and auctions": 01-market-structure/order-types-and-auctions.md
+    - "Venues and retail flow": 01-market-structure/venues-and-retail-flow.md
+    - "NBBO and market data": 01-market-structure/nbbo-and-market-data.md
+    - "Fees, rebates and ticks": 01-market-structure/fees-rebates-and-ticks.md
+    - "ETF, futures and options linkages": 01-market-structure/etf-futures-options-linkages.md
+    - "Shorting, financing and settlement": 01-market-structure/shorting-financing-and-settlement.md
+    - "Recent changes (as of 2026-11)": 01-market-structure/recent-changes.md
+  - "Strategies ★":
+    - "Strategies: the map": 02-strategies/index.md
+    - "How quants evaluate a strategy": 02-strategies/how-quants-evaluate-a-strategy.md
+    - "A. Liquidity provision":
+      - "Equity market making": 02-strategies/a-liquidity-provision/equity-market-making.md
+      - "ETF market making": 02-strategies/a-liquidity-provision/etf-market-making.md
+      - "Options market making": 02-strategies/a-liquidity-provision/options-market-making.md
+      - "Retail flow internalization": 02-strategies/a-liquidity-provision/retail-flow-internalization.md
+      - "Auctions and closing liquidity": 02-strategies/a-liquidity-provision/auctions-and-closing-liquidity.md
+    - "B. Speed and structural":
+      - "Latency arbitrage": 02-strategies/b-speed-and-structural/latency-arbitrage.md
+      - "Lead-lag and cross-asset arbitrage": 02-strategies/b-speed-and-structural/lead-lag-and-cross-asset-arbitrage.md
+      - "ETF and index arbitrage": 02-strategies/b-speed-and-structural/etf-and-index-arbitrage.md
+      - "Fee- and microstructure-driven strategies": 02-strategies/b-speed-and-structural/fee-and-microstructure-driven-strategies.md
+    - "C. Statistical arbitrage":
+      - "Stat arb: overview and history": 02-strategies/c-statistical-arbitrage/stat-arb-overview-and-history.md
+      - "Pairs trading and cointegration": 02-strategies/c-statistical-arbitrage/pairs-trading-and-cointegration.md
+      - "Factor-residual mean reversion": 02-strategies/c-statistical-arbitrage/factor-residual-mean-reversion.md
+      - "Short-term cross-sectional reversal": 02-strategies/c-statistical-arbitrage/short-term-cross-sectional-reversal.md
+      - "Intraday patterns and seasonality": 02-strategies/c-statistical-arbitrage/intraday-patterns-and-seasonality.md
+      - "ML-driven short-horizon alpha": 02-strategies/c-statistical-arbitrage/ml-driven-short-horizon-alpha.md
+    - "D. Mid-frequency alpha":
+      - "Cross-sectional alpha and neutralization": 02-strategies/d-mid-frequency-alpha/cross-sectional-alpha-and-neutralization.md
+      - "Fundamental quant signals": 02-strategies/d-mid-frequency-alpha/fundamental-quant-signals.md
+      - "Earnings and event-driven": 02-strategies/d-mid-frequency-alpha/earnings-and-event-driven.md
+      - "Analyst revisions and sentiment": 02-strategies/d-mid-frequency-alpha/analyst-revisions-and-sentiment.md
+      - "Flow-driven strategies": 02-strategies/d-mid-frequency-alpha/flow-driven-strategies.md
+      - "Alternative data": 02-strategies/d-mid-frequency-alpha/alternative-data.md
+      - "NLP and LLM signals": 02-strategies/d-mid-frequency-alpha/nlp-and-llm-signals.md
+    - "E. Risk premia and factors":
+      - "Factor investing fundamentals": 02-strategies/e-risk-premia-and-factors/factor-investing-fundamentals.md
+      - "Momentum": 02-strategies/e-risk-premia-and-factors/momentum.md
+      - "Value, quality and low volatility": 02-strategies/e-risk-premia-and-factors/value-quality-low-vol.md
+      - "Factor timing, crowding and quant winters": 02-strategies/e-risk-premia-and-factors/factor-timing-crowding-and-quant-winters.md
+    - "F. Volatility and derivatives":
+      - "Volatility risk premium and vol arb": 02-strategies/f-volatility-and-derivatives/volatility-risk-premium-and-vol-arb.md
+      - "Dispersion and correlation trading": 02-strategies/f-volatility-and-derivatives/dispersion-and-correlation-trading.md
+    - "G. Futures and macro context":
+      - "Trend following and CTAs": 02-strategies/g-futures-and-macro-context/trend-following-and-ctas.md
+      - "Carry and cross-asset risk premia": 02-strategies/g-futures-and-macro-context/carry-and-cross-asset-risk-premia.md
+    - "H. Cross-cutting":
+      - "Strategy comparison matrix": 02-strategies/h-cross-cutting/strategy-comparison-matrix.md
+      - "Strategy x algorithm matrix": 02-strategies/h-cross-cutting/strategy-x-algorithm-matrix.md
+      - "Strategy failure gallery": 02-strategies/h-cross-cutting/strategy-failure-gallery.md
+      - "Evolution of quant strategies": 02-strategies/h-cross-cutting/evolution-of-quant-strategies.md
+      - "How firms combine strategies": 02-strategies/h-cross-cutting/how-firms-combine-strategies.md
+  - "Algorithms ★":
+    - "Algorithms: overview": 03-algorithms/index.md
+    - "There is no single algorithm": 03-algorithms/there-is-no-single-algorithm.md
+    - "Algorithm map": 03-algorithms/algorithm-map.md
+    - "A. Data and signals":
+      - "Point-in-time data and cleaning": 03-algorithms/a-data-and-signals/point-in-time-data-and-cleaning.md
+      - "Feature engineering": 03-algorithms/a-data-and-signals/feature-engineering.md
+      - "Signal transforms": 03-algorithms/a-data-and-signals/signal-transforms.md
+      - "Evaluating signals": 03-algorithms/a-data-and-signals/evaluating-signals.md
+    - "B. Forecasting models":
+      - "Linear models and regularization": 03-algorithms/b-forecasting-models/linear-models-and-regularization.md
+      - "Tree ensembles": 03-algorithms/b-forecasting-models/tree-ensembles.md
+      - "Neural nets and sequence models": 03-algorithms/b-forecasting-models/neural-nets-and-sequence-models.md
+      - "LLMs and foundation models in quant": 03-algorithms/b-forecasting-models/llms-and-foundation-models-in-quant.md
+      - "Alpha combination and ensembling": 03-algorithms/b-forecasting-models/alpha-combination-and-ensembling.md
+      - "Regime detection": 03-algorithms/b-forecasting-models/regime-detection.md
+    - "C. Validation and backtesting":
+      - "Time-series cross-validation": 03-algorithms/c-validation-and-backtesting/time-series-cross-validation.md
+      - "Backtesting engines": 03-algorithms/c-validation-and-backtesting/backtesting-engines.md
+      - "Backtest pitfalls": 03-algorithms/c-validation-and-backtesting/backtest-pitfalls.md
+      - "Overfitting and multiple testing": 03-algorithms/c-validation-and-backtesting/overfitting-and-multiple-testing.md
+    - "D. Portfolio construction":
+      - "Risk models": 03-algorithms/d-portfolio-construction/risk-models.md
+      - "Covariance estimation and shrinkage": 03-algorithms/d-portfolio-construction/covariance-estimation-and-shrinkage.md
+      - "Mean-variance optimization": 03-algorithms/d-portfolio-construction/mean-variance-optimization.md
+      - "Alternatives to MVO": 03-algorithms/d-portfolio-construction/alternatives-to-mvo.md
+      - "Transaction cost and impact models": 03-algorithms/d-portfolio-construction/transaction-cost-and-impact-models.md
+      - "Multi-period optimization and trading toward the aim": 03-algorithms/d-portfolio-construction/multi-period-and-trading-toward-aim.md
+      - "Position sizing and risk budgeting": 03-algorithms/d-portfolio-construction/position-sizing-and-risk-budgeting.md
+    - "E. Execution algorithms":
+      - "Execution algorithms: overview": 03-algorithms/e-execution-algorithms/execution-algorithms-overview.md
+      - "VWAP, TWAP and POV": 03-algorithms/e-execution-algorithms/vwap-twap-pov.md
+      - "Implementation shortfall and Almgren-Chriss": 03-algorithms/e-execution-algorithms/implementation-shortfall-and-almgren-chriss.md
+      - "Smart order routing": 03-algorithms/e-execution-algorithms/smart-order-routing.md
+      - "Auction, close and dark-liquidity algos": 03-algorithms/e-execution-algorithms/auction-close-and-dark-liquidity-algos.md
+      - "Transaction cost analysis": 03-algorithms/e-execution-algorithms/transaction-cost-analysis.md
+    - "F. Market making and HFT":
+      - "Anatomy of an HFT trading loop": 03-algorithms/f-market-making-and-hft-algorithms/anatomy-of-an-hft-trading-loop.md
+      - "Fair value and microprice": 03-algorithms/f-market-making-and-hft-algorithms/fair-value-and-microprice.md
+      - "Order-book and trade-flow signals": 03-algorithms/f-market-making-and-hft-algorithms/order-book-and-trade-flow-signals.md
+      - "Quoting and inventory control": 03-algorithms/f-market-making-and-hft-algorithms/quoting-and-inventory-control.md
+      - "Adverse selection and markouts": 03-algorithms/f-market-making-and-hft-algorithms/adverse-selection-and-markouts.md
+      - "Queue position and order placement": 03-algorithms/f-market-making-and-hft-algorithms/queue-position-and-order-placement.md
+      - "Hedging algorithms": 03-algorithms/f-market-making-and-hft-algorithms/hedging-algorithms.md
+      - "Options pricing and vol surfaces for market making": 03-algorithms/f-market-making-and-hft-algorithms/options-pricing-and-vol-surfaces-for-mm.md
+      - "Algorithmic risk controls": 03-algorithms/f-market-making-and-hft-algorithms/algorithmic-risk-controls.md
+    - "G. Live trading":
+      - "Live monitoring and P&L attribution": 03-algorithms/g-live-trading/live-monitoring-and-pnl-attribution.md
+      - "Alpha decay detection and model retirement": 03-algorithms/g-live-trading/alpha-decay-detection-and-model-retirement.md
+      - "Reinforcement learning in trading": 03-algorithms/g-live-trading/reinforcement-learning-in-trading.md
+    - "H. End-to-end walkthroughs":
+      - "Walkthrough: a mid-frequency stat-arb book": 03-algorithms/h-end-to-end-walkthroughs/walkthrough-mid-frequency-stat-arb.md
+      - "Walkthrough: a day at an ETF market maker": 03-algorithms/h-end-to-end-walkthroughs/walkthrough-etf-market-maker.md
+      - "Walkthrough: an options market maker": 03-algorithms/h-end-to-end-walkthroughs/walkthrough-options-market-maker.md
+      - "Walkthrough: executing a $500M buy order": 03-algorithms/h-end-to-end-walkthroughs/walkthrough-institutional-execution.md
+  - "Industry & firms":
+    - "Taxonomy of quant firms": 04-industry-and-firms/taxonomy-of-quant-firms.md
+    - "Economics and revenue pools": 04-industry-and-firms/economics-and-revenue-pools.md
+    - "Roles, teams and careers": 04-industry-and-firms/roles-teams-and-careers.md
+    - "Competitive dynamics and M&A": 04-industry-and-firms/competitive-dynamics-and-ma.md
+    - "Firm profiles":
+      - "Firm profiles": 04-industry-and-firms/firm-profiles/index.md
+      - "Citadel Securities": 04-industry-and-firms/firm-profiles/citadel-securities.md
+      - "Virtu Financial": 04-industry-and-firms/firm-profiles/virtu-financial.md
+      - "Jane Street": 04-industry-and-firms/firm-profiles/jane-street.md
+      - "Hudson River Trading": 04-industry-and-firms/firm-profiles/hudson-river-trading.md
+      - "Jump Trading": 04-industry-and-firms/firm-profiles/jump-trading.md
+      - "Tower Research Capital": 04-industry-and-firms/firm-profiles/tower-research-capital.md
+      - "Optiver": 04-industry-and-firms/firm-profiles/optiver.md
+      - "IMC Trading": 04-industry-and-firms/firm-profiles/imc.md
+      - "Susquehanna (SIG)": 04-industry-and-firms/firm-profiles/susquehanna-sig.md
+      - "XTX Markets": 04-industry-and-firms/firm-profiles/xtx-markets.md
+      - "Renaissance Technologies": 04-industry-and-firms/firm-profiles/renaissance-technologies.md
+      - "D. E. Shaw": 04-industry-and-firms/firm-profiles/de-shaw.md
+      - "Two Sigma": 04-industry-and-firms/firm-profiles/two-sigma.md
+      - "Millennium (quant pods)": 04-industry-and-firms/firm-profiles/millennium.md
+      - "Cubist Systematic Strategies": 04-industry-and-firms/firm-profiles/cubist.md
+      - "AQR Capital Management": 04-industry-and-firms/firm-profiles/aqr.md
+      - "Man Group (AHL / Numeric)": 04-industry-and-firms/firm-profiles/man-group.md
+      - "High-Flyer": 04-industry-and-firms/firm-profiles/high-flyer.md
+  - "Infrastructure":
+    - "How infrastructure constrains algorithms": 05-infrastructure/how-infrastructure-constrains-algorithms.md
+    - "Colocation, networks and the speed of light": 05-infrastructure/colocation-networks-and-the-speed-of-light.md
+    - "Trading and research tech stacks": 05-infrastructure/trading-and-research-tech-stacks.md
+    - "A semiconductor lens": 05-infrastructure/semiconductor-lens.md
+  - "Risk & regulation":
+    - "Risk management at quant firms": 06-risk-and-regulation/risk-management-at-quant-firms.md
+    - "Rules that shape strategies": 06-risk-and-regulation/rules-that-shape-strategies.md
+  - "Conversation playbook":
+    - "How to talk to a quant": 07-conversation-playbook/how-to-talk-to-a-quant.md
+    - "Elevator explanations": 07-conversation-playbook/elevator-explanations.md
+    - "Questions to ask": 07-conversation-playbook/questions-to-ask.md
+    - "Mock conversations": 07-conversation-playbook/mock-conversations.md
+    - "Faux pas and naive questions": 07-conversation-playbook/faux-pas-and-naive-questions.md
+  - "Calibration":
+    - "Myths vs reality": 08-calibration/myths-vs-reality.md
+    - "Contested debates": 08-calibration/contested-debates.md
+    - "Sanity-checking claims": 08-calibration/sanity-checking-claims.md
+  - "Reference":
+    - "Glossary": 09-reference/glossary.md
+    - "Acronyms": 09-reference/acronyms.md
+    - "Books": 09-reference/books.md
+    - "Papers": 09-reference/papers.md
+    - "Talks, podcasts and blogs": 09-reference/talks-podcasts-blogs.md
+    - "Datasets and tools": 09-reference/datasets-and-tools.md
+  - "Self-test":
+    - "Self-test": 10-self-test/index.md
+    - "Quiz: Start here": 10-self-test/quiz-00-start-here.md
+    - "Quiz: Market structure": 10-self-test/quiz-01-market-structure.md
+    - "Quiz: Strategies": 10-self-test/quiz-02-strategies.md
+    - "Quiz: Algorithms": 10-self-test/quiz-03-algorithms.md
+    - "Quiz: Industry and firms": 10-self-test/quiz-04-industry-and-firms.md
+    - "Quiz: Infrastructure": 10-self-test/quiz-05-infrastructure.md
+    - "Quiz: Risk and regulation": 10-self-test/quiz-06-risk-and-regulation.md
+    - "Quiz: Conversation playbook": 10-self-test/quiz-07-conversation-playbook.md
+    - "Quiz: Calibration": 10-self-test/quiz-08-calibration.md
+    - "Quiz: Reference": 10-self-test/quiz-09-reference.md

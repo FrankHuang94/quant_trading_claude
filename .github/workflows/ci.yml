@@ -1,0 +1,78 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: "17 6 * * 1"   # weekly external link check
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    name: Content checks + strict site build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install mkdocs==1.6.1 mkdocs-material==9.5.44 pymdown-extensions==10.12
+      - run: python scripts/check_template.py --quiet
+      - run: python scripts/check_matrix.py
+      - run: python scripts/check_glossary_links.py
+      - run: python scripts/wordcount.py
+      - run: mkdocs build --strict
+
+  markdownlint:
+    name: markdownlint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: DavidAnson/markdownlint-cli2-action@v18
+        with:
+          globs: |
+            docs/**/*.md
+            *.md
+            labs/**/*.md
+
+  links-internal:
+    name: Link check (internal, blocking)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: lycheeverse/lychee-action@v2
+        with:
+          args: --offline --no-progress --config lychee.toml "docs/**/*.md" "*.md" "labs/**/*.md"
+          fail: true
+
+  links-external:
+    name: Link check (external, non-blocking)
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: lycheeverse/lychee-action@v2
+        with:
+          args: --no-progress --config lychee.toml "docs/**/*.md" "references/*.md" "labs/**/*.md"
+          fail: false
+
+  labs-smoke:
+    name: Labs (smoke)
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: python scripts/run_labs.py --smoke --max-seconds 60
+        env:
+          MPLBACKEND: Agg
