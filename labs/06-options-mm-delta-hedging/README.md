@@ -119,7 +119,7 @@ The wing test fits on strikes from 0.85 to 1.15 of spot and predicts the 0.80 an
 - **Unexplained sd $1.7.** Without the vanna and volga terms the unexplained sd would be
   **$23.8**. For a straddle that drifts away from the money, the spot-vol cross term matters.
 - **Pitfall: risk dwarfs edge.** With daily hedging, 35% of trades lose money, and the
-  5th-percentile trade loses \$183, against a mean gain of $47.
+  5th-percentile trade loses \$183, against a mean gain of \$47.
 
 **Hedge policy** (398 trades; standard errors account for the 6x overlap):
 
@@ -138,7 +138,7 @@ The wing test fits on strikes from 0.85 to 1.15 of spot and predicts the 0.80 an
   -0.5 of theory. Total P&L sd flattens at about \$114, the implied-vs-realized vol risk that no
   amount of delta hedging removes.
 - **Pitfall: costs.** Hedging every 15 minutes costs \$14.9 per contract, more than the whole
-  quoted edge of $13.1. The ±0.10 delta band matches hourly hedging's P&L sd (\$117 vs \$114) with
+  quoted edge of \$13.1. The ±0.10 delta band matches hourly hedging's P&L sd (\$117 vs \$114) with
   a quarter of the rebalances and 25% lower costs.
 
 ![Greeks P&L attribution and the effect of hedge frequency](../../docs/assets/labs/lab06-pnl-attribution.png)
