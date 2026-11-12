@@ -19,7 +19,7 @@
 | Data required | index and single-stock vol surfaces, index weights, realized correlations, earnings dates, dividends |
 | Core algorithms used | [M8 Options pricing and vol surfaces](../../03-algorithms/f-market-making-and-hft-algorithms/options-pricing-and-vol-surfaces-for-mm.md) · [M7 Hedging algorithms](../../03-algorithms/f-market-making-and-hft-algorithms/hedging-algorithms.md) · [P2 Covariance estimation and shrinkage](../../03-algorithms/d-portfolio-construction/covariance-estimation-and-shrinkage.md) · [M9 Algorithmic risk controls](../../03-algorithms/f-market-making-and-hft-algorithms/algorithmic-risk-controls.md) |
 | Infra intensity | moderate: daily surface fits for 50+ names, daily delta hedges; not latency-sensitive |
-| Capacity (rough $ range) | a few $M of index vega per firm `[Estimate]` (single-stock option bid-ask on 30–50 legs per roll caps size) |
+| Capacity (rough $ range) | a few \$M of index vega per firm `[Estimate]` (single-stock option bid-ask on 30–50 legs per roll caps size) |
 | Typical Sharpe (gross vs net) | academic: high pre-friction alpha, not exploitable after realistic frictions (DMV 2009) `[Verified]`; practitioner: net 0.3–0.8 over a cycle, crisis losses included `[Lore]` |
 | Turnover | rolled monthly or quarterly; legs delta-hedged daily |
 | Main risks / failure modes | correlation spikes, index gaps, single-name illiquidity, residual vega, earnings |
@@ -56,7 +56,7 @@ Illustrative: 50 equal-weight stocks (2% each), each at 30% implied; index at 16
 | Vol up: stocks 35%, correlation 0.27 | 18.7% | −\$2.89M | +\$5.42M | **+\$2.52M** |
 | Crash: stocks 45%, correlation 0.70 | 37.8% | −\$36.7M | +\$18.75M | **−\$17.9M** |
 
-Calm row: 31,250 × (16² − 13.9²) = \$1.93M. Equal vega leaves the book net long volatility (row 2) yet still loses heavily when correlation jumps (row 3). Variance-swap caps, often 2.5× strike `[Lore]`, limit the crash row.
+Calm row: 31,250 × (16² − 13.9²) = \$1.93M. Equal vega leaves the book net long volatility (row 2) yet still loses heavily when correlation jumps (row 3). A 2.5× strike cap, common in practice `[Lore]`, would not bind here (40 vol on the index).
 
 ## Signals and algorithms under the hood
 
@@ -82,6 +82,10 @@ def dispersion_trade(sig_idx, w, sig, cov_fcst, index_vega=1_000_000, weighting=
     return {"index": -index_vega, "stocks": stock_vega}  # delta-hedge every leg daily (M7)
 ```
 
+![Lab 06: P&L attribution of a delta-hedged short straddle](../../assets/labs/lab06-pnl-attribution.png)
+
+*Lab 06, one short straddle, synthetic data. Bottom right: hedged P&L tracks dollar-gamma-weighted implied minus realized variance (R² 0.82); the rest is path noise. An options-based dispersion book carries that noise on all 51 legs.*
+
 ## Implementation choices that matter
 
 - **Instrument:** options need delta hedging and their P&L depends on the path; variance swaps are cleaner but capped; correlation swaps are OTC.
@@ -91,9 +95,9 @@ def dispersion_trade(sig_idx, w, sig, cov_fcst, index_vega=1_000_000, weighting=
 
 ## P&L decomposition
 
-Illustrative: \$1M index vega, rolled quarterly, $M per year.
+Illustrative: \$1M index vega, rolled quarterly, \$M per year.
 
-| Line | $M/yr |
+| Line | \$M/yr |
 |---|---|
 | Correlation carry (about 5 points implied over realized) | +5.5 |
 | Single-stock variance premium paid on long legs | −1.5 |
@@ -106,12 +110,12 @@ Illustrative: \$1M index vega, rolled quarterly, $M per year.
 
 - **DMV (2009, *JF*):** S&P 100 index options versus options on all members; correlation risk is priced, but the premium "cannot be exploited with realistic trading frictions" `[Verified]`.
 - **DMV (2013 working paper):** S&P 500, 30-day implied minus realized correlation was 12.5 points in 1996–2001, 3.2 in 2002–2007 and 4.5 in 2008–2012 `[Verified]`.
-- **Public gauges:** COR3M (launched July 2021; top 50 S&P 500 stocks) `[Verified]` closed at 11.8 on 2026-11-11, against a 2006–2026 median of 41 `[Verified]`. The Cboe S&P 500 Dispersion Index (DSPX, launched September 2023) read 38.1 `[Verified]`.
+- **Public gauges:** COR3M (launched July 2021; top 50 S&P 500 stocks) `[Verified]` closed at 11.8 on 2026-11-11, against a 2006–2026 median of 41 `[Verified]`. The Cboe S&P 500 Dispersion Index (DSPX, launched September 2023) read 38.1 that day `[Verified]`.
 - **2026:** a bank trader called dispersion returns "phenomenal" `[Reported]`.
 
 ## Capacity, crowding and decay
 
-The shrinking gap after 2001 fits more arbitrage capital. Crowding showed in 2024: COR3M fell to its lowest since at least 2006, then jumped nearly nine points in the week of August 5 `[Reported]`. In 2026 it set new lows, and some managers called the trade crowded and bought reverse dispersion `[Reported]`.
+The shrinking gap after 2001 fits more arbitrage capital. Crowding showed in 2024 `[Reported]`: COR3M fell to 7.6 on 3 July, then jumped from 14.0 on 31 July to 35.7 on 5 August `[Verified]`. In 2026 it set new lows, and some managers called the trade crowded and bought reverse dispersion `[Reported]`.
 
 ## How it fails
 

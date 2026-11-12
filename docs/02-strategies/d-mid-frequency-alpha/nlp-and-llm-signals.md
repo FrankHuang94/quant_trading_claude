@@ -21,8 +21,8 @@
 | Core algorithms used | [F4 LLMs and foundation models in quant](../../03-algorithms/b-forecasting-models/llms-and-foundation-models-in-quant.md) · [D2 Feature engineering](../../03-algorithms/a-data-and-signals/feature-engineering.md) · [D3 Signal transforms](../../03-algorithms/a-data-and-signals/signal-transforms.md) · [D4 Evaluating signals](../../03-algorithms/a-data-and-signals/evaluating-signals.md) |
 | Infra intensity | News: millisecond feed handling and fast execution. Filings and calls: overnight batch, GPU inference |
 | Capacity (rough $ range) | News sleeves \$50M–\$500M `[Estimate]` (30–100% daily turnover); filing and call signals \$1B–\$5B as composite components `[Estimate]` (monthly rebalancing, large caps) |
-| Typical Sharpe (gross vs net) | Lazy Prices: up to 188 bps a month alpha, gross, 1995–2014 academic backtest `[Verified]`. Look-ahead-free LLM headline signal: Sharpe 3.20 gross, pre-cost, 2026 academic test on 2013–2024-era headlines `[Verified]`. In a composite: +0.2–0.5 net `[Lore]` |
-| Turnover | News 30–100% of GMV a day; filing signals 100–300% a year `[Estimate]` |
+| Typical Sharpe (gross vs net) | Lazy Prices: up to 188 bps a month alpha, gross, 1995–2014 academic backtest `[Verified]`. Look-ahead-free LLM headline signal: Sharpe 3.20 gross, before costs, on 61,000 firm-day headlines from 2013–2024 (DatedGPT, 2026 preprint) `[Verified]`. In a composite: +0.2–0.5 net `[Lore]` |
+| Turnover | News 30–100% of [GMV](../../09-reference/glossary.md#gross-market-value-gmv) a day; filing signals 100–300% a year `[Estimate]` |
 | Main risks / failure modes | Pretraining look-ahead, bad timestamps, silent model updates, fake news, boilerplate drift |
 | Crowding risk | High for vendor scores and public-LLM headline scoring; moderate for proprietary document models |
 | Firm types that run it | Quant hedge funds, multi-manager pods; HFT firms for machine-readable news |
@@ -49,7 +49,7 @@ Information appears in words before numbers. Humans read selectively; machines r
 | News sentiment | Score × relevance × novelty, mapped to the next session | Hours to days | Ke, Kelly & Xiu (2019) |
 | LLM scores or embeddings | Prompted score, or embedding → ridge | 1–5 days | Lopez-Lira & Tang (2026) |
 
-Then standardize daily, test incremental IC over earnings surprise, and blend ([F5](../../03-algorithms/b-forecasting-models/alpha-combination-and-ensembling.md)).
+Then standardize daily, test incremental [IC](../../09-reference/glossary.md#information-coefficient-ic) over earnings surprise, and blend ([F5](../../03-algorithms/b-forecasting-models/alpha-combination-and-ensembling.md)).
 
 ## Worked example with numbers
 
@@ -131,7 +131,7 @@ At 4% volatility, net Sharpe ≈ 0.6 `[Estimate]`.
 - **Filing changes:** up to 188 bps a month, 1995–2014; executive, litigation and risk-factor changes matter most (Cohen, Malloy & Nguyen 2020) `[Verified]`.
 - **Calls:** tone adds to the earnings surprise in explaining reaction and drift (Price et al. 2012); vocal affect predicts performance (Mayew & Venkatachalam 2012) `[Reported]`.
 - **News:** return-trained sentiment on Dow Jones Newswires beats generic scores (Ke, Kelly & Xiu 2019); LLM news embeddings in 16 markets beat older text methods (Chen, Kelly & Xiu, working paper) `[Reported]`.
-- **LLMs:** GPT-4 calls ~90% of the direction of the non-tradable initial reaction and predicts drift, mostly in small stocks and bad news (Lopez-Lira & Tang 2026) `[Verified]`. Models trained only on past text do nearly as well (He et al. 2025); one 2026 study puts the look-ahead premium at 26.4 bps per standard deviation of signal `[Verified]`.
+- **LLMs:** portfolios sorted on GPT-4 headline scores match the direction of the same-day, non-tradable reaction on about 90% of days, a portfolio-day hit rate, not per-headline accuracy; predictability of the later drift is much weaker and concentrated in small stocks and bad news (Lopez-Lira & Tang 2026) `[Verified]`. Models trained only on past text do nearly as well (He et al. 2025); DatedGPT (Yan et al. 2026) puts the look-ahead premium at 26.4 bps per standard deviation of signal `[Verified]`.
 
 ## Capacity, crowding and decay
 

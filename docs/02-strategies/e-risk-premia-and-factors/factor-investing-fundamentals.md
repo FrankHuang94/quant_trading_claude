@@ -21,7 +21,7 @@
 | Core algorithms used | [D3 Signal transforms](../../03-algorithms/a-data-and-signals/signal-transforms.md) · [P1 Risk models](../../03-algorithms/d-portfolio-construction/risk-models.md) · [P3 Mean-variance optimization](../../03-algorithms/d-portfolio-construction/mean-variance-optimization.md) · [P4 Alternatives to MVO](../../03-algorithms/d-portfolio-construction/alternatives-to-mvo.md) · [P7 Position sizing and risk budgeting](../../03-algorithms/d-portfolio-construction/position-sizing-and-risk-budgeting.md) |
 | Infra intensity | No latency sensitivity; monthly batch |
 | Capacity (rough $ range) | \$5B–\$50B gross per long-short manager, far more as long-only tilts `[Estimate]` (low turnover in large caps; Novy-Marx & Velikov 2016) |
-| Typical Sharpe (gross vs net) | Gross academic long-short, 1963-07 to 2026-09 (our computation, French library): HML 0.34, momentum 0.50, RMW 0.37; equal-risk mix 0.71, only 0.23 over 2007–2026 `[Verified]`. Live style fund: net 0.54 since 2013 (fund disclosure) `[Verified]`. Post-publication decay ~58% `[Verified]` |
+| Typical Sharpe (gross vs net) | Gross academic long-short, 1963-07 to 2026-09 (our computation, French library): HML 0.34, momentum 0.50, RMW 0.37; equal-risk mix 0.71, only 0.23 over 2007–2026 `[Verified]`. Live multi-asset style fund (AQR Style Premia Alternative): net 0.54 since 2013 (fund disclosure) `[Verified]`. Post-publication decay ~58% `[Verified]` |
 | Turnover | 20–100% a year for value and quality; several times that for momentum `[Estimate]` |
 | Main risks / failure modes | Multi-year drawdowns, momentum crashes, crowded deleveraging |
 | Crowding risk | High: same papers, data and breakpoints |

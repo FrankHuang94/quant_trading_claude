@@ -215,7 +215,7 @@ flowchart TD
 <details markdown="1">
 <summary>Math: abnormal returns, the Brown–Warner band, hump-shaped arbitrage profit</summary>
 
-Market model per event $i$, fitted over the year before the rank day:
+Market model per event $i$, fitted over trading days −270 to −21 relative to the announcement (as in Lab 20):
 
 $$
 AR_{i,t} = r_{i,t} - \hat\beta_i\, r_{m,t}, \qquad CAR(k) = \frac{1}{n}\sum_{i=1}^{n}\sum_{t=\tau_0+1}^{k} AR_{i,t}.

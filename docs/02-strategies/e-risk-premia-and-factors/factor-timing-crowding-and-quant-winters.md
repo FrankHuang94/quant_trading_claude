@@ -112,7 +112,7 @@ Illustrative: \$1B style book, 8% volatility, one year.
 - **Timing works.** Haddad, Kozak & Santosh (2020): market-neutral equity factors are strongly predictable, and exploiting this substantially improves on static factor investing `[Verified]`.
 - **Timing disappoints.** Asness et al. (2017): value-spread timing inside a portfolio that already holds value adds little over a strategic value allocation `[Verified]`.
 - **Spreads can widen for years.** Our computation from French data: value-over-growth book-to-market at June formation ranked at the 10th percentile of 1951–2026 in 2007, the 86th in 2017, the 99th in 2022 and the widest on record in June 2026 `[Verified]`; intangibles may inflate book-based spreads. Value lost 51% from January 2017 to September 2020.
-- **Quant winter, firm level.** AQR's Style Premia Alternative Fund fell 19.2% in 2020 (Institutional Investor, citing a private database) `[Reported]`. AQR's regulated assets fell from \$248.9B in 2019 to \$164.4B in 2020 `[Reported]`. AQR argues the losses came from value spreads widening, not crowded unwinds `[Verified]` (firm white paper, 2026).
+- **Quant winter, firm level.** AQR's Style Premia Alternative Fund returned −12.4%, −8.2% and −22.0% in 2018–2020, then +24.8% and +30.6% in 2021–2022 (fund fact sheet) `[Verified]`. AQR's regulatory assets (SEC-reported, including leverage) fell from \$248.9B in 2019 to \$164.4B in 2020 (Institutional Investor) `[Reported]`. AQR argues the losses came from value spreads widening, not crowded unwinds `[Verified]` (firm white paper, 2026).
 
 ## Capacity, crowding and decay
 
@@ -239,6 +239,7 @@ $$
 - [Verified] Khandani, A. E. & Lo, A. W. (2011). "What Happened to the Quants in August 2007? Evidence from Factors and Transactions Data." *Journal of Financial Markets* 14(1), 1–46. <https://doi.org/10.1016/j.finmar.2010.07.005> (accessed 2026-11)
 - [Reported] Khandani, A. E. & Lo, A. W. (2007). "What Happened to the Quants in August 2007?" *Journal of Investment Management* 5(4). <https://www.joim.com/what-happened-to-the-quants-in-august-2007/> (accessed 2026-11)
 - [Verified] Goldman Sachs (2007-08-13). "Goldman Sachs and Various Investors Including C.V. Starr & Co., Inc., Perry Capital LLC and Eli Broad Invest \$3 Billion in Global Equity Opportunities Fund." <https://www.goldmansachs.com/pressroom/press-releases/2007/2007-08-13> (accessed 2026-11)
+- [Verified] AQR Funds. "AQR Style Premia Alternative Fund fact sheet: performance by calendar year (QSPIX), as of 2026-09-30." <https://funds.aqr.com/-/media/Files/Fund-Documents/Fact-Sheet/SPAF.pdf> (accessed 2026-11)
 - [Reported] Institutional Investor (2021-04-28). "After Its 'Toughest Period' Ever, AQR Is Making a Big Comeback." <https://www.institutionalinvestor.com/article/b1rlvd4dqdwzm4/After-Its-Toughest-Period-Ever-AQR-Is-Making-a-Big-Comeback> (accessed 2026-11)
 - [Verified] Maloney, T. & Moskowitz, T. (2026-08). "Academic Alpha: A (Re)Introduction to Style Premia Investing." AQR white paper. <https://www.aqr.com/-/media/AQR/Documents/White-Papers/Academic-Alpha-A-Re-Introduction-to-Style-Premia-Investing.pdf> (accessed 2026-11)
 - [Reported] Hedgeweek (2025-08-08). "Quant hedge funds pare back July losses after challenging summer." <https://www.hedgeweek.com/quant-hedge-funds-pare-back-july-losses-after-challenging-summer/> (accessed 2026-11)

@@ -5,7 +5,7 @@
 > - Buy the past year's winners, short its losers, skip the latest month ("12-1"). About 1% a month over 1965–1989 (Jegadeesh & Titman 1993), and it outlived publication.
 > - It appears across industries, countries and asset classes, negatively correlated with value, its natural partner (Asness, Moskowitz & Pedersen 2013).
 > - US long-run gross Sharpe is about 0.5 but only 0.14 since 2000, with the worst crashes of any major factor (−74% in July–August 1932, −49% in March–May 2009) when high-beta losers rebound.
-> - Crashes are partly predictable: volatility scaling roughly doubles the Sharpe (0.45 → 0.87 over 1927–2026, our replication).
+> - Crashes are partly predictable: volatility scaling roughly doubles the Sharpe (0.45 → 0.87 on the same 1927–2026 months, our replication).
 > - Low [turnover](../../09-reference/glossary.md#turnover) (Lab 10: 6.5× a year against reversal's 90×) gives large capacity, with break-even estimates of \$52B in the US. [Crowding](../../09-reference/glossary.md#crowding) is the price.
 
 **Level:** Core · **Read time:** ~11 min · **Last verified:** 2026-11
@@ -136,7 +136,7 @@ Our computation from the French library (monthly, gross, no costs; volatility-sc
 
 | Period | UMD Sharpe | Volatility-scaled | Worst month |
 |---|---|---|---|
-| 1927–1962 | 0.40 | 0.82 | −52.6% (August 1932) |
+| 1927–1962 | 0.41 | 0.82 | −52.6% (August 1932) |
 | 1963-07 to 1991 | 0.84 | 1.12 | −13.8% (January 1975) |
 | 1992 to 2026-09 | 0.30 | 0.66 | −34.4% (April 2009) |
 | 2010 to 2026-09 | 0.26 | 0.46 | −16.2% (January 2023) |
@@ -144,7 +144,7 @@ Our computation from the French library (monthly, gross, no costs; volatility-sc
 - **Original result.** Over 1965–1989, 6-month formation earned about 1% a month and 12-month/3-month 1.31%, despite losing about 7% each January (Jegadeesh & Titman 1993) `[Verified]`.
 - **After publication.** Profits continued in the 1990s (Jegadeesh & Titman 2001) `[Verified]`; UMD's 1990–1999 Sharpe was 1.21.
 - **Everywhere.** Value and momentum premia in eight markets and asset classes, negatively correlated (Asness et al. 2013) `[Verified]`. UMD–HML correlation is −0.41 since 1927 (−0.19 since 1963); a 50/50 risk mix has a Sharpe of 0.73 against 0.46 and 0.34 alone `[Verified]`.
-- **Bear-market state.** In the 235 months after a negative trailing 24-month market excess return, UMD averaged −0.27% a month, against +0.84% otherwise `[Verified]`.
+- **Bear-market state.** In the 235 months after the market's monthly excess returns summed to a negative number over the prior 24 months, UMD averaged −0.27% a month, against +0.83% otherwise `[Verified]`.
 - **Costs.** Lesmond, Schill & Zhou (2004) call the profits illusory `[Reported]`; live execution data put costs below a tenth of earlier estimates (Frazzini et al. 2012) `[Verified]`.
 - **Recent years** (monthly returns compounded). UMD: +20.2% (2022), −20.5% (2023, −16.2% in January), +18.5% (2024), −2.2% (2025), +11.0% (2026 to September) `[Verified]`.
 

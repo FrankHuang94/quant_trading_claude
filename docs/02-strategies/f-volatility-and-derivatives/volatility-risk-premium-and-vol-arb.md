@@ -40,7 +40,7 @@ Selling index options is selling insurance on the stock market. Most months prem
 ## The trade, step by step
 
 1. Measure implied variance: the [variance swap](../../09-reference/glossary.md#variance-swap) rate from the whole strip, as the VIX does ([M8](../../03-algorithms/f-market-making-and-hft-algorithms/options-pricing-and-vol-surfaces-for-mm.md)).
-2. Forecast realized volatility to expiry (for example a HAR model).
+2. Forecast realized volatility to expiry (for example a HAR model on daily, weekly and monthly realized vol).
 3. Trade when implied² exceeds forecast² by a margin; stand aside when the VIX curve is inverted.
 4. Size to a stress loss such as a VIX doubling ([P7](../../03-algorithms/d-portfolio-construction/position-sizing-and-risk-budgeting.md)).
 5. Sell variance, straddles or puts and [delta-hedge](../../09-reference/glossary.md#delta-hedging) ([M7](../../03-algorithms/f-market-making-and-hft-algorithms/hedging-algorithms.md)); buy far tail protection; roll monthly.
@@ -53,7 +53,7 @@ Selling index options is selling insurance on the stock market. Most months prem
 |---|---|---|
 | 14 (calm) | 2,778 × (324 − 196) | +\$356K |
 | 30 (spike) | 2,778 × (324 − 900) | −\$1.60M |
-| 45 (crash; a 2.5× cap, common in practice `[Lore]`, binds) | 2,778 × (324 − 2,025) | −\$4.73M |
+| 45 or more (crash; a 2.5× cap, common in practice `[Lore]`, binds) | 2,778 × (324 − 2,025) | −\$4.73M |
 | 80 (uncapped) | 2,778 × (324 − 6,400) | −\$16.9M |
 
 One capped crash month erases 13 calm months.
@@ -114,14 +114,14 @@ The worst month, struck 2008-09-04, lost \$5.2M: more than two years of net carr
 
 ## Capacity, crowding and decay
 
-Dew-Becker & Giglio (2025) find a break around 2010: traded-option CAPM alphas converge to zero and dealers' net SPX gamma moves from negative to zero or positive `[Verified]`. In 2018 about \$4B of inverse and leveraged VIX products had to buy into a spike `[Verified]` (BIS). Whether systematic selling suppresses realized volatility is contested ([linkages](../../01-market-structure/etf-futures-options-linkages.md)).
+Dew-Becker & Giglio (2025) find a break around 2010: traded-option CAPM alphas converge to zero and dealers' net SPX gamma moves from negative to zero or positive `[Verified]`. In February 2018, inverse and leveraged VIX products, about \$4B of assets at end-2017, had to buy futures into a spike `[Verified]` (BIS). Whether systematic selling suppresses realized volatility is contested ([linkages](../../01-market-structure/etf-futures-options-linkages.md)).
 
 ## How it fails
 
 Losses, wider quotes and margin calls coincide.
 
 - **2008-10:** the PUT index fell 17.7% in a month `[Verified]` (our computation).
-- **2018-02-05:** VIX +115.6% to 37.32; XIV fell 96% and was terminated `[Verified]` ([failure gallery](../h-cross-cutting/strategy-failure-gallery.md)).
+- **2018-02-05:** VIX +115.6% to 37.32 `[Verified]`; XIV's indicative value fell about 96% (BIS: 84%) and the note was terminated `[Reported]` ([failure gallery](../h-cross-cutting/strategy-failure-gallery.md)).
 - **2020-03-16:** record VIX close 82.69; a swap struck 2020-02-10 at 15.0 realized 50.9 `[Verified]` (our computation).
 - **2024-08-05:** VIX near 66 before the open `[Verified]` (BIS). **2025-04-08:** close of 52.33 `[Verified]` (Cboe).
 

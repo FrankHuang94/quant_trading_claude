@@ -3,7 +3,7 @@
 > **TL;DR**
 >
 > - Three questions per stock: is it cheap (value), a good business (quality), boring (low beta or volatility)? Buy the yeses, short the noes.
-> - They pay for different reasons (distress and extrapolation; underpriced profitability; leverage constraints) and are nearly uncorrelated with each other and with momentum, so the combination carries the Sharpe.
+> - They pay for different reasons (distress and extrapolation; underpriced profitability; leverage constraints) and are weakly correlated with each other and with momentum, so the combination carries the Sharpe.
 > - Value's worst run on record: HML −58% from December 2006 to September 2020, then +68% to December 2022. Whether intangibles broke book value is still debated.
 > - Long-run gross Sharpe: value 0.34, profitability 0.37, quality-minus-junk 0.48, betting-against-beta 0.70. Capacity is large; crowding and long drawdowns are the risks.
 
@@ -54,11 +54,11 @@ Illustrative betting-against-beta (BAB) leg sizing. Low-beta portfolio β = 0.7,
 
 | Step | Calculation | Result |
 |---|---|---|
-| Long low-beta, scaled to β = 1 | $1 / 0.7 | \$1.43 |
-| Short high-beta, scaled to β = 1 | $1 / 1.4 | \$0.71 |
+| Long low-beta, scaled to β = 1 | \$1 / 0.7 | \$1.43 |
+| Short high-beta, scaled to β = 1 | \$1 / 1.4 | \$0.71 |
 | CAPM excess returns | 0.7 × 6% and 1.4 × 6% | 4.2% and 8.4% |
 | BAB return if CAPM holds | 1.43 × 4.2 − 0.71 × 8.4 | **≈ 0%** |
-| "Flat" market line: 6% and 7% | 1.43 × 6 − 0.71 × 7 | **+3.6%** |
+| "Flat" market line: low-beta earns 6%, high-beta 7% | 1.43 × 6 − 0.71 × 7 | **+3.6%** |
 | Funding spread on \$0.71 net long at 0.5% | 0.71 × 0.5 | −0.36% |
 
 The trade earns exactly the flatness of the security market line, which Frazzini & Pedersen attribute to leverage-constrained buyers of high beta.

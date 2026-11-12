@@ -20,7 +20,7 @@
 | Data required | Vendor panels with as-delivered history; merchant-to-ticker maps; point-in-time consensus; reported KPIs |
 | Core algorithms used | [D1 Point-in-time data and cleaning](../../03-algorithms/a-data-and-signals/point-in-time-data-and-cleaning.md) · [D2 Feature engineering](../../03-algorithms/a-data-and-signals/feature-engineering.md) · [D4 Evaluating signals](../../03-algorithms/a-data-and-signals/evaluating-signals.md) · [F2 Tree ensembles](../../03-algorithms/b-forecasting-models/tree-ensembles.md) |
 | Infra intensity | Low latency sensitivity; heavy data engineering (entity resolution, terabyte-scale location data) |
-| Capacity (rough $ range) | \$50M–\$500M GMV per dataset sleeve `[Estimate]` (100–500 names, edge concentrated before earnings, mid-cap impact) |
+| Capacity (rough $ range) | \$50M–\$500M [GMV](../../09-reference/glossary.md#gross-market-value-gmv) per dataset sleeve `[Estimate]` (100–500 names, edge concentrated before earnings, mid-cap impact) |
 | Typical Sharpe (gross vs net) | Satellite lots: ~4–5% gross over three event days, 2011–2017, academic study via author interview `[Reported]`. Customer-supplier links: >150 bps a month gross alpha, pre-2008 academic backtest `[Verified]`. Single-dataset sleeves: net 0.3–1.0 `[Lore]`, falling as vendors add clients |
 | Turnover | 200–600% a year, lumpy around reporting seasons `[Estimate]` |
 | Main risks / failure modes | Panel drift, backfilled history, vendor shutdown, MNPI exposure, earnings-day gaps |
