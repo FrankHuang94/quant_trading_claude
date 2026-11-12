@@ -232,7 +232,7 @@ flowchart TD
     i --> n["Net trading income<br/>+10,284, 2.35 bps"]
 ```
 
-Excluding basis luck, the desk kept 1.37 bps of ETF traded, about 1 bp of the \$108M traded across all legs. Flow Traders' 2025 net trading income was about 2.5 bps of its €1,940bn of ETP value traded `[Reported]`. Any match is coincidence: the toy has no rival quoters, a known closing print and Brownian basis. One client's block produced two thirds of spread revenue and paid for the basket: one ticket and one creation instead of 500 screen fills.
+Excluding basis luck, the desk kept 1.37 bps of ETF traded, or 0.55 bp of the \$108M traded across all legs. Flow Traders' 2025 net trading income was about 2.5 bps of its €1,940bn of ETP value traded `[Reported]`. Any match is coincidence: the toy has no rival quoters, a known closing print and Brownian basis. One client's block produced two thirds of spread revenue and paid for the basket: one ticket and one creation instead of 500 screen fills.
 
 ## What would be different in real life
 

@@ -3,7 +3,7 @@
 > **TL;DR**
 >
 > - A market maker's system is one event loop: packet in, book update, fair value, quote decision, risk check, order out. Acks and fills return later and update inventory and hedges.
-> - [Tick-to-trade](../../09-reference/glossary.md#tick-to-trade) is about 2.5 µs in very good software and tens of nanoseconds on FPGAs `[Verified]`. Rank in a microsecond race matters more than absolute speed.
+> - [Tick-to-trade](../../09-reference/glossary.md#tick-to-trade) is at best about 2.5 µs in very good software and tens of nanoseconds on FPGAs `[Verified]`. Rank in a microsecond race matters more than absolute speed.
 > - Models are fit offline and pushed in as parameters; the hot path only does arithmetic and lookups.
 > - The core is built single-threaded and deterministic, so a recorded day replays to identical orders.
 
@@ -115,7 +115,7 @@ def on_fill(fill, s):
 | Wire to user space, decode | 0.5–1 µs | a few to tens of ns |
 | Book, fair value, quote, risk | 0.3–1 µs | ns (precomputed lookup) |
 | Encode, back to the wire | 0.5–1 µs | a few to tens of ns |
-| **Tick-to-trade** | **~2.5 µs** (Cook 2017) `[Verified]` | **13.9 ns**, 2024 STAC-T0, network I/O only `[Verified]` |
+| **Tick-to-trade** | **~2.5 µs** at best, wire to wire (Cook 2017) `[Verified]` | **13.9 ns** minimum, 2024 STAC-T0, network I/O only, vendor-commissioned `[Verified]` |
 | Exchange round trip | sub-40 µs (Nasdaq's older claim) `[Verified]` | same |
 
 Every firm pays the exchange round trip, so it rarely decides who is first. Physics counts: a 100-byte frame takes 80 ns to serialize at 10 Gb/s.
@@ -218,8 +218,8 @@ ten times the service time at $\rho = 0.9$, which is why systems are sized for b
 - [Verified] Cboe (2026). "Cboe Titanium U.S. Equities/Options Multicast PITCH Specification: feed connectivity requirements." <https://www.cboe.com/document/tech-spec/content/technical-specifications/cboe-titanium-u.s.-equitiesoptions-multicast-pitch-specification/introduction/feed-connectivity-requirements> (accessed 2026-11)
 - [Verified] Cboe (2026-10-05). "Cboe Titanium U.S. Equities BOE Specification," version 2.4.58. <https://cdn.cboe.com/resources/techspec/technical-specifications-cboe-titanium-u-s-equities-boe-specification.md> (accessed 2026-11)
 - [Verified] Nasdaq Trader. "OUCH Measurements of Order Latency" (INET performance page, undated). <https://www.nasdaqtrader.com/snippets/inet2.html> (accessed 2026-11)
-- [Verified] Cook, C. (2017). "When a Microsecond Is an Eternity: High Performance Trading Systems in C++." CppCon 2017 (Optiver). <https://isocpp.org/blog/2018/09/cppcon-2017-when-a-microsecond-is-an-eternity-high-performance-trading-syst> (accessed 2026-11)
-- [Verified] STAC (2024-06-25). "STAC-T0 results with an Exegy/AMD FPGA solution" (vendor-commissioned benchmark). <https://stacresearch.com/node/48577> (accessed 2026-11)
+- [Verified] Cook, C. (2017). "When a Microsecond Is an Eternity: High Performance Trading Systems in C++." CppCon 2017 (Optiver), slides. <https://github.com/CppCon/CppCon2017/blob/master/Presentations/When%20a%20Microsecond%20Is%20an%20Eternity/When%20a%20Microsecond%20Is%20an%20Eternity%20-%20Carl%20Cook%20-%20CppCon%202017.pdf> (accessed 2026-11)
+- [Verified] AMD (2024-06-27). "AMD Sets STAC Benchmark World Record for Fastest Electronic Trade Execution" (STAC-T0, with Exegy; vendor-commissioned benchmark, minimum 13.9 ns). <https://www.amd.com/en/blogs/2024/amd-sets-stac-benchmark-world-record-for-fastest-e.html> (accessed 2026-11)
 - [Verified] Aquilina, M., Budish, E. & O'Neill, P. (2022). "Quantifying the High-Frequency Trading 'Arms Race'." *Quarterly Journal of Economics* 137(1), 493–564. <https://www.nber.org/papers/w29011> (accessed 2026-11)
 - [Verified] Fowler, M. (2011-07-12). "The LMAX Architecture." <https://martinfowler.com/articles/lmax.html> (accessed 2026-11)
 - [Reported] Orosz, G., Klaric, I. & Spevack, J. (2026-08-11). "Software engineering at a proprietary trading company: Optiver." *The Pragmatic Engineer*. <https://newsletter.pragmaticengineer.com/p/optiver> (accessed 2026-11)

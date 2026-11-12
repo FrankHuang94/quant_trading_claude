@@ -98,7 +98,7 @@ def place(options, hysteresis_ticks=0.02):
 | Log, f = ln(1 + x): 8.01 ÷ (8.01 + 7.31) | 52% | 2,373 |
 | Pro rata, f = x: 3,000 ÷ 4,500 | 67% | 2,200 |
 
-On Lab 01's curve: 10-second fill probability about 43% vs 33% (synthetic).
+On Lab 01's binned curve: 10-second fill probability about 43% vs 33% (synthetic).
 
 **Buying priority.** Lab 01's quartile results plus illustrative fees: a 0.29¢ maker rebate, or a 0.15¢ maker fee on an [inverted venue](../../09-reference/glossary.md#inverted-venue), which takers sweep first because it pays them.
 

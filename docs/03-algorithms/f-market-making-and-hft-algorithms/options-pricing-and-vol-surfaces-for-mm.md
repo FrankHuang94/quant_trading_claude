@@ -101,7 +101,7 @@ def theo_vol(K, F_now, F_fit, smile, rule="sticky_strike"):
 | Spot to \$98, sticky delta | 2.02% out of the money: 20 − 0.4 × 2.02 = 19.19% | theo \$1.318 |
 | Gap | \$0.086 × 100 shares | **\$8.57 per contract** |
 
-That 0.8-vol-point gap exceeds a 0.5-point edge (\$5.30 at the new vega). The hedge moves too: under sticky delta the strike's vol rises 0.40/S = 0.004 per \$1, so delta is 0.511 + 11.43 × 0.004 = 0.557 (vega per share per unit of vol is also 11.43). On 1,000 contracts: 4,573 shares, about \$457,000 ([hedging algorithms](hedging-algorithms.md)).
+That 0.8-vol-point gap exceeds a 0.5-point edge (\$5.30 at the new vega). The hedge moves too: under sticky delta the strike's vol rises 0.40/S = 0.004 per \$1, so delta is 0.511 + 11.43 × 0.004 = 0.557 (vega per share per unit of vol is also 11.43). On 1,000 contracts the extra hedge is 4,573 shares, about \$457,000 ([hedging algorithms](hedging-algorithms.md)).
 
 ## Key parameters and how practitioners tune them
 
@@ -142,7 +142,7 @@ Quotes come from the generating Heston model, without bid-ask or stale prints, s
 - **Wings:** parabolas bend the wrong way.
 - **Garbage quotes** at the open and in fast markets.
 - **Wrong dynamics:** leaves hidden vanna.
-- **0DTE and events:** 0DTE was a record ~66% of SPX volume in July 2026 `[Reported]`.
+- **0DTE and events:** 0DTE was a record 66.2% of SPX volume in July 2026 `[Verified]`.
 
 ## How practitioners talk about it
 
@@ -211,4 +211,5 @@ zero under sticky strike; $-f'(k)/S$ times vega under sticky moneyness $\sigma =
 - [Verified] nth Moment LLC / Vela (now Exegy) (2020-10-12). "Dynamic Skew App User Guide," v4.48 (vendor documentation for the Metro options platform). <https://www.exegy.com/wp-content/uploads/2021/11/DynamicSkewApp_UserGuide.pdf> (accessed 2026-11)
 - [Verified] SIAC for the OPRA Participants (2025-09-15). "Revised OPRA Capacity Projections." <https://cdn.opraplan.com/documents/notices/OPRA_Capacity_Projections_Update_0925.pdf> (accessed 2026-11)
 - [Verified] Cboe, Schwartz, H. (2026-01-22). "The State of the Options Industry: 2025." <https://www.cboe.com/insights/posts/the-state-of-the-options-industry-2025> (accessed 2026-11)
+- [Verified] Cboe (2026-08). "Market Metrics That Matter: Derivatives July 2026 Volume Highlights." <https://www.cboe.com/insights/posts/market-metrics-that-matter-derivatives-july-2026-volume-highlights> (accessed 2026-11)
 - [Reported] CFA Institute Enterprising Investor (2024-07-31). "How well does the market predict volatility?" <https://blogs.cfainstitute.org/blog/2024/07/31/how-well-does-the-market-predict-volatility> (accessed 2026-11)

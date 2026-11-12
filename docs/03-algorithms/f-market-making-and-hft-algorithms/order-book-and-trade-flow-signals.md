@@ -3,7 +3,7 @@
 > **TL;DR**
 >
 > - Four families: queue imbalance, order-flow imbalance (OFI), trade imbalance and cross-asset flow. VPIN is a contested toxicity gauge.
-> - Cont, Kukanov and Stoikov (2014): over 10-second intervals the mid change ≈ OFI ÷ (2 × depth). In 50 NYSE stocks OFI explained 65% of price variance, trade imbalance 32% `[Verified]`.
+> - Cont, Kukanov and Stoikov (2014): over 10-second intervals the mid change ≈ OFI ÷ (2 × depth). In 50 S&P 500 stocks (NYSE TAQ data) OFI explained 65% of price variance, trade imbalance 32% `[Verified]`.
 > - Explaining is not predicting: in Lab 03 (synthetic) OFI explains 70% of the same 10-second move but 4.5% of the next one.
 > - Takers rarely monetize it: Lab 03's taker loses 1.44 ticks per round trip. Market makers use it free, to skew and cancel.
 

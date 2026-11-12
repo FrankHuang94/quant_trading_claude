@@ -131,7 +131,7 @@ Each child goes to the [smart order router](../e-execution-algorithms/smart-orde
 | Net-of-toxicity (bandit) | 1.48 | 1.44 | — |
 | Oracle | 1.41 | 1.40 | — |
 
-Scaling assumes every share routes in that mode: (1.87 − 1.48) bp × \$500M = \$19.8K, small next to \$2.56M of impact. Lab 18's spread is one tick (2 bps), Lab 16's 3 bps on average; the bandit's 1.44–1.48 bps matches Lab 16's 1.5 bps spread line, so the budget assumes competent routing. One parent is about one Lab 18 run (40,000 children), and separating venues 0.5 bp apart takes about 770 fills each: one order cannot audit many venues.
+Scaling assumes every share routes in that mode: (1.872 − 1.476) bp × \$500M = \$19.8K, small next to \$2.56M of impact. Lab 18's spread is one tick (2 bps), Lab 16's 3 bps on average; the bandit's 1.44–1.48 bps matches Lab 16's 1.5 bps spread line, so the budget assumes competent routing. One parent is about one Lab 18 run (40,000 children), and separating venues 0.5 bp apart takes about 770 fills each: one order cannot audit many venues.
 
 ![Lab 18: all-in cost by router policy](../../assets/labs/lab18-all-in-cost.png)
 

@@ -99,7 +99,7 @@ Spread captured \$5, adverse selection \$20, net −\$15: this seller knew somet
 
 ## Key parameters and how practitioners tune them
 
-- **Horizon.** Long enough for informed flow to finish: Lab 04's informed curve crosses zero near 5 s. Amended Rule 605 reports 50 ms, 1 s, 15 s, 1 min and 5 min `[Reported]`.
+- **Horizon.** Long enough for informed flow to finish: Lab 04's informed curve crosses zero near 5 s. Amended Rule 605 reports 50 ms, 1 s, 15 s, 1 min and 5 min `[Verified]`.
 - **Reference price.** The mid is standard; a [microprice](fair-value-and-microprice.md) cuts short-horizon noise but bakes in your model.
 - **Weighting.** Per share: Lab 04's 60-second markout is +0.99 bps per fill, +0.82 per share.
 - **Segments.** Broker, venue, size, time of day, [queue position](queue-position-and-order-placement.md); thin segments are shrunk toward pooled estimates `[Lore]`. Add rebates and fees per share.
@@ -190,6 +190,7 @@ $$
 - [Verified] Glosten, L. R. & Milgrom, P. R. (1985). "Bid, ask and transaction prices in a specialist market with heterogeneously informed traders." *Journal of Financial Economics* 14(1), 71–100. <https://doi.org/10.1016/0304-405X(85)90044-3> (accessed 2026-11)
 - [Verified] Kyle, A. S. (1985). "Continuous auctions and insider trading." *Econometrica* 53(6), 1315–1335. <https://doi.org/10.2307/1913210> (accessed 2026-11)
 - [Reported] SEC (2024-03-06). "Disclosure of Order Execution Information," Release No. 34-99679, 89 FR 26428 (amended Rule 605; realized-spread horizons). <https://www.federalregister.gov/documents/2024/04/15/2024-05556/disclosure-of-order-execution-information> (accessed 2026-11)
+- [Verified] 17 CFR 242.605, "Disclosure of order execution information" (realized spread at 50 ms, 1 s, 15 s, 1 min and 5 min). eCFR. <https://www.ecfr.gov/current/title-17/section-242.605> (accessed 2026-11)
 - [Verified] Brogaard, J., Hendershott, T. & Riordan, R. (2014). "High-Frequency Trading and Price Discovery." *Review of Financial Studies* 27(8), 2267–2306. <https://doi.org/10.1093/rfs/hhu032> (accessed 2026-11)
 - [Verified] Menkveld, A. J. (2013). "High frequency trading and the new market makers." *Journal of Financial Markets* 16(4), 712–740. <https://doi.org/10.1016/j.finmar.2013.06.006> (accessed 2026-11)
 - [Verified] Boehmer, E., Jones, C. M., Zhang, X. & Zhang, X. (2021). "Tracking Retail Investor Activity." *Journal of Finance* 76(5), 2249–2305. <https://doi.org/10.1111/jofi.13033> (accessed 2026-11)

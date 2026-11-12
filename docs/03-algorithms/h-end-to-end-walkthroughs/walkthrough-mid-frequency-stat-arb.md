@@ -5,7 +5,7 @@
 > - One rebalance of a toy \$100M market-neutral US equity book, end to end: liquidity screen → three alphas → winsorize, z-score, neutralize → IC-weighted composite → PCA risk model → cost-aware optimizer → 289 orders → one-day VWAP → next-day attribution.
 > - Every number comes from one script that imports the finished labs' core functions (Labs 11, 12, 14 and 17) and runs them on the synthetic market, seed 7.
 > - The traded day lost \$48K: \$68K of expected alpha was swamped by \$55K of stock-specific noise, \$49K of factor losses and \$13K of costs. Single days are mostly noise.
-> - Over two simulated years the book earned \$17.9M gross and \$14.6M net a year (Sharpe 12.5 and 10.3, a stylized synthetic lab result; real books of this design net roughly 1–2).
+> - Over two simulated years the book earned \$17.9M gross and \$14.6M net a year (Sharpe 12.5 and 10.3, a stylized synthetic lab result; real books of this design net roughly 1–2 `[Lore]`).
 > - The lessons survive the stylization: neutralize on the beta you actually trade, judge a risk model on the optimized book, and let costs decide how far to trade.
 
 **Level:** Core · **Read time:** ~14 min · **Last verified:** 2026-11
@@ -270,7 +270,7 @@ Costs take 18% of gross before commissions, and the half-spread is two-thirds of
 - [Verified] MSCI (2011). "Barra US Equity Model (USE4)" product description (60 industries, 12 style factors). <https://www.msci.com/documents/10199/242721/Barra_US_Equity_Model_USE4.pdf> (accessed 2026-11)
 - [Verified] Michaud, R. O. (1989). "The Markowitz Optimization Enigma: Is 'Optimized' Optimal?" *Financial Analysts Journal* 45(1), 31–42. <https://doi.org/10.2469/faj.v45.n1.31> (accessed 2026-11)
 - [Reported] Almgren, R., Thum, C., Hauptmann, E. & Li, H. (2005). "Equity market impact" (working title "Direct estimation of equity market impact"). *Risk* 18(7), 57–62. <https://www.risk.net/derivatives/structured-products/1500270/equity-market-impact> (accessed 2026-11)
-- [Verified] Perold, A. F. (1988). "The implementation shortfall: Paper versus reality." *Journal of Portfolio Management* 14(3), 4–9. <https://www.proquest.com/docview/195579087> (accessed 2026-11)
+- [Verified] Perold, A. F. (1988). "The implementation shortfall: Paper versus reality." *Journal of Portfolio Management* 14(3), 4–9. <https://doi.org/10.3905/jpm.1988.409150> (accessed 2026-11)
 - [Verified] Frazzini, A., Israel, R. & Moskowitz, T. J. (2018). "Trading Costs." AQR working paper (SSRN 3229719). <https://www.aqr.com/Insights/Research/Working-Paper/Trading-Costs> (accessed 2026-11)
 - [Verified] Avellaneda, M. & Lee, J.-H. (2010). "Statistical arbitrage in the US equities market." *Quantitative Finance* 10(7), 761–782. <https://doi.org/10.1080/14697680903124632> (accessed 2026-11)
 - [Verified] Khandani, A. E. & Lo, A. W. (2011). "What happened to the quants in August 2007? Evidence from factors and transactions data." *Journal of Financial Markets* 14(1), 1–46. <https://doi.org/10.1016/j.finmar.2010.07.005> (accessed 2026-11)

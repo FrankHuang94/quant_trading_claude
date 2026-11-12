@@ -160,7 +160,7 @@ Capacity is set by volume and spread, not capital. 2025 US volume averaged a rec
 
 - **Textbook:** a monopolist specialist with obligations. **Today:** competing firms quote voluntarily. Exchange market makers must keep continuous two-sided quotes no further than 8% from the [NBBO](../../09-reference/glossary.md#nbbo) for S&P 500 and Russell 1000 stocks, 20% before 9:45 a.m. and after 3:35 p.m., 30% for others (rules approved in 2010, effective 2010-12-06) `[Verified]`. NYSE DMMs must hold a bid or offer at the NBBO for at least 10% (active stocks) or 15% of the day `[Verified]`.
 - **Textbook:** the quoting formula is the strategy. **Practice:** fair value and speed decide P&L `[Lore]`.
-- **Textbook:** single-stock inventory. **Practice:** book-level factor hedging `[Lore]`; Menkveld's firm offloaded positions on a second venue `[Verified]`.
+- **Textbook:** single-stock inventory. **Practice:** book-level factor hedging `[Lore]`; Menkveld's market maker split its trades roughly evenly across two venues and was passive on ~78% of trades on each `[Verified]`.
 - **Rules that bind:** the [Market Access Rule](../../09-reference/glossary.md#market-access-rule) (15c3-5) requires automated pre-trade limits `[Verified]`. The 2024 half-penny tick and 10-mil fee cap are delayed to the first business day of November 2027, and the SEC has proposed repealing the Rule 611 order-protection rule `[Verified]`.
 
 ## Variants and neighbours

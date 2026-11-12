@@ -4,7 +4,7 @@
 >
 > - [Fair value](../../09-reference/glossary.md#fair-value) is what a market maker quotes around: the mid adjusted for imbalance, flow and related instruments, over a few price changes.
 > - The weighted mid leans toward the thin side by imbalance × half-spread; Stoikov's (2018) [microprice](../../09-reference/glossary.md#microprice) learns how much of that lean comes true.
-> - In Lab 02 (synthetic) the microprice cuts next-move forecast error only 3.5% versus the mid; the weighted mid is 41% worse. Past ~5 seconds nothing book-based beats the mid.
+> - In Lab 02 (synthetic) the microprice cuts next-move forecast error only 3.5% versus the mid; the weighted mid is 41% worse. Past ~10 seconds nothing book-based beats the mid.
 > - The book is not the information: real fair values add flow and futures or ETF leads, each shrunk.
 
 **Level:** Core · **Pipeline stage:** market making · **Last verified:** 2026-11
@@ -111,7 +111,7 @@ Illustrative book, 1-cent tick; $g^*$ from Lab 02's fitted table (synthetic).
 
 At two ticks a weighted-mid desk thinks a new 50.01 bid is 0.8 ticks cheap; the microprice says 0.31. Lab 02's test days realized 0.16 ticks by the next change: a fivefold overstatement.
 
-**Adding a leader** (illustrative). ES ticks up 0.25 points at 6,000 (+4.17 bps). With beta 1.2 shrunk by 0.5, fair value rises 0.5 × 1.2 × 4.17 = 2.5 bps = \$0.0125, to 50.0218: through the 50.01 offer. The engine cancels its own offer and may lift rivals' stale ones ([latency arbitrage](../../02-strategies/b-speed-and-structural/latency-arbitrage.md)).
+**Adding a leader** (illustrative). ES ticks up 0.25 points at 6,000 (+4.17 bps). With beta 1.2 shrunk by 0.5, fair value rises 0.5 × 1.2 × 4.17 = 2.5 bps = \$0.0125, from the 1-tick microprice to 50.0218: through the 50.01 offer. The engine cancels its own offer and may lift rivals' stale ones ([latency arbitrage](../../02-strategies/b-speed-and-structural/latency-arbitrage.md)).
 
 ## Key parameters and how practitioners tune them
 

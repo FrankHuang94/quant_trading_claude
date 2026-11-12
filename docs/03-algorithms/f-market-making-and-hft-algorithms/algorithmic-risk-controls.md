@@ -92,7 +92,7 @@ def pre_trade_check(order, state, limits):
 
 ## Worked example with numbers
 
-Illustrative: XYZ quoted \$50.00 × \$50.02 (reference \$50.01); collar 2%; maximum 5,000 shares or \$250,000 per order; position limit ±10,000; position +8,000 with 3,000 shares of open buys; 5% LULD bands around \$50.00, so \$47.50–$52.50.
+Illustrative: XYZ quoted \$50.00 × \$50.02 (reference \$50.01); collar 2%; maximum 5,000 shares or \$250,000 per order; position limit ±10,000; position +8,000 with 3,000 shares of open buys; 5% LULD bands around \$50.00, so \$47.50–\$52.50.
 
 | Order | Check | Result |
 |---|---|---|
@@ -198,5 +198,5 @@ A token bucket of capacity $b$ and refill rate $r$ allows bursts of $b$ messages
 - [Verified] FINRA. Rule 11892, "Clearly Erroneous Transactions in Exchange-Listed Securities." <https://www.finra.org/rules-guidance/rulebooks/finra-rules/11892> (accessed 2026-11)
 - [Verified] FIA (2024-07). "Best Practices for Automated Trading Risk Controls and System Safeguards." <https://fia.org/sites/default/files/2024-07/FIA_WP_AUTOMATED%20TRADING%20RISK%20CONTROLS_FINAL_0.pdf> (accessed 2026-11)
 - [Verified] FINRA (2015-03). Regulatory Notice 15-09, "Effective Supervision and Control Practices for Firms Engaging in Algorithmic Trading Strategies." <https://www.finra.org/rules-guidance/notices/15-09> (accessed 2026-11)
-- [Verified] U.S. SEC (2019-11-13). Press release 2019-205: jury verdict against Avalon FA for layering and cross-market manipulation. <https://www.sec.gov/news/press-release/2019-205> (accessed 2026-11)
+- [Verified] U.S. SEC (2019-11-12). Press release 2019-236: jury verdict against Avalon FA for layering and cross-market manipulation. <https://www.sec.gov/news/press-release/2019-236> (accessed 2026-11)
 - [Verified] Cook, C. (2017). "When a Microsecond Is an Eternity: High Performance Trading Systems in C++." CppCon 2017 (Optiver). <https://isocpp.org/blog/2018/09/cppcon-2017-when-a-microsecond-is-an-eternity-high-performance-trading-syst> (accessed 2026-11)
