@@ -128,7 +128,7 @@ Most gross edge leaks to informed flow, venues and brokers. The vega line does n
 
 - **Growth.** 15.2 billion contracts in 2025, +26%, a sixth straight record `[Verified]`. Q3 2026 averaged 70.6 million a day; 0DTE was ~36% of all volume `[Verified]` (Cboe).
 - **PFOF.** SEC staff (April 2026): consolidators handle virtually all retail options orders; options PFOF is two-thirds of all PFOF; the top three providers pay up to ~90% `[Verified]`. Options PFOF remains legal; the SEC withdrew its 2022 order-auction proposal in June 2025 `[Reported]`. Q3 2025 retail-flow payments rose 40% year on year, led by Citadel Securities and IMC `[Reported]`.
-- **Firms.** Citadel Securities says it holds about 30% of US listed options `[Reported]` (self-reported). Rule 606 analyses name Dash/IMC, Susquehanna, Jane Street and Wolverine as major liquidity providers `[Reported]`; Optiver is hiring to compete in US single-stock options `[Reported]` (Bloomberg).
+- **Firms.** Citadel Securities describes itself as one of the largest US options market makers; the often-quoted ~30% share is self-reported, may be dated and may refer to retail options only `[Reported]`. Rule 606 analyses name Dash/IMC, Susquehanna, Jane Street and Wolverine as major liquidity providers `[Reported]`; Optiver is hiring to compete in US single-stock options `[Reported]` (Bloomberg).
 - **Spreads.** Median effective spread 1.9% for equity options, 1.4% for ETF options, in 2025 `[Verified]`.
 
 ## Capacity, crowding and decay
