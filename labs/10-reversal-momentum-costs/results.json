@@ -1,0 +1,149 @@
+{
+  "lab": "10-reversal-momentum-costs",
+  "smoke": false,
+  "seed": 7,
+  "n_stocks": 500,
+  "n_days": 2520,
+  "evaluation_days": 2246,
+  "universe_total_adv_usd_bn": 35.6633,
+  "median_stock_adv_usd_m": 55.3201,
+  "base_gross_book_usd": 100000000.0,
+  "impact_coef": 0.5,
+  "borrow_bps_per_year": 35.0,
+  "ic": {
+    "reversal_planted": 0.03,
+    "reversal_measured_vs_specific": 0.0261651,
+    "reversal_measured_vs_total": 0.0241656,
+    "reversal_oracle_signal_vs_specific": 0.0284857,
+    "momentum_planted": 0.01,
+    "momentum_measured_vs_specific": 0.00770613,
+    "momentum_measured_vs_total": 0.00462547,
+    "momentum_oracle_signal_vs_specific": 0.00853436
+  },
+  "reversal_sharpe_gross": 2.37086,
+  "reversal_sharpe_net_100m": -1.43433,
+  "momentum_sharpe_gross": 0.812024,
+  "momentum_sharpe_net_100m": 0.472302,
+  "reversal_annual_turnover_x_gross": 89.598,
+  "momentum_annual_turnover_x_gross": 6.52103,
+  "breakeven_flat_cost_bps": {
+    "reversal": 12.7377,
+    "reversal_daily": 8.60962,
+    "momentum": 52.5427
+  },
+  "books": {
+    "reversal": {
+      "sharpe_gross": 2.37086,
+      "sharpe_net": -1.43433,
+      "ann_return_gross_pct": 11.5878,
+      "ann_return_net_pct": -8.13011,
+      "annual_turnover_x_gross": 89.598,
+      "avg_cost_bps_per_dollar_traded": 21.8117,
+      "trading_cost_pct_per_year": 19.5429,
+      "max_drawdown_net_pct": 73.6381
+    },
+    "reversal_lm": {
+      "sharpe_gross": 2.5779,
+      "sharpe_net": -0.535745,
+      "ann_return_gross_pct": 8.81263,
+      "ann_return_net_pct": -2.02441,
+      "annual_turnover_x_gross": 72.8243,
+      "avg_cost_bps_per_dollar_traded": 14.6408,
+      "trading_cost_pct_per_year": 10.662,
+      "max_drawdown_net_pct": 25.3073
+    },
+    "reversal_daily": {
+      "sharpe_gross": 3.84066,
+      "sharpe_net": -5.29652,
+      "ann_return_gross_pct": 18.4783,
+      "ann_return_net_pct": -24.9012,
+      "annual_turnover_x_gross": 212.591,
+      "avg_cost_bps_per_dollar_traded": 20.3228,
+      "trading_cost_pct_per_year": 43.2045,
+      "max_drawdown_net_pct": 222.412
+    },
+    "momentum": {
+      "sharpe_gross": 0.812024,
+      "sharpe_net": 0.472302,
+      "ann_return_gross_pct": 3.60133,
+      "ann_return_net_pct": 2.10727,
+      "annual_turnover_x_gross": 6.52103,
+      "avg_cost_bps_per_dollar_traded": 20.2277,
+      "trading_cost_pct_per_year": 1.31905,
+      "max_drawdown_net_pct": 7.39448
+    },
+    "momentum_beta_hedged": {
+      "sharpe_gross": 0.815816,
+      "sharpe_net": 0.459855,
+      "ann_return_gross_pct": 3.49752,
+      "ann_return_net_pct": 1.98408,
+      "annual_turnover_x_gross": 6.81942,
+      "avg_cost_bps_per_dollar_traded": 19.5327,
+      "trading_cost_pct_per_year": 1.33202,
+      "max_drawdown_net_pct": 9.19387
+    }
+  },
+  "net_sharpe_by_book_usd": {
+    "1e+07": {
+      "reversal": 0.616451,
+      "momentum": 0.643153
+    },
+    "3e+07": {
+      "reversal": -0.129362,
+      "momentum": 0.585301
+    },
+    "1e+08": {
+      "reversal": -1.43433,
+      "momentum": 0.472302
+    },
+    "3e+08": {
+      "reversal": -3.06468,
+      "momentum": 0.290261
+    },
+    "1e+09": {
+      "reversal": -4.9203,
+      "momentum": -0.057506
+    },
+    "3e+09": {
+      "reversal": -6.18943,
+      "momentum": -0.579471
+    },
+    "1e+10": {
+      "reversal": -7.0016,
+      "momentum": -1.39252
+    }
+  },
+  "momentum_crash": {
+    "worst_21d_end_date": "2020-02-27",
+    "worst_21d_return_pct": -3.72637,
+    "worst_21d_in_sd_of_monthly_returns": -2.89318,
+    "market_return_same_21d_pct": 5.49257,
+    "beta_component_same_21d_pct": -0.467735,
+    "sector_style_factor_component_same_21d_pct": -2.57512,
+    "specific_component_same_21d_pct": -0.584859,
+    "book_beta_entering_per_1usd_long_short": -0.192424,
+    "market_trailing_12m_return_entering_pct": -27.8963,
+    "corr_book_beta_vs_trailing_12m_market": 0.712915,
+    "beta_hedged_same_21d_return_pct": -3.15255
+  },
+  "stress_episodes": [
+    {
+      "stress_start": "2022-02-08",
+      "momentum_next_63d_pct": 2.38017,
+      "reversal_next_63d_pct": 1.12091,
+      "market_next_63d_pct": 10.0794
+    },
+    {
+      "stress_start": "2025-10-02",
+      "momentum_next_63d_pct": 3.76419,
+      "reversal_next_63d_pct": 2.5953,
+      "market_next_63d_pct": 6.04146
+    },
+    {
+      "stress_start": "2026-08-07",
+      "momentum_next_63d_pct": -2.96423,
+      "reversal_next_63d_pct": -3.90643,
+      "market_next_63d_pct": -26.8849
+    }
+  ]
+}

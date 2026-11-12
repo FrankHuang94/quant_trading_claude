@@ -1,0 +1,142 @@
+{
+  "lab": "09-pca-residual-stat-arb",
+  "smoke": false,
+  "seed": 7,
+  "n_stocks": 500,
+  "n_days": 1260,
+  "trading_days": 1007,
+  "capital_usd": 10000000.0,
+  "position_size_of_capital": 0.01,
+  "impact_coef": 0.5,
+  "borrow_bps_per_year": 35.0,
+  "n_factors": 15,
+  "corr_window": 252,
+  "resid_window": 60,
+  "truth": {
+    "planted_reversal_ic": 0.04,
+    "ic_oracle_5d_reversal_signal": 0.038036,
+    "ic_minus_sscore_pca": 0.013111,
+    "ic_minus_sscore_etf": 0.0151286,
+    "ic_minus_sscore_oracle": 0.015952,
+    "corr_pca_residual_vs_true_specific": 0.862725,
+    "corr_oracle_residual_vs_true_specific": 0.976971,
+    "corr_etf_residual_vs_true_specific": 0.920495,
+    "share_of_stocks_tradeable_pca": 0.99193
+  },
+  "pca_sharpe_gross": 2.98325,
+  "pca_sharpe_net_10m": 0.634953,
+  "pca_sharpe_net_100m": -2.19878,
+  "oracle_sharpe_gross": 4.51904,
+  "oracle_sharpe_net_10m": 2.30812,
+  "etf_sharpe_gross": 2.35284,
+  "etf_sharpe_net_10m": 0.957458,
+  "pca_annual_turnover_x_gross": 56.5225,
+  "pca_avg_holding_days": 9.26548,
+  "breakeven_flat_cost_bps": {
+    "pca": 9.66372,
+    "etf": 12.7512,
+    "oracle": 15.6495
+  },
+  "pca_net_sharpe_at_flat_cost": {
+    "0bps": 2.89073,
+    "2bps": 2.29582,
+    "5bps": 1.3999,
+    "10bps": -0.10122
+  },
+  "models": {
+    "pca": {
+      "sharpe_gross": 2.98325,
+      "sharpe_net": 0.634953,
+      "ann_return_gross_pct": 10.6996,
+      "ann_return_net_pct": 2.26569,
+      "avg_gross_exposure_x_capital": 1.89806,
+      "annual_turnover_x_capital": 107.283,
+      "annual_turnover_x_gross": 56.5225,
+      "avg_holding_days": 9.26548,
+      "avg_open_positions": 180.187,
+      "avg_cost_bps_per_dollar_traded": 7.55184,
+      "trading_cost_pct_per_year": 8.10184,
+      "borrow_cost_pct_per_year": 0.332018,
+      "max_drawdown_net_pct": 4.35041
+    },
+    "etf": {
+      "sharpe_gross": 2.35284,
+      "sharpe_net": 0.957458,
+      "ann_return_gross_pct": 13.2694,
+      "ann_return_net_pct": 5.38354,
+      "avg_gross_exposure_x_capital": 1.91116,
+      "annual_turnover_x_capital": 101.442,
+      "annual_turnover_x_gross": 53.0787,
+      "avg_holding_days": 9.8882,
+      "avg_open_positions": 178.822,
+      "avg_cost_bps_per_dollar_traded": 7.44421,
+      "trading_cost_pct_per_year": 7.55157,
+      "borrow_cost_pct_per_year": 0.334289,
+      "max_drawdown_net_pct": 6.94224
+    },
+    "oracle": {
+      "sharpe_gross": 4.51904,
+      "sharpe_net": 2.30812,
+      "ann_return_gross_pct": 16.2807,
+      "ann_return_net_pct": 8.27702,
+      "avg_gross_exposure_x_capital": 1.89141,
+      "annual_turnover_x_capital": 101.919,
+      "annual_turnover_x_gross": 53.8853,
+      "avg_holding_days": 9.75336,
+      "avg_open_positions": 179.217,
+      "avg_cost_bps_per_dollar_traded": 7.52833,
+      "trading_cost_pct_per_year": 7.67282,
+      "borrow_cost_pct_per_year": 0.330824,
+      "max_drawdown_net_pct": 1.94907
+    }
+  },
+  "net_sharpe_by_capital_usd": {
+    "pca": {
+      "3e+06": 1.22438,
+      "1e+07": 0.634953,
+      "3e+07": -0.322008,
+      "1e+08": -2.19878,
+      "3e+08": -5.24026,
+      "1e+09": -11.0891
+    },
+    "etf": {
+      "3e+06": 1.30278,
+      "1e+07": 0.957458,
+      "3e+07": 0.397355,
+      "1e+08": -0.70074,
+      "3e+08": -2.48708,
+      "1e+09": -5.99756
+    },
+    "oracle": {
+      "3e+06": 2.85966,
+      "1e+07": 2.30812,
+      "3e+07": 1.41242,
+      "1e+08": -0.347075,
+      "3e+08": -3.21631,
+      "1e+09": -8.86086
+    }
+  },
+  "pca_by_n_factors": {
+    "1": {
+      "sharpe_gross": 2.25598,
+      "sharpe_net": 1.05631,
+      "ic_minus_sscore": 0.0137418
+    },
+    "5": {
+      "sharpe_gross": 1.77875,
+      "sharpe_net": 0.13163,
+      "ic_minus_sscore": 0.0135497
+    },
+    "15": {
+      "sharpe_gross": 2.98325,
+      "sharpe_net": 0.634953,
+      "ic_minus_sscore": 0.013111
+    },
+    "30": {
+      "sharpe_gross": 2.38126,
+      "sharpe_net": -0.379693,
+      "ic_minus_sscore": 0.01103
+    }
+  },
+  "plot_stock": "S0376"
+}

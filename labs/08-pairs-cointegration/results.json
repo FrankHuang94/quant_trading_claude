@@ -1,0 +1,306 @@
+{
+  "lab": "08-pairs-cointegration",
+  "smoke": false,
+  "seed": 7,
+  "n_stocks": 200,
+  "n_days": 1260,
+  "n_trading_periods": 8,
+  "formation_days": 252,
+  "trading_days": 126,
+  "entry_z": 2.0,
+  "exit_z": 0.5,
+  "stop_z": 4.0,
+  "leg_usd": 1000000.0,
+  "committed_capital_usd_20_pairs": 40000000.0,
+  "impact_coef": 0.5,
+  "borrow_bps_per_year": 35.0,
+  "planted_pairs": [
+    {
+      "a": 151,
+      "b": 188,
+      "gamma": 0.821,
+      "half_life": 13.892,
+      "sd_u": 0.019,
+      "break_day": 923,
+      "tickers": [
+        "S0151",
+        "S0188"
+      ],
+      "break_date": "2022-07-18"
+    },
+    {
+      "a": 100,
+      "b": 112,
+      "gamma": 1.107,
+      "half_life": 10.24,
+      "sd_u": 0.015,
+      "break_day": 308,
+      "tickers": [
+        "S0100",
+        "S0112"
+      ],
+      "break_date": "2020-03-09"
+    },
+    {
+      "a": 101,
+      "b": 81,
+      "gamma": 1.053,
+      "half_life": 4.915,
+      "sd_u": 0.034,
+      "break_day": 784,
+      "tickers": [
+        "S0101",
+        "S0081"
+      ],
+      "break_date": "2022-01-04"
+    },
+    {
+      "a": 113,
+      "b": 79,
+      "gamma": 0.97,
+      "half_life": 17.892,
+      "sd_u": 0.027,
+      "break_day": 1081,
+      "tickers": [
+        "S0113",
+        "S0079"
+      ],
+      "break_date": "2023-02-23"
+    },
+    {
+      "a": 48,
+      "b": 84,
+      "gamma": 0.863,
+      "half_life": 7.711,
+      "sd_u": 0.034,
+      "break_day": null,
+      "tickers": [
+        "S0048",
+        "S0084"
+      ],
+      "break_date": null
+    },
+    {
+      "a": 83,
+      "b": 16,
+      "gamma": 1.173,
+      "half_life": 9.792,
+      "sd_u": 0.015,
+      "break_day": null,
+      "tickers": [
+        "S0083",
+        "S0016"
+      ],
+      "break_date": null
+    },
+    {
+      "a": 90,
+      "b": 88,
+      "gamma": 0.983,
+      "half_life": 4.979,
+      "sd_u": 0.017,
+      "break_day": null,
+      "tickers": [
+        "S0090",
+        "S0088"
+      ],
+      "break_date": null
+    },
+    {
+      "a": 61,
+      "b": 170,
+      "gamma": 0.819,
+      "half_life": 15.939,
+      "sd_u": 0.017,
+      "break_day": null,
+      "tickers": [
+        "S0061",
+        "S0170"
+      ],
+      "break_date": null
+    }
+  ],
+  "screen_avg_per_period": {
+    "pairs_tested": 1719.0,
+    "pass_p05": 48.75,
+    "true_in_universe": 6.375,
+    "true_positives": 3.125,
+    "false_positives": 45.625,
+    "bh_discoveries": 0.0,
+    "bh_true": 0.0,
+    "distance_top20_true": 5.375,
+    "two_step_pass": 29.0,
+    "two_step_true": 2.875,
+    "two_step_bh": 2.625,
+    "two_step_bh_true": 0.875
+  },
+  "screen_false_discovery_share": 0.935897,
+  "distance_sharpe_gross": 1.26681,
+  "distance_sharpe_net": 0.60519,
+  "coint_top20_sharpe_gross": 1.04272,
+  "coint_top20_sharpe_net": 0.556801,
+  "coint_all_sharpe_net": 0.25886,
+  "oracle_sharpe_net": 2.67903,
+  "regime_break": {
+    "pair_periods_with_break": 4,
+    "post_break_gross_pnl_per_break_pct_of_leg": [
+      -2.24838,
+      -3.98389,
+      -0.498021,
+      -7.21127
+    ],
+    "post_break_gross_pnl_mean_pct_of_leg": -3.48539,
+    "post_break_gross_pnl_per_break_no_stop_pct_of_leg": [
+      -11.3012,
+      20.7611,
+      -0.398151,
+      -7.21127
+    ],
+    "post_break_gross_pnl_mean_no_stop_pct_of_leg": 0.462612,
+    "pre_break_gross_pnl_mean_pct_of_leg": -0.190341,
+    "intact_pair_period_gross_pnl_mean_pct_of_leg": 6.51623,
+    "stop_outs_in_break_periods": 3,
+    "stop_outs_in_intact_pair_periods": 7,
+    "post_break_loss_as_pct_of_oracle_total_gross": -4.78172
+  },
+  "methods": {
+    "distance": {
+      "sharpe_gross": 1.26681,
+      "sharpe_net": 0.60519,
+      "ann_return_gross_pct": 1.92799,
+      "ann_return_net_pct": 0.91994,
+      "avg_pairs_per_period": 20.0,
+      "round_trips": 267,
+      "avg_holding_days": 17.9476,
+      "capital_in_use_share": 0.237698,
+      "stop_outs": 105,
+      "avg_cost_bps_per_dollar_traded": 14.4535,
+      "annual_turnover_x_capital": 6.68687,
+      "max_drawdown_net_pct": 1.75529,
+      "gross_pnl_pct_of_capital_by_truth": {
+        "planted, intact": 3.82011,
+        "not cointegrated": 3.84941,
+        "planted, broke earlier": 0.284004,
+        "planted, breaks this period": -0.249203
+      },
+      "pair_periods_by_truth": {
+        "planted, intact": 37,
+        "not cointegrated": 117,
+        "planted, broke earlier": 4,
+        "planted, breaks this period": 2
+      }
+    },
+    "coint_top20": {
+      "sharpe_gross": 1.04272,
+      "sharpe_net": 0.556801,
+      "ann_return_gross_pct": 2.75437,
+      "ann_return_net_pct": 1.47488,
+      "avg_pairs_per_period": 20.0,
+      "round_trips": 276,
+      "avg_holding_days": 18.75,
+      "capital_in_use_share": 0.256696,
+      "stop_outs": 97,
+      "avg_cost_bps_per_dollar_traded": 17.9209,
+      "annual_turnover_x_capital": 6.90035,
+      "max_drawdown_net_pct": 4.72266,
+      "gross_pnl_pct_of_capital_by_truth": {
+        "planted, intact": 4.66889,
+        "not cointegrated": 6.50389,
+        "planted, breaks this period": -0.166218
+      },
+      "pair_periods_by_truth": {
+        "planted, intact": 20,
+        "not cointegrated": 138,
+        "planted, breaks this period": 2
+      }
+    },
+    "coint_all": {
+      "sharpe_gross": 0.882123,
+      "sharpe_net": 0.25886,
+      "ann_return_gross_pct": 1.64573,
+      "ann_return_net_pct": 0.483976,
+      "avg_pairs_per_period": 48.75,
+      "round_trips": 617,
+      "avg_holding_days": 22.1216,
+      "capital_in_use_share": 0.277757,
+      "stop_outs": 243,
+      "avg_cost_bps_per_dollar_traded": 17.5023,
+      "annual_turnover_x_capital": 6.33837,
+      "max_drawdown_net_pct": 1.68623,
+      "gross_pnl_pct_of_capital_by_truth": {
+        "not cointegrated": 3.83477,
+        "planted, intact": 2.27754,
+        "planted, breaks this period": -0.0682229
+      },
+      "pair_periods_by_truth": {
+        "not cointegrated": 365,
+        "planted, intact": 23,
+        "planted, breaks this period": 2
+      }
+    },
+    "two_step": {
+      "sharpe_gross": 0.644837,
+      "sharpe_net": 0.075794,
+      "ann_return_gross_pct": 1.33946,
+      "ann_return_net_pct": 0.157661,
+      "avg_pairs_per_period": 20.0,
+      "round_trips": 291,
+      "avg_holding_days": 16.9553,
+      "capital_in_use_share": 0.244742,
+      "stop_outs": 117,
+      "avg_cost_bps_per_dollar_traded": 15.6839,
+      "annual_turnover_x_capital": 7.28079,
+      "max_drawdown_net_pct": 3.12743,
+      "gross_pnl_pct_of_capital_by_truth": {
+        "planted, intact": 4.68772,
+        "not cointegrated": 0.821337,
+        "planted, breaks this period": -0.156525
+      },
+      "pair_periods_by_truth": {
+        "planted, intact": 20,
+        "not cointegrated": 139,
+        "planted, breaks this period": 1
+      }
+    },
+    "oracle": {
+      "sharpe_gross": 3.53805,
+      "sharpe_net": 2.67903,
+      "ann_return_gross_pct": 5.73967,
+      "ann_return_net_pct": 4.28679,
+      "avg_pairs_per_period": 6.375,
+      "round_trips": 94,
+      "avg_holding_days": 16.1915,
+      "capital_in_use_share": 0.23685,
+      "stop_outs": 10,
+      "avg_cost_bps_per_dollar_traded": 18.6402,
+      "annual_turnover_x_capital": 7.41284,
+      "max_drawdown_net_pct": 1.49874,
+      "gross_pnl_pct_of_capital_by_truth": {
+        "planted, intact": 24.0117,
+        "planted, breaks this period": -1.15274
+      },
+      "pair_periods_by_truth": {
+        "planted, intact": 47,
+        "planted, breaks this period": 4
+      }
+    }
+  },
+  "net_sharpe_by_leg_usd": {
+    "distance": {
+      "2.50e+05": 0.862982,
+      "1.00e+06": 0.60519,
+      "4.00e+06": 0.0894275,
+      "1.60e+07": -0.928303
+    },
+    "coint_top20": {
+      "2.50e+05": 0.752777,
+      "1.00e+06": 0.556801,
+      "4.00e+06": 0.166282,
+      "1.60e+07": -0.602537
+    }
+  },
+  "plot_pair": [
+    "S0081",
+    "S0101"
+  ]
+}
