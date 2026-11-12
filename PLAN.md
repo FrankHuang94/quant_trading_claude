@@ -41,8 +41,8 @@ _Updated after each phase from `make wordcount`._
 |---|---|---|---|---|
 | 00 Start here | 2,500 | 1,357 | 1/3 | 2 |
 | 01 Market structure essentials | 8,000 | 10,811 | 9/9 | 20 |
-| 02 Strategies | 35,000 | 26,329 | 17/37 | 27 |
-| 03 Algorithms & the trading pipeline | 42,000 | 26,210 | 21/46 | 36 |
+| 02 Strategies | 35,000 | 47,921 | 27/37 | 48 |
+| 03 Algorithms & the trading pipeline | 42,000 | 33,731 | 27/46 | 44 |
 | 04 Industry & firms | 5,000 | 0 | 0/23 | 0 |
 | 05 Infrastructure | 3,500 | 0 | 0/4 | 0 |
 | 06 Risk & regulation | 2,500 | 0 | 0/2 | 0 |
@@ -50,33 +50,33 @@ _Updated after each phase from `make wordcount`._
 | 08 Calibration & skepticism | 2,500 | 0 | 0/3 | 0 |
 | 09 Reference | 5,500 | 10,456 | 1/6 | 0 |
 | 10 Self-test | 0 | 0 | 0/11 | 0 |
-| **Total** | **110,000** | **75,853** | | **86** |
+| **Total** | **110,000** | **106,647** | | **116** |
 
-Modules 02+03: 52,539 words (69% of total; target ≥ 75,000 and ≈ 70%). Mermaid in 02–03: 63 (target ≥ 100). TODO(verify) markers: 5.
+Modules 02+03: 81,652 words (77% of total; target ≥ 75,000 and ≈ 70%). Mermaid in 02–03: 92 (target ≥ 100). TODO(verify) markers: 5.
 
 ## Labs
 
 - [x] `labs/common/` (utils.py, simulate.py, orderbook.py, options.py; `python labs/common/simulate.py --selftest`)
 - [x] 01 matching engine & order book
-- [ ] 02 microprice & imbalance fair value
-- [ ] 03 order-flow imbalance → short-horizon returns
-- [ ] 04 markout analysis
-- [ ] 05 Avellaneda–Stoikov & GLFT vs naive quoting
-- [ ] 06 options MM toy (delta hedging, gamma/theta, implied vs realized)
-- [ ] 07 ETF NAV arbitrage & creation/redemption
-- [ ] 08 pairs trading with cointegration
-- [ ] 09 PCA / factor-residual stat arb
-- [ ] 10 reversal & momentum with costs
-- [ ] 11 signal transforms + IC
-- [ ] 12 alpha combination under purged CV
-- [ ] 13 backtest overfitting: DSR & PBO
-- [ ] 14 risk model & constrained MVO
-- [ ] 15 trading toward the aim
+- [x] 02 microprice & imbalance fair value
+- [x] 03 order-flow imbalance → short-horizon returns
+- [x] 04 markout analysis
+- [x] 05 Avellaneda–Stoikov & GLFT vs naive quoting
+- [x] 06 options MM toy (delta hedging, gamma/theta, implied vs realized)
+- [x] 07 ETF NAV arbitrage & creation/redemption
+- [x] 08 pairs trading with cointegration
+- [x] 09 PCA / factor-residual stat arb
+- [x] 10 reversal & momentum with costs
+- [x] 11 signal transforms + IC
+- [x] 12 alpha combination under purged CV
+- [x] 13 backtest overfitting: DSR & PBO
+- [x] 14 risk model & constrained MVO
+- [x] 15 trading toward the aim
 - [x] 16 Almgren–Chriss frontier
-- [ ] 17 VWAP / TWAP / POV simulation
+- [x] 17 VWAP / TWAP / POV simulation
 - [x] 18 smart order router toy
-- [ ] 19 trend following with vol targeting
-- [ ] 20 index-reconstitution event study
+- [x] 19 trend following with vol targeting
+- [x] 20 index-reconstitution event study
 
 ## Priority-gate fact-check (40 claims)
 
@@ -91,7 +91,7 @@ _Collected from pages by `grep -rn "TODO(verify)" docs/`; updated after each pha
 ### (root pages)
 
 - [x] `index.md` — Home (P1)
-- [ ] `labs.md` — Labs (P3)
+- [x] `labs.md` — Labs (P3)
 
 ### 00-start-here
 
@@ -116,20 +116,20 @@ _Collected from pages by `grep -rn "TODO(verify)" docs/`; updated after each pha
 - [x] `02-strategies/index.md` — Strategies: the map (P1)
 - [x] `02-strategies/how-quants-evaluate-a-strategy.md` — How quants evaluate a strategy (P1)
 - [ ] `02-strategies/a-liquidity-provision/equity-market-making.md` — Equity market making (P3)
-- [ ] `02-strategies/a-liquidity-provision/etf-market-making.md` — ETF market making (P3)
-- [ ] `02-strategies/a-liquidity-provision/options-market-making.md` — Options market making (P3)
+- [x] `02-strategies/a-liquidity-provision/etf-market-making.md` — ETF market making (P3)
+- [x] `02-strategies/a-liquidity-provision/options-market-making.md` — Options market making (P3)
 - [x] `02-strategies/a-liquidity-provision/retail-flow-internalization.md` — Retail flow internalization (P3)
-- [ ] `02-strategies/a-liquidity-provision/auctions-and-closing-liquidity.md` — Auctions and closing liquidity (P3)
+- [x] `02-strategies/a-liquidity-provision/auctions-and-closing-liquidity.md` — Auctions and closing liquidity (P3)
 - [x] `02-strategies/b-speed-and-structural/latency-arbitrage.md` — Latency arbitrage (P3)
 - [x] `02-strategies/b-speed-and-structural/lead-lag-and-cross-asset-arbitrage.md` — Lead-lag and cross-asset arbitrage (P3)
 - [ ] `02-strategies/b-speed-and-structural/etf-and-index-arbitrage.md` — ETF and index arbitrage (P3)
 - [x] `02-strategies/b-speed-and-structural/fee-and-microstructure-driven-strategies.md` — Fee- and microstructure-driven strategies (P3)
-- [ ] `02-strategies/c-statistical-arbitrage/stat-arb-overview-and-history.md` — Stat arb: overview and history (P3)
+- [x] `02-strategies/c-statistical-arbitrage/stat-arb-overview-and-history.md` — Stat arb: overview and history (P3)
 - [ ] `02-strategies/c-statistical-arbitrage/pairs-trading-and-cointegration.md` — Pairs trading and cointegration (P3)
 - [ ] `02-strategies/c-statistical-arbitrage/factor-residual-mean-reversion.md` — Factor-residual mean reversion (P3)
 - [ ] `02-strategies/c-statistical-arbitrage/short-term-cross-sectional-reversal.md` — Short-term cross-sectional reversal (P3)
 - [x] `02-strategies/c-statistical-arbitrage/intraday-patterns-and-seasonality.md` — Intraday patterns and seasonality (P3)
-- [ ] `02-strategies/c-statistical-arbitrage/ml-driven-short-horizon-alpha.md` — ML-driven short-horizon alpha (P3)
+- [x] `02-strategies/c-statistical-arbitrage/ml-driven-short-horizon-alpha.md` — ML-driven short-horizon alpha (P3)
 - [x] `02-strategies/d-mid-frequency-alpha/cross-sectional-alpha-and-neutralization.md` — Cross-sectional alpha and neutralization (P3)
 - [x] `02-strategies/d-mid-frequency-alpha/fundamental-quant-signals.md` — Fundamental quant signals (P3)
 - [x] `02-strategies/d-mid-frequency-alpha/earnings-and-event-driven.md` — Earnings and event-driven (P3)
@@ -142,14 +142,14 @@ _Collected from pages by `grep -rn "TODO(verify)" docs/`; updated after each pha
 - [x] `02-strategies/e-risk-premia-and-factors/value-quality-low-vol.md` — Value, quality and low volatility (P3)
 - [x] `02-strategies/e-risk-premia-and-factors/factor-timing-crowding-and-quant-winters.md` — Factor timing, crowding and quant winters (P3)
 - [ ] `02-strategies/f-volatility-and-derivatives/volatility-risk-premium-and-vol-arb.md` — Volatility risk premium and vol arb (P3)
-- [ ] `02-strategies/f-volatility-and-derivatives/dispersion-and-correlation-trading.md` — Dispersion and correlation trading (P3)
-- [ ] `02-strategies/g-futures-and-macro-context/trend-following-and-ctas.md` — Trend following and CTAs (P3)
+- [x] `02-strategies/f-volatility-and-derivatives/dispersion-and-correlation-trading.md` — Dispersion and correlation trading (P3)
+- [x] `02-strategies/g-futures-and-macro-context/trend-following-and-ctas.md` — Trend following and CTAs (P3)
 - [x] `02-strategies/g-futures-and-macro-context/carry-and-cross-asset-risk-premia.md` — Carry and cross-asset risk premia (P3)
 - [ ] `02-strategies/h-cross-cutting/strategy-comparison-matrix.md` — Strategy comparison matrix (P5)
 - [ ] `02-strategies/h-cross-cutting/strategy-x-algorithm-matrix.md` — Strategy x algorithm matrix (P5)
-- [ ] `02-strategies/h-cross-cutting/strategy-failure-gallery.md` — Strategy failure gallery (P5)
-- [ ] `02-strategies/h-cross-cutting/evolution-of-quant-strategies.md` — Evolution of quant strategies (P5)
-- [ ] `02-strategies/h-cross-cutting/how-firms-combine-strategies.md` — How firms combine strategies (P5)
+- [x] `02-strategies/h-cross-cutting/strategy-failure-gallery.md` — Strategy failure gallery (P5)
+- [x] `02-strategies/h-cross-cutting/evolution-of-quant-strategies.md` — Evolution of quant strategies (P5)
+- [x] `02-strategies/h-cross-cutting/how-firms-combine-strategies.md` — How firms combine strategies (P5)
 
 ### 03-algorithms
 
@@ -158,13 +158,13 @@ _Collected from pages by `grep -rn "TODO(verify)" docs/`; updated after each pha
 - [x] `03-algorithms/algorithm-map.md` — Algorithm map (P1)
 - [x] `03-algorithms/a-data-and-signals/point-in-time-data-and-cleaning.md` — Point-in-time data and cleaning (P4)
 - [x] `03-algorithms/a-data-and-signals/feature-engineering.md` — Feature engineering (P4)
-- [ ] `03-algorithms/a-data-and-signals/signal-transforms.md` — Signal transforms (P4)
+- [x] `03-algorithms/a-data-and-signals/signal-transforms.md` — Signal transforms (P4)
 - [ ] `03-algorithms/a-data-and-signals/evaluating-signals.md` — Evaluating signals (P4)
 - [x] `03-algorithms/b-forecasting-models/linear-models-and-regularization.md` — Linear models and regularization (P4)
 - [x] `03-algorithms/b-forecasting-models/tree-ensembles.md` — Tree ensembles (P4)
 - [x] `03-algorithms/b-forecasting-models/neural-nets-and-sequence-models.md` — Neural nets and sequence models (P4)
 - [x] `03-algorithms/b-forecasting-models/llms-and-foundation-models-in-quant.md` — LLMs and foundation models in quant (P4)
-- [ ] `03-algorithms/b-forecasting-models/alpha-combination-and-ensembling.md` — Alpha combination and ensembling (P4)
+- [x] `03-algorithms/b-forecasting-models/alpha-combination-and-ensembling.md` — Alpha combination and ensembling (P4)
 - [x] `03-algorithms/b-forecasting-models/regime-detection.md` — Regime detection (P4)
 - [ ] `03-algorithms/c-validation-and-backtesting/time-series-cross-validation.md` — Time-series cross-validation (P4)
 - [x] `03-algorithms/c-validation-and-backtesting/backtesting-engines.md` — Backtesting engines (P4)
@@ -179,8 +179,8 @@ _Collected from pages by `grep -rn "TODO(verify)" docs/`; updated after each pha
 - [ ] `03-algorithms/d-portfolio-construction/position-sizing-and-risk-budgeting.md` — Position sizing and risk budgeting (P4)
 - [ ] `03-algorithms/e-execution-algorithms/execution-algorithms-overview.md` — Execution algorithms: overview (P4)
 - [ ] `03-algorithms/e-execution-algorithms/vwap-twap-pov.md` — VWAP, TWAP and POV (P4)
-- [ ] `03-algorithms/e-execution-algorithms/implementation-shortfall-and-almgren-chriss.md` — Implementation shortfall and Almgren-Chriss (P4)
-- [ ] `03-algorithms/e-execution-algorithms/smart-order-routing.md` — Smart order routing (P4)
+- [x] `03-algorithms/e-execution-algorithms/implementation-shortfall-and-almgren-chriss.md` — Implementation shortfall and Almgren-Chriss (P4)
+- [x] `03-algorithms/e-execution-algorithms/smart-order-routing.md` — Smart order routing (P4)
 - [x] `03-algorithms/e-execution-algorithms/auction-close-and-dark-liquidity-algos.md` — Auction, close and dark-liquidity algos (P4)
 - [x] `03-algorithms/e-execution-algorithms/transaction-cost-analysis.md` — Transaction cost analysis (P4)
 - [x] `03-algorithms/f-market-making-and-hft-algorithms/anatomy-of-an-hft-trading-loop.md` — Anatomy of an HFT trading loop (P4)
@@ -188,9 +188,9 @@ _Collected from pages by `grep -rn "TODO(verify)" docs/`; updated after each pha
 - [ ] `03-algorithms/f-market-making-and-hft-algorithms/order-book-and-trade-flow-signals.md` — Order-book and trade-flow signals (P4)
 - [ ] `03-algorithms/f-market-making-and-hft-algorithms/quoting-and-inventory-control.md` — Quoting and inventory control (P4)
 - [ ] `03-algorithms/f-market-making-and-hft-algorithms/adverse-selection-and-markouts.md` — Adverse selection and markouts (P4)
-- [ ] `03-algorithms/f-market-making-and-hft-algorithms/queue-position-and-order-placement.md` — Queue position and order placement (P4)
+- [x] `03-algorithms/f-market-making-and-hft-algorithms/queue-position-and-order-placement.md` — Queue position and order placement (P4)
 - [ ] `03-algorithms/f-market-making-and-hft-algorithms/hedging-algorithms.md` — Hedging algorithms (P4)
-- [ ] `03-algorithms/f-market-making-and-hft-algorithms/options-pricing-and-vol-surfaces-for-mm.md` — Options pricing and vol surfaces for market making (P4)
+- [x] `03-algorithms/f-market-making-and-hft-algorithms/options-pricing-and-vol-surfaces-for-mm.md` — Options pricing and vol surfaces for market making (P4)
 - [x] `03-algorithms/f-market-making-and-hft-algorithms/algorithmic-risk-controls.md` — Algorithmic risk controls (P4)
 - [x] `03-algorithms/g-live-trading/live-monitoring-and-pnl-attribution.md` — Live monitoring and P&L attribution (P4)
 - [x] `03-algorithms/g-live-trading/alpha-decay-detection-and-model-retirement.md` — Alpha decay detection and model retirement (P4)
