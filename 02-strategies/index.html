@@ -5418,6 +5418,68 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-master-strategy-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      The master strategy map
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#all-30-dossiers" class="md-nav__link">
+    <span class="md-ellipsis">
+      All 30 dossiers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-read-a-dossier" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to read a dossier
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cross-cutting-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cross-cutting pages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related pages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sources
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -5435,11 +5497,458 @@
 
 
 <h1 id="strategies-the-map">Strategies: the map<a class="headerlink" href="#strategies-the-map" title="Permanent link">&para;</a></h1>
-<!-- STUB -->
-<div class="admonition note">
-<p class="admonition-title">Not yet written</p>
-<p>This page is scheduled for Phase 1 of the build. See <code>PLAN.md</code> in the repository.</p>
-</div>
+<blockquote>
+<p><strong>TL;DR</strong></p>
+<ul>
+<li>This module has 30 strategy dossiers in seven families (A–G), plus five cross-cutting pages (H). Every dossier follows one template, so any two compare directly.</li>
+<li>Every strategy sits at a point on two axes: <strong>holding horizon</strong> (microseconds to months) and <strong>edge source</strong> (speed · liquidity provision · structural/regulatory · informational · behavioral · risk premium).</li>
+<li>Short horizons are dominated by liquidity provision, speed and structure; long horizons by risk premia and behavioral effects. Informational edges sit in the middle.</li>
+<li>Most "stat arb" is liquidity provision on a slower clock: you are paid for absorbing other people's price pressure.</li>
+<li>Read every dossier's header table first. If you only remember one row, make it <strong>"Counterparty: who pays and why they accept it."</strong></li>
+</ul>
+</blockquote>
+<p><strong>Level:</strong> Core · <strong>Read time:</strong> ~9 min · <strong>Last verified:</strong> 2026-11</p>
+<h2 id="the-master-strategy-map">The master strategy map<a class="headerlink" href="#the-master-strategy-map" title="Permanent link">&para;</a></h2>
+<p>The first map places all 30 dossiers by <strong>typical holding period</strong> (columns, left to right) and colors them by <strong>primary edge source</strong>; the label also names the secondary edge. Placement is by the typical book, not the extremes: an options market maker hedges delta in microseconds but carries volatility risk for days.</p>
+<pre class="mermaid"><code>flowchart LR
+    subgraph H1["Microseconds to seconds"]
+        direction TB
+        emm["Equity MM&lt;br/&gt;LP + speed"]
+        etfmm["ETF MM&lt;br/&gt;LP + structural"]
+        rfi["Retail internalization&lt;br/&gt;LP + structural"]
+        lat["Latency arbitrage&lt;br/&gt;speed"]
+        ll["Lead-lag, cross-asset&lt;br/&gt;speed + info"]
+        eia["ETF and index arb&lt;br/&gt;structural + speed"]
+        fee["Fee and microstructure&lt;br/&gt;structural"]
+    end
+    subgraph H2["Seconds to one day"]
+        direction TB
+        omm["Options MM&lt;br/&gt;LP + risk premium"]
+        auc["Auctions and the close&lt;br/&gt;LP + structural"]
+        intra["Intraday patterns&lt;br/&gt;structural + behavioral"]
+        mlst["ML short-horizon alpha&lt;br/&gt;info + LP"]
+    end
+    subgraph H3["One to five days"]
+        direction TB
+        sao["Stat arb overview&lt;br/&gt;LP + behavioral"]
+        frmr["Factor-residual reversion&lt;br/&gt;LP + behavioral"]
+        str["Short-term reversal&lt;br/&gt;LP"]
+        nlp["NLP and LLM signals&lt;br/&gt;info"]
+    end
+    subgraph H4["Days to weeks"]
+        direction TB
+        pairs["Pairs, cointegration&lt;br/&gt;LP + behavioral"]
+        xs["Cross-sectional alpha&lt;br/&gt;info + behavioral"]
+        earn["Earnings and events&lt;br/&gt;behavioral + info"]
+        rev["Analyst revisions&lt;br/&gt;behavioral"]
+        flow["Flow-driven&lt;br/&gt;structural + LP"]
+        alt["Alternative data&lt;br/&gt;info"]
+        vrp["VRP and vol arb&lt;br/&gt;risk premium"]
+    end
+    subgraph H5["Weeks to months"]
+        direction TB
+        fq["Fundamental quant&lt;br/&gt;behavioral + risk premium"]
+        ff["Factor investing&lt;br/&gt;risk premium + behavioral"]
+        mom["Momentum&lt;br/&gt;behavioral"]
+        vql["Value, quality, low vol&lt;br/&gt;risk premium + behavioral"]
+        ft["Factor timing, crowding&lt;br/&gt;risk premium"]
+        disp["Dispersion, correlation&lt;br/&gt;risk premium + structural"]
+        trend["Trend following&lt;br/&gt;behavioral + risk premium"]
+        carry["Carry&lt;br/&gt;risk premium"]
+    end
+    H1 --&gt; H2 --&gt; H3 --&gt; H4 --&gt; H5
+    classDef speed fill:#f6c6c6,stroke:#a33,color:#000
+    classDef lp fill:#c6dcf6,stroke:#336,color:#000
+    classDef structural fill:#f8dfb0,stroke:#a60,color:#000
+    classDef info fill:#ddd0f2,stroke:#637,color:#000
+    classDef behavioral fill:#c9ecc9,stroke:#363,color:#000
+    classDef riskprem fill:#e2e2e2,stroke:#555,color:#000
+    class lat,ll speed
+    class emm,etfmm,rfi,omm,auc,sao,frmr,str,pairs lp
+    class eia,fee,intra,flow structural
+    class mlst,nlp,xs,alt info
+    class earn,rev,fq,mom,trend behavioral
+    class vrp,ff,vql,ft,disp,carry riskprem</code></pre>
+<p><em>Colors: red = speed · blue = liquidity provision (LP) · orange = structural/regulatory · purple = informational · green = behavioral · gray = risk premium.</em></p>
+<p>The second map turns the axes around: one row per primary edge source, ordered by horizon; top rows are short-horizon, bottom rows long.</p>
+<pre class="mermaid"><code>flowchart TB
+    subgraph SPD["Speed"]
+        direction LR
+        a1["Latency arbitrage&lt;br/&gt;µs"] ~~~ a2["Lead-lag, cross-asset&lt;br/&gt;µs to ms"]
+    end
+    subgraph LPV["Liquidity provision: quoting"]
+        direction LR
+        b1["Equity MM&lt;br/&gt;µs to min"] ~~~ b2["ETF MM&lt;br/&gt;µs to hours"] ~~~ b3["Retail internalization&lt;br/&gt;seconds"] ~~~ b4["Options MM&lt;br/&gt;minutes to days"] ~~~ b5["Auctions, close&lt;br/&gt;overnight"]
+    end
+    subgraph LPS["Liquidity provision: stat arb"]
+        direction LR
+        b8["Stat arb overview&lt;br/&gt;hours to days"] ~~~ b6["Short-term reversal&lt;br/&gt;1 to 5 days"] ~~~ b7["Factor-residual&lt;br/&gt;1 to 10 days"] ~~~ b9["Pairs&lt;br/&gt;days to weeks"]
+    end
+    subgraph STR["Structural and regulatory"]
+        direction LR
+        c1["Fee, microstructure&lt;br/&gt;µs to seconds"] ~~~ c2["ETF and index arb&lt;br/&gt;ms to minutes"] ~~~ c3["Intraday patterns&lt;br/&gt;minutes to hours"] ~~~ c4["Flow-driven&lt;br/&gt;days to weeks"]
+    end
+    subgraph INF["Informational"]
+        direction LR
+        d1["ML short-horizon&lt;br/&gt;minutes to a day"] ~~~ d2["NLP and LLM&lt;br/&gt;hours to days"] ~~~ d3["Alternative data&lt;br/&gt;days to weeks"] ~~~ d4["Cross-sectional alpha&lt;br/&gt;days to weeks"]
+    end
+    subgraph BEH["Behavioral"]
+        direction LR
+        e1["Earnings, events&lt;br/&gt;days to weeks"] ~~~ e2["Analyst revisions&lt;br/&gt;weeks"] ~~~ e3["Momentum&lt;br/&gt;months"] ~~~ e4["Fundamental quant&lt;br/&gt;months"] ~~~ e5["Trend following&lt;br/&gt;weeks to months"]
+    end
+    subgraph RPM["Risk premium"]
+        direction LR
+        f1["VRP, vol arb&lt;br/&gt;days to weeks"] ~~~ f2["Dispersion&lt;br/&gt;weeks to months"] ~~~ f3["Value, quality, low vol&lt;br/&gt;months"] ~~~ f4["Factor investing&lt;br/&gt;months"] ~~~ f5["Factor timing&lt;br/&gt;months"] ~~~ f6["Carry&lt;br/&gt;months"]
+    end
+    SPD ~~~ LPV ~~~ LPS ~~~ STR ~~~ INF ~~~ BEH ~~~ RPM</code></pre>
+<p>Three lessons. First, <strong>horizon and edge are correlated, not identical</strong>: liquidity provision runs from microseconds (quoting) to weeks (pairs), because absorbing price pressure is paid at every horizon (Grossman and Miller; Nagel) <code>[Verified]</code>. Second, <strong>capacity rises with horizon while Sharpe falls</strong>; the <a href="h-cross-cutting/strategy-comparison-matrix/">comparison matrix</a> puts numbers on it. Third, <strong>the middle is the most crowded</strong>: days-to-weeks informational and behavioral signals are where most quant funds and pods compete, and where published signals decay fastest (<a href="how-quants-evaluate-a-strategy/">evaluation</a>).</p>
+<h2 id="all-30-dossiers">All 30 dossiers<a class="headerlink" href="#all-30-dossiers" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Family</th>
+<th>Dossier</th>
+<th>Horizon</th>
+<th>Edge source</th>
+<th>Who pays you, in one line</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A · Liquidity</td>
+<td><a href="a-liquidity-provision/equity-market-making/">Equity market making</a></td>
+<td>µs to minutes</td>
+<td>LP · speed</td>
+<td>Traders who want to deal now pay the half-spread; waiting costs them more</td>
+</tr>
+<tr>
+<td>A · Liquidity</td>
+<td><a href="a-liquidity-provision/etf-market-making/">ETF market making</a></td>
+<td>µs to hours</td>
+<td>LP · structural</td>
+<td>ETF buyers and sellers pay a spread over basket value rather than create or redeem themselves</td>
+</tr>
+<tr>
+<td>A · Liquidity</td>
+<td><a href="a-liquidity-provision/options-market-making/">Options market making</a></td>
+<td>minutes to days</td>
+<td>LP · risk premium</td>
+<td>Hedgers, income sellers and retail pay edge over theoretical value for convexity or leverage</td>
+</tr>
+<tr>
+<td>A · Liquidity</td>
+<td><a href="a-liquidity-provision/retail-flow-internalization/">Retail flow internalization</a></td>
+<td>seconds</td>
+<td>LP · structural</td>
+<td>Retail orders pay a small spread inside the NBBO; the flow is valuable because it is uninformed</td>
+</tr>
+<tr>
+<td>A · Liquidity</td>
+<td><a href="a-liquidity-provision/auctions-and-closing-liquidity/">Auctions and closing liquidity</a></td>
+<td>intraday to overnight</td>
+<td>LP · structural</td>
+<td>Index funds and benchmarked managers who must trade at the close concede price to imbalance absorbers</td>
+</tr>
+<tr>
+<td>B · Speed</td>
+<td><a href="b-speed-and-structural/latency-arbitrage/">Latency arbitrage</a></td>
+<td>µs</td>
+<td>speed</td>
+<td>Slower liquidity providers whose stale quotes get picked off</td>
+</tr>
+<tr>
+<td>B · Speed</td>
+<td><a href="b-speed-and-structural/lead-lag-and-cross-asset-arbitrage/">Lead-lag and cross-asset arbitrage</a></td>
+<td>µs to ms</td>
+<td>speed · info</td>
+<td>Quoters in the lagging instrument (stocks after futures move)</td>
+</tr>
+<tr>
+<td>B · Speed</td>
+<td><a href="b-speed-and-structural/etf-and-index-arbitrage/">ETF and index arbitrage</a></td>
+<td>ms to minutes</td>
+<td>structural · speed</td>
+<td>Whoever pushes an ETF or future away from its basket value</td>
+</tr>
+<tr>
+<td>B · Speed</td>
+<td><a href="b-speed-and-structural/fee-and-microstructure-driven-strategies/">Fee- and microstructure-driven</a></td>
+<td>µs to seconds</td>
+<td>structural</td>
+<td>Takers paying access fees; traders disadvantaged by tick and fee rules</td>
+</tr>
+<tr>
+<td>C · Stat arb</td>
+<td><a href="c-statistical-arbitrage/stat-arb-overview-and-history/">Stat arb: overview and history</a></td>
+<td>hours to days</td>
+<td>LP · behavioral</td>
+<td>Liquidity demanders whose trades push prices temporarily away from relative value</td>
+</tr>
+<tr>
+<td>C · Stat arb</td>
+<td><a href="c-statistical-arbitrage/pairs-trading-and-cointegration/">Pairs trading and cointegration</a></td>
+<td>days to weeks</td>
+<td>LP · behavioral</td>
+<td>Traders who push one leg away from its twin; you are paid for patience and idiosyncratic risk</td>
+</tr>
+<tr>
+<td>C · Stat arb</td>
+<td><a href="c-statistical-arbitrage/factor-residual-mean-reversion/">Factor-residual mean reversion</a></td>
+<td>1 to 10 days</td>
+<td>LP · behavioral</td>
+<td>The same price pressure, harvested across hundreds of names after removing factor moves</td>
+</tr>
+<tr>
+<td>C · Stat arb</td>
+<td><a href="c-statistical-arbitrage/short-term-cross-sectional-reversal/">Short-term cross-sectional reversal</a></td>
+<td>1 to 5 days</td>
+<td>LP</td>
+<td>Impatient sellers and buyers; profits rise when market makers' capital is scarce</td>
+</tr>
+<tr>
+<td>C · Stat arb</td>
+<td><a href="c-statistical-arbitrage/intraday-patterns-and-seasonality/">Intraday patterns and seasonality</a></td>
+<td>minutes to hours</td>
+<td>structural · behavioral</td>
+<td>Traders with schedule-driven flows (open, close, periodic rebalancing)</td>
+</tr>
+<tr>
+<td>C · Stat arb</td>
+<td><a href="c-statistical-arbitrage/ml-driven-short-horizon-alpha/">ML-driven short-horizon alpha</a></td>
+<td>minutes to a day</td>
+<td>info · LP</td>
+<td>Slower traders whose order flow and reactions are predictable from features</td>
+</tr>
+<tr>
+<td>D · Mid-freq</td>
+<td><a href="d-mid-frequency-alpha/cross-sectional-alpha-and-neutralization/">Cross-sectional alpha and neutralization</a></td>
+<td>days to weeks</td>
+<td>info · behavioral</td>
+<td>Investors who process information slowly or are constrained from acting on it</td>
+</tr>
+<tr>
+<td>D · Mid-freq</td>
+<td><a href="d-mid-frequency-alpha/fundamental-quant-signals/">Fundamental quant signals</a></td>
+<td>weeks to months</td>
+<td>behavioral · risk premium</td>
+<td>Investors who misread accounting quality, or who demand a premium to hold unloved stocks</td>
+</tr>
+<tr>
+<td>D · Mid-freq</td>
+<td><a href="d-mid-frequency-alpha/earnings-and-event-driven/">Earnings and event-driven</a></td>
+<td>days to weeks</td>
+<td>behavioral · info</td>
+<td>Investors who under-react to earnings news (post-earnings drift)</td>
+</tr>
+<tr>
+<td>D · Mid-freq</td>
+<td><a href="d-mid-frequency-alpha/analyst-revisions-and-sentiment/">Analyst revisions and sentiment</a></td>
+<td>weeks</td>
+<td>behavioral</td>
+<td>Investors anchored on stale consensus while estimates drift</td>
+</tr>
+<tr>
+<td>D · Mid-freq</td>
+<td><a href="d-mid-frequency-alpha/flow-driven-strategies/">Flow-driven strategies</a></td>
+<td>days to weeks</td>
+<td>structural · LP</td>
+<td>Index funds and other mechanical traders who must trade on known dates regardless of price</td>
+</tr>
+<tr>
+<td>D · Mid-freq</td>
+<td><a href="d-mid-frequency-alpha/alternative-data/">Alternative data</a></td>
+<td>days to weeks</td>
+<td>info</td>
+<td>Investors without the data, who learn sales or traffic only at the official print</td>
+</tr>
+<tr>
+<td>D · Mid-freq</td>
+<td><a href="d-mid-frequency-alpha/nlp-and-llm-signals/">NLP and LLM signals</a></td>
+<td>hours to days</td>
+<td>info</td>
+<td>Slower readers of filings, calls and news</td>
+</tr>
+<tr>
+<td>E · Factors</td>
+<td><a href="e-risk-premia-and-factors/factor-investing-fundamentals/">Factor investing fundamentals</a></td>
+<td>months</td>
+<td>risk premium · behavioral</td>
+<td>Investors averse to factor risk, or biased against it, who pay a premium to avoid it</td>
+</tr>
+<tr>
+<td>E · Factors</td>
+<td><a href="e-risk-premia-and-factors/momentum/">Momentum</a></td>
+<td>months</td>
+<td>behavioral</td>
+<td>Investors who under-react to news, then chase; holders forced to dump losers</td>
+</tr>
+<tr>
+<td>E · Factors</td>
+<td><a href="e-risk-premia-and-factors/value-quality-low-vol/">Value, quality and low volatility</a></td>
+<td>months</td>
+<td>risk premium · behavioral</td>
+<td>Extrapolators and distress-averse holders (value); leverage-constrained buyers of high beta (low vol)</td>
+</tr>
+<tr>
+<td>E · Factors</td>
+<td><a href="e-risk-premia-and-factors/factor-timing-crowding-and-quant-winters/">Factor timing, crowding and quant winters</a></td>
+<td>months</td>
+<td>risk premium</td>
+<td>Nobody reliably; this dossier is about when the premia stop paying and crowded exits hurt</td>
+</tr>
+<tr>
+<td>F · Vol</td>
+<td><a href="f-volatility-and-derivatives/volatility-risk-premium-and-vol-arb/">Volatility risk premium and vol arb</a></td>
+<td>days to weeks</td>
+<td>risk premium</td>
+<td>Option buyers paying above expected realized volatility for crash protection</td>
+</tr>
+<tr>
+<td>F · Vol</td>
+<td><a href="f-volatility-and-derivatives/dispersion-and-correlation-trading/">Dispersion and correlation trading</a></td>
+<td>weeks to months</td>
+<td>risk premium · structural</td>
+<td>Index-protection buyers and single-stock overwriters, who leave implied correlation rich</td>
+</tr>
+<tr>
+<td>G · Futures</td>
+<td><a href="g-futures-and-macro-context/trend-following-and-ctas/">Trend following and CTAs</a></td>
+<td>weeks to months</td>
+<td>behavioral · risk premium</td>
+<td>Under-reacting then herding traders, and hedgers; paid in bursts during persistent moves</td>
+</tr>
+<tr>
+<td>G · Futures</td>
+<td><a href="g-futures-and-macro-context/carry-and-cross-asset-risk-premia/">Carry and cross-asset risk premia</a></td>
+<td>months</td>
+<td>risk premium</td>
+<td>Hedgers and investors paying to offload risk; you hold crash risk in return</td>
+</tr>
+</tbody>
+</table>
+<p>The "who pays" lines are hypotheses each dossier tests against evidence. Anchor papers (reversal as liquidity payment, pairs, post-earnings drift, momentum, betting against beta, variance risk premia, latency races) are under Sources <code>[Verified]</code>.</p>
+<h2 id="how-to-read-a-dossier">How to read a dossier<a class="headerlink" href="#how-to-read-a-dossier" title="Permanent link">&para;</a></h2>
+<p>Every dossier opens with this header table:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>What it tells you</th>
+<th>How to read it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Family</td>
+<td>Which of the seven groups (A–G)</td>
+<td>Families share data, infrastructure and failure modes</td>
+</tr>
+<tr>
+<td>Edge source</td>
+<td>Primary edge first, then secondary</td>
+<td>The six-way taxonomy is defined in <a href="how-quants-evaluate-a-strategy/">How quants evaluate a strategy</a></td>
+</tr>
+<tr>
+<td>Holding period</td>
+<td>Typical life of a position</td>
+<td>Sets infrastructure, turnover and how fast you learn the strategy is broken</td>
+</tr>
+<tr>
+<td>Counterparty: who pays and why they accept it</td>
+<td>The economic victim or customer</td>
+<td>If nobody identifiable pays, assume the backtest is lying</td>
+</tr>
+<tr>
+<td>Universe &amp; instruments</td>
+<td>What gets traded and hedged</td>
+<td>Wider universes add breadth; illiquid names add cost</td>
+</tr>
+<tr>
+<td>Data required</td>
+<td>Inputs, from direct feeds to filings to alt data</td>
+<td>Drives cost and <a href="../09-reference/glossary/#point-in-time-data">point-in-time</a> risk</td>
+</tr>
+<tr>
+<td>Core algorithms used</td>
+<td>The 2–6 central <a href="../03-algorithms/">module 03</a> cards</td>
+<td>Feeds the <a href="h-cross-cutting/strategy-x-algorithm-matrix/">strategy × algorithm matrix</a></td>
+</tr>
+<tr>
+<td>Infra intensity</td>
+<td>Latency sensitivity and compute</td>
+<td>Says whether a microsecond, or a GPU cluster, matters</td>
+</tr>
+<tr>
+<td>Capacity (rough $ range)</td>
+<td>Money one firm can run before costs eat the edge</td>
+<td>Always tagged, with reasoning; treat as an order of magnitude</td>
+</tr>
+<tr>
+<td>Typical Sharpe (gross vs net)</td>
+<td>Risk-adjusted return before and after costs</td>
+<td>Look for period, source type and decay; an academic backtest is an upper bound</td>
+</tr>
+<tr>
+<td>Turnover</td>
+<td>How often the book trades</td>
+<td>Turnover × cost per dollar traded = cost drag</td>
+</tr>
+<tr>
+<td>Main risks / failure modes</td>
+<td>How it loses money</td>
+<td>Mechanisms plus dated episodes</td>
+</tr>
+<tr>
+<td>Crowding risk</td>
+<td>How many others hold the same positions</td>
+<td>Crowded trades fail together, fast</td>
+</tr>
+<tr>
+<td>Firm types that run it</td>
+<td>Types from <a href="../00-start-here/the-big-picture/">the big picture</a></td>
+<td>Named firms only when sourced</td>
+</tr>
+<tr>
+<td>Lab</td>
+<td>A runnable synthetic-data lab, if any</td>
+<td>Toy markets; each lab lists what it misses</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Confidence tags.</strong> <code>[Verified]</code> means a primary source (filing, regulator, paper, exchange document). <code>[Reported]</code> means credible press, survey or practitioner book. <code>[Estimate]</code> means our derivation, with the reasoning shown. <code>[Lore]</code> means widely repeated but unverified. Every <a href="../09-reference/glossary/#sharpe-ratio">Sharpe ratio</a>, <a href="../09-reference/glossary/#capacity">capacity</a> or return figure states gross or net, the period, the source type (academic backtest, fund disclosure, practitioner estimate) and known post-publication <a href="../09-reference/glossary/#alpha-decay">decay</a>.</p>
+<p>The body always runs: intuition → economic rationale → the trade → worked example → algorithms and pseudocode → implementation → P&amp;L decomposition → evidence → capacity and decay → failures → textbook vs practice → variants → diagram → practitioner talk → myths → questions to ask (🔒 = proprietary territory) → collapsible math.</p>
+<h2 id="cross-cutting-pages">Cross-cutting pages<a class="headerlink" href="#cross-cutting-pages" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="h-cross-cutting/strategy-comparison-matrix/">Strategy comparison matrix</a>: all 30 dossiers in one table (horizon, capacity, Sharpe, turnover, crowding).</li>
+<li><a href="h-cross-cutting/strategy-x-algorithm-matrix/">Strategy × algorithm matrix</a>: which algorithm cards each strategy depends on.</li>
+<li><a href="h-cross-cutting/strategy-failure-gallery/">Strategy failure gallery</a>: the 2007 quant quake, Knight Capital, the value winter and other autopsies.</li>
+<li><a href="h-cross-cutting/evolution-of-quant-strategies/">Evolution of quant strategies</a>: how edges are born, crowded and arbitraged away.</li>
+<li><a href="h-cross-cutting/how-firms-combine-strategies/">How firms combine strategies</a>: multi-strategy books, capital allocation, internal netting.</li>
+</ul>
+<p><strong>Short on time?</strong> Read <a href="a-liquidity-provision/equity-market-making/">equity market making</a>, <a href="c-statistical-arbitrage/stat-arb-overview-and-history/">stat arb overview</a>, <a href="d-mid-frequency-alpha/cross-sectional-alpha-and-neutralization/">cross-sectional alpha</a>, <a href="e-risk-premia-and-factors/momentum/">momentum</a> and <a href="g-futures-and-macro-context/trend-following-and-ctas/">trend following</a>: five dossiers spanning microseconds to months.</p>
+<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../00-start-here/the-big-picture/">The big picture</a></li>
+<li><a href="how-quants-evaluate-a-strategy/">How quants evaluate a strategy</a></li>
+<li><a href="../03-algorithms/">Algorithms: overview</a></li>
+<li><a href="../03-algorithms/there-is-no-single-algorithm/">There is no single algorithm</a></li>
+<li><a href="h-cross-cutting/strategy-comparison-matrix/">Strategy comparison matrix</a></li>
+</ul>
+<h2 id="sources">Sources<a class="headerlink" href="#sources" title="Permanent link">&para;</a></h2>
+<ul>
+<li>[Verified] Grossman, S. J. &amp; Miller, M. H. (1988). "Liquidity and Market Structure." <em>Journal of Finance</em> 43(3), 617–633. <a href="https://doi.org/10.1111/j.1540-6261.1988.tb04594.x">https://doi.org/10.1111/j.1540-6261.1988.tb04594.x</a> (accessed 2026-11)</li>
+<li>[Verified] Nagel, S. (2012). "Evaporating Liquidity." <em>Review of Financial Studies</em> 25(7), 2005–2039. <a href="https://doi.org/10.1093/rfs/hhs066">https://doi.org/10.1093/rfs/hhs066</a> (accessed 2026-11)</li>
+<li>[Verified] Gatev, E., Goetzmann, W. N. &amp; Rouwenhorst, K. G. (2006). "Pairs Trading: Performance of a Relative-Value Arbitrage Rule." <em>Review of Financial Studies</em> 19(3), 797–827. <a href="https://doi.org/10.1093/rfs/hhj020">https://doi.org/10.1093/rfs/hhj020</a> (accessed 2026-11)</li>
+<li>[Verified] Avellaneda, M. &amp; Lee, J.-H. (2010). "Statistical arbitrage in the US equities market." <em>Quantitative Finance</em> 10(7), 761–782. <a href="https://doi.org/10.1080/14697680903124632">https://doi.org/10.1080/14697680903124632</a> (accessed 2026-11)</li>
+<li>[Verified] Bernard, V. L. &amp; Thomas, J. K. (1989). "Post-Earnings-Announcement Drift: Delayed Price Response or Risk Premium?" <em>Journal of Accounting Research</em> 27, 1–36. <a href="https://doi.org/10.2307/2491062">https://doi.org/10.2307/2491062</a> (accessed 2026-11)</li>
+<li>[Verified] Jegadeesh, N. &amp; Titman, S. (1993). "Returns to Buying Winners and Selling Losers: Implications for Stock Market Efficiency." <em>Journal of Finance</em> 48(1), 65–91. <a href="https://doi.org/10.1111/j.1540-6261.1993.tb04702.x">https://doi.org/10.1111/j.1540-6261.1993.tb04702.x</a> (accessed 2026-11)</li>
+<li>[Verified] Frazzini, A. &amp; Pedersen, L. H. (2014). "Betting against beta." <em>Journal of Financial Economics</em> 111(1), 1–25. <a href="https://doi.org/10.1016/j.jfineco.2013.10.005">https://doi.org/10.1016/j.jfineco.2013.10.005</a> (accessed 2026-11)</li>
+<li>[Verified] Carr, P. &amp; Wu, L. (2009). "Variance Risk Premiums." <em>Review of Financial Studies</em> 22(3), 1311–1341. <a href="https://doi.org/10.1093/rfs/hhn038">https://doi.org/10.1093/rfs/hhn038</a> (accessed 2026-11)</li>
+<li>[Verified] Budish, E., Cramton, P. &amp; Shim, J. (2015). "The High-Frequency Trading Arms Race: Frequent Batch Auctions as a Market Design Response." <em>Quarterly Journal of Economics</em> 130(4), 1547–1621. <a href="https://doi.org/10.1093/qje/qjv027">https://doi.org/10.1093/qje/qjv027</a> (accessed 2026-11)</li>
+<li>[Verified] Moskowitz, T. J., Ooi, Y. H. &amp; Pedersen, L. H. (2012). "Time series momentum." <em>Journal of Financial Economics</em> 104(2), 228–250. <a href="https://doi.org/10.1016/j.jfineco.2011.11.003">https://doi.org/10.1016/j.jfineco.2011.11.003</a> (accessed 2026-11)</li>
+<li>[Verified] Koijen, R. S. J., Moskowitz, T. J., Pedersen, L. H. &amp; Vrugt, E. B. (2018). "Carry." <em>Journal of Financial Economics</em> 127(2), 197–225. <a href="https://doi.org/10.1016/j.jfineco.2017.11.002">https://doi.org/10.1016/j.jfineco.2017.11.002</a> (accessed 2026-11)</li>
+<li>[Verified] McLean, R. D. &amp; Pontiff, J. (2016). "Does Academic Research Destroy Stock Return Predictability?" <em>Journal of Finance</em> 71(1), 5–32. <a href="https://doi.org/10.1111/jofi.12365">https://doi.org/10.1111/jofi.12365</a> (accessed 2026-11)</li>
+</ul>
 
 
 

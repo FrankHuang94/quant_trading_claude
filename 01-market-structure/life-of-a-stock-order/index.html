@@ -754,6 +754,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Life of a stock order
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -763,6 +774,106 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#two-pipes-one-tape" class="md-nav__link">
+    <span class="md-ellipsis">
+      Two pipes, one tape
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-retail-pipe" class="md-nav__link">
+    <span class="md-ellipsis">
+      The retail pipe
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-institutional-pipe" class="md-nav__link">
+    <span class="md-ellipsis">
+      The institutional pipe
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clearing-and-settlement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clearing and settlement
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#who-gets-paid" class="md-nav__link">
+    <span class="md-ellipsis">
+      Who gets paid
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-latency-scale" class="md-nav__link">
+    <span class="md-ellipsis">
+      The latency scale
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters-for-strategies-algorithms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why this matters for strategies &amp; algorithms
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related pages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sources
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -5404,6 +5515,95 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#two-pipes-one-tape" class="md-nav__link">
+    <span class="md-ellipsis">
+      Two pipes, one tape
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-retail-pipe" class="md-nav__link">
+    <span class="md-ellipsis">
+      The retail pipe
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-institutional-pipe" class="md-nav__link">
+    <span class="md-ellipsis">
+      The institutional pipe
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clearing-and-settlement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clearing and settlement
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#who-gets-paid" class="md-nav__link">
+    <span class="md-ellipsis">
+      Who gets paid
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-latency-scale" class="md-nav__link">
+    <span class="md-ellipsis">
+      The latency scale
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters-for-strategies-algorithms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why this matters for strategies &amp; algorithms
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related pages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sources
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -5421,11 +5621,206 @@
 
 
 <h1 id="life-of-a-stock-order">Life of a stock order<a class="headerlink" href="#life-of-a-stock-order" title="Permanent link">&para;</a></h1>
-<!-- STUB -->
-<div class="admonition note">
-<p class="admonition-title">Not yet written</p>
-<p>This page is scheduled for Phase 2 of the build. See <code>PLAN.md</code> in the repository.</p>
-</div>
+<blockquote>
+<p><strong>TL;DR</strong></p>
+<ul>
+<li>A US stock order travels one of two very different pipes. Retail marketable orders mostly go from the broker to a handful of wholesalers that fill them off-exchange. Institutional orders go to an execution algorithm whose smart order router slices them across 18 exchanges, 33 ATSs and the closing auction.</li>
+<li>Every hop gets paid: payment for order flow, spread capture, access fees and rebates, commissions, clearing fees. Follow the money and you find the strategies in module 02.</li>
+<li>After the fill, the trade prints to the tape (exchange or FINRA TRF). NSCC becomes the central counterparty and nets it, and DTC settles it one business day later (T+1).</li>
+<li>Latency spans about ten orders of magnitude: microseconds for colocated hops, milliseconds for a retail app, hours for an algo's schedule, a day for settlement.</li>
+</ul>
+</blockquote>
+<p><strong>Level:</strong> Core · <strong>Read time:</strong> ~6 min · <strong>Last verified:</strong> 2026-11</p>
+<h2 id="two-pipes-one-tape">Two pipes, one tape<a class="headerlink" href="#two-pipes-one-tape" title="Permanent link">&para;</a></h2>
+<p>A retail investor's 50-share market order and a pension fund's 2-million-share <a href="../../09-reference/glossary/#parent-order">parent order</a> both end up as prints on the consolidated tape and positions at DTC. In between, they touch different intermediaries, at different speeds, with different people on the other side.</p>
+<pre class="mermaid"><code>flowchart LR
+    R1["Retail investor app"] --&gt; B1["Retail broker"]
+    B1 --&gt;|"marketable orders"| W1["Wholesaler (internalizer)"]
+    B1 --&gt;|"some limit orders"| X1["Exchanges (lit)"]
+    W1 --&gt;|"hedges and residuals"| X1
+    I1["Portfolio manager"] --&gt; O1["OMS"]
+    O1 --&gt; A1["Execution algo (VWAP, IS)"]
+    A1 --&gt; S1["Smart order router"]
+    S1 --&gt; X1
+    S1 --&gt; D1["ATSs and dark pools"]
+    S1 --&gt; C1["Closing auction"]
+    W1 --&gt; T1["FINRA TRF print"]
+    D1 --&gt; T1
+    X1 --&gt; T2["Exchange print"]
+    C1 --&gt; T2
+    T1 --&gt; N1["NSCC: novate and net"]
+    T2 --&gt; N1
+    N1 --&gt; S2["DTC: settle on T+1"]</code></pre>
+<h2 id="the-retail-pipe">The retail pipe<a class="headerlink" href="#the-retail-pipe" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Broker.</strong> The investor taps "buy". After risk checks, the broker's routing table sends marketable orders (market orders, and limits priced at or through the far side of the <a href="../../09-reference/glossary/#nbbo">NBBO</a>) to <a href="../../09-reference/glossary/#wholesaler">wholesalers</a>. When the SEC proposed its Order Competition Rule in December 2022, it found that brokers routed more than 90% of individual investors' marketable orders to six off-exchange dealers <code>[Verified]</code>. Zero-commission brokers earn <a href="../../09-reference/glossary/#payment-for-order-flow-pfof">payment for order flow (PFOF)</a>, interest on client cash and margin-lending spread instead.</li>
+<li><strong>Wholesaler.</strong> The wholesaler fills the order as principal at or better than the NBBO. It usually hands back part of the spread as <a href="../../09-reference/glossary/#price-improvement">price improvement</a>. This is <a href="../../09-reference/glossary/#internalization">internalization</a>. Robinhood's 2025 Rule 606 reports list Citadel Securities, Virtu and Jane Street among its paying venues <code>[Verified]</code>. It can improve the price and still pay the broker because retail flow carries little short-term information (<a href="../venues-and-retail-flow/">Venues and retail flow</a> explains why). Unwanted orders and accumulated inventory go to exchanges.</li>
+<li><strong>Print.</strong> The fill is reported to a FINRA <a href="../../09-reference/glossary/#trade-reporting-facility-trf">trade reporting facility (TRF)</a> and appears on the tape as an off-exchange trade. Off-exchange volume reached 50.6% of consolidated volume in 2025, the first year above half. Principal dealers, mostly wholesalers, accounted for 81% of that <code>[Verified]</code>.</li>
+</ol>
+<h2 id="the-institutional-pipe">The institutional pipe<a class="headerlink" href="#the-institutional-pipe" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Decision to order.</strong> A portfolio manager's rebalance becomes an order in the OMS, for example "buy 2M XYZ today, implementation-shortfall benchmark".</li>
+<li><strong>Algo.</strong> An in-house or broker algorithm (VWAP, POV, <a href="../../09-reference/glossary/#implementation-shortfall">implementation shortfall</a>) cuts the parent into thousands of <a href="../../09-reference/glossary/#child-order">child orders</a> over minutes to the full session. The point is to limit market impact.</li>
+<li><strong>Router.</strong> For each child, the <a href="../../09-reference/glossary/#smart-order-router-sor">smart order router</a> picks a venue and an order type. It can post passively on an exchange and wait in the queue, or ping <a href="../../09-reference/glossary/#dark-pool">dark pools</a> with midpoint IOCs. It can sweep several lit venues at once with ISOs, or send market-on-close orders to the auction.</li>
+<li><strong>Feedback.</strong> Fills stream back, the algo re-plans, and transaction cost analysis (TCA) scores the result afterwards.</li>
+</ol>
+<p>The other side of those child orders is whoever is resting in the book: market makers, other algos, and occasionally another institution in a block-crossing ATS.</p>
+<h2 id="clearing-and-settlement">Clearing and settlement<a class="headerlink" href="#clearing-and-settlement" title="Permanent link">&para;</a></h2>
+<p>Once a trade is matched, the exchange or TRF sends locked-in trade details to NSCC, a DTCC subsidiary. NSCC is the <a href="../../09-reference/glossary/#central-counterparty-ccp">central counterparty</a>: through novation it becomes buyer to every seller and seller to every buyer. If a member defaults, NSCC stands behind the trade. Its <a href="../../09-reference/glossary/#continuous-net-settlement-cns">continuous net settlement</a> system nets each member's buys and sells in each security down to one delivery or receipt. Members post clearing-fund margin sized to their unsettled exposure. On settlement date, DTC moves the shares against cash. US equities settle <a href="../../09-reference/glossary/#t1-settlement">T+1</a>, one business day after trade date, the standard since May 2024 <code>[Reported]</code>. Most funds face NSCC through a clearing or prime broker, which charges fees and sets margin and stock-loan terms.</p>
+<pre class="mermaid"><code>sequenceDiagram
+    autonumber
+    participant App as Retail app
+    participant BD as Retail broker
+    participant WS as Wholesaler
+    participant EX as Exchange
+    participant TRF as FINRA TRF
+    participant CCP as NSCC
+    participant DTC as DTC
+    App-&gt;&gt;BD: Buy 100 XYZ at market
+    BD-&gt;&gt;WS: Route marketable order under PFOF terms
+    WS-&gt;&gt;WS: Price against NBBO and decide to internalize
+    WS--&gt;&gt;BD: Fill at NBO minus price improvement
+    BD--&gt;&gt;App: Execution confirmation
+    WS-&gt;&gt;TRF: Report the trade to the tape
+    WS-&gt;&gt;EX: Later, hedge or offload inventory
+    TRF-&gt;&gt;CCP: Locked-in trade details
+    CCP-&gt;&gt;CCP: Novate and net by security
+    CCP-&gt;&gt;DTC: Net settlement instructions
+    DTC--&gt;&gt;BD: Shares and cash move on T+1</code></pre>
+<h2 id="who-gets-paid">Who gets paid<a class="headerlink" href="#who-gets-paid" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Intermediary</th>
+<th>What it does</th>
+<th>How it is paid</th>
+<th>Order of magnitude</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Retail broker</td>
+<td>App, custody, routing</td>
+<td>PFOF, interest on cash and margin; commission usually zero</td>
+<td>Tens of cents to about $1 per 100 shares in 2025 Rule 606 reports <code>[Reported]</code></td>
+</tr>
+<tr>
+<td>Wholesaler</td>
+<td>Fills retail as principal</td>
+<td>Spread captured, minus price improvement, minus PFOF</td>
+<td>Citadel Securities paid about $341M for US retail equity and options flow in Q2 2025 <code>[Reported]</code></td>
+</tr>
+<tr>
+<td>Institutional broker</td>
+<td>Algos, router, capital</td>
+<td>Commission per share</td>
+<td>Roughly 0.5–2 cents/share for execution-only algos <code>[Lore]</code></td>
+</tr>
+<tr>
+<td>Exchange</td>
+<td>Matching, protected quotes</td>
+<td>Taker (access) fees, market data and connectivity; pays maker rebates</td>
+<td>Access-fee cap 30 mils ($0.0030/share), 10 mils once the 2024 amendment takes effect <code>[Verified]</code></td>
+</tr>
+<tr>
+<td>ATS / dark pool</td>
+<td>Non-displayed matching</td>
+<td>Per-share fees</td>
+<td>About 19% of TRF volume in 2025 <code>[Verified]</code></td>
+</tr>
+<tr>
+<td>NSCC and DTC</td>
+<td>Clearing, netting, settlement</td>
+<td>Per-trade fees; clearing-fund margin</td>
+<td>Fees tiny; margin is the real cost <code>[Lore]</code></td>
+</tr>
+<tr>
+<td>Clearing broker</td>
+<td>Access to NSCC, financing</td>
+<td>Clearing fees, financing spread, stock-loan fees</td>
+<td>See <a href="../shorting-financing-and-settlement/">shorting and settlement</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="the-latency-scale">The latency scale<a class="headerlink" href="#the-latency-scale" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Hop</th>
+<th>Typical latency</th>
+<th>Tag and reasoning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Retail app to broker over the internet</td>
+<td>10–100 ms</td>
+<td><code>[Estimate]</code> consumer-internet round trip</td>
+</tr>
+<tr>
+<td>Broker to wholesaler and back</td>
+<td>about 1 ms or less</td>
+<td><code>[Estimate]</code> dedicated lines between New Jersey data centers</td>
+</tr>
+<tr>
+<td>Wholesaler pricing decision</td>
+<td>microseconds to about 1 ms</td>
+<td><code>[Lore]</code></td>
+</tr>
+<tr>
+<td>Portfolio manager decision to first child order</td>
+<td>minutes to hours</td>
+<td><code>[Lore]</code> human workflow</td>
+</tr>
+<tr>
+<td>Life of an algo parent order</td>
+<td>minutes to a full session</td>
+<td><code>[Lore]</code> slow on purpose, to cut impact</td>
+</tr>
+<tr>
+<td>Router to an exchange, <a href="../../09-reference/glossary/#colocation">colocated</a></td>
+<td>about 5–50 μs one way</td>
+<td><code>[Estimate]</code> tens of meters of fiber plus switch and gateway</td>
+</tr>
+<tr>
+<td>Between data centers in Mahwah, Carteret and Secaucus</td>
+<td>about 90–190 μs one way</td>
+<td><code>[Estimate]</code> 27–56 km at 3.34 μs/km by microwave; about 1.5× slower over fiber</td>
+</tr>
+<tr>
+<td>Trade to settlement</td>
+<td>1 business day</td>
+<td>T+1 <code>[Reported]</code></td>
+</tr>
+</tbody>
+</table>
+<p>From about 10 μs to one day (roughly 10<sup>11</sup> μs) is ten orders of magnitude <code>[Estimate]</code>; each band supports its own kind of strategy.</p>
+<h2 id="why-this-matters-for-strategies-algorithms">Why this matters for strategies &amp; algorithms<a class="headerlink" href="#why-this-matters-for-strategies-algorithms" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>The retail pipe is a business.</strong> Wholesalers run <a href="../../02-strategies/a-liquidity-provision/retail-flow-internalization/">retail flow internalization</a>. Its edge is the low toxicity of the flow, measured with <a href="../../03-algorithms/f-market-making-and-hft-algorithms/adverse-selection-and-markouts/">markouts</a>.</li>
+<li><strong>The institutional pipe is the execution stack.</strong> The parent-to-child cascade is covered in <a href="../../03-algorithms/e-execution-algorithms/execution-algorithms-overview/">Execution algorithms overview</a>, <a href="../../03-algorithms/e-execution-algorithms/vwap-twap-pov/">VWAP, TWAP and POV</a>, <a href="../../03-algorithms/e-execution-algorithms/smart-order-routing/">Smart order routing</a> and <a href="../../03-algorithms/e-execution-algorithms/transaction-cost-analysis/">Transaction cost analysis</a>. <a href="../../03-algorithms/h-end-to-end-walkthroughs/walkthrough-institutional-execution/">Walkthrough: executing a $500M buy order</a> tells the whole story with numbers.</li>
+<li><strong>The child orders are someone's revenue.</strong> <a href="../../02-strategies/a-liquidity-provision/equity-market-making/">Equity market making</a> quotes against them. <a href="../../02-strategies/a-liquidity-provision/auctions-and-closing-liquidity/">Auctions and closing liquidity</a> is about the end-of-day share of them.</li>
+<li><strong>The latency table is a cost structure.</strong> <a href="../../02-strategies/b-speed-and-structural/latency-arbitrage/">Latency arbitrage</a> and the <a href="../../03-algorithms/f-market-making-and-hft-algorithms/anatomy-of-an-hft-trading-loop/">HFT trading loop</a> live in the microsecond rows. Mid-frequency books such as <a href="../../02-strategies/c-statistical-arbitrage/factor-residual-mean-reversion/">factor-residual mean reversion</a> live in the minutes-to-hours rows and pay for settlement, borrow and financing.</li>
+</ul>
+<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../the-limit-order-book/">The limit order book</a></li>
+<li><a href="../venues-and-retail-flow/">Venues and retail flow</a></li>
+<li><a href="../nbbo-and-market-data/">NBBO and market data</a></li>
+<li><a href="../fees-rebates-and-ticks/">Fees, rebates and ticks</a></li>
+<li><a href="../shorting-financing-and-settlement/">Shorting, financing and settlement</a></li>
+<li><a href="../../05-infrastructure/colocation-networks-and-the-speed-of-light/">Colocation, networks and the speed of light</a></li>
+</ul>
+<h2 id="sources">Sources<a class="headerlink" href="#sources" title="Permanent link">&para;</a></h2>
+<ul>
+<li>[Verified] SEC (2022-12-14). "SEC Proposes Rule to Enhance Competition for Individual Investor Order Execution" (press release, republished). <a href="https://www.newsfilecorp.com/release/148085/SEC-Proposes-Rule-to-Enhance-Competition-for-Individual-Investor-Order-Execution">https://www.newsfilecorp.com/release/148085/SEC-Proposes-Rule-to-Enhance-Competition-for-Individual-Investor-Order-Execution</a> (accessed 2026-11)</li>
+<li>[Verified] Cboe Global Markets (2026). "2025 U.S. Equities Year in Review." <a href="https://www.cboe.com/insights/posts/2025-u-s-equities-year-in-review">https://www.cboe.com/insights/posts/2025-u-s-equities-year-in-review</a> (accessed 2026-11)</li>
+<li>[Verified] Robinhood Securities (2025). "SEC Rule 606 and 607 Disclosure" (quarterly order-routing reports). <a href="https://cdn.robinhood.com/assets/robinhood/legal/RHS%20SEC%20Rule%20606%20and%20607%20Disclosure.pdf">https://cdn.robinhood.com/assets/robinhood/legal/RHS%20SEC%20Rule%20606%20and%20607%20Disclosure.pdf</a> (accessed 2026-11)</li>
+<li>[Reported] Global Trading (2025). "Payments for US retail flow reach record high, led by Citadel Securities and IMC." <a href="https://www.globaltrading.net/?p=38554">https://www.globaltrading.net/?p=38554</a> (accessed 2026-11)</li>
+<li>[Verified] U.S. Court of Appeals for the D.C. Circuit (2025-10-14). <em>Cboe Global Markets, Inc. v. SEC</em>, No. 24-1350 (access-fee cap of 30 mils lowered to 10 mils). <a href="https://media.cadc.uscourts.gov/opinions/docs/2025/10/24-1350-2139991.pdf">https://media.cadc.uscourts.gov/opinions/docs/2025/10/24-1350-2139991.pdf</a> (accessed 2026-11)</li>
+<li>[Reported] SEC (2023-02-15). "Shortening the Securities Transaction Settlement Cycle," Release No. 34-96930 (T+1). <a href="https://www.sec.gov/files/rules/final/2023/34-96930.pdf">https://www.sec.gov/files/rules/final/2023/34-96930.pdf</a> (accessed 2026-11)</li>
+<li>[Reported] Sidley Austin (2022-12). "SEC Proposes Rule to Enhance Competition for Certain Individual Investor Orders." <a href="https://www.sidley.com/en/insights/newsupdates/2022/12/sec-proposes-rule-to-enhance-competition-for-certain-individual-investor-orders">https://www.sidley.com/en/insights/newsupdates/2022/12/sec-proposes-rule-to-enhance-competition-for-certain-individual-investor-orders</a> (accessed 2026-11)</li>
+</ul>
 
 
 

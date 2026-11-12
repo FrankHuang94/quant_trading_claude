@@ -796,6 +796,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Order types and auctions
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -805,6 +816,97 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#intuition-an-order-type-is-a-contract" class="md-nav__link">
+    <span class="md-ellipsis">
+      Intuition: an order type is a contract
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-order-types-that-matter" class="md-nav__link">
+    <span class="md-ellipsis">
+      The order types that matter
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-a-closing-auction-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How a closing auction works
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worked-example-an-imbalance-moves-the-close" class="md-nav__link">
+    <span class="md-ellipsis">
+      Worked example: an imbalance moves the close
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-big-the-close-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      How big the close is
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters-for-strategies-algorithms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why this matters for strategies &amp; algorithms
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related pages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sources
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -5404,6 +5506,86 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#intuition-an-order-type-is-a-contract" class="md-nav__link">
+    <span class="md-ellipsis">
+      Intuition: an order type is a contract
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-order-types-that-matter" class="md-nav__link">
+    <span class="md-ellipsis">
+      The order types that matter
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-a-closing-auction-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How a closing auction works
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worked-example-an-imbalance-moves-the-close" class="md-nav__link">
+    <span class="md-ellipsis">
+      Worked example: an imbalance moves the close
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-big-the-close-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      How big the close is
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters-for-strategies-algorithms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why this matters for strategies &amp; algorithms
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related pages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sources
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -5421,11 +5603,259 @@
 
 
 <h1 id="order-types-and-auctions">Order types and auctions<a class="headerlink" href="#order-types-and-auctions" title="Permanent link">&para;</a></h1>
-<!-- STUB -->
-<div class="admonition note">
-<p class="admonition-title">Not yet written</p>
-<p>This page is scheduled for Phase 2 of the build. See <code>PLAN.md</code> in the repository.</p>
-</div>
+<blockquote>
+<p><strong>TL;DR</strong></p>
+<ul>
+<li>An order type is a contract with the matching engine: which price, how long, whether you may take liquidity, and what happens to the rest. Quants use only a handful of them: limit, IOC, ISO, post-only, midpoint peg and the on-close family.</li>
+<li>ISOs let a router hit several venues at once without waiting for each venue's order-protection checks. Post-only guarantees you are the maker. Midpoint pegs buy price improvement at the risk of being picked off when the NBBO goes stale.</li>
+<li>The close is a call auction. NYSE stops new MOC/LOC orders at 3:50 p.m. and Nasdaq at 3:55 p.m. Imbalance messages then invite offsetting liquidity until the 4:00 p.m. uncross.</li>
+<li>The closing auction grew from about 3% of US dollar volume in 2010 to a record 9.44% of notional in Q2 2024, and about 20% on index-rebalance and expiry days.</li>
+</ul>
+</blockquote>
+<p><strong>Level:</strong> Core · <strong>Read time:</strong> ~6 min · <strong>Last verified:</strong> 2026-11</p>
+<h2 id="intuition-an-order-type-is-a-contract">Intuition: an order type is a contract<a class="headerlink" href="#intuition-an-order-type-is-a-contract" title="Permanent link">&para;</a></h2>
+<p>Every order answers four questions: at what price (limit, market, pegged), for how long (day, IOC, on-close), may it take liquidity, and is it displayed? Exchanges list dozens of variants; most quant flow uses the few below.</p>
+<h2 id="the-order-types-that-matter">The order types that matter<a class="headerlink" href="#the-order-types-that-matter" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Order type</th>
+<th>What it does</th>
+<th>Who uses it, and why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Limit</td>
+<td>Trades at the limit or better; the rest rests in the <a href="../the-limit-order-book/">book</a></td>
+<td>Market makers' quotes; passive child orders</td>
+</tr>
+<tr>
+<td>Market</td>
+<td>Takes whatever is there, within price collars</td>
+<td>Mostly retail; professionals use marketable limits</td>
+</tr>
+<tr>
+<td><a href="../../09-reference/glossary/#immediate-or-cancel-ioc">IOC</a> (immediate-or-cancel)</td>
+<td>Fills what is available now, cancels the rest</td>
+<td>Router probes of dark pools; taking strategies</td>
+</tr>
+<tr>
+<td><a href="../../09-reference/glossary/#intermarket-sweep-order-iso">ISO</a> (intermarket sweep)</td>
+<td>Sender certifies it is also taking out better-priced protected quotes elsewhere, so the venue may fill at once without checking away markets</td>
+<td>Routers sweeping several venues in the same microseconds; latency-sensitive takers</td>
+</tr>
+<tr>
+<td><a href="../../09-reference/glossary/#post-only-order">Post-only</a></td>
+<td>Rejected or repriced if it would take liquidity</td>
+<td>Market makers guaranteeing the maker rebate and avoiding the taker fee</td>
+</tr>
+<tr>
+<td><a href="../../09-reference/glossary/#midpoint-peg">Midpoint peg</a></td>
+<td>Non-displayed, priced at the NBBO midpoint</td>
+<td>Dark pools and exchanges; both sides save half the spread</td>
+</tr>
+<tr>
+<td>Discretionary</td>
+<td>Shown at one price, willing to trade up to a hidden worse price</td>
+<td>Institutions hiding urgency; IEX's discretionary peg also avoids stale quotes <code>[Reported]</code></td>
+</tr>
+<tr>
+<td><a href="../../09-reference/glossary/#market-on-close-moc">MOC</a> / <a href="../../09-reference/glossary/#limit-on-close-loc">LOC</a></td>
+<td>Execute only in the closing auction; LOC only at its limit or better</td>
+<td>Index funds, ETF flows, VWAP-to-close and rebalance trades</td>
+</tr>
+<tr>
+<td>MOO / LOO</td>
+<td>Same, for the opening auction</td>
+<td>Overnight-news trades, opening rebalances</td>
+</tr>
+<tr>
+<td>Imbalance-only (Nasdaq IO) and closing offset (NYSE CO)</td>
+<td>Execute only in the auction and only against the published imbalance</td>
+<td>Liquidity providers at the close</td>
+</tr>
+</tbody>
+</table>
+<p>The ISO exists because of the trade-through rule (Rule 611 of <a href="../../09-reference/glossary/#regulation-nms">Regulation NMS</a>). On June 11, 2026 the SEC proposed rescinding that rule and the locked/crossed-market ban. Comments closed August 17, 2026, and the proposal was still pending at last check <code>[Verified]</code>. If it is adopted, routers' reliance on ISOs would change. Midpoint pegs are priced off someone's view of the NBBO. If that view lags, a faster trader can trade against the peg at a stale midpoint (see <a href="../nbbo-and-market-data/">NBBO and market data</a>).</p>
+<h2 id="how-a-closing-auction-works">How a closing auction works<a class="headerlink" href="#how-a-closing-auction-works" title="Permanent link">&para;</a></h2>
+<p>During the day, MOC and LOC orders build a separate closing book. At the cutoff, new entry stops, except for orders that offset the imbalance. The exchange then publishes imbalance messages: paired shares, imbalance size and side, and indicative clearing prices. Traders who can absorb the imbalance send offsetting interest. At 4:00 p.m. the auction uncrosses at one price. That price maximizes matched volume, with tie-breaks on residual imbalance and distance from a reference price, within collars <code>[Reported]</code>. On the NYSE a designated market maker (DMM) runs the process. The print is the official close used for NAVs and index tracking.</p>
+<pre class="mermaid"><code>flowchart LR
+    A1["MOC and LOC orders&lt;br/&gt;from index funds, ETFs, algos"] --&gt; B1["Closing book builds&lt;br/&gt;through the day"]
+    B1 --&gt; C1["Entry cutoff&lt;br/&gt;NYSE 3:50 pm, Nasdaq 3:55 pm"]
+    C1 --&gt; D1["Imbalance messages&lt;br/&gt;paired shares, side, indicative price"]
+    D1 --&gt; E1["Offsetting interest arrives&lt;br/&gt;IO, CO, D orders, LOC"]
+    E1 -.-&gt;|"updates"| D1
+    E1 --&gt; F1["4:00 pm uncross&lt;br/&gt;one price, maximum matched volume"]
+    F1 --&gt; G1["Official close&lt;br/&gt;NAV and index benchmark"]</code></pre>
+<p><strong>Key times (Eastern), as of 2026-11:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>NYSE</th>
+<th>Nasdaq</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Opening imbalance messages</td>
+<td>From 8:00 a.m., about every second <code>[Verified]</code></td>
+<td>9:25–9:30 a.m. <code>[Verified]</code></td>
+</tr>
+<tr>
+<td>Opening order cutoff</td>
+<td>MOO/LOO cancels rejected from 9:29 a.m. <code>[Verified]</code></td>
+<td>—</td>
+</tr>
+<tr>
+<td>MOC entry cutoff</td>
+<td>3:50 p.m.; afterwards only offsetting MOC/LOC and CO <code>[Verified]</code></td>
+<td>MOC before 3:55 p.m. <code>[Verified]</code></td>
+</tr>
+<tr>
+<td>Closing imbalance messages</td>
+<td>From 3:50 p.m. <code>[Verified]</code>; floor-broker D orders included from 3:50 since August 2024 <code>[Verified]</code></td>
+<td>From 3:55 p.m. (moved from 3:50 in 2018) <code>[Verified]</code>, updated about every second <code>[Reported]</code></td>
+</tr>
+<tr>
+<td>Late cutoffs</td>
+<td>No MOC/LOC cancels after 3:58 p.m. D orders accepted until 3:59:50 <code>[Verified]</code>; a 2026 change rejects D-order cancels from one minute before the close <code>[Reported]</code> TODO(verify): effective date</td>
+<td>LOC entry until 3:58 p.m. <code>[Verified]</code></td>
+</tr>
+<tr>
+<td>Uncross</td>
+<td>4:00 p.m.</td>
+<td>4:00 p.m.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="worked-example-an-imbalance-moves-the-close">Worked example: an imbalance moves the close<a class="headerlink" href="#worked-example-an-imbalance-moves-the-close" title="Permanent link">&para;</a></h2>
+<p>Illustrative numbers. XYZ last traded at $50.00. At the cutoff the closing book has 1.2M shares of MOC buys and 0.9M of MOC sells, a 300,000-share <strong>buy imbalance</strong>. Sell-side limit interest (LOC, IO and continuous-book orders) is 100,000 at $50.02, 150,000 at $50.05 and 200,000 at $50.10.</p>
+<table>
+<thead>
+<tr>
+<th>Candidate price</th>
+<th>Buy volume</th>
+<th>Sell volume</th>
+<th>Matched</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>50.00</td>
+<td>1.20M</td>
+<td>0.90M</td>
+<td>0.90M</td>
+</tr>
+<tr>
+<td>50.02</td>
+<td>1.20M</td>
+<td>1.00M</td>
+<td>1.00M</td>
+</tr>
+<tr>
+<td>50.05</td>
+<td>1.20M</td>
+<td>1.15M</td>
+<td>1.15M</td>
+</tr>
+<tr>
+<td>50.10</td>
+<td>1.20M</td>
+<td>1.35M</td>
+<td><strong>1.20M</strong></td>
+</tr>
+</tbody>
+</table>
+<p>The close prints at $50.10, 20 bps above the last trade: MOC buyers pay about $120,000 more than at $50.00, and sellers who offered at $50.02 get 8 cents better than their limit. That price concession is what <a href="../../02-strategies/a-liquidity-provision/auctions-and-closing-liquidity/">auction liquidity providers</a> compete for. In reality the published imbalance would attract more sellers before 4:00 p.m. and shrink the move.</p>
+<h2 id="how-big-the-close-is">How big the close is<a class="headerlink" href="#how-big-the-close-is" title="Permanent link">&para;</a></h2>
+<p>Measures differ (share vs dollar volume, NYSE-listed vs all stocks), but the trend is clear:</p>
+<table>
+<thead>
+<tr>
+<th>Period</th>
+<th>Closing auction share</th>
+<th>Measure and source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2010</td>
+<td>about 3.1%</td>
+<td>Daily dollar volume; academic estimate <code>[Reported]</code></td>
+</tr>
+<tr>
+<td>2011 → 2017</td>
+<td>3.6% → 5.5%</td>
+<td>Average daily volume; Greenwich Associates <code>[Reported]</code></td>
+</tr>
+<tr>
+<td>2018</td>
+<td>about 7.5%</td>
+<td>Daily dollar volume; academic estimate <code>[Reported]</code></td>
+</tr>
+<tr>
+<td>Q2 2024</td>
+<td>9.44% (record), $55.5B/day</td>
+<td>Notional, all US equities; NYSE Research <code>[Reported]</code></td>
+</tr>
+<tr>
+<td>2024 typical day</td>
+<td>about 9%; about 20% on rebalance and expiry days</td>
+<td>Notional; BMLL <code>[Reported]</code></td>
+</tr>
+<tr>
+<td>2025, monthly</td>
+<td>5.2%–9.7% (December 9.74%)</td>
+<td>Share volume; Rosenblatt <code>[Reported]</code></td>
+</tr>
+<tr>
+<td>December 2025</td>
+<td>about 15% (Europe about 35%)</td>
+<td>Instinet data via SSGA; broader definition, quarter-end month <code>[Reported]</code></td>
+</tr>
+</tbody>
+</table>
+<pre class="mermaid"><code>timeline
+    title US closing auction share of volume, different measures
+    2010 : About 3 percent of dollar volume
+    2017 : About 5.5 percent of ADV
+    2018 : About 7.5 percent of dollar volume
+    2024 : Record 9.44 percent of notional in Q2
+    2025 : 5 to 10 percent of share volume by month</code></pre>
+<p>The driver is passive investing: index funds and ETFs are benchmarked to closing prices, and studies link closing volume to ETF and passive ownership rather than active ownership <code>[Reported]</code>. Share-volume measures run lower because cheap, retail-heavy stocks inflate daytime share counts.</p>
+<h2 id="why-this-matters-for-strategies-algorithms">Why this matters for strategies &amp; algorithms<a class="headerlink" href="#why-this-matters-for-strategies-algorithms" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>The close is a strategy venue.</strong> <a href="../../02-strategies/a-liquidity-provision/auctions-and-closing-liquidity/">Auctions and closing liquidity</a> is about supplying the imbalance. <a href="../../02-strategies/d-mid-frequency-alpha/flow-driven-strategies/">Flow-driven strategies</a> and <a href="../../02-strategies/b-speed-and-structural/etf-and-index-arbitrage/">ETF and index arbitrage</a> trade around rebalance prints.</li>
+<li><strong>Execution algos are built from these order types.</strong> <a href="../../03-algorithms/e-execution-algorithms/auction-close-and-dark-liquidity-algos/">Auction, close and dark-liquidity algos</a> decide what to send to the close. <a href="../../03-algorithms/e-execution-algorithms/vwap-twap-pov/">VWAP, TWAP and POV</a> must forecast the close's slice of the volume curve. <a href="../../03-algorithms/e-execution-algorithms/smart-order-routing/">Smart order routing</a> chooses between IOC, ISO and midpoint pegs.</li>
+<li><strong>Order types are where fees and adverse selection meet.</strong> Post-only rebate capture is the base of <a href="../../02-strategies/a-liquidity-provision/equity-market-making/">equity market making</a> and <a href="../../02-strategies/b-speed-and-structural/fee-and-microstructure-driven-strategies/">fee- and microstructure-driven strategies</a>. Stale midpoint pegs are prey for <a href="../../02-strategies/b-speed-and-structural/latency-arbitrage/">latency arbitrage</a>. <a href="../../03-algorithms/f-market-making-and-hft-algorithms/queue-position-and-order-placement/">Queue position and order placement</a> treats the choice of order type as part of the placement decision.</li>
+</ul>
+<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../the-limit-order-book/">The limit order book</a></li>
+<li><a href="../venues-and-retail-flow/">Venues and retail flow</a></li>
+<li><a href="../fees-rebates-and-ticks/">Fees, rebates and ticks</a></li>
+<li><a href="../recent-changes/">Recent changes (as of 2026-11)</a></li>
+<li><a href="../../03-algorithms/h-end-to-end-walkthroughs/walkthrough-institutional-execution/">Walkthrough: executing a $500M buy order</a></li>
+</ul>
+<h2 id="sources">Sources<a class="headerlink" href="#sources" title="Permanent link">&para;</a></h2>
+<ul>
+<li>[Verified] NYSE (n.d.). "NYSE Auctions: Closing Process Fact Sheet." <a href="https://www.nyse.com/publicdocs/nyse/NYSE_Auctions_Closing_Process_Fact_Sheet.pdf">https://www.nyse.com/publicdocs/nyse/NYSE_Auctions_Closing_Process_Fact_Sheet.pdf</a> (accessed 2026-11)</li>
+<li>[Verified] NYSE (n.d.). "Functional Differences: NYSE Pillar" (opening auction timeline). <a href="https://www.nyse.com/publicdocs/nyse/markets/nyse/Functional_Differences_NYSE_Pillar.pdf">https://www.nyse.com/publicdocs/nyse/markets/nyse/Functional_Differences_NYSE_Pillar.pdf</a> (accessed 2026-11)</li>
+<li>[Verified] NYSE (n.d.). "Getting to know D Orders: a unique execution tool for NYSE floor brokers." <a href="https://www.nyse.com/data-insights/getting-to-know-d-orders-a-unique-execution-tool-for-nyse-floor-brokers">https://www.nyse.com/data-insights/getting-to-know-d-orders-a-unique-execution-tool-for-nyse-floor-brokers</a> (accessed 2026-11)</li>
+<li>[Verified] Nasdaq (n.d.). "Opening and Closing Cross Quick Guide." <a href="https://www.nasdaqtrader.com/content/technicalsupport/specifications/TradingProducts/openclosequickguide.pdf">https://www.nasdaqtrader.com/content/technicalsupport/specifications/TradingProducts/openclosequickguide.pdf</a> (accessed 2026-11)</li>
+<li>[Verified] Federal Register (2019-03-18). Nasdaq rule filing describing the October 2018 move of the Closing Cross cutoff and NOII start to 3:55 p.m. <a href="https://www.federalregister.gov/documents/2019/03/18/2019-04945/self-regulatory-organizations-the-nasdaq-stock-market-llc-notice-of-filing-and-immediate">https://www.federalregister.gov/documents/2019/03/18/2019-04945/self-regulatory-organizations-the-nasdaq-stock-market-llc-notice-of-filing-and-immediate</a> (accessed 2026-11)</li>
+<li>[Reported] Policy Risk (2026). "NYSE Smooths Out Auction Imbalances with Quick Rule Tweaks" (summary of Federal Register doc. 2026-16783). <a href="https://policyrisk.com/federal-register/2026-16783">https://policyrisk.com/federal-register/2026-16783</a> (accessed 2026-11)</li>
+<li>[Reported] NYSE Research (2024-08-29). "NYSE Closing Auction: price discovery opportunities reach new highs." <a href="https://nyse.com/data-insights/nyse-closing-auction-price-discovery-opportunities-reach-new-highs">https://nyse.com/data-insights/nyse-closing-auction-price-discovery-opportunities-reach-new-highs</a> (accessed 2026-11)</li>
+<li>[Reported] BMLL (2024). "Into the Close: Unpacking U.S. Closing Auction Dynamics and the Impact of the Russell Reconstitution." <a href="https://www.bmlltech.com/news/market-insight/into-the-close-unpacking-u-s-closing-auction-dynamics-and-the-impact-of-the-russell-reconstitution">https://www.bmlltech.com/news/market-insight/into-the-close-unpacking-u-s-closing-auction-dynamics-and-the-impact-of-the-russell-reconstitution</a> (accessed 2026-11)</li>
+<li>[Reported] Greenwich Associates (2017). "Stock Trading Volumes Gravitate to Open and Closing Auctions." <a href="https://www.greenwich.com/press-release/stock-trading-volumes-gravitate-open-and-closing-auctions">https://www.greenwich.com/press-release/stock-trading-volumes-gravitate-open-and-closing-auctions</a> (accessed 2026-11)</li>
+<li>[Verified] Bogousslavsky, V. &amp; Muravyev, D. (2023). "Who trades at the close? Implications for price discovery and liquidity." <em>Journal of Financial Markets</em>. <a href="https://www.sciencedirect.com/science/article/abs/pii/S1386418123000502">https://www.sciencedirect.com/science/article/abs/pii/S1386418123000502</a> (accessed 2026-11)</li>
+<li>[Reported] <em>Journal of Banking &amp; Finance</em> (2022). "The shift from active to passive and its effect on intraday stock dynamics." <a href="https://www.sciencedirect.com/science/article/abs/pii/S0378426622001911">https://www.sciencedirect.com/science/article/abs/pii/S0378426622001911</a> (accessed 2026-11)</li>
+<li>[Reported] Rosenblatt Securities (2026-01). "US Securities Volumes: 2025 Year in Review." <a href="https://www.rblt.com/market-structure-reports/us-securities-volumes-2025-year-in-review">https://www.rblt.com/market-structure-reports/us-securities-volumes-2025-year-in-review</a> (accessed 2026-11)</li>
+<li>[Reported] State Street Global Advisors (2026). "How passive investing is reshaping market microstructure." <a href="https://www.ssga.com/us/en/intermediary/insights/how-passive-investing-reshaping-microstructure">https://www.ssga.com/us/en/intermediary/insights/how-passive-investing-reshaping-microstructure</a> (accessed 2026-11)</li>
+<li>[Verified] Federal Register (2026-06-17). "The Trade-Through Rule and Locked and Crossed Markets Provisions of Regulation NMS" (proposed rescission). <a href="https://www.federalregister.gov/documents/2026/06/17/2026-12163/the-trade-through-rule-and-locked-and-crossed-markets-provisions-of-regulation-nms">https://www.federalregister.gov/documents/2026/06/17/2026-12163/the-trade-through-rule-and-locked-and-crossed-markets-provisions-of-regulation-nms</a> (accessed 2026-11)</li>
+</ul>
 
 
 
