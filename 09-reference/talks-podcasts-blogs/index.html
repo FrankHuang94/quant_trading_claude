@@ -5048,6 +5048,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Talks, podcasts and blogs
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -5057,6 +5068,70 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#podcasts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Podcasts
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conference-talks-and-seminar-series" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conference talks and seminar series
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#firm-research-and-engineering-blogs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Firm research and engineering blogs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#independent-blogs-aggregators-and-communities" class="md-nav__link">
+    <span class="md-ellipsis">
+      Independent blogs, aggregators and communities
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related pages
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -5404,6 +5479,59 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#podcasts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Podcasts
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conference-talks-and-seminar-series" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conference talks and seminar series
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#firm-research-and-engineering-blogs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Firm research and engineering blogs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#independent-blogs-aggregators-and-communities" class="md-nav__link">
+    <span class="md-ellipsis">
+      Independent blogs, aggregators and communities
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related pages
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -5421,11 +5549,76 @@
 
 
 <h1 id="talks-podcasts-and-blogs">Talks, podcasts and blogs<a class="headerlink" href="#talks-podcasts-and-blogs" title="Permanent link">&para;</a></h1>
-<!-- STUB -->
-<div class="admonition note">
-<p class="admonition-title">Not yet written</p>
-<p>This page is scheduled for Phase 9 of the build. See <code>PLAN.md</code> in the repository.</p>
-</div>
+<blockquote>
+<p><strong>TL;DR</strong></p>
+<ul>
+<li>Firms say more in podcasts, engineering blogs and conference talks than in any filing. Jane Street's <em>Signals and Threads</em> and Optiver engineers' CppCon talks are the best primary sources on how a trading firm is actually built.</li>
+<li>Firm research blogs (AQR, Man Group, Two Sigma) are high quality but written by asset managers with products to sell. Read them as well-argued advocacy, and look for the paper behind each chart.</li>
+<li>For staying current: Quantocracy aggregates, <em>Flirting with Models</em> interviews, the Open Source Asset Pricing project lets you check factor claims yourself, and arXiv q-fin.TR is where microstructure research appears first.</li>
+<li>Every URL below was checked in 2026-11. Some sites block automated checkers but load in a browser.</li>
+</ul>
+</blockquote>
+<p><strong>Level:</strong> Core · <strong>Read time:</strong> ~8 min · <strong>Last verified:</strong> 2026-11</p>
+<p><strong>How to read an entry.</strong> ★ means general audience; ★★ assumes you know the KB's vocabulary; ★★★ assumes engineering or graduate-level math. Firm-produced content is primary evidence about <em>that firm's</em> views and technology. It is not evidence that a technique works, and never evidence about other firms.</p>
+<pre class="mermaid"><code>flowchart TD
+    Q["What do you want?"] --&gt; A["How firms build systems"]
+    Q --&gt; B["What the research says"]
+    Q --&gt; C["What changed this month"]
+    A --&gt; A1["Signals and Threads&lt;br/&gt;CppCon talks&lt;br/&gt;firm engineering blogs"]
+    B --&gt; B1["AQR, Man, Two Sigma research&lt;br/&gt;Open Source Asset Pricing&lt;br/&gt;Microstructure Exchange"]
+    C --&gt; C1["Quantocracy&lt;br/&gt;arXiv q-fin.TR&lt;br/&gt;Flirting with Models"]</code></pre>
+<h2 id="podcasts">Podcasts<a class="headerlink" href="#podcasts" title="Permanent link">&para;</a></h2>
+<ul>
+<li>[Verified] Jane Street (2020–). <em>Signals and Threads</em>, hosted by Ron Minsky. <a href="https://signalsandthreads.com/">https://signalsandthreads.com/</a> (accessed 2026-11) — ★★ · Long-form conversations with Jane Street engineers and researchers. The tone is engineering-first and the content is unusually concrete for a trading firm. Start with the four episodes below. Backs <a href="../../03-algorithms/f-market-making-and-hft-algorithms/anatomy-of-an-hft-trading-loop/">Anatomy of an HFT trading loop</a> · <a href="../../05-infrastructure/trading-and-research-tech-stacks/">Trading and research tech stacks</a>.</li>
+<li>[Verified] Jane Street (2020-09-09). "Programmable Hardware with Andy Ray." <em>Signals and Threads</em>, episode 1. <a href="https://signalsandthreads.com/programmable-hardware/">https://signalsandthreads.com/programmable-hardware/</a> (accessed 2026-11) — ★★ · Why and where a trading firm puts logic on <a href="../glossary/#fpga">FPGAs</a>, and what hardware design culture looks like there. Backs <a href="../../05-infrastructure/how-infrastructure-constrains-algorithms/">How infrastructure constrains algorithms</a> · <a href="../../05-infrastructure/semiconductor-lens/">Semiconductor lens</a>.</li>
+<li>[Verified] Jane Street (2020-09-23). "Multicast and the Markets with Brian Nigito." <em>Signals and Threads</em>, episode 3. <a href="https://signalsandthreads.com/multicast-and-the-markets/">https://signalsandthreads.com/multicast-and-the-markets/</a> (accessed 2026-11) — ★★ · How exchanges handle huge message rates with single-threaded matching engines and multicast market data. It is the best audio primer on the <a href="../glossary/#direct-feed">direct feed</a> world. Backs <a href="../../01-market-structure/nbbo-and-market-data/">NBBO and market data</a> · <a href="../../01-market-structure/the-limit-order-book/">The limit order book</a>.</li>
+<li>[Verified] Jane Street (2020-10-14). "Clock Synchronization with Chris Perl." <em>Signals and Threads</em>, episode 6. <a href="https://signalsandthreads.com/clock-synchronization/">https://signalsandthreads.com/clock-synchronization/</a> (accessed 2026-11) — ★★ · Why every host's clock must agree to within about 100 microseconds, and be proven to, before latency, markouts or regulatory timestamps mean anything. Backs <a href="../../03-algorithms/f-market-making-and-hft-algorithms/adverse-selection-and-markouts/">Adverse selection and markouts</a> · <a href="../../05-infrastructure/colocation-networks-and-the-speed-of-light/">Colocation, networks and the speed of light</a>.</li>
+<li>[Verified] Jane Street (2025-03-10). "Finding Signal in the Noise: Machine Learning and the Markets with In Young Cho." <em>Signals and Threads</em>, episode 22. <a href="https://signalsandthreads.com/finding-signal-in-the-noise/">https://signalsandthreads.com/finding-signal-in-the-noise/</a> (accessed 2026-11) — ★★ · ML in a low-data, high-noise, regime-shifting setting, the move from linear models to deep nets, and the tension between research tools and production systems. Backs <a href="../../02-strategies/c-statistical-arbitrage/ml-driven-short-horizon-alpha/">ML-driven short-horizon alpha</a> · <a href="../../03-algorithms/b-forecasting-models/neural-nets-and-sequence-models/">Neural nets and sequence models</a>.</li>
+<li>[Verified] Hoffstein, C. (host) (n.d.). <em>Flirting with Models</em>. <a href="https://www.flirtingwithmodels.com/">https://www.flirtingwithmodels.com/</a> (accessed 2026-11) — ★★ · Interviews with people who design systematic strategies (trend, factors, volatility, portfolio construction), still running in its seventh season in 2026. The research library at <a href="https://blog.thinknewfound.com/">https://blog.thinknewfound.com/</a> is a useful companion. Backs <a href="../../02-strategies/g-futures-and-macro-context/trend-following-and-ctas/">Trend following and CTAs</a> · <a href="../../02-strategies/e-risk-premia-and-factors/factor-timing-crowding-and-quant-winters/">Factor timing, crowding and quant winters</a>.</li>
+<li>[Verified] Kaastrup-Larsen, N. (host). <em>Top Traders Unplugged</em>. <a href="https://www.toptradersunplugged.com/">https://www.toptradersunplugged.com/</a> (accessed 2026-11) — ★ · A long-running podcast centred on CTAs and trend followers, with recurring "systematic investor" panels. It is useful for how managed-futures managers explain drawdowns to clients. Backs <a href="../../02-strategies/g-futures-and-macro-context/trend-following-and-ctas/">Trend following and CTAs</a>.</li>
+</ul>
+<h2 id="conference-talks-and-seminar-series">Conference talks and seminar series<a class="headerlink" href="#conference-talks-and-seminar-series" title="Permanent link">&para;</a></h2>
+<ul>
+<li>[Verified] Cook, C. (2017). "When a Microsecond Is an Eternity: High Performance Trading Systems in C++." CppCon 2017 (Optiver). <a href="https://www.youtube.com/watch?v=NH1Tta7purM">https://www.youtube.com/watch?v=NH1Tta7purM</a> (accessed 2026-11) — ★★★ · The classic low-latency talk. It covers the hot path, cache warming, avoiding allocation and branching, measuring tick-to-trade, and the risk rule "if in doubt, pull your orders". Slides are on the CppCon GitHub. Backs <a href="../../03-algorithms/f-market-making-and-hft-algorithms/anatomy-of-an-hft-trading-loop/">Anatomy of an HFT trading loop</a> · <a href="../../03-algorithms/f-market-making-and-hft-algorithms/algorithmic-risk-controls/">Algorithmic risk controls</a>.</li>
+<li>[Verified] Gross, D. (2024). "When Nanoseconds Matter: Ultrafast Trading Systems in C++." CppCon 2024. <a href="https://www.youtube.com/watch?v=sX2nF1fW7kI">https://www.youtube.com/watch?v=sX2nF1fW7kI</a> (accessed 2026-11) — ★★★ · A modern companion to Cook's talk, on data-structure and concurrency design for a trading system's hot path. Backs <a href="../../05-infrastructure/trading-and-research-tech-stacks/">Trading and research tech stacks</a> · <a href="../../01-market-structure/order-types-and-auctions/">Order types and auctions</a>.</li>
+<li>[Verified] CppCon (n.d.). CppCon YouTube channel. <a href="https://www.youtube.com/@CppCon">https://www.youtube.com/@CppCon</a> (accessed 2026-11) — ★★★ · Search it for "trading" and "low latency": several firms present every year. Treat each talk as one firm's practice, not the industry's. Backs <a href="../../05-infrastructure/how-infrastructure-constrains-algorithms/">How infrastructure constrains algorithms</a>.</li>
+<li>[Verified] Jane Street (n.d.). Tech Talks. <a href="https://www.janestreet.com/tech-talks/">https://www.janestreet.com/tech-talks/</a> (accessed 2026-11) — ★★★ · Recorded engineering talks by Jane Street staff and guests. With the tech blog, it is the primary source on the firm's OCaml-centred stack. Backs <a href="../../05-infrastructure/trading-and-research-tech-stacks/">Trading and research tech stacks</a>.</li>
+<li>[Verified] The Microstructure Exchange (n.d.). Online seminar series. <a href="https://microstructure.exchange/">https://microstructure.exchange/</a> (accessed 2026-11) — ★★★ · Recorded academic seminars on market microstructure, often working papers a year or two before publication. Backs <a href="../../02-strategies/a-liquidity-provision/equity-market-making/">Equity market making</a> · <a href="../../02-strategies/b-speed-and-structural/latency-arbitrage/">Latency arbitrage</a>.</li>
+</ul>
+<h2 id="firm-research-and-engineering-blogs">Firm research and engineering blogs<a class="headerlink" href="#firm-research-and-engineering-blogs" title="Permanent link">&para;</a></h2>
+<ul>
+<li>[Verified] Jane Street (n.d.). Jane Street Tech Blog. <a href="https://blog.janestreet.com/">https://blog.janestreet.com/</a> (accessed 2026-11) — ★★★ · Engineering posts, mostly about OCaml, build systems and tooling. Useful for culture and stack and silent on strategies, as you would expect. Backs <a href="../../05-infrastructure/trading-and-research-tech-stacks/">Trading and research tech stacks</a>.</li>
+<li>[Verified] Hudson River Trading (n.d.). HRT Beat. <a href="https://www.hudsonrivertrading.com/hrtbeat/">https://www.hudsonrivertrading.com/hrtbeat/</a> (accessed 2026-11) — ★★ · HRT's engineering and research blog. The site may block automated checkers. Backs <a href="../../05-infrastructure/trading-and-research-tech-stacks/">Trading and research tech stacks</a>.</li>
+<li>[Verified] Two Sigma (n.d.). Insights and articles. <a href="https://www.twosigma.com/insights/">https://www.twosigma.com/insights/</a> (accessed 2026-11) — ★★ · Data-science and factor-risk articles, including material on its factor-lens framework. Backs <a href="../../03-algorithms/d-portfolio-construction/risk-models/">Risk models</a> · <a href="../../02-strategies/e-risk-premia-and-factors/factor-investing-fundamentals/">Factor investing fundamentals</a>.</li>
+<li>[Verified] Man Group (n.d.). Man Insights (including the Man Institute). <a href="https://www.man.com/insights">https://www.man.com/insights</a> (accessed 2026-11) — ★★ · Research notes from a large systematic manager on trend following, volatility targeting, trading costs and ML. Backs <a href="../../02-strategies/g-futures-and-macro-context/trend-following-and-ctas/">Trend following and CTAs</a> · <a href="../../03-algorithms/d-portfolio-construction/position-sizing-and-risk-budgeting/">Position sizing and risk budgeting</a>.</li>
+<li>[Verified] AQR Capital Management (n.d.). Research library. <a href="https://www.aqr.com/Insights/Research">https://www.aqr.com/Insights/Research</a> (accessed 2026-11) — ★★ · Working papers and journal articles on value, momentum, carry, defensive and trading costs. Many factor papers in the <a href="../papers/">Papers</a> list originate here. Backs <a href="../../02-strategies/e-risk-premia-and-factors/factor-investing-fundamentals/">Factor investing fundamentals</a> · <a href="../../02-strategies/e-risk-premia-and-factors/momentum/">Momentum</a>.</li>
+<li>[Verified] Asness, C. (n.d.). <em>Cliff's Perspectives</em>. AQR Capital Management. <a href="https://www.aqr.com/Insights/Perspectives">https://www.aqr.com/Insights/Perspectives</a> (accessed 2026-11) — ★ · A founder's essays, often on value's drawdown, factor timing and critics of quant. Read them as the strongest statement of one side of <a href="../../08-calibration/contested-debates/">contested debates</a>. Backs <a href="../../02-strategies/e-risk-premia-and-factors/factor-timing-crowding-and-quant-winters/">Factor timing, crowding and quant winters</a>.</li>
+<li>[Verified] Optiver (n.d.). Insights and explainers. <a href="https://www.optiver.com/insights/">https://www.optiver.com/insights/</a> (accessed 2026-11) — ★ · Plain-English explainers from a market maker on market making, options pricing, the Greeks and ETFs, plus market-structure opinion pieces. Backs <a href="../../02-strategies/a-liquidity-provision/options-market-making/">Options market making</a> · <a href="../../02-strategies/a-liquidity-provision/etf-market-making/">ETF market making</a>.</li>
+<li>[Verified] IMC Trading (n.d.). Blogs. <a href="https://www.imc.com/us/blogs">https://www.imc.com/us/blogs</a> (accessed 2026-11) — ★ · Mostly careers and culture, with occasional research-team write-ups from ML conferences. It is good for understanding <a href="../../04-industry-and-firms/roles-teams-and-careers/">roles and teams</a>, thin on markets.</li>
+<li>[Reported] Orosz, G., Klaric, I. &amp; Spevack, J. (2026-08-11). "Software engineering at a proprietary trading company: Optiver." <em>The Pragmatic Engineer</em>. <a href="https://newsletter.pragmaticengineer.com/p/optiver">https://newsletter.pragmaticengineer.com/p/optiver</a> (accessed 2026-11) — ★★ · A reported profile of how a market maker's engineering organization works. Backs <a href="../../05-infrastructure/trading-and-research-tech-stacks/">Trading and research tech stacks</a> · <a href="../../04-industry-and-firms/roles-teams-and-careers/">Roles, teams and careers</a>.</li>
+</ul>
+<h2 id="independent-blogs-aggregators-and-communities">Independent blogs, aggregators and communities<a class="headerlink" href="#independent-blogs-aggregators-and-communities" title="Permanent link">&para;</a></h2>
+<ul>
+<li>[Verified] Quantocracy (n.d.). Quant Mashup. <a href="https://quantocracy.com/">https://quantocracy.com/</a> (accessed 2026-11) — ★ · A daily aggregator of quant blog posts and papers. Quality varies from excellent to retail backtest spam, so filter by author. Backs <a href="../../08-calibration/sanity-checking-claims/">Sanity-checking claims</a>.</li>
+<li>[Verified] Alpha Architect (n.d.). Blog. <a href="https://alphaarchitect.com/blog/">https://alphaarchitect.com/blog/</a> (accessed 2026-11) — ★★ · Accessible reviews of academic factor and anomaly papers. The firm also issues factor ETFs, so weigh the framing. Backs <a href="../../02-strategies/e-risk-premia-and-factors/factor-investing-fundamentals/">Factor investing fundamentals</a>.</li>
+<li>[Verified] Chen, A. Y. &amp; Zimmermann, T. (n.d.). Open Source Asset Pricing. <a href="https://www.openassetpricing.com/">https://www.openassetpricing.com/</a> (accessed 2026-11) — ★★ · Code and data reproducing more than 300 published cross-sectional predictors, with release notes that document fixes, including an October 2024 look-ahead fix. It is the fastest way to check a factor claim yourself. Backs <a href="../../02-strategies/e-risk-premia-and-factors/factor-investing-fundamentals/">Factor investing fundamentals</a> · <a href="../../03-algorithms/a-data-and-signals/feature-engineering/">Feature engineering</a>.</li>
+<li>[Verified] Carver, R. (n.d.). <em>This Blog is Systematic</em>. <a href="https://qoppac.blogspot.com/">https://qoppac.blogspot.com/</a> (accessed 2026-11) — ★★ · A practitioner's long-running blog on systematic futures trading: position sizing, costs, forecast combination and backtest hygiene, with open-source code. Backs <a href="../../03-algorithms/d-portfolio-construction/position-sizing-and-risk-budgeting/">Position sizing and risk budgeting</a> · <a href="../../03-algorithms/b-forecasting-models/alpha-combination-and-ensembling/">Alpha combination</a>.</li>
+<li>[Verified] Chan, E. P. (n.d.). <em>Quantitative Trading</em> blog. <a href="https://epchan.blogspot.com/">https://epchan.blogspot.com/</a> (accessed 2026-11) — ★ · The author of two books on the <a href="../books/">Books</a> list writes here on mean reversion, ML and regime ideas, with a retail-to-small-fund perspective. Backs <a href="../../02-strategies/c-statistical-arbitrage/pairs-trading-and-cointegration/">Pairs trading and cointegration</a>.</li>
+<li>[Verified] Abdelmessih, K. (n.d.). <em>Moontower</em>. <a href="https://moontower.substack.com/">https://moontower.substack.com/</a> (accessed 2026-11) — ★ · Options and volatility intuition from a former options trader: why vol is the traded asset, how market makers think about edge and risk. Backs <a href="../../02-strategies/f-volatility-and-derivatives/volatility-risk-premium-and-vol-arb/">Volatility risk premium and vol arb</a> · <a href="../../02-strategies/a-liquidity-provision/options-market-making/">Options market making</a>.</li>
+<li>[Verified] Mechanical Markets (n.d.). Blog. <a href="https://mechanicalmarkets.wordpress.com/">https://mechanicalmarkets.wordpress.com/</a> (accessed 2026-11) — ★★ · An infrequent but sharp blog on HFT economics and market-structure proposals such as retail order auctions. Backs <a href="../../02-strategies/a-liquidity-provision/retail-flow-internalization/">Retail flow internalization</a> · <a href="../../02-strategies/b-speed-and-structural/latency-arbitrage/">Latency arbitrage</a>.</li>
+<li>[Verified] López de Prado, M. (n.d.). Quantitative Research (papers and slides). <a href="https://www.quantresearch.org/">https://www.quantresearch.org/</a> (accessed 2026-11) — ★★★ · Free versions of the author's papers and lecture slides on backtest overfitting, HRP and financial ML. Backs <a href="../../03-algorithms/c-validation-and-backtesting/overfitting-and-multiple-testing/">Overfitting and multiple testing</a>.</li>
+<li>[Verified] Quantpedia (n.d.). Encyclopedia of quantitative trading strategies. <a href="https://quantpedia.com/">https://quantpedia.com/</a> (accessed 2026-11) — ★ · A catalogue of published strategies with summaries and paper links (partly paywalled). It is useful as an index, but its backtests are not evidence. Backs <a href="../../02-strategies/how-quants-evaluate-a-strategy/">How quants evaluate a strategy</a>.</li>
+<li>[Verified] Cboe Global Markets (n.d.). Insights. <a href="https://www.cboe.com/insights/">https://www.cboe.com/insights/</a> (accessed 2026-11) — ★ · Exchange commentary and monthly volume statistics for options and VIX products, including 0DTE share. It is a primary source for options-market numbers. Backs <a href="../../02-strategies/a-liquidity-provision/options-market-making/">Options market making</a>.</li>
+<li>[Verified] Quantitative Finance Stack Exchange (n.d.). <a href="https://quant.stackexchange.com/">https://quant.stackexchange.com/</a> (accessed 2026-11) — ★★ · Q&amp;A where practitioners answer pricing, risk and microstructure questions. Good answers are excellent, but check the votes and the author. Backs <a href="../../07-conversation-playbook/questions-to-ask/">Questions to ask</a>.</li>
+<li>[Verified] arXiv (n.d.). Quantitative Finance: Trading and Market Microstructure (q-fin.TR), recent submissions. <a href="https://arxiv.org/list/q-fin.TR/recent">https://arxiv.org/list/q-fin.TR/recent</a> (accessed 2026-11) — ★★★ · Where microstructure, execution and market-making preprints appear first. Preprints are unrefereed. Backs <a href="../../03-algorithms/f-market-making-and-hft-algorithms/order-book-and-trade-flow-signals/">Order-book and trade-flow signals</a>.</li>
+</ul>
+<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../books/">Books</a> and <a href="../papers/">Papers</a>: the longer and more rigorous sources behind these.</li>
+<li><a href="../../07-conversation-playbook/how-to-talk-to-a-quant/">How to talk to a quant</a>: citing a firm's own podcast or talk is the cheapest credibility you can buy.</li>
+<li><a href="../../05-infrastructure/trading-and-research-tech-stacks/">Trading and research tech stacks</a>: where the engineering talks are used.</li>
+<li><a href="../../08-calibration/sanity-checking-claims/">Sanity-checking claims</a>: how to read firm marketing and blog backtests.</li>
+</ul>
 
 
 

@@ -5006,6 +5006,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Books
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -5015,6 +5026,79 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#strategies-and-portfolio-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Strategies and portfolio management
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#microstructure-market-making-and-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Microstructure, market making and execution
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#options-and-volatility" class="md-nav__link">
+    <span class="md-ellipsis">
+      Options and volatility
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#history-and-industry-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      History and industry context
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#more-good-books-beyond-the-required-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      More good books (beyond the required list)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related pages
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -5404,6 +5488,68 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#strategies-and-portfolio-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Strategies and portfolio management
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#microstructure-market-making-and-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Microstructure, market making and execution
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#options-and-volatility" class="md-nav__link">
+    <span class="md-ellipsis">
+      Options and volatility
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#history-and-industry-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      History and industry context
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#more-good-books-beyond-the-required-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      More good books (beyond the required list)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related pages
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -5421,11 +5567,81 @@
 
 
 <h1 id="books">Books<a class="headerlink" href="#books" title="Permanent link">&para;</a></h1>
-<!-- STUB -->
-<div class="admonition note">
-<p class="admonition-title">Not yet written</p>
-<p>This page is scheduled for Phase 9 of the build. See <code>PLAN.md</code> in the repository.</p>
-</div>
+<blockquote>
+<p><strong>TL;DR</strong></p>
+<ul>
+<li>29 books: the 21 the build spec requires plus 8 more, grouped by topic. Each entry gives who it is for, which chapters matter, a difficulty rating and the KB pages it backs.</li>
+<li>If you read three: Narang for the map, Grinold &amp; Kahn for the logic of a cross-sectional book, Harris for who is on the other side of every trade.</li>
+<li>For the priority topics, the working shelf is Isichenko (stat arb end to end), López de Prado (validation), Bouchaud et al. (impact and the order book) and Cartea, Jaimungal &amp; Penalva (execution and market-making models).</li>
+<li>Journalism (Zuckerman, Patterson, MacKenzie) is good context but <code>[Reported]</code> at best on firm specifics. Never quote it as disclosure.</li>
+</ul>
+</blockquote>
+<p><strong>Level:</strong> Core · <strong>Read time:</strong> ~12 min · <strong>Last verified:</strong> 2026-11</p>
+<p><strong>How to read an entry.</strong> Difficulty: ★ needs no math beyond algebra; ★★ needs CFA-level statistics plus some linear algebra; ★★★ needs stochastic calculus, optimal control or graduate econometrics. "Backs" lists the KB pages that lean on the book. <code>[Verified]</code> means the edition, year and publisher were checked in 2026-11 against the publisher, the DOI registry (Crossref) or an Open Library edition record. Where chapter titles are quoted, they come from the publisher's or Crossref's table of contents. Otherwise chapters are described by topic.</p>
+<pre class="mermaid"><code>flowchart LR
+    N["Narang: Inside the Black Box"] --&gt; GK["Grinold and Kahn"]
+    GK --&gt; IS["Isichenko"]
+    IS --&gt; LdP["Lopez de Prado: AFML"]
+    N --&gt; H["Harris: Trading and Exchanges"]
+    H --&gt; BQ["Bouchaud et al."]
+    BQ --&gt; CJP["Cartea, Jaimungal, Penalva"]
+    N --&gt; NAT["Natenberg"]
+    NAT --&gt; SIN["Sinclair"]
+    SIN --&gt; GAT["Gatheral"]
+    N --&gt; PED["Pedersen"]
+    PED --&gt; ILM["Ilmanen"]</code></pre>
+<p><em>Suggested reading paths: equity stat arb (top), microstructure and market making (middle), options (lower), risk premia (bottom). Each path runs from ★ to ★★★.</em></p>
+<h2 id="strategies-and-portfolio-management">Strategies and portfolio management<a class="headerlink" href="#strategies-and-portfolio-management" title="Permanent link">&para;</a></h2>
+<ul>
+<li>[Verified] Narang, R. K. (2024). <em>Inside the Black Box: A Simple Guide to Systematic Investing</em> (3rd ed.). Wiley. <a href="https://openlibrary.org/isbn/9781119931898">https://openlibrary.org/isbn/9781119931898</a> (accessed 2026-11) — ★ · The first book to read, written without math. Start with the anatomy chapters (alpha, risk, transaction-cost, portfolio-construction and execution models; data; research), then the high-speed and HFT part. The 3rd edition adds ML, alt data and signal mixing. Backs <a href="../../00-start-here/the-big-picture/">The big picture</a> · <a href="../../03-algorithms/there-is-no-single-algorithm/">There is no single algorithm</a>.</li>
+<li>[Verified] Grinold, R. C. &amp; Kahn, R. N. (2000). <em>Active Portfolio Management: A Quantitative Approach for Producing Superior Returns and Controlling Risk</em> (2nd ed.; released October 1999). McGraw-Hill. <a href="https://openlibrary.org/isbn/9780070248823">https://openlibrary.org/isbn/9780070248823</a> (accessed 2026-11) — ★★/★★★ · The source of the <a href="../glossary/#information-coefficient-ic">information coefficient</a>, <a href="../glossary/#breadth">breadth</a> and the <a href="../glossary/#fundamental-law-of-active-management">Fundamental Law</a>. Read the information-ratio, Fundamental Law, forecasting and information-analysis chapters, then portfolio construction and transaction costs. Dated on ML and capacity. Backs <a href="../../03-algorithms/a-data-and-signals/evaluating-signals/">Evaluating signals</a> · <a href="../../03-algorithms/d-portfolio-construction/mean-variance-optimization/">Mean-variance optimization</a> · <a href="../../02-strategies/d-mid-frequency-alpha/cross-sectional-alpha-and-neutralization/">Cross-sectional alpha</a>.</li>
+<li>[Verified] Isichenko, M. (2021). <em>Quantitative Portfolio Management: The Art and Science of Statistical Arbitrage</em>. Wiley. <a href="https://openlibrary.org/isbn/9781119821328">https://openlibrary.org/isbn/9781119821328</a> (accessed 2026-11) — ★★★ · The closest thing to a stat-arb operator's manual, written by a physicist and dense. Chapters run Market Data → Forecasting (point-in-time data, survival bias, ML) → Forecast Combining → Risk → Trading Costs → Portfolio Construction → Simulation, which is this KB's pipeline. Backs <a href="../../03-algorithms/h-end-to-end-walkthroughs/walkthrough-mid-frequency-stat-arb/">Walkthrough: a mid-frequency stat-arb book</a> · <a href="../../03-algorithms/b-forecasting-models/alpha-combination-and-ensembling/">Alpha combination</a> · <a href="../../03-algorithms/d-portfolio-construction/transaction-cost-and-impact-models/">Transaction cost and impact models</a>.</li>
+<li>[Verified] Pedersen, L. H. (2015). <em>Efficiently Inefficient: How Smart Money Invests and Market Prices Are Determined</em>. Princeton University Press (paperback 2019). <a href="https://press.princeton.edu/books/paperback/9780691196091/efficiently-inefficient">https://press.princeton.edu/books/paperback/9780691196091/efficiently-inefficient</a> (accessed 2026-11) — ★★ · Covers each hedge-fund style: why it earns money, who pays, and an interview with a practitioner. Read Part I (performance measures, backtesting, portfolio construction, market and funding liquidity), Quantitative Equity Investing and Managed Futures. Backs <a href="../../02-strategies/e-risk-premia-and-factors/factor-investing-fundamentals/">Factor investing fundamentals</a> · <a href="../../02-strategies/g-futures-and-macro-context/trend-following-and-ctas/">Trend following and CTAs</a> · <a href="../../02-strategies/how-quants-evaluate-a-strategy/">How quants evaluate a strategy</a>.</li>
+<li>[Verified] Ilmanen, A. (2011). <em>Expected Returns: An Investor's Guide to Harvesting Market Rewards</em>. Wiley. <a href="https://doi.org/10.1002/9781118467190">https://doi.org/10.1002/9781118467190</a> (accessed 2026-11) — ★★ · The evidence base for risk premia across asset classes. Read Value-Oriented Equity Selection, Currency Carry, Commodity Momentum and Trend Following, Volatility Selling and Tail Risks. The data stop around 2010, so pair it with the dossiers' post-2010 numbers. Backs <a href="../../02-strategies/g-futures-and-macro-context/carry-and-cross-asset-risk-premia/">Carry and cross-asset risk premia</a> · <a href="../../02-strategies/f-volatility-and-derivatives/volatility-risk-premium-and-vol-arb/">Volatility risk premium</a>.</li>
+<li>[Verified] Chan, E. P. (2021). <em>Quantitative Trading: How to Build Your Own Algorithmic Trading Business</em> (2nd ed.). Wiley. <a href="https://openlibrary.org/isbn/9781119800064">https://openlibrary.org/isbn/9781119800064</a> (accessed 2026-11) — ★ · The solo-quant workflow: finding ideas, backtesting, execution systems, Kelly sizing. Written for retail traders, but the backtesting chapter is a good catalogue of pitfalls. Backs <a href="../../03-algorithms/c-validation-and-backtesting/backtesting-engines/">Backtesting engines</a> · <a href="../../03-algorithms/c-validation-and-backtesting/backtest-pitfalls/">Backtest pitfalls</a>.</li>
+<li>[Verified] Chan, E. P. (2013). <em>Algorithmic Trading: Winning Strategies and Their Rationale</em>. Wiley. <a href="https://doi.org/10.1002/9781118676998">https://doi.org/10.1002/9781118676998</a> (accessed 2026-11) — ★★ · Runnable mean-reversion and momentum recipes. Read The Basics of Mean Reversion, Implementing Mean Reversion Strategies (Kalman-filter hedge ratios), Mean Reversion of Stocks and ETFs, and Intraday Momentum Strategies. Backs <a href="../../02-strategies/c-statistical-arbitrage/pairs-trading-and-cointegration/">Pairs trading and cointegration</a> · <a href="../../02-strategies/c-statistical-arbitrage/intraday-patterns-and-seasonality/">Intraday patterns</a>.</li>
+<li>[Verified] Tulchinsky, I. et al. (2019). <em>Finding Alphas: A Quantitative Approach to Building Trading Strategies</em> (2nd ed.). Wiley. <a href="https://doi.org/10.1002/9781119571278">https://doi.org/10.1002/9781119571278</a> (accessed 2026-11) — ★ · Short essays by WorldQuant researchers on mining many weak signals at scale. Read Turnover, Alpha Correlation, Backtest – Signal or Overfitting?, Controlling Biases and Machine Learning in Alpha Research. Backs <a href="../../03-algorithms/a-data-and-signals/feature-engineering/">Feature engineering</a> · <a href="../../03-algorithms/a-data-and-signals/signal-transforms/">Signal transforms</a> · <a href="../../03-algorithms/c-validation-and-backtesting/overfitting-and-multiple-testing/">Overfitting and multiple testing</a>.</li>
+<li>[Verified] López de Prado, M. (2018). <em>Advances in Financial Machine Learning</em>. Wiley. <a href="https://www.wiley-vch.de/en/areas-interest/finance-economics-law/advances-in-financial-machine-learning-978-1-119-48208-6">https://www.wiley-vch.de/en/areas-interest/finance-economics-law/advances-in-financial-machine-learning-978-1-119-48208-6</a> (accessed 2026-11) — ★★★ · The standard reference on validating ML strategies. Read ch. 3 (labeling), ch. 4 (sample weights), ch. 7 (cross-validation in finance: purging and embargo), ch. 10 (bet sizing), chs. 11–14 (backtesting, CPCV, backtest statistics) and ch. 16 (HRP). Its validation chapters are much more widely used than its feature recipes <code>[Lore]</code>. Backs <a href="../../03-algorithms/c-validation-and-backtesting/time-series-cross-validation/">Time-series cross-validation</a> · <a href="../../03-algorithms/c-validation-and-backtesting/overfitting-and-multiple-testing/">Overfitting and multiple testing</a> · <a href="../../03-algorithms/d-portfolio-construction/alternatives-to-mvo/">Alternatives to MVO</a>.</li>
+</ul>
+<h2 id="microstructure-market-making-and-execution">Microstructure, market making and execution<a class="headerlink" href="#microstructure-market-making-and-execution" title="Permanent link">&para;</a></h2>
+<ul>
+<li>[Verified] Harris, L. (2003). <em>Trading and Exchanges: Market Microstructure for Practitioners</em>. Oxford University Press (©2003; first published late 2002). <a href="https://doi.org/10.1093/oso/9780195144703.001.0001">https://doi.org/10.1093/oso/9780195144703.001.0001</a> (accessed 2026-11) — ★ · The best plain-English account of who trades and why. Read Orders and Order Properties, Order-Driven Markets, Informed Traders, Order Anticipators, Bluffers and Market Manipulation, Dealers, Bid/Ask Spreads and Arbitrageurs. It predates Reg NMS, so the venue details are out of date, but the economics still hold. Backs <a href="../../01-market-structure/the-limit-order-book/">The limit order book</a> · <a href="../../02-strategies/a-liquidity-provision/equity-market-making/">Equity market making</a> · <a href="../../03-algorithms/f-market-making-and-hft-algorithms/adverse-selection-and-markouts/">Adverse selection and markouts</a>.</li>
+<li>[Verified] Cartea, Á., Jaimungal, S. &amp; Penalva, J. (2015). <em>Algorithmic and High-Frequency Trading</em>. Cambridge University Press. <a href="https://www.cambridge.org/9781107091146">https://www.cambridge.org/9781107091146</a> (accessed 2026-11) — ★★★ · The stochastic-control textbook for execution, market making and stat arb, with closed-form strategies you can code. Read the optimal-execution chapters, ch. 10 (market making) and the pairs-trading chapter. You need Itô calculus. Backs <a href="../../03-algorithms/f-market-making-and-hft-algorithms/quoting-and-inventory-control/">Quoting and inventory control</a> · <a href="../../03-algorithms/e-execution-algorithms/implementation-shortfall-and-almgren-chriss/">Implementation shortfall and Almgren-Chriss</a>.</li>
+<li>[Verified] Bouchaud, J.-P., Bonart, J., Donier, J. &amp; Gould, M. (2018). <em>Trades, Quotes and Prices: Financial Markets Under the Microscope</em>. Cambridge University Press. <a href="https://doi.org/10.1017/9781316659335">https://doi.org/10.1017/9781316659335</a> (accessed 2026-11) — ★★★ · Empirical order-book and price-impact research from a physics-trained team led by Jean-Philippe Bouchaud of CFM. Read Empirical Properties of Limit Order Books, The Impact of Market Orders, The Propagator Model, The Kyle Model and The Profitability of Market-Making. Backs <a href="../../03-algorithms/d-portfolio-construction/transaction-cost-and-impact-models/">Transaction cost and impact models</a> (the <a href="../glossary/#square-root-law">square-root law</a>) · <a href="../../03-algorithms/f-market-making-and-hft-algorithms/order-book-and-trade-flow-signals/">Order-book and trade-flow signals</a>.</li>
+<li>[Verified] Lehalle, C.-A. &amp; Laruelle, S. (eds.) (2018). <em>Market Microstructure in Practice</em> (2nd ed.). World Scientific. <a href="https://doi.org/10.1142/10739">https://doi.org/10.1142/10739</a> (accessed 2026-11) — ★★ · A practitioner and regulator view of fragmentation and optimal trading, centred on Europe and the US. Its three chapters are Monitoring the Fragmentation at Any Scale, Understanding the Stakes and the Roots of Fragmentation, and Optimal Organizations for Optimal Trading. Backs <a href="../../03-algorithms/e-execution-algorithms/smart-order-routing/">Smart order routing</a> · <a href="../../03-algorithms/e-execution-algorithms/execution-algorithms-overview/">Execution algorithms overview</a>.</li>
+<li>[Verified] Johnson, B. (2010). <em>Algorithmic Trading &amp; DMA: An Introduction to Direct Access Trading Strategies</em>. 4Myeloma Press. <a href="https://openlibrary.org/isbn/9780956399205">https://openlibrary.org/isbn/9780956399205</a> (accessed 2026-11) — ★ · The sell-side execution desk's manual: order types, venue mechanics, the main algorithm families (VWAP, TWAP, POV, implementation shortfall) and how to measure them. The structure is pre-2010. Backs <a href="../../03-algorithms/e-execution-algorithms/vwap-twap-pov/">VWAP, TWAP and POV</a> · <a href="../../03-algorithms/e-execution-algorithms/transaction-cost-analysis/">Transaction cost analysis</a>.</li>
+<li>[Verified] Kissell, R. (2014). <em>The Science of Algorithmic Trading and Portfolio Management</em>. Academic Press. <a href="https://shop.elsevier.com/books/the-science-of-algorithmic-trading-and-portfolio-management/kissell/978-0-12-401689-7">https://shop.elsevier.com/books/the-science-of-algorithmic-trading-and-portfolio-management/kissell/978-0-12-401689-7</a> (accessed 2026-11) — ★★ · The buy-side cost-modelling view. Read Algorithmic Transaction Cost Analysis, Market Impact Models, Estimating I-Star Model Parameters, Algorithmic Decision Making Framework and Portfolio Algorithms. <em>Algorithmic Trading Methods</em> (2nd ed., 2020) updates it. Backs <a href="../../03-algorithms/d-portfolio-construction/transaction-cost-and-impact-models/">Transaction cost and impact models</a> · <a href="../../03-algorithms/h-end-to-end-walkthroughs/walkthrough-institutional-execution/">Walkthrough: executing a $500M buy order</a>.</li>
+</ul>
+<h2 id="options-and-volatility">Options and volatility<a class="headerlink" href="#options-and-volatility" title="Permanent link">&para;</a></h2>
+<ul>
+<li>[Verified] Natenberg, S. (2015). <em>Option Volatility and Pricing: Advanced Trading Strategies and Techniques</em> (2nd ed.). McGraw-Hill Education. <a href="https://openlibrary.org/isbn/9780071818773">https://openlibrary.org/isbn/9780071818773</a> (accessed 2026-11) — ★ · How an options market maker thinks: volatility as the traded quantity, the Greeks as risk, spreads, dynamic hedging and skew. It is widely said to be the first book options trading firms hand new hires <code>[Lore]</code>. Backs <a href="../../02-strategies/a-liquidity-provision/options-market-making/">Options market making</a> · <a href="../../03-algorithms/f-market-making-and-hft-algorithms/hedging-algorithms/">Hedging algorithms</a>.</li>
+<li>[Verified] Gatheral, J. (2006). <em>The Volatility Surface: A Practitioner's Guide</em>. Wiley. <a href="https://doi.org/10.1002/9781119202073">https://doi.org/10.1002/9781119202073</a> (accessed 2026-11) — ★★★ · Compact and mathematical. Read Stochastic Volatility and Local Volatility, The Heston Model, The Implied Volatility Surface, Volatility Surface Asymptotics, Dynamics of the Volatility Surface and Volatility Derivatives. Backs <a href="../../03-algorithms/f-market-making-and-hft-algorithms/options-pricing-and-vol-surfaces-for-mm/">Options pricing and vol surfaces for MM</a> · <a href="../../03-algorithms/h-end-to-end-walkthroughs/walkthrough-options-market-maker/">Walkthrough: an options market maker</a>.</li>
+<li>[Verified] Sinclair, E. (2013). <em>Volatility Trading</em> (2nd ed.). Wiley. <a href="https://doi.org/10.1002/9781118662724">https://doi.org/10.1002/9781118662724</a> (accessed 2026-11) — ★★ · The trader's book on the <a href="../glossary/#variance-risk-premium">variance risk premium</a>. Read Volatility Measurement, Volatility Forecasting, Hedging, Distribution of Hedged Option Positions, Money Management and Trade Evaluation. Backs <a href="../../02-strategies/f-volatility-and-derivatives/volatility-risk-premium-and-vol-arb/">Volatility risk premium and vol arb</a> · <a href="../../03-algorithms/f-market-making-and-hft-algorithms/hedging-algorithms/">Hedging algorithms</a>.</li>
+</ul>
+<h2 id="history-and-industry-context">History and industry context<a class="headerlink" href="#history-and-industry-context" title="Permanent link">&para;</a></h2>
+<ul>
+<li>[Verified] MacKenzie, D. (2021). <em>Trading at the Speed of Light: How Ultrafast Algorithms Are Transforming Financial Markets</em>. Princeton University Press. <a href="https://press.princeton.edu/books/hardcover/9780691211381/trading-at-the-speed-of-light">https://press.princeton.edu/books/hardcover/9780691211381/trading-at-the-speed-of-light</a> (accessed 2026-11) — ★ · A sociologist's interview-based study of HFT. Read To the Towers (microwave links), Dealers, Clients, and the Politics of Market Structure, and How HFT Algorithms Interact. Backs <a href="../../02-strategies/b-speed-and-structural/latency-arbitrage/">Latency arbitrage</a> · <a href="../../05-infrastructure/colocation-networks-and-the-speed-of-light/">Colocation, networks and the speed of light</a>.</li>
+<li>[Verified] Zuckerman, G. (2019). <em>The Man Who Solved the Market: How Jim Simons Launched the Quant Revolution</em>. Portfolio/Penguin. <a href="https://www.penguinrandomhouse.com/books/557104/the-man-who-solved-the-market-by-gregory-zuckerman/">https://www.penguinrandomhouse.com/books/557104/the-man-who-solved-the-market-by-gregory-zuckerman/</a> (accessed 2026-11) — ★ · A history of Renaissance Technologies. Read it for culture and history. Every firm detail in it is journalism, not disclosure, so treat it as <code>[Reported]</code>. Backs <a href="../../02-strategies/c-statistical-arbitrage/stat-arb-overview-and-history/">Stat arb: overview and history</a> · <a href="../../02-strategies/h-cross-cutting/evolution-of-quant-strategies/">Evolution of quant strategies</a>.</li>
+<li>[Verified] Patterson, S. (2010). <em>The Quants: How a New Breed of Math Whizzes Conquered Wall Street and Nearly Destroyed It</em>. Crown Business. <a href="https://openlibrary.org/isbn/9780307453372">https://openlibrary.org/isbn/9780307453372</a> (accessed 2026-11) — ★ · A narrative of the August 2007 <a href="../glossary/#quant-quake">quant quake</a> and the 2008 crisis through the people involved. Read it as context for the crowding mechanics, which Khandani &amp; Lo document properly. Backs <a href="../../02-strategies/h-cross-cutting/strategy-failure-gallery/">Strategy failure gallery</a> · <a href="../../02-strategies/e-risk-premia-and-factors/factor-timing-crowding-and-quant-winters/">Factor timing, crowding and quant winters</a>.</li>
+</ul>
+<h2 id="more-good-books-beyond-the-required-list">More good books (beyond the required list)<a class="headerlink" href="#more-good-books-beyond-the-required-list" title="Permanent link">&para;</a></h2>
+<ul>
+<li>[Verified] Hasbrouck, J. (2007). <em>Empirical Market Microstructure: The Institutions, Economics, and Econometrics of Securities Trading</em>. Oxford University Press. <a href="https://doi.org/10.1093/oso/9780195301649.001.0001">https://doi.org/10.1093/oso/9780195301649.001.0001</a> (accessed 2026-11) — ★★★ · How to measure spreads, price impact and price discovery: the Roll model, trade-and-quote VARs, information shares. Backs <a href="../../03-algorithms/f-market-making-and-hft-algorithms/adverse-selection-and-markouts/">Adverse selection and markouts</a> · <a href="../../03-algorithms/e-execution-algorithms/transaction-cost-analysis/">Transaction cost analysis</a>.</li>
+<li>[Verified] O'Hara, M. (1995). <em>Market Microstructure Theory</em>. Blackwell. <a href="https://openlibrary.org/isbn/9781557864437">https://openlibrary.org/isbn/9781557864437</a> (accessed 2026-11) — ★★★ · The theory survey: inventory models (Ho-Stoll and others), then information models (Glosten-Milgrom, Kyle). It is the background for every quoting model in module 03. Backs <a href="../../03-algorithms/f-market-making-and-hft-algorithms/quoting-and-inventory-control/">Quoting and inventory control</a> · <a href="../../03-algorithms/f-market-making-and-hft-algorithms/adverse-selection-and-markouts/">Adverse selection and markouts</a>.</li>
+<li>[Verified] Guéant, O. (2016). <em>The Financial Mathematics of Market Liquidity: From Optimal Execution to Market Making</em>. Chapman &amp; Hall/CRC. <a href="https://doi.org/10.1201/b21350">https://doi.org/10.1201/b21350</a> (accessed 2026-11) — ★★★ · The <a href="../glossary/#glft-model">GLFT</a> author's monograph. It is the cleanest derivation of the closed-form quoting and execution approximations used in the labs. Backs <a href="../../03-algorithms/f-market-making-and-hft-algorithms/quoting-and-inventory-control/">Quoting and inventory control</a> · <a href="../../03-algorithms/e-execution-algorithms/implementation-shortfall-and-almgren-chriss/">Implementation shortfall and Almgren-Chriss</a>.</li>
+<li>[Verified] Paleologo, G. A. (2025). <em>The Elements of Quantitative Investing</em>. Wiley. <a href="https://www.wiley-vch.de/en/areas-interest/finance-economics-law/the-elements-of-quantitative-investing-978-1-394-26545-9">https://www.wiley-vch.de/en/areas-interest/finance-economics-law/the-elements-of-quantitative-investing-978-1-394-26545-9</a> (accessed 2026-11) — ★★ · Factor models done carefully: linear models of returns, evaluating risk, fundamental and statistical (PCA) factor models, then portfolio management and post-trade analysis. The publisher's bio describes the author as head of quantitative research at Balyasny. Backs <a href="../../03-algorithms/d-portfolio-construction/risk-models/">Risk models</a> · <a href="../../02-strategies/c-statistical-arbitrage/factor-residual-mean-reversion/">Factor-residual mean reversion</a>.</li>
+<li>[Verified] Ang, A. (2014). <em>Asset Management: A Systematic Approach to Factor Investing</em>. Oxford University Press. <a href="https://doi.org/10.1093/acprof:oso/9780199959327.001.0001">https://doi.org/10.1093/acprof:oso/9780199959327.001.0001</a> (accessed 2026-11) — ★★ · The textbook case for treating factors, not asset classes, as the unit of allocation. Strong on value, momentum, low-vol and the economics of each. Backs <a href="../../02-strategies/e-risk-premia-and-factors/factor-investing-fundamentals/">Factor investing fundamentals</a> · <a href="../../02-strategies/e-risk-premia-and-factors/value-quality-low-vol/">Value, quality and low volatility</a>.</li>
+<li>[Verified] López de Prado, M. (2020). <em>Machine Learning for Asset Managers</em>. Cambridge University Press (Elements in Quantitative Finance). <a href="https://doi.org/10.1017/9781108883658">https://doi.org/10.1017/9781108883658</a> (accessed 2026-11) — ★★ · A short follow-up to AFML on denoising covariance matrices, clustering, feature importance, nested-clustered portfolio optimization and test-set overfitting. Backs <a href="../../03-algorithms/d-portfolio-construction/covariance-estimation-and-shrinkage/">Covariance estimation and shrinkage</a> · <a href="../../03-algorithms/c-validation-and-backtesting/overfitting-and-multiple-testing/">Overfitting and multiple testing</a>.</li>
+<li>[Verified] Kelly, B. &amp; Xiu, D. (2023). <em>Financial Machine Learning</em>. <em>Foundations and Trends in Finance</em> 13(3–4), 205–363. <a href="https://doi.org/10.1561/0500000064">https://doi.org/10.1561/0500000064</a> (accessed 2026-11) — ★★★ · A 160-page survey by two of the Gu-Kelly-Xiu authors covering ML for return prediction, factor models and portfolio choice. It is the academic counterpart to AFML, and an NBER working-paper version (w31502) is free. Backs <a href="../../02-strategies/c-statistical-arbitrage/ml-driven-short-horizon-alpha/">ML-driven short-horizon alpha</a> · <a href="../../03-algorithms/b-forecasting-models/neural-nets-and-sequence-models/">Neural nets and sequence models</a>.</li>
+<li>[Verified] Jansen, S. (2020). <em>Machine Learning for Algorithmic Trading</em> (2nd ed.). Packt. <a href="https://openlibrary.org/isbn/9781839217715">https://openlibrary.org/isbn/9781839217715</a> (accessed 2026-11) — ★★ · End-to-end Python notebooks (alphalens, zipline-reloaded, LightGBM, NLP, deep learning), with a companion site at ml4trading.io. The free data it uses has survivorship and look-ahead problems; see <a href="../datasets-and-tools/">Datasets and tools</a>. Backs <a href="../../03-algorithms/b-forecasting-models/tree-ensembles/">Tree ensembles</a> · <a href="../../03-algorithms/c-validation-and-backtesting/backtesting-engines/">Backtesting engines</a>.</li>
+</ul>
+<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../papers/">Papers</a>: the primary research behind every family, grouped the same way.</li>
+<li><a href="../talks-podcasts-blogs/">Talks, podcasts and blogs</a> and <a href="../datasets-and-tools/">Datasets and tools</a>.</li>
+<li><a href="../../00-start-here/learning-paths/">Learning paths</a>: where each book fits in a reading plan.</li>
+<li><a href="../../02-strategies/how-quants-evaluate-a-strategy/">How quants evaluate a strategy</a> and <a href="../../03-algorithms/algorithm-map/">Algorithm map</a>: the pages most of these books feed.</li>
+</ul>
 
 
 
