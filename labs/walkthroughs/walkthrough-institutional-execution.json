@@ -1,0 +1,263 @@
+{
+  "seed": 7,
+  "order_usd": 500000000.0,
+  "order_shares": 10000000.0,
+  "pct_adv": 50.0,
+  "pretrade_sqrt": {
+    "Y": 0.5,
+    "peak_impact_bps": 70.7107,
+    "avg_fill_impact_bps": 47.1405,
+    "peak_impact_bps_Y1": 141.421,
+    "avg_fill_impact_bps_Y1": 94.2809,
+    "one_day_10pct_peak_bps": 31.6228,
+    "one_day_10pct_avg_bps": 21.0819
+  },
+  "frontier": {
+    "0": {
+      "expected_bps": 46.0,
+      "expected_usd": 2300000.0,
+      "sd_bps": 254.323,
+      "sd_usd": 12716100.0,
+      "permanent_bps": 25.0,
+      "spread_bps": 1.5,
+      "temporary_bps": 19.5,
+      "peak_pct_adv": 10.0,
+      "sqrt_impact_expected_bps": 46.853,
+      "certainty_equivalent_bps": 46.0,
+      "half_life_days": null,
+      "daily_shares": [
+        2000000.0,
+        2000000.0,
+        2000000.0,
+        2000000.0,
+        2000000.0
+      ],
+      "daily_pct_adv": [
+        10.0,
+        10.0,
+        10.0,
+        10.0,
+        10.0
+      ]
+    },
+    "1e-09": {
+      "expected_bps": 46.1036,
+      "expected_usd": 2305180.0,
+      "sd_bps": 245.838,
+      "sd_usd": 12291900.0,
+      "permanent_bps": 25.0,
+      "spread_bps": 1.5,
+      "temporary_bps": 19.6036,
+      "peak_pct_adv": 11.6028,
+      "sqrt_impact_expected_bps": 46.8823,
+      "certainty_equivalent_bps": 49.1254,
+      "half_life_days": 4.83968,
+      "daily_shares": [
+        2235970.0,
+        2076440.0,
+        1959570.0,
+        1882970.0,
+        1845060.0
+      ],
+      "daily_pct_adv": [
+        11.1798,
+        10.3822,
+        9.79785,
+        9.41484,
+        9.22528
+      ]
+    },
+    "1e-08": {
+      "expected_bps": 51.2618,
+      "expected_usd": 2563090.0,
+      "sd_bps": 196.837,
+      "sd_usd": 9841840.0,
+      "permanent_bps": 25.0,
+      "spread_bps": 1.5,
+      "temporary_bps": 24.7618,
+      "peak_pct_adv": 22.6329,
+      "sqrt_impact_expected_bps": 48.5811,
+      "certainty_equivalent_bps": 70.6341,
+      "half_life_days": 1.53056,
+      "daily_shares": [
+        3744260.0,
+        2439170.0,
+        1642940.0,
+        1189480.0,
+        984158.0
+      ],
+      "daily_pct_adv": [
+        18.7213,
+        12.1958,
+        8.21472,
+        5.94738,
+        4.92079
+      ]
+    },
+    "1e-07": {
+      "expected_bps": 96.1442,
+      "expected_usd": 4807210.0,
+      "sd_bps": 109.869,
+      "sd_usd": 5493450.0,
+      "permanent_bps": 25.0,
+      "spread_bps": 1.5,
+      "temporary_bps": 69.6442,
+      "peak_pct_adv": 66.6668,
+      "sqrt_impact_expected_bps": 60.8355,
+      "certainty_equivalent_bps": 156.5,
+      "half_life_days": 0.484377,
+      "daily_shares": [
+        7609350.0,
+        1819230.0,
+        435238.0,
+        105391.0,
+        30798.2
+      ],
+      "daily_pct_adv": [
+        38.0467,
+        9.09613,
+        2.17619,
+        0.526954,
+        0.153991
+      ]
+    },
+    "1e-06": {
+      "expected_bps": 241.841,
+      "expected_usd": 12092100.0,
+      "sd_bps": 52.4267,
+      "sd_usd": 2621330.0,
+      "permanent_bps": 25.0,
+      "spread_bps": 1.5,
+      "temporary_bps": 215.341,
+      "peak_pct_adv": 180.907,
+      "sqrt_impact_expected_bps": 83.9449,
+      "certainty_equivalent_bps": 379.269,
+      "half_life_days": 0.154332,
+      "daily_shares": [
+        9887940.0,
+        110809.0,
+        1241.77,
+        13.9159,
+        0.157696
+      ],
+      "daily_pct_adv": [
+        49.4397,
+        0.554044,
+        0.00620887,
+        6.95796e-05,
+        7.88478e-07
+      ]
+    }
+  },
+  "chosen_lambda": 1e-08,
+  "chosen_vs_twap": {
+    "extra_cost_bps": 5.26176,
+    "extra_cost_usd": 263088.0,
+    "sd_cut_usd": 2874290.0
+  },
+  "twap_permanent_split": {
+    "per_day_bps": 10.0,
+    "carried_by_day": [
+      0.0,
+      10.0,
+      20.0,
+      30.0,
+      40.0
+    ],
+    "carried_avg_bps": 20.0,
+    "within_day_bps": 5.0
+  },
+  "lab16_one_day_10pct_linear_bps": {
+    "temporary": 20.0,
+    "permanent": 5.0,
+    "spread": 1.5
+  },
+  "close_plan": {
+    "auction_print_shares": 2000000.0,
+    "cap_shares": 300000.0,
+    "moc_shares": [
+      300000.0,
+      243917.0,
+      164294.0,
+      118948.0,
+      98415.8
+    ],
+    "moc_total_shares": 925574.0,
+    "moc_total_usd": 46278700.0,
+    "moc_pct_of_order": 9.25574,
+    "close_heavy_day1_pct_of_auction": 56.1638
+  },
+  "child_orders": {
+    "first_interval_shares": 452658.0,
+    "first_interval_usd": 22632900.0,
+    "avg_child_shares": 250,
+    "n_children_total": 40000.0,
+    "n_children_first_interval": 1810.63
+  },
+  "tca": {
+    "path_index": 32529,
+    "path_percentile": 75,
+    "z_delay": -0.106236,
+    "decision_px": 50.0336,
+    "arrival_px": 50.0,
+    "avg_fill_px": 50.9182,
+    "interval_vwap": 51.1401,
+    "close_day5": 51.594,
+    "day_closes": [
+      50.7108,
+      51.4532,
+      51.7481,
+      51.736,
+      51.594
+    ],
+    "max_fill_px": 52.4997,
+    "usd": {
+      "delay": -335947.0,
+      "spread": 75000.0,
+      "permanent": 1250000.0,
+      "temporary": 1238090.0,
+      "timing": 6618820.0,
+      "opportunity": 2.90655e-09,
+      "commission": 100000.0,
+      "total": 8945960.0,
+      "is_vs_arrival": 9181910.0
+    },
+    "bps_of_decision": {
+      "delay": -6.71443,
+      "spread": 1.49899,
+      "permanent": 24.9832,
+      "temporary": 24.7451,
+      "timing": 132.288,
+      "opportunity": 5.8092e-14,
+      "commission": 1.99866,
+      "total": 178.799
+    },
+    "is_vs_arrival_bps": 183.638,
+    "slippage_vs_vwap_bps": -43.4013,
+    "slippage_vs_close_bps": -130.993,
+    "pretrade_expected_bps": 51.2618,
+    "pretrade_sd_bps": 196.837,
+    "same_path_is_vs_arrival_bps": {
+      "0": 243.708,
+      "1e-08": 183.638,
+      "1e-07": 105.17
+    },
+    "mc_mean_bps": 50.479,
+    "mc_sd_bps": 197.185
+  },
+  "lab17": {
+    "twap": 14.0271,
+    "vwap": 12.7691,
+    "pov10": 13.0889,
+    "close_heavy": 17.8739,
+    "pov10_pct_days_complete": 60.8,
+    "vwap_minus_twap_bps": -1.25796,
+    "close_heavy_minus_vwap_bps": 5.10479
+  },
+  "lab18_usd_on_order": {
+    "fee_greedy_minus_bandit_passive": 19826.8,
+    "fee_greedy_minus_bandit_aggressive": 13127.0,
+    "fill_weighted_minus_bandit_passive": 67846.5,
+    "fill_weighted_minus_bandit_aggressive": 26444.3
+  }
+}
