@@ -100,6 +100,8 @@ def main() -> int:
     print("-" * 78)
     print(f"Total words: {total:,} (target >= 110,000)")
     print(f"Modules 02+03: {prio:,} words = {report['priority_share']:.0%} of total (target >= 75,000, ~70%)")
+    budgeted = total - per_module["10-self-test"]["words"]
+    print(f"  share of modules with a word budget (excludes 10 self-test): {prio / budgeted:.0%}" if budgeted else "")
     print(f"Mermaid diagrams: {mer_total} total (target >= 140), {mer_prio} in 02-03 (target >= 100)")
     print(f"Core Path: {core_words:,} words (target <= ~25,000), "
           f"{report['core_path_share_02_03']:.0%} from 02-03 (target >= 60%)")

@@ -40,7 +40,7 @@ That is 85 minutes, with five to spare.
 
 ## The 4-hour Core Path
 
-These are the 14 pages listed in `scripts/core_path.txt`, in order. They total ~24.7k prose words, ~85% of them from modules 02–03, and carry no `TODO(verify)` markers. The order runs from the maps and the evaluation lens to market making (microseconds), then stat arb and cross-sectional alpha (days), then the portfolio and execution stages that turn a forecast into P&L. Labs are synthetic-data scripts: run one with `python labs/NN-name/lab.py` and read its README's "What this toy misses vs the real world".
+These are the 14 pages listed in `scripts/core_path.txt`, in order. They total ~24.7k prose words, ~85% of them from modules 02–03, and carry no open verification items. The order runs from the maps and the evaluation lens to market making (microseconds), then stat arb and cross-sectional alpha (days), then the portfolio and execution stages that turn a forecast into P&L. Labs are synthetic-data scripts: run one with `python labs/NN-name/lab.py` and read its README's "What this toy misses vs the real world".
 
 - [ ] 1. [The big picture](the-big-picture.md) (12 min)
 - [ ] 2. [Life of a stock order](../01-market-structure/life-of-a-stock-order.md) (10 min). Optional lab: [18 smart order router](https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/18-smart-order-router)
