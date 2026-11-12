@@ -5418,6 +5418,77 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-this-module-covers" class="md-nav__link">
+    <span class="md-ellipsis">
+      What this module covers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-eight-sections" class="md-nav__link">
+    <span class="md-ellipsis">
+      The eight sections
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-read-an-algorithm-card" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to read an algorithm card
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#labs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Labs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#end-to-end-walkthroughs" class="md-nav__link">
+    <span class="md-ellipsis">
+      End-to-end walkthroughs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related pages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sources
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -5435,11 +5506,255 @@
 
 
 <h1 id="algorithms-overview">Algorithms: overview<a class="headerlink" href="#algorithms-overview" title="Permanent link">&para;</a></h1>
-<!-- STUB -->
-<div class="admonition note">
-<p class="admonition-title">Not yet written</p>
-<p>This page is scheduled for Phase 1 of the build. See <code>PLAN.md</code> in the repository.</p>
-</div>
+<blockquote>
+<p><strong>TL;DR</strong></p>
+<ul>
+<li>This module covers the concrete methods inside a quant firm's pipeline: 39 algorithm cards in seven sections (A–G), three overview pages and four end-to-end walkthroughs (H).</li>
+<li>Start with <a href="there-is-no-single-algorithm/">There is no single algorithm</a>, then use the <a href="algorithm-map/">algorithm map</a> to find any card by its ID.</li>
+<li>Every card has the same shape: a header table you can skim in 30 seconds, then intuition, pseudocode of 40 lines or fewer, a worked example, practitioner tweaks, failure modes and questions to ask.</li>
+<li>Twenty runnable Python labs on synthetic data back the cards. The walkthroughs stitch the cards together using the labs' numbers.</li>
+</ul>
+</blockquote>
+<p><strong>Level:</strong> Core · <strong>Read time:</strong> ~6 min · <strong>Last verified:</strong> 2026-11</p>
+<h2 id="what-this-module-covers">What this module covers<a class="headerlink" href="#what-this-module-covers" title="Permanent link">&para;</a></h2>
+<p><a href="../02-strategies/">Strategies</a> explains what quant firms trade and why it pays. This module explains how they do it. Each card covers one method (a <a href="../09-reference/glossary/#risk-model">risk model</a>, a <a href="../09-reference/glossary/#vwap">VWAP</a> algorithm, a quoting rule) in enough depth that you can follow a quant's description of it, read its pseudocode, and ask where it breaks. Cards link to the strategies that use them, and the <a href="../02-strategies/h-cross-cutting/strategy-x-algorithm-matrix/">strategy x algorithm matrix</a> shows the full mapping.</p>
+<pre class="mermaid"><code>flowchart LR
+  A["A Data and signals&lt;br/&gt;D1 to D4"] --&gt; B["B Forecasting&lt;br/&gt;F1 to F6"]
+  B --&gt; C["C Validation&lt;br/&gt;V1 to V4"]
+  C --&gt; D["D Portfolio construction&lt;br/&gt;P1 to P7"]
+  D --&gt; E["E Execution&lt;br/&gt;E1 to E6"]
+  E --&gt; G["G Live trading&lt;br/&gt;L1 to L3"]
+  F["F Market making and HFT&lt;br/&gt;M1 to M9"] --&gt; G
+  G -.-&gt;|"feedback"| A
+  G -.-&gt;|"feedback"| F</code></pre>
+<h2 id="the-eight-sections">The eight sections<a class="headerlink" href="#the-eight-sections" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Section</th>
+<th>Cards</th>
+<th>The question it answers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="a-data-and-signals/point-in-time-data-and-cleaning/">A. Data and signals</a></td>
+<td>D1–D4</td>
+<td>Is the data honest, and does this signal predict anything?</td>
+</tr>
+<tr>
+<td><a href="b-forecasting-models/linear-models-and-regularization/">B. Forecasting models</a></td>
+<td>F1–F6</td>
+<td>How do many signals become one expected return per stock?</td>
+</tr>
+<tr>
+<td><a href="c-validation-and-backtesting/time-series-cross-validation/">C. Validation and backtesting</a></td>
+<td>V1–V4</td>
+<td>Is the backtest telling the truth?</td>
+</tr>
+<tr>
+<td><a href="d-portfolio-construction/risk-models/">D. Portfolio construction</a></td>
+<td>P1–P7</td>
+<td>Given forecasts, risk and costs, what should we hold?</td>
+</tr>
+<tr>
+<td><a href="e-execution-algorithms/execution-algorithms-overview/">E. Execution algorithms</a></td>
+<td>E1–E6</td>
+<td>How do we get there without moving the price?</td>
+</tr>
+<tr>
+<td><a href="f-market-making-and-hft-algorithms/anatomy-of-an-hft-trading-loop/">F. Market making and HFT</a></td>
+<td>M1–M9</td>
+<td>Where should we quote, and how do we avoid being picked off?</td>
+</tr>
+<tr>
+<td><a href="g-live-trading/live-monitoring-and-pnl-attribution/">G. Live trading</a></td>
+<td>L1–L3</td>
+<td>Is it still working, and when do we retire it?</td>
+</tr>
+<tr>
+<td><a href="h-end-to-end-walkthroughs/walkthrough-mid-frequency-stat-arb/">H. End-to-end walkthroughs</a></td>
+<td>4 walkthroughs</td>
+<td>How do the cards fit together on real numbers?</td>
+</tr>
+</tbody>
+</table>
+<h2 id="how-to-read-an-algorithm-card">How to read an algorithm card<a class="headerlink" href="#how-to-read-an-algorithm-card" title="Permanent link">&para;</a></h2>
+<p>The line under the title gives three labels. <strong>Level</strong> is <em>Core</em> (on the main reading path) or <em>Deep dive</em> (optional). <strong>Pipeline stage</strong> is one of data, signal, forecast, validation, portfolio, execution, market making or live. <strong>Last verified</strong> is the month of the last fact check. Next comes the header table:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>What it tells you</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Purpose (the question it answers)</td>
+<td>Why the method exists. If you remember one line, remember this one.</td>
+</tr>
+<tr>
+<td>Inputs → Outputs</td>
+<td>What it consumes and produces, which is how it plugs into its neighbours on the <a href="algorithm-map/">map</a>.</td>
+</tr>
+<tr>
+<td>Used by strategies</td>
+<td>Dossiers that rely on it materially. The matrix is generated from these links.</td>
+</tr>
+<tr>
+<td>Latency / compute regime</td>
+<td>Nanoseconds, microseconds, milliseconds, seconds or overnight batch. This sets the kind of engineering it needs.</td>
+</tr>
+<tr>
+<td>Key parameters</td>
+<td>The knobs and their typical ranges, so you can tell a sensible setting from a strange one.</td>
+</tr>
+<tr>
+<td>Main failure modes</td>
+<td>How it breaks in production. Usually the best thing to talk about.</td>
+</tr>
+<tr>
+<td>Lab</td>
+<td>The runnable lab, or "—".</td>
+</tr>
+</tbody>
+</table>
+<p>The body always runs in the same order. It starts with intuition and a diagram that highlights the card's place in the pipeline. Then come the algorithm itself (plain steps, then commented pseudocode matching the lab code), a worked example with numbers, and how practitioners tune the parameters. The "textbook vs practice" section sources or tags every claim. After that: how to tell whether the method is working, its failure modes, sample practitioner sentences with glosses, and questions to ask, ordered basic to sharp, with 🔒 marking proprietary territory. Math sits in a collapsed block at the end. Confidence tags (<code>[Verified]</code>, <code>[Reported]</code>, <code>[Estimate]</code>, <code>[Lore]</code>) are explained on the <a href="../#how-to-read-confidence-tags">home page</a>.</p>
+<h2 id="labs">Labs<a class="headerlink" href="#labs" title="Permanent link">&para;</a></h2>
+<p>Each lab is a short, deterministic Python script on synthetic data, so it shows mechanisms rather than real <a href="../09-reference/glossary/#alpha">alpha</a>. Its pseudocode in the cards uses the same names and parameters as the lab.</p>
+<table>
+<thead>
+<tr>
+<th>Lab</th>
+<th>Cards it supports</th>
+<th>Also supports</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/01-matching-engine-order-book">01 Matching engine and order book</a></td>
+<td><a href="f-market-making-and-hft-algorithms/queue-position-and-order-placement/">M6</a></td>
+<td><a href="../01-market-structure/the-limit-order-book/">The limit order book</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/02-microprice-fair-value">02 Microprice and fair value</a></td>
+<td><a href="f-market-making-and-hft-algorithms/fair-value-and-microprice/">M2</a></td>
+<td>—</td>
+</tr>
+<tr>
+<td><a href="https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/03-order-flow-imbalance">03 Order-flow imbalance</a></td>
+<td><a href="f-market-making-and-hft-algorithms/order-book-and-trade-flow-signals/">M3</a></td>
+<td>—</td>
+</tr>
+<tr>
+<td><a href="https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/04-markout-analysis">04 Markout analysis</a></td>
+<td><a href="f-market-making-and-hft-algorithms/adverse-selection-and-markouts/">M5</a></td>
+<td><a href="../02-strategies/a-liquidity-provision/equity-market-making/">Equity market making</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/05-avellaneda-stoikov-glft-quoting">05 Avellaneda-Stoikov and GLFT quoting</a></td>
+<td><a href="f-market-making-and-hft-algorithms/quoting-and-inventory-control/">M4</a></td>
+<td><a href="../02-strategies/a-liquidity-provision/equity-market-making/">Equity market making</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/06-options-mm-delta-hedging">06 Options MM and delta hedging</a></td>
+<td><a href="f-market-making-and-hft-algorithms/options-pricing-and-vol-surfaces-for-mm/">M8</a>, <a href="f-market-making-and-hft-algorithms/hedging-algorithms/">M7</a></td>
+<td><a href="../02-strategies/a-liquidity-provision/options-market-making/">Options market making</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/07-etf-nav-arbitrage">07 ETF NAV arbitrage</a></td>
+<td>—</td>
+<td><a href="../02-strategies/a-liquidity-provision/etf-market-making/">ETF market making</a>, <a href="../02-strategies/b-speed-and-structural/etf-and-index-arbitrage/">ETF and index arbitrage</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/08-pairs-cointegration">08 Pairs and cointegration</a></td>
+<td>—</td>
+<td><a href="../02-strategies/c-statistical-arbitrage/pairs-trading-and-cointegration/">Pairs trading</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/09-pca-residual-stat-arb">09 PCA residual stat arb</a></td>
+<td>—</td>
+<td><a href="../02-strategies/c-statistical-arbitrage/factor-residual-mean-reversion/">Factor-residual mean reversion</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/10-reversal-momentum-costs">10 Reversal, momentum and costs</a></td>
+<td>—</td>
+<td><a href="../02-strategies/c-statistical-arbitrage/short-term-cross-sectional-reversal/">Short-term reversal</a>, <a href="../02-strategies/e-risk-premia-and-factors/momentum/">Momentum</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/11-signal-transforms-ic">11 Signal transforms and IC</a></td>
+<td><a href="a-data-and-signals/signal-transforms/">D3</a>, <a href="a-data-and-signals/evaluating-signals/">D4</a></td>
+<td>—</td>
+</tr>
+<tr>
+<td><a href="https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/12-alpha-combination-purged-cv">12 Alpha combination and purged CV</a></td>
+<td><a href="b-forecasting-models/alpha-combination-and-ensembling/">F5</a>, <a href="c-validation-and-backtesting/time-series-cross-validation/">V1</a></td>
+<td>—</td>
+</tr>
+<tr>
+<td><a href="https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/13-backtest-overfitting-dsr-pbo">13 Backtest overfitting: DSR and PBO</a></td>
+<td><a href="c-validation-and-backtesting/overfitting-and-multiple-testing/">V4</a></td>
+<td>—</td>
+</tr>
+<tr>
+<td><a href="https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/14-risk-model-mvo">14 Risk model and MVO</a></td>
+<td><a href="d-portfolio-construction/risk-models/">P1</a>, <a href="d-portfolio-construction/covariance-estimation-and-shrinkage/">P2</a>, <a href="d-portfolio-construction/mean-variance-optimization/">P3</a></td>
+<td>—</td>
+</tr>
+<tr>
+<td><a href="https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/15-trading-toward-aim">15 Trading toward the aim</a></td>
+<td><a href="d-portfolio-construction/multi-period-and-trading-toward-aim/">P6</a></td>
+<td>—</td>
+</tr>
+<tr>
+<td><a href="https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/16-almgren-chriss-frontier">16 Almgren-Chriss frontier</a></td>
+<td><a href="e-execution-algorithms/implementation-shortfall-and-almgren-chriss/">E3</a></td>
+<td>—</td>
+</tr>
+<tr>
+<td><a href="https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/17-vwap-twap-pov">17 VWAP, TWAP and POV</a></td>
+<td><a href="e-execution-algorithms/vwap-twap-pov/">E2</a>, <a href="e-execution-algorithms/execution-algorithms-overview/">E1</a></td>
+<td>—</td>
+</tr>
+<tr>
+<td><a href="https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/18-smart-order-router">18 Smart order router</a></td>
+<td><a href="e-execution-algorithms/smart-order-routing/">E4</a></td>
+<td>—</td>
+</tr>
+<tr>
+<td><a href="https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/19-trend-following-vol-targeting">19 Trend following and vol targeting</a></td>
+<td><a href="d-portfolio-construction/position-sizing-and-risk-budgeting/">P7</a></td>
+<td><a href="../02-strategies/g-futures-and-macro-context/trend-following-and-ctas/">Trend following</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/FrankHuang94/quant_trading_claude/tree/main/labs/20-index-reconstitution-event-study">20 Index reconstitution event study</a></td>
+<td>—</td>
+<td><a href="../02-strategies/d-mid-frequency-alpha/flow-driven-strategies/">Flow-driven strategies</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="end-to-end-walkthroughs">End-to-end walkthroughs<a class="headerlink" href="#end-to-end-walkthroughs" title="Permanent link">&para;</a></h2>
+<p>The capstones. Each follows one business through a full cycle with numbers taken from the labs:</p>
+<ul>
+<li><a href="h-end-to-end-walkthroughs/walkthrough-mid-frequency-stat-arb/">A mid-frequency stat-arb book</a>: universe → three alphas → IC-weighted combination → risk model → optimizer with costs → VWAP/IS execution → next-day attribution.</li>
+<li><a href="h-end-to-end-walkthroughs/walkthrough-etf-market-maker/">A day at an ETF market maker</a>: fair value from basket and futures, quoting, inventory, creation/redemption, hedging, markouts, end-of-day P&amp;L.</li>
+<li><a href="h-end-to-end-walkthroughs/walkthrough-options-market-maker/">An options market maker</a>: vol surface → theoretical values → quotes → delta/vega hedging → Greeks P&amp;L attribution.</li>
+<li><a href="h-end-to-end-walkthroughs/walkthrough-institutional-execution/">Executing a $500M buy order</a>: schedule choice, child orders, venues, the close, and the TCA report.</li>
+</ul>
+<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="there-is-no-single-algorithm/">There is no single algorithm</a>: the five canonical pipelines</li>
+<li><a href="algorithm-map/">Algorithm map</a>: all 39 cards on one diagram, with latency regimes</li>
+<li><a href="../02-strategies/">Strategies: the map</a></li>
+<li><a href="../labs/">Labs</a></li>
+<li><a href="../07-conversation-playbook/questions-to-ask/">Questions to ask</a></li>
+</ul>
+<h2 id="sources">Sources<a class="headerlink" href="#sources" title="Permanent link">&para;</a></h2>
+<ul>
+<li>[Verified] López de Prado, M. (2018). <em>Advances in Financial Machine Learning</em>. Wiley. <a href="https://www.wiley-vch.de/en/areas-interest/finance-economics-law/advances-in-financial-machine-learning-978-1-119-48208-6">https://www.wiley-vch.de/en/areas-interest/finance-economics-law/advances-in-financial-machine-learning-978-1-119-48208-6</a> (accessed 2026-11)</li>
+<li>[Verified] Isichenko, M. (2021). <em>Quantitative Portfolio Management: The Art and Science of Statistical Arbitrage</em>. Wiley. <a href="https://www.oreilly.com/library/view/-/9781119821328/">https://www.oreilly.com/library/view/-/9781119821328/</a> (accessed 2026-11)</li>
+<li>[Verified] Kissell, R. (2020). <em>Algorithmic Trading Methods</em>, 2nd ed. Academic Press. <a href="https://shop.elsevier.com/books/algorithmic-trading-methods/kissell/978-0-12-815630-8">https://shop.elsevier.com/books/algorithmic-trading-methods/kissell/978-0-12-815630-8</a> (accessed 2026-11)</li>
+</ul>
 
 
 

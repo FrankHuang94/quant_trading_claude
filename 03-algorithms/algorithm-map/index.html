@@ -2354,6 +2354,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Algorithm map
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -2363,6 +2374,79 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-read-the-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to read the map
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-master-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      The master map
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-39-cards" class="md-nav__link">
+    <span class="md-ellipsis">
+      The 39 cards
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-feedback-loops" class="md-nav__link">
+    <span class="md-ellipsis">
+      The feedback loops
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related pages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sources
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -5428,6 +5512,68 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-read-the-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to read the map
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-master-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      The master map
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-39-cards" class="md-nav__link">
+    <span class="md-ellipsis">
+      The 39 cards
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-feedback-loops" class="md-nav__link">
+    <span class="md-ellipsis">
+      The feedback loops
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related pages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sources
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -5445,11 +5591,488 @@
 
 
 <h1 id="algorithm-map">Algorithm map<a class="headerlink" href="#algorithm-map" title="Permanent link">&para;</a></h1>
-<!-- STUB -->
-<div class="admonition note">
-<p class="admonition-title">Not yet written</p>
-<p>This page is scheduled for Phase 1 of the build. See <code>PLAN.md</code> in the repository.</p>
-</div>
+<blockquote>
+<p><strong>TL;DR</strong></p>
+<ul>
+<li>All 39 algorithm cards on one diagram: five research-to-trading stages (data and signals → forecasting → validation → portfolio construction → execution), a parallel market-making/HFT lane, and live trading as the loop that feeds results back.</li>
+<li>Every card has a stable ID (D1…L3). The ID's letter tells you the stage; the <a href="../there-is-no-single-algorithm/">five canonical pipelines</a> are different paths through the same map.</li>
+<li>Latency regimes run from nanosecond risk gates to research jobs that take hours. A card's regime tells you what kind of engineering it needs.</li>
+<li>The map is not a one-way conveyor. Three feedback loops matter: TCA recalibrates the cost model, live monitoring retires decaying alphas, and markouts retune quoting.</li>
+</ul>
+</blockquote>
+<p><strong>Level:</strong> Core · <strong>Read time:</strong> ~7 min · <strong>Last verified:</strong> 2026-11</p>
+<h2 id="how-to-read-the-map">How to read the map<a class="headerlink" href="#how-to-read-the-map" title="Permanent link">&para;</a></h2>
+<p>Solid arrows show what feeds what on a normal trading day; dotted arrows show research gates and feedback. Validation cards (V) never touch live orders; they decide whether a forecast reaches production. The market-making lane (M) is a separate, much faster loop that shares venues, risk controls and monitoring with the main pipeline. <a href="../f-market-making-and-hft-algorithms/algorithmic-risk-controls/">M9 Algorithmic risk controls</a> sits in that lane, but every live order in every pipeline passes a <a href="../../09-reference/glossary/#pre-trade-risk-check">pre-trade risk check</a>.</p>
+<h2 id="the-master-map">The master map<a class="headerlink" href="#the-master-map" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>flowchart LR
+  subgraph DS["1 Data and signals"]
+    D1["D1 Point-in-time data"] --&gt; D2["D2 Feature engineering"]
+    D2 --&gt; D3["D3 Signal transforms"]
+    D3 --&gt; D4["D4 Evaluating signals"]
+  end
+  subgraph FC["2 Forecasting"]
+    F1["F1 Linear models"]
+    F2["F2 Tree ensembles"]
+    F3["F3 Neural nets"]
+    F4["F4 LLMs"]
+    F6["F6 Regime detection"]
+    F5["F5 Alpha combination"]
+  end
+  subgraph VB["3 Validation"]
+    V1["V1 Time-series CV"]
+    V3["V3 Backtest pitfalls"]
+    V4["V4 Overfitting tests"]
+    V2["V2 Backtest engines"]
+  end
+  subgraph PC["4 Portfolio construction"]
+    P2["P2 Covariance shrinkage"] --&gt; P1["P1 Risk models"]
+    P5["P5 Cost and impact"]
+    P7["P7 Sizing and budgets"]
+    P4["P4 Alternatives to MVO"]
+    P3["P3 Mean-variance"]
+    P6["P6 Trade toward aim"]
+  end
+  subgraph EX["5 Execution"]
+    E1["E1 Algo selection"]
+    E2["E2 VWAP TWAP POV"]
+    E3["E3 IS and Almgren-Chriss"]
+    E5["E5 Auction and dark"]
+    E4["E4 Smart order routing"]
+    E6["E6 TCA"]
+  end
+  subgraph MM["Market-making and HFT lane"]
+    M1["M1 HFT loop"]
+    M3["M3 Book and flow signals"]
+    M2["M2 Fair value"]
+    M8["M8 Options vol surface"]
+    M4["M4 Quoting and inventory"]
+    M6["M6 Queue position"]
+    M9["M9 Risk controls"]
+    M7["M7 Hedging"]
+    M5["M5 Markouts"]
+  end
+  subgraph LV["6 Live trading"]
+    L1["L1 Monitoring and attribution"]
+    L2["L2 Decay and retirement"]
+    L3["L3 Reinforcement learning"]
+  end
+  MKT[("Exchanges, dark pools, auctions")]
+
+  F4 --&gt; D2
+  D4 --&gt; F1
+  D4 --&gt; F2
+  D4 --&gt; F3
+  F1 --&gt; F5
+  F2 --&gt; F5
+  F3 --&gt; F5
+  F6 --&gt; F5
+  F5 --&gt; V2
+  V1 -.-&gt; V2
+  V3 -.-&gt; V2
+  V4 -.-&gt; V2
+  V2 --&gt;|"approved alpha"| P3
+  P1 --&gt; P3
+  P5 --&gt; P3
+  P7 --&gt; P3
+  P4 -.-&gt;|"alternative"| P3
+  P3 --&gt; P6
+  P6 --&gt; E1
+  E1 --&gt; E2
+  E1 --&gt; E3
+  E1 --&gt; E5
+  E2 --&gt; E4
+  E3 --&gt; E4
+  E5 --&gt; E4
+  E4 --&gt; MKT
+  MKT --&gt; M1
+  M1 --&gt; M3
+  M1 --&gt; M2
+  M3 --&gt; M2
+  M2 --&gt; M4
+  M8 --&gt; M4
+  M4 --&gt; M6
+  M6 --&gt; M9
+  M9 --&gt; MKT
+  MKT --&gt;|"fills"| M5
+  MKT --&gt;|"fills"| M7
+  M7 --&gt; M9
+  M5 -.-&gt; M4
+  MKT --&gt;|"fills"| E6
+  E6 --&gt; L1
+  M5 --&gt; L1
+  L1 --&gt; L2
+  L2 -.-&gt;|"retire or resize"| F5
+  E6 -.-&gt;|"recalibrate"| P5
+  L3 -.-&gt; M4
+  L3 -.-&gt; E3</code></pre>
+<p>Market-making systems use the data and validation cards to build their models, but on the live path they go from venue data straight to quotes.</p>
+<h2 id="the-39-cards">The 39 cards<a class="headerlink" href="#the-39-cards" title="Permanent link">&para;</a></h2>
+<p>Latency regimes are typical orders of magnitude, not firm-specific measurements <code>[Estimate]</code> (reasoning: a market-making critical path must finish between microsecond-spaced book updates; a daily rebalance only has to finish overnight). Pipelines: 1 HFT/market making, 2 short-horizon stat arb, 3 mid-frequency, 4 factor, 5 agency execution.</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Card</th>
+<th>Stage</th>
+<th>One-line purpose</th>
+<th>Latency regime</th>
+<th>Pipelines</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1</td>
+<td><a href="../a-data-and-signals/point-in-time-data-and-cleaning/">Point-in-time data and cleaning</a></td>
+<td>data</td>
+<td>Make every backtest see only what was knowable then</td>
+<td>overnight batch</td>
+<td>2, 3, 4</td>
+</tr>
+<tr>
+<td>D2</td>
+<td><a href="../a-data-and-signals/feature-engineering/">Feature engineering</a></td>
+<td>signal</td>
+<td>Turn prices, fundamentals, book data and text into predictors</td>
+<td>daily batch to streaming</td>
+<td>2, 3, 4</td>
+</tr>
+<tr>
+<td>D3</td>
+<td><a href="../a-data-and-signals/signal-transforms/">Signal transforms</a></td>
+<td>signal</td>
+<td>Winsorize, rank, z-score, neutralize</td>
+<td>same cadence as features</td>
+<td>2, 3, 4</td>
+</tr>
+<tr>
+<td>D4</td>
+<td><a href="../a-data-and-signals/evaluating-signals/">Evaluating signals</a></td>
+<td>signal</td>
+<td>IC, decay, turnover and capacity before a signal gets capital</td>
+<td>offline research</td>
+<td>2, 3, 4</td>
+</tr>
+<tr>
+<td>F1</td>
+<td><a href="../b-forecasting-models/linear-models-and-regularization/">Linear models and regularization</a></td>
+<td>forecast</td>
+<td>Ridge and lasso: the robust baseline</td>
+<td>train offline; predict µs–ms</td>
+<td>1, 2, 3</td>
+</tr>
+<tr>
+<td>F2</td>
+<td><a href="../b-forecasting-models/tree-ensembles/">Tree ensembles</a></td>
+<td>forecast</td>
+<td>Boosted trees for nonlinear interactions</td>
+<td>train hours; predict ms</td>
+<td>2, 3</td>
+</tr>
+<tr>
+<td>F3</td>
+<td><a href="../b-forecasting-models/neural-nets-and-sequence-models/">Neural nets and sequence models</a></td>
+<td>forecast</td>
+<td>Learn from raw sequences when data are plentiful</td>
+<td>GPU training; ms inference</td>
+<td>1, 2</td>
+</tr>
+<tr>
+<td>F4</td>
+<td><a href="../b-forecasting-models/llms-and-foundation-models-in-quant/">LLMs and foundation models in quant</a></td>
+<td>forecast</td>
+<td>Turn text into signals</td>
+<td>batch, minutes to hours</td>
+<td>3</td>
+</tr>
+<tr>
+<td>F5</td>
+<td><a href="../b-forecasting-models/alpha-combination-and-ensembling/">Alpha combination and ensembling</a></td>
+<td>forecast</td>
+<td>Blend many signals into one forecast per stock</td>
+<td>daily, sometimes intraday</td>
+<td>2, 3, 4</td>
+</tr>
+<tr>
+<td>F6</td>
+<td><a href="../b-forecasting-models/regime-detection/">Regime detection</a></td>
+<td>forecast</td>
+<td>Detect volatility regimes to scale risk</td>
+<td>daily</td>
+<td>3, 4</td>
+</tr>
+<tr>
+<td>V1</td>
+<td><a href="../c-validation-and-backtesting/time-series-cross-validation/">Time-series cross-validation</a></td>
+<td>validation</td>
+<td>Purged, embargoed CV that respects time order</td>
+<td>offline research</td>
+<td>2, 3</td>
+</tr>
+<tr>
+<td>V2</td>
+<td><a href="../c-validation-and-backtesting/backtesting-engines/">Backtesting engines</a></td>
+<td>validation</td>
+<td>Simulate with realistic fills, costs and constraints</td>
+<td>offline research</td>
+<td>2, 3, 4</td>
+</tr>
+<tr>
+<td>V3</td>
+<td><a href="../c-validation-and-backtesting/backtest-pitfalls/">Backtest pitfalls</a></td>
+<td>validation</td>
+<td>Look-ahead, survivorship, data snooping</td>
+<td>offline research</td>
+<td>2, 3, 4</td>
+</tr>
+<tr>
+<td>V4</td>
+<td><a href="../c-validation-and-backtesting/overfitting-and-multiple-testing/">Overfitting and multiple testing</a></td>
+<td>validation</td>
+<td>Deflated Sharpe, PBO, higher t-hurdles</td>
+<td>offline research</td>
+<td>2, 3, 4</td>
+</tr>
+<tr>
+<td>P1</td>
+<td><a href="../d-portfolio-construction/risk-models/">Risk models</a></td>
+<td>portfolio</td>
+<td>Factor exposures, factor covariance, specific risk</td>
+<td>overnight batch</td>
+<td>2, 3, 4</td>
+</tr>
+<tr>
+<td>P2</td>
+<td><a href="../d-portfolio-construction/covariance-estimation-and-shrinkage/">Covariance estimation and shrinkage</a></td>
+<td>portfolio</td>
+<td>Stable covariance from noisy data</td>
+<td>overnight batch</td>
+<td>2, 3, 4</td>
+</tr>
+<tr>
+<td>P3</td>
+<td><a href="../d-portfolio-construction/mean-variance-optimization/">Mean-variance optimization</a></td>
+<td>portfolio</td>
+<td>Forecasts, risk and costs → target weights</td>
+<td>seconds per solve</td>
+<td>2, 3, 4</td>
+</tr>
+<tr>
+<td>P4</td>
+<td><a href="../d-portfolio-construction/alternatives-to-mvo/">Alternatives to MVO</a></td>
+<td>portfolio</td>
+<td>Risk parity, HRP, heuristics when MVO is fragile</td>
+<td>seconds</td>
+<td>3, 4</td>
+</tr>
+<tr>
+<td>P5</td>
+<td><a href="../d-portfolio-construction/transaction-cost-and-impact-models/">Transaction cost and impact models</a></td>
+<td>portfolio</td>
+<td>Predict spread plus impact for a trade</td>
+<td>fit offline; evaluate in ms</td>
+<td>2, 3, 4, 5</td>
+</tr>
+<tr>
+<td>P6</td>
+<td><a href="../d-portfolio-construction/multi-period-and-trading-toward-aim/">Multi-period optimization and trading toward the aim</a></td>
+<td>portfolio</td>
+<td>Trade partway toward a target that anticipates decay</td>
+<td>per rebalance</td>
+<td>2, 3, 4</td>
+</tr>
+<tr>
+<td>P7</td>
+<td><a href="../d-portfolio-construction/position-sizing-and-risk-budgeting/">Position sizing and risk budgeting</a></td>
+<td>portfolio</td>
+<td>Vol targeting and risk budgets across books</td>
+<td>daily</td>
+<td>2, 3, 4</td>
+</tr>
+<tr>
+<td>E1</td>
+<td><a href="../e-execution-algorithms/execution-algorithms-overview/">Execution algorithms overview</a></td>
+<td>execution</td>
+<td>Pick the algo family for a parent order</td>
+<td>per order</td>
+<td>2, 3, 5</td>
+</tr>
+<tr>
+<td>E2</td>
+<td><a href="../e-execution-algorithms/vwap-twap-pov/">VWAP, TWAP and POV</a></td>
+<td>execution</td>
+<td>Benchmark-tracking schedules</td>
+<td>slices every seconds to minutes</td>
+<td>3, 4, 5</td>
+</tr>
+<tr>
+<td>E3</td>
+<td><a href="../e-execution-algorithms/implementation-shortfall-and-almgren-chriss/">Implementation shortfall and Almgren-Chriss</a></td>
+<td>execution</td>
+<td>Optimal impact-versus-risk schedule</td>
+<td>at start; re-optimized intraday</td>
+<td>3, 5</td>
+</tr>
+<tr>
+<td>E4</td>
+<td><a href="../e-execution-algorithms/smart-order-routing/">Smart order routing</a></td>
+<td>execution</td>
+<td>Venue and order-type choice per child</td>
+<td>µs–ms per decision</td>
+<td>1, 2, 5</td>
+</tr>
+<tr>
+<td>E5</td>
+<td><a href="../e-execution-algorithms/auction-close-and-dark-liquidity-algos/">Auction, close and dark-liquidity algos</a></td>
+<td>execution</td>
+<td>Access auctions and dark pools</td>
+<td>minutes (auctions); ms (dark)</td>
+<td>3, 4, 5</td>
+</tr>
+<tr>
+<td>E6</td>
+<td><a href="../e-execution-algorithms/transaction-cost-analysis/">Transaction cost analysis</a></td>
+<td>execution</td>
+<td>Realized cost versus benchmarks</td>
+<td>post-trade, daily</td>
+<td>3, 5</td>
+</tr>
+<tr>
+<td>M1</td>
+<td><a href="../f-market-making-and-hft-algorithms/anatomy-of-an-hft-trading-loop/">Anatomy of an HFT trading loop</a></td>
+<td>market making</td>
+<td>Event loop from market data to orders</td>
+<td>ns–µs</td>
+<td>1</td>
+</tr>
+<tr>
+<td>M2</td>
+<td><a href="../f-market-making-and-hft-algorithms/fair-value-and-microprice/">Fair value and microprice</a></td>
+<td>market making</td>
+<td>Best estimate of the current price</td>
+<td>ns–µs</td>
+<td>1</td>
+</tr>
+<tr>
+<td>M3</td>
+<td><a href="../f-market-making-and-hft-algorithms/order-book-and-trade-flow-signals/">Order-book and trade-flow signals</a></td>
+<td>market making</td>
+<td>Predict the next ticks from imbalance and flow</td>
+<td>µs</td>
+<td>1, 2</td>
+</tr>
+<tr>
+<td>M4</td>
+<td><a href="../f-market-making-and-hft-algorithms/quoting-and-inventory-control/">Quoting and inventory control</a></td>
+<td>market making</td>
+<td>Set quote width and skew against inventory</td>
+<td>µs</td>
+<td>1</td>
+</tr>
+<tr>
+<td>M5</td>
+<td><a href="../f-market-making-and-hft-algorithms/adverse-selection-and-markouts/">Adverse selection and markouts</a></td>
+<td>market making</td>
+<td>Measure price moves after fills</td>
+<td>post-trade</td>
+<td>1, 5</td>
+</tr>
+<tr>
+<td>M6</td>
+<td><a href="../f-market-making-and-hft-algorithms/queue-position-and-order-placement/">Queue position and order placement</a></td>
+<td>market making</td>
+<td>Value and keep queue priority</td>
+<td>µs</td>
+<td>1, 2, 5</td>
+</tr>
+<tr>
+<td>M7</td>
+<td><a href="../f-market-making-and-hft-algorithms/hedging-algorithms/">Hedging algorithms</a></td>
+<td>market making</td>
+<td>Offset inventory risk in correlated instruments</td>
+<td>µs–ms</td>
+<td>1</td>
+</tr>
+<tr>
+<td>M8</td>
+<td><a href="../f-market-making-and-hft-algorithms/options-pricing-and-vol-surfaces-for-mm/">Options pricing and vol surfaces for MM</a></td>
+<td>market making</td>
+<td>Fit the surface; price the chain</td>
+<td>fit ms–s; price µs</td>
+<td>1</td>
+</tr>
+<tr>
+<td>M9</td>
+<td><a href="../f-market-making-and-hft-algorithms/algorithmic-risk-controls/">Algorithmic risk controls</a></td>
+<td>market making</td>
+<td>Pre-trade checks, limits, kill switches</td>
+<td>inline, ns–µs</td>
+<td>all</td>
+</tr>
+<tr>
+<td>L1</td>
+<td><a href="../g-live-trading/live-monitoring-and-pnl-attribution/">Live monitoring and P&amp;L attribution</a></td>
+<td>live</td>
+<td>Explain P&amp;L by source; catch breaks</td>
+<td>real time and daily</td>
+<td>all</td>
+</tr>
+<tr>
+<td>L2</td>
+<td><a href="../g-live-trading/alpha-decay-detection-and-model-retirement/">Alpha decay detection and model retirement</a></td>
+<td>live</td>
+<td>Detect dying signals; resize or retire</td>
+<td>weekly to monthly</td>
+<td>2, 3, 4</td>
+</tr>
+<tr>
+<td>L3</td>
+<td><a href="../g-live-trading/reinforcement-learning-in-trading/">Reinforcement learning in trading</a></td>
+<td>live</td>
+<td>Learn quoting or execution policies</td>
+<td>offline training; fast inference</td>
+<td>1, 5</td>
+</tr>
+</tbody>
+</table>
+<h2 id="the-feedback-loops">The feedback loops<a class="headerlink" href="#the-feedback-loops" title="Permanent link">&para;</a></h2>
+<p>Solid arrows explain one day; dotted arrows explain why a pipeline gets better or worse over months.</p>
+<pre class="mermaid"><code>flowchart LR
+  fills["Fills and child orders"] --&gt; E6["E6 TCA"]
+  E6 --&gt;|"realized impact"| P5["P5 Cost model"]
+  P5 --&gt;|"trade more or less"| P3["P3 Optimizer"]
+  P5 --&gt;|"faster or slower"| E3["E3 Schedule"]
+  pnl["Daily PnL"] --&gt; L1["L1 Attribution"]
+  L1 --&gt;|"PnL by signal"| L2["L2 Decay tests"]
+  L2 --&gt;|"retire or down-weight"| F5["F5 Alpha combination"]
+  L2 --&gt;|"research priorities"| D2["D2 Features"]
+  mk["Fills in the MM lane"] --&gt; M5["M5 Markouts"]
+  M5 --&gt;|"toxicity by venue"| M4["M4 Quote width and skew"]
+  M5 --&gt;|"refit"| M2["M2 Fair value"]</code></pre>
+<ol>
+<li><strong>Execution cost loop.</strong> <a href="../e-execution-algorithms/transaction-cost-analysis/">TCA</a> feeds realized <a href="../../09-reference/glossary/#market-impact">market impact</a> into the <a href="../d-portfolio-construction/transaction-cost-and-impact-models/">cost model</a>. If impact runs above forecast, the optimizer trades less and schedules slow down. Without it, capacity estimates are guesses.</li>
+<li><strong>Alpha lifecycle loop.</strong> <a href="../g-live-trading/live-monitoring-and-pnl-attribution/">Attribution</a> splits P&amp;L by signal; <a href="../g-live-trading/alpha-decay-detection-and-model-retirement/">decay tests</a> decide when live <a href="../../09-reference/glossary/#information-coefficient-ic">IC</a> has fallen far enough below the backtest to cut a signal's weight, freeing risk budget for new research.</li>
+<li><strong>Adverse-selection loop.</strong> <a href="../f-market-making-and-hft-algorithms/adverse-selection-and-markouts/">Markouts</a> expose <a href="../../09-reference/glossary/#adverse-selection">adverse selection</a> by venue and counterparty; quoting widens or skews and the <a href="../f-market-making-and-hft-algorithms/fair-value-and-microprice/">fair-value model</a> is refit.</li>
+</ol>
+<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../there-is-no-single-algorithm/">There is no single algorithm</a>: the five pipelines as paths through this map</li>
+<li><a href="../">Algorithms: overview</a>: how to read a card; labs; walkthroughs</li>
+<li><a href="../../02-strategies/h-cross-cutting/strategy-x-algorithm-matrix/">Strategy x algorithm matrix</a>: which strategies use which cards</li>
+<li><a href="../h-end-to-end-walkthroughs/walkthrough-etf-market-maker/">Walkthrough: a day at an ETF market maker</a></li>
+<li><a href="../h-end-to-end-walkthroughs/walkthrough-institutional-execution/">Walkthrough: executing a $500M buy order</a></li>
+</ul>
+<h2 id="sources">Sources<a class="headerlink" href="#sources" title="Permanent link">&para;</a></h2>
+<ul>
+<li>[Verified] López de Prado, M. (2018). <em>Advances in Financial Machine Learning</em>. Wiley. <a href="https://www.wiley-vch.de/en/areas-interest/finance-economics-law/advances-in-financial-machine-learning-978-1-119-48208-6">https://www.wiley-vch.de/en/areas-interest/finance-economics-law/advances-in-financial-machine-learning-978-1-119-48208-6</a> (accessed 2026-11)</li>
+<li>[Verified] Grinold, R. C. &amp; Kahn, R. N. (2000). <em>Active Portfolio Management</em>, 2nd ed. McGraw-Hill. <a href="https://www.econbiz.de/Record/active-portfolio-management-a-quantitative-approach-for-producing-superior-returns-and-controlling-risk/10004551679">https://www.econbiz.de/Record/active-portfolio-management-a-quantitative-approach-for-producing-superior-returns-and-controlling-risk/10004551679</a> (accessed 2026-11)</li>
+<li>[Verified] Isichenko, M. (2021). <em>Quantitative Portfolio Management: The Art and Science of Statistical Arbitrage</em>. Wiley. <a href="https://www.oreilly.com/library/view/-/9781119821328/">https://www.oreilly.com/library/view/-/9781119821328/</a> (accessed 2026-11)</li>
+<li>[Verified] Narang, R. K. (2024). <em>Inside the Black Box: A Simple Guide to Systematic Investing</em>, 3rd ed. Wiley. <a href="https://www.harvard.com/book/9781119931898">https://www.harvard.com/book/9781119931898</a> (accessed 2026-11)</li>
+<li>[Verified] Kissell, R. (2020). <em>Algorithmic Trading Methods</em>, 2nd ed. Academic Press. <a href="https://shop.elsevier.com/books/algorithmic-trading-methods/kissell/978-0-12-815630-8">https://shop.elsevier.com/books/algorithmic-trading-methods/kissell/978-0-12-815630-8</a> (accessed 2026-11)</li>
+<li>[Verified] Almgren, R. &amp; Chriss, N. (2000). "Optimal execution of portfolio transactions." <em>Journal of Risk</em> 3(2), 5–39. <a href="https://doi.org/10.21314/JOR.2001.041">https://doi.org/10.21314/JOR.2001.041</a> (accessed 2026-11)</li>
+<li>[Verified] Avellaneda, M. &amp; Stoikov, S. (2008). "High-frequency trading in a limit order book." <em>Quantitative Finance</em> 8(3), 217–224. <a href="https://doi.org/10.1080/14697680701381228">https://doi.org/10.1080/14697680701381228</a> (accessed 2026-11)</li>
+<li>[Verified] Gârleanu, N. &amp; Pedersen, L. H. (2013). "Dynamic trading with predictable returns and transaction costs." <em>Journal of Finance</em> 68(6), 2309–2340. <a href="https://doi.org/10.1111/jofi.12080">https://doi.org/10.1111/jofi.12080</a> (accessed 2026-11)</li>
+<li>[Verified] STAC (2024-06-25). "STAC-T0 results with an Exegy/AMD FPGA solution" (vendor-commissioned benchmark; the nanosecond end of the latency range). <a href="https://stacresearch.com/node/48577">https://stacresearch.com/node/48577</a> (accessed 2026-11)</li>
+</ul>
 
 
 
