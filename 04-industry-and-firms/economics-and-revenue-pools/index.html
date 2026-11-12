@@ -3844,6 +3844,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Economics and revenue pools
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -3853,6 +3864,79 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-revenue-pools" class="md-nav__link">
+    <span class="md-ellipsis">
+      The revenue pools
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-drives-a-market-makers-revenue" class="md-nav__link">
+    <span class="md-ellipsis">
+      What drives a market maker's revenue
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#three-business-models-one-income-statement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Three business models, one income statement
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#capacity-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Capacity limits
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related pages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sources
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -5407,6 +5491,68 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-revenue-pools" class="md-nav__link">
+    <span class="md-ellipsis">
+      The revenue pools
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-drives-a-market-makers-revenue" class="md-nav__link">
+    <span class="md-ellipsis">
+      What drives a market maker's revenue
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#three-business-models-one-income-statement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Three business models, one income statement
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#capacity-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Capacity limits
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related pages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sources
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -5424,11 +5570,246 @@
 
 
 <h1 id="economics-and-revenue-pools">Economics and revenue pools<a class="headerlink" href="#economics-and-revenue-pools" title="Permanent link">&para;</a></h1>
-<!-- STUB -->
-<div class="admonition note">
-<p class="admonition-title">Not yet written</p>
-<p>This page is scheduled for Phase 7 of the build. See <code>PLAN.md</code> in the repository.</p>
-</div>
+<blockquote>
+<p><strong>TL;DR</strong></p>
+<ul>
+<li>Liquidity businesses earn very large revenue on little capital; fund businesses earn fees on very large capital. Non-bank liquidity providers made about $114B of trading revenue in 2025 <code>[Reported]</code>; hedge funds managed about $5.15T <code>[Reported]</code>.</li>
+<li>A market maker's revenue is a function of volatility and volume. Virtu's adjusted net trading income was $3.9M a day in 2019 and $9.0M a day in 2020 <code>[Verified]</code>.</li>
+<li>Three economic models: <strong>prop</strong> (owners keep the P&amp;L and pay staff from a pool), <strong>fee funds</strong> (the manager's revenue grows with assets even as investors' returns shrink) and <strong>pass-through pods</strong> (investors pay the platform's costs before the performance fee).</li>
+<li>Capacity limits differ: market making is capped by volume times spread, alpha funds by market impact; risk premia and trend scale to tens or hundreds of billions.</li>
+</ul>
+</blockquote>
+<p><strong>Level:</strong> Core · <strong>Read time:</strong> ~8 min · <strong>Last verified:</strong> 2026-11</p>
+<h2 id="the-revenue-pools">The revenue pools<a class="headerlink" href="#the-revenue-pools" title="Permanent link">&para;</a></h2>
+<p>The pools below have different scopes, so they are not additive. Treat them as orders of magnitude.</p>
+<table>
+<thead>
+<tr>
+<th>Pool</th>
+<th>Size</th>
+<th>Who earns it</th>
+<th>What drives it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>All non-bank liquidity-provider trading</td>
+<td>~$114B in 2025, global, all assets: $84.3B proprietary trading, $30.2B market making <code>[Reported]</code></td>
+<td>Jane Street, Citadel Securities, HRT and peers</td>
+<td>volatility, volume, retail activity</td>
+</tr>
+<tr>
+<td>US equity market making</td>
+<td>~$1–3B a year net <code>[Estimate]</code> (reasoning in the <a href="../../02-strategies/a-liquidity-provision/equity-market-making/">equity MM dossier</a>)</td>
+<td>wholesalers, electronic market makers, <a href="../../09-reference/glossary/#designated-market-maker-dmm">DMMs</a></td>
+<td>17.6B shares a day in 2025 <code>[Reported]</code> × net capture per share</td>
+</tr>
+<tr>
+<td>Retail flow bought</td>
+<td>over $4.9B of equity and options <a href="../../09-reference/glossary/#payment-for-order-flow-pfof">PFOF</a> in 2025 <code>[Reported]</code></td>
+<td>paid by <a href="../../09-reference/glossary/#wholesaler">wholesalers</a> to brokers</td>
+<td>retail activity</td>
+</tr>
+<tr>
+<td>US options market making</td>
+<td>~$3–9B a year gross <code>[Estimate]</code> (reasoning in the <a href="../../02-strategies/a-liquidity-provision/options-market-making/">options MM dossier</a>)</td>
+<td>Citadel Securities, SIG, Optiver, IMC and peers</td>
+<td>contract volume, short-dated retail options</td>
+</tr>
+<tr>
+<td>Hedge fund fees</td>
+<td>on ~$5.15T of capital (end-2025); management fees average ~1.35% plus performance fees <code>[Reported]</code></td>
+<td>quant funds and pods take a share</td>
+<td>assets × fee rate, plus profits above the high-water mark</td>
+</tr>
+<tr>
+<td>Managed futures</td>
+<td>~$354B of assets, Q2 2026 <code>[Reported]</code></td>
+<td><a href="../../09-reference/glossary/#commodity-trading-advisor-cta">CTAs</a></td>
+<td>trend P&amp;L and inflows</td>
+</tr>
+<tr>
+<td>Agency commissions</td>
+<td>US equity commission wallet just under $7B in 2025 <code>[Reported]</code></td>
+<td>agency brokers, bank algo desks</td>
+<td>institutional volume, fee pressure</td>
+</tr>
+</tbody>
+</table>
+<p>Firm anchors for 2025, all global and multi-asset: Jane Street ~$39.6B of net trading revenue, HRT ~$12.3B and Citadel Securities ~$12.2B, from unnamed sources <code>[Reported]</code>; Optiver €4.56B of net trading income <code>[Verified]</code>; Flow Traders €485.8M at a 41% EBITDA margin <code>[Verified]</code>; Virtu $2.15B of adjusted net trading income (ANTI), $1.67B of it market making <code>[Verified]</code>. 2026 is running hotter: HRT reportedly made about $17.8B in the first half alone <code>[Reported]</code>.</p>
+<h2 id="what-drives-a-market-makers-revenue">What drives a market maker's revenue<a class="headerlink" href="#what-drives-a-market-makers-revenue" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Year</th>
+<th>Average VIX</th>
+<th>Virtu ANTI per day</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2019</td>
+<td>15.4</td>
+<td>$3.9M <code>[Verified]</code></td>
+</tr>
+<tr>
+<td>2020</td>
+<td>29.3</td>
+<td>$9.0M <code>[Verified]</code></td>
+</tr>
+<tr>
+<td>2024</td>
+<td>15.6</td>
+<td>~$6.4M <code>[Estimate]</code> (2025 ANTI ÷ 1.34, over 252 days)</td>
+</tr>
+<tr>
+<td>2025</td>
+<td>18.9</td>
+<td>$8.6M <code>[Reported]</code></td>
+</tr>
+</tbody>
+</table>
+<p>VIX averages are our computation from FRED <code>[Verified]</code>. Volatility more than doubled revenue from 2019 to 2020. Yet 2024, at the same VIX as 2019, earned about 1.6× as much. The base had moved: Virtu bought ITG's agency business in 2019, and listed options volume set a record every year from 2020 through 2025 <code>[Verified]</code>. 2025 added record equity volume <code>[Reported]</code>. Revenue tracks volatility <em>and</em> volume, plus structural share. Pools can also collapse: US-equity HFT revenue fell from about $7.2B in 2009 to about $1.1B in 2016 (Tabb Group) <code>[Reported]</code>.</p>
+<h2 id="three-business-models-one-income-statement">Three business models, one income statement<a class="headerlink" href="#three-business-models-one-income-statement" title="Permanent link">&para;</a></h2>
+<p><strong>Prop.</strong> Owners keep all P&amp;L. Costs are part variable (exchange and clearing fees, PFOF, financing) and part fixed (people, technology). Pay comes from a pool: Jane Street's 2025 pool was reportedly $9.38B <code>[Reported]</code>, about 24% of revenue <code>[Estimate]</code>.</p>
+<p><strong>Fee fund.</strong> The manager earns a management fee on assets and a performance fee above a high-water mark; investors bear the losses. Renaissance's employee-only Medallion fund charged 5% of assets and at least 36% of gains <code>[Reported]</code>; with employees as the investors, those fees mostly recycle money inside the firm <code>[Estimate]</code>.</p>
+<p><strong>Pass-through.</strong> Multi-manager platforms charge investors their costs, mostly PM pay, typically 3–10% of net assets, before a performance fee <code>[Reported]</code>. Balyasny's flagship reportedly made 15.2% gross and 2.8% net in 2023 <code>[Reported]</code> (<a href="../../02-strategies/h-cross-cutting/how-firms-combine-strategies/">how firms combine strategies</a>).</p>
+<p>The comparison below sets Virtu's real 2025 figures against an illustrative quant fund manager with $10B of assets, a 12% gross return and 1.5%-and-20% fees.</p>
+<table>
+<thead>
+<tr>
+<th>Line</th>
+<th>Prop market maker: Virtu FY2025 ($M)</th>
+<th>Quant fund manager, illustrative ($M)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Top line</td>
+<td>Total revenues 3,632 <code>[Verified]</code></td>
+<td>Fund gross P&amp;L 1,200, owned by investors</td>
+</tr>
+<tr>
+<td>Direct costs</td>
+<td>Exchange, clearing, PFOF, financing ≈ 1,487 <code>[Estimate]</code> (difference)</td>
+<td>Trading costs, already inside gross P&amp;L</td>
+</tr>
+<tr>
+<td>Net revenue</td>
+<td>ANTI 2,145 <code>[Verified]</code></td>
+<td>Fees: 150 management + 20% × 1,050 performance = 360</td>
+</tr>
+<tr>
+<td>Operating costs</td>
+<td>Pay, data, technology, other ≈ 745 <code>[Estimate]</code></td>
+<td>Pay 160, data and compute 60, other 30</td>
+</tr>
+<tr>
+<td>Operating profit</td>
+<td>Adjusted EBITDA ≈ 1,400, 65% of ANTI <code>[Reported]</code></td>
+<td>110, 31% of fees</td>
+</tr>
+<tr>
+<td>Who bears losses</td>
+<td>Owners and shareholders</td>
+<td>Fund investors; the manager loses only fees</td>
+</tr>
+<tr>
+<td>Bottom line</td>
+<td>Net income 912 <code>[Verified]</code></td>
+<td>Investors keep 840, 8.4% net</td>
+</tr>
+</tbody>
+</table>
+<p>For a market maker, cost of revenue is what it pays venues, clearers and brokers. For a fund, it is the share of P&amp;L paid to the manager: 30% here. A pass-through pod with a 15% gross return, 6% pass-through and a 20% fee leaves investors 7.2%, so half of gross P&amp;L goes to the platform and its PMs <code>[Estimate]</code>.</p>
+<pre class="mermaid"><code>flowchart LR
+    ret["Retail investors"] --&gt;|"orders"| rb["Retail brokers"]
+    rb --&gt;|"order flow"| ws["Wholesalers"]
+    ws --&gt;|"PFOF"| rb
+    inst["Institutions"] --&gt;|"commissions"| ag["Agency brokers"]
+    ag --&gt;|"orders and fees"| ven["Exchanges and ATSs"]
+    mm["Market makers"] --&gt;|"access and data fees"| ven
+    ven --&gt;|"rebates"| mm
+    ret -.-&gt;|"half-spreads"| ws
+    inst -.-&gt;|"spread and impact"| mm
+    inv["Fund investors"] --&gt;|"capital"| fund["Quant funds and pods"]
+    fund --&gt;|"fees or pass-through"| mgr["Managers and PMs"]
+    fund --&gt;|"financing and borrow fees"| pb["Prime brokers"]
+    fund -.-&gt;|"spread and impact"| mm</code></pre>
+<p><em>Solid arrows are contractual payments; dotted arrows are trading costs that become liquidity providers' revenue.</em></p>
+<h2 id="capacity-limits">Capacity limits<a class="headerlink" href="#capacity-limits" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Market making</strong> is capped by volume times net capture per share, not by capital. Growth means new products and regions, which is why equity market makers moved into options, fixed income and crypto <code>[Lore]</code>.</li>
+<li><strong>Alpha strategies</strong> hit <a href="../../09-reference/glossary/#market-impact">market impact</a>: cost per dollar traded rises with size (<a href="../../03-algorithms/d-portfolio-construction/transaction-cost-and-impact-models/">P5 card</a>), so <a href="../../09-reference/glossary/#capacity">capacity</a> is where marginal alpha equals marginal cost.</li>
+<li><strong>Factor and trend</strong> strategies run tens to hundreds of billions because they trade slowly in deep markets.</li>
+</ul>
+<p>The fee structure misaligns size. Illustrative: gross alpha 6% minus impact of 1.5% × √(assets ÷ $1B), less a 1.5% management fee.</p>
+<table>
+<thead>
+<tr>
+<th>Assets</th>
+<th>Investors' net return</th>
+<th>Investors' net profit</th>
+<th>Management fees</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$1B</td>
+<td>3.0%</td>
+<td>$30M</td>
+<td>$15M</td>
+</tr>
+<tr>
+<td>$4B</td>
+<td>1.5%</td>
+<td>$60M</td>
+<td>$60M</td>
+</tr>
+<tr>
+<td>$9B</td>
+<td>0.0%</td>
+<td>$0</td>
+<td>$135M</td>
+</tr>
+</tbody>
+</table>
+<p>Investors' dollar profit peaks at $4B; the manager's fees keep rising. Berk and Green (2004) model the equilibrium: money flows in until investors' net alpha is competed to zero <code>[Verified]</code>. Firms that care about returns per dollar close funds, return capital or, like Medallion, expel outside money.</p>
+<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../taxonomy-of-quant-firms/">Taxonomy of quant firms</a></li>
+<li><a href="../competitive-dynamics-and-ma/">Competitive dynamics and M&amp;A</a></li>
+<li><a href="../../02-strategies/a-liquidity-provision/equity-market-making/">Equity market making</a></li>
+<li><a href="../../02-strategies/a-liquidity-provision/retail-flow-internalization/">Retail flow internalization</a></li>
+<li><a href="../../02-strategies/how-quants-evaluate-a-strategy/">How quants evaluate a strategy</a></li>
+<li><a href="../../03-algorithms/d-portfolio-construction/transaction-cost-and-impact-models/">Transaction cost and impact models</a></li>
+<li><a href="../../00-start-here/the-big-picture/">The big picture</a></li>
+</ul>
+<h2 id="sources">Sources<a class="headerlink" href="#sources" title="Permanent link">&para;</a></h2>
+<ul>
+<li>[Verified] Virtu Financial, Inc. (2026-02). Form 10-K for fiscal year 2025 (revenues, adjusted net trading income by segment, net income). <em>SEC EDGAR</em>. <a href="https://www.sec.gov/Archives/edgar/data/1592386/000159238626000009/virt-20251231.htm">https://www.sec.gov/Archives/edgar/data/1592386/000159238626000009/virt-20251231.htm</a> (accessed 2026-11)</li>
+<li>[Reported] Virtu Financial (2026-01-29). Fourth quarter and full year 2025 results release (ANTI per day, adjusted EBITDA margin). <a href="https://ir.virtu.com/static-files/9eb593ae-ae7d-42bb-baa3-e0cbaa179c6b">https://ir.virtu.com/static-files/9eb593ae-ae7d-42bb-baa3-e0cbaa179c6b</a> (accessed 2026-11)</li>
+<li>[Verified] Virtu Financial, Inc. (2021-02). Form 10-K for fiscal year 2020 (ANTI per day 2019 and 2020). <em>SEC EDGAR</em>. <a href="https://www.sec.gov/Archives/edgar/data/1592386/000159238621000005/virt-20201231.htm">https://www.sec.gov/Archives/edgar/data/1592386/000159238621000005/virt-20201231.htm</a> (accessed 2026-11)</li>
+<li>[Verified] Federal Reserve Bank of St. Louis. "CBOE Volatility Index: VIX (VIXCLS)," daily (annual averages are our computation). <a href="https://fred.stlouisfed.org/series/VIXCLS">https://fred.stlouisfed.org/series/VIXCLS</a> (accessed 2026-11)</li>
+<li>[Reported] Hedgeweek (2026). "Non-bank trading firms surge as Jane Street and Citadel Securities drive record $114bn revenue pool" (Crisil Coalition Greenwich data). <a href="https://www.hedgeweek.com/non-bank-trading-firms-surge-as-jane-street-and-citadel-securities-drive-record-114bn-revenue-pool/">https://www.hedgeweek.com/non-bank-trading-firms-surge-as-jane-street-and-citadel-securities-drive-record-114bn-revenue-pool/</a> (accessed 2026-11)</li>
+<li>[Reported] Reuters via MarketScreener (2026-04-24). "Jane Street's $40 billion trading haul tops rivals, sources say." <a href="https://www.marketscreener.com/news/jane-street-s-40-billion-trading-haul-tops-rivals-sources-say-ce7f59dfdf8ff52d">https://www.marketscreener.com/news/jane-street-s-40-billion-trading-haul-tops-rivals-sources-say-ce7f59dfdf8ff52d</a> (accessed 2026-11)</li>
+<li>[Reported] Bloomberg Law (2026-05-01). "Jane Street's Pay Pool More Than Doubled to $9.4 Billion in 2025." <a href="https://news.bloomberglaw.com/securities-law/jane-streets-pay-pool-more-than-doubled-to-9-4-billion-in-2025">https://news.bloomberglaw.com/securities-law/jane-streets-pay-pool-more-than-doubled-to-9-4-billion-in-2025</a> (accessed 2026-11)</li>
+<li>[Reported] Bloomberg (2026-01-13). "Hudson River's 2025 Trading Revenue Set for Record $12.3 Billion." <a href="https://www.bloomberg.com/news/articles/2026-01-13/hudson-river-s-2025-trading-revenue-set-for-record-12-3-billion">https://www.bloomberg.com/news/articles/2026-01-13/hudson-river-s-2025-trading-revenue-set-for-record-12-3-billion</a> (accessed 2026-11)</li>
+<li>[Reported] Hedgeweek (2026). "Hudson River Trading racks up record $11.4bn revenue amid market volatility" (citing the Financial Times; first-half 2026 total). <a href="https://hedgeweek.com/news/hudson-river-trading-racks-up-record-11-4bn-revenue-amid-market-volatility">https://hedgeweek.com/news/hudson-river-trading-racks-up-record-11-4bn-revenue-amid-market-volatility</a> (accessed 2026-11)</li>
+<li>[Reported] Bloomberg (2026-03-24). "Citadel Securities Nets Record $12 Billion Trading Haul in 2025." <a href="https://www.bloomberg.com/news/articles/2026-03-24/citadel-securities-nets-record-12-billion-trading-haul-in-2025">https://www.bloomberg.com/news/articles/2026-03-24/citadel-securities-nets-record-12-billion-trading-haul-in-2025</a> (accessed 2026-11)</li>
+<li>[Verified] Optiver (2026). "Optiver reports robust financial results for 2025." <a href="https://optiver.com/optiver-reports-robust-financial-results-for-2025">https://optiver.com/optiver-reports-robust-financial-results-for-2025</a> (accessed 2026-11)</li>
+<li>[Verified] Flow Traders (2026-02-12). "Flow Traders 4Q and FY 2025 Results." <a href="https://flowtraders.com/news/flow-traders-4q-fy-2025-results/">https://flowtraders.com/news/flow-traders-4q-fy-2025-results/</a> (accessed 2026-11)</li>
+<li>[Reported] Global Trading (2025-05-27). "Payments for US retail flow reach record high, led by Citadel Securities and IMC." <a href="https://www.globaltrading.net/?p=38554">https://www.globaltrading.net/?p=38554</a> (accessed 2026-11)</li>
+<li>[Reported] Hedgeweek (2026). "Global hedge fund assets surpass $5tn for the first time, says HFR." <a href="https://www.hedgeweek.com/global-hedge-fund-assets-surpass-5tn-for-the-first-time-says-hfr/">https://www.hedgeweek.com/global-hedge-fund-assets-surpass-5tn-for-the-first-time-says-hfr/</a> (accessed 2026-11)</li>
+<li>[Reported] Hedgeweek (2025-02-12). "Hedge funds charging billions in 'no limit' passthrough fees" (citing Bloomberg). <a href="https://www.hedgeweek.com/hedge-funds-charging-billions-in-no-limit-passthrough-fees/">https://www.hedgeweek.com/hedge-funds-charging-billions-in-no-limit-passthrough-fees/</a> (accessed 2026-11)</li>
+<li>[Reported] BusinessDay, republishing Bloomberg (2016-12-05). "Inside the world's greatest money-making machine" (Medallion fees). <a href="https://www.businessday.co.za/bd/companies/financial-services/2016-12-05-inside-the-worlds-greatest-money-making-machine/">https://www.businessday.co.za/bd/companies/financial-services/2016-12-05-inside-the-worlds-greatest-money-making-machine/</a> (accessed 2026-11)</li>
+<li>[Reported] BarclayHedge (ION Analytics). "CTA Industry Assets Under Management" (Q2 2026). <a href="https://ionanalytics.com/barclayhedge/solutions/assets-under-management/cta-industry-assets-under-management/">https://ionanalytics.com/barclayhedge/solutions/assets-under-management/cta-industry-assets-under-management/</a> (accessed 2026-11)</li>
+<li>[Reported] Coalition Greenwich (2025). "U.S. Equity Market Trends 2025: Don't Call It a Comeback." <a href="https://www.greenwich.com/node/158259">https://www.greenwich.com/node/158259</a> (accessed 2026-11)</li>
+<li>[Verified] Cboe Global Markets (2026). "2025 U.S. Equities Year in Review." <a href="https://www.cboe.com/insights/posts/2025-u-s-equities-year-in-review">https://www.cboe.com/insights/posts/2025-u-s-equities-year-in-review</a> (accessed 2026-11)</li>
+<li>[Reported] Rosenblatt Securities news repost (2018). "How high-frequency trading hit a speed bump" (Tabb Group revenue estimates). <a href="https://rblt.com/news/how-high-frequency-trading-hit-a-speed-bump">https://rblt.com/news/how-high-frequency-trading-hit-a-speed-bump</a> (accessed 2026-11)</li>
+<li>[Verified] OCC (2026-01-05). "OCC Annual 2025 and December 2025 Volume." <a href="https://www.theocc.com/newsroom/views/2026/01-05-occ-annual-2025-and-december-2025-volume">https://www.theocc.com/newsroom/views/2026/01-05-occ-annual-2025-and-december-2025-volume</a> (accessed 2026-11)</li>
+<li>[Verified] Berk, J. B. &amp; Green, R. C. (2004). "Mutual Fund Flows and Performance in Rational Markets." <em>Journal of Political Economy</em> 112(6), 1269–1295. <a href="https://doi.org/10.1086/424739">https://doi.org/10.1086/424739</a> (accessed 2026-11)</li>
+</ul>
 
 
 

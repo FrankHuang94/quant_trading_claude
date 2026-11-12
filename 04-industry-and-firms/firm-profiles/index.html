@@ -5399,6 +5399,59 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-each-profile-covers" class="md-nav__link">
+    <span class="md-ellipsis">
+      What each profile covers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-read-the-snapshot-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to read the snapshot table
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-profiles-by-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      The profiles, by type
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related pages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sources
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -5416,11 +5469,112 @@
 
 
 <h1 id="firm-profiles">Firm profiles<a class="headerlink" href="#firm-profiles" title="Permanent link">&para;</a></h1>
-<!-- STUB -->
-<div class="admonition note">
-<p class="admonition-title">Not yet written</p>
-<p>This page is scheduled for Phase 7 of the build. See <code>PLAN.md</code> in the repository.</p>
+<blockquote>
+<p><strong>TL;DR</strong></p>
+<ul>
+<li>18 short profiles of firms that shape quantitative trading in US equities, chosen for strategy relevance rather than size.</li>
+<li>Each gives the firm's known strategy focus from public sources only, a snapshot table and a "Fact vs lore" section.</li>
+<li>Check the confidence tag before repeating any figure: private firms' numbers usually come from unnamed sources.</li>
+</ul>
+</blockquote>
+<p><strong>Level:</strong> Core · <strong>Read time:</strong> ~3 min · <strong>Last verified:</strong> 2026-11</p>
+<h2 id="what-each-profile-covers">What each profile covers<a class="headerlink" href="#what-each-profile-covers" title="Permanent link">&para;</a></h2>
+<p>Each profile runs 300–500 words: what the firm does, its known strategy focus and approach, and a "Fact vs lore" section that separates sourced facts from stories that circulate in the industry. Strategy names link to the <a href="../../02-strategies/">module 02 dossiers</a>, so a profile is a jumping-off point, not a destination.</p>
+<h2 id="how-to-read-the-snapshot-table">How to read the snapshot table<a class="headerlink" href="#how-to-read-the-snapshot-table" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>What it tells you</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Type</td>
+<td>the firm type from the <a href="../taxonomy-of-quant-firms/">taxonomy</a></td>
+</tr>
+<tr>
+<td>Scale</td>
+<td>revenue, assets or headcount, with a date and a tag</td>
+</tr>
+<tr>
+<td>Horizon</td>
+<td>the holding periods the firm is known for</td>
+</tr>
+<tr>
+<td>Known strategies</td>
+<td>families with public evidence, linked to dossiers</td>
+</tr>
+<tr>
+<td>Tech signals</td>
+<td>public hints: engineering blogs, open-source code, hardware or compute deals</td>
+</tr>
+<tr>
+<td>Confidence</td>
+<td>overall reliability: higher when filings exist, lower when the profile rests on press reports</td>
+</tr>
+<tr>
+<td>Sources</td>
+<td>the number and kind of sources used</td>
+</tr>
+</tbody>
+</table>
+<p>Tags follow the KB convention: <code>[Verified]</code> primary source (filing, regulator, firm publication), <code>[Reported]</code> credible press, <code>[Estimate]</code> our derivation with reasoning shown, <code>[Lore]</code> widely repeated but unverified.</p>
+<h2 id="the-profiles-by-type">The profiles, by type<a class="headerlink" href="#the-profiles-by-type" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Firms</th>
+<th>Start in module 02 with</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Electronic market makers</td>
+<td><a href="citadel-securities/">Citadel Securities</a> · <a href="virtu-financial/">Virtu Financial</a> · <a href="jane-street/">Jane Street</a> · <a href="optiver/">Optiver</a> · <a href="imc/">IMC Trading</a> · <a href="susquehanna-sig/">Susquehanna (SIG)</a> · <a href="xtx-markets/">XTX Markets</a></td>
+<td><a href="../../02-strategies/a-liquidity-provision/equity-market-making/">equity MM</a> · <a href="../../02-strategies/a-liquidity-provision/options-market-making/">options MM</a> · <a href="../../02-strategies/a-liquidity-provision/etf-market-making/">ETF MM</a></td>
+</tr>
+<tr>
+<td>HFT prop</td>
+<td><a href="hudson-river-trading/">Hudson River Trading</a> · <a href="jump-trading/">Jump Trading</a> · <a href="tower-research-capital/">Tower Research Capital</a></td>
+<td><a href="../../02-strategies/b-speed-and-structural/latency-arbitrage/">latency arbitrage</a> · <a href="../../02-strategies/b-speed-and-structural/lead-lag-and-cross-asset-arbitrage/">lead-lag</a></td>
+</tr>
+<tr>
+<td>Quant hedge funds</td>
+<td><a href="renaissance-technologies/">Renaissance Technologies</a> · <a href="de-shaw/">D. E. Shaw</a> · <a href="two-sigma/">Two Sigma</a> · <a href="high-flyer/">High-Flyer</a></td>
+<td><a href="../../02-strategies/c-statistical-arbitrage/stat-arb-overview-and-history/">stat arb</a> · <a href="../../02-strategies/c-statistical-arbitrage/ml-driven-short-horizon-alpha/">ML short-horizon alpha</a></td>
+</tr>
+<tr>
+<td>Multi-manager quant pods</td>
+<td><a href="millennium/">Millennium</a> · <a href="cubist/">Cubist Systematic Strategies</a></td>
+<td><a href="../../02-strategies/c-statistical-arbitrage/factor-residual-mean-reversion/">factor-residual reversion</a> · <a href="../../02-strategies/h-cross-cutting/how-firms-combine-strategies/">how firms combine strategies</a></td>
+</tr>
+<tr>
+<td>Systematic asset managers and CTAs</td>
+<td><a href="aqr/">AQR Capital Management</a> · <a href="man-group/">Man Group (AHL / Numeric)</a></td>
+<td><a href="../../02-strategies/e-risk-premia-and-factors/factor-investing-fundamentals/">factor investing</a> · <a href="../../02-strategies/g-futures-and-macro-context/trend-following-and-ctas/">trend following</a></td>
+</tr>
+</tbody>
+</table>
+<p>The grouping is by primary business. Several firms straddle types: HRT also competes as a retail wholesaler, as do Susquehanna and Jane Street <code>[Reported]</code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Public sources only</p>
+<p>Profiles draw on filings, firm publications, regulator documents and reputable press. They contain no insider information, and strategy descriptions stay general because firms do not publish their models. Revenue figures for private firms come from unnamed sources and can be wrong. Firms change quickly, so check each profile's "Last verified" date.</p>
 </div>
+<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../taxonomy-of-quant-firms/">Taxonomy of quant firms</a></li>
+<li><a href="../economics-and-revenue-pools/">Economics and revenue pools</a></li>
+<li><a href="../competitive-dynamics-and-ma/">Competitive dynamics and M&amp;A</a></li>
+<li><a href="../../02-strategies/a-liquidity-provision/retail-flow-internalization/">Retail flow internalization</a></li>
+<li><a href="../../02-strategies/h-cross-cutting/how-firms-combine-strategies/">How firms combine strategies</a></li>
+</ul>
+<h2 id="sources">Sources<a class="headerlink" href="#sources" title="Permanent link">&para;</a></h2>
+<ul>
+<li>[Reported] Global Trading (2025-09-11). "SIG and HRT lead 2025 retail volume and execution-quality gains." <a href="https://www.globaltrading.net/?p=39575">https://www.globaltrading.net/?p=39575</a> (accessed 2026-11)</li>
+<li>[Verified] Virtu Financial, Inc. (2026-02). Form 10-K for fiscal year 2025. <em>SEC EDGAR</em>. <a href="https://www.sec.gov/Archives/edgar/data/1592386/000159238626000009/virt-20251231.htm">https://www.sec.gov/Archives/edgar/data/1592386/000159238626000009/virt-20251231.htm</a> (accessed 2026-11)</li>
+</ul>
 
 
 

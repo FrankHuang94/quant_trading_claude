@@ -4882,6 +4882,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Sanity-checking claims
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -4891,6 +4902,70 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      The checklist
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#back-of-envelope-formulas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Back-of-envelope formulas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worked-example-illustrative-pitch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Worked example (illustrative pitch)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related pages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sources
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -5404,6 +5479,59 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      The checklist
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#back-of-envelope-formulas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Back-of-envelope formulas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worked-example-illustrative-pitch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Worked example (illustrative pitch)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related pages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sources
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -5421,11 +5549,153 @@
 
 
 <h1 id="sanity-checking-claims">Sanity-checking claims<a class="headerlink" href="#sanity-checking-claims" title="Permanent link">&para;</a></h1>
-<!-- STUB -->
-<div class="admonition note">
-<p class="admonition-title">Not yet written</p>
-<p>This page is scheduled for Phase 8 of the build. See <code>PLAN.md</code> in the repository.</p>
-</div>
+<blockquote>
+<p><strong>TL;DR</strong></p>
+<ul>
+<li>Eleven checks catch most inflated claims, whether in a pitch deck, a paper, the press or your own backtest. Nearly every bias pushes performance up.</li>
+<li>Five formulas do most of the work: the standard error of Sharpe, the luck hurdle for N trials, the Fundamental Law, breakeven cost and square-root impact.</li>
+<li>A claim is implausible when the IC it implies is far above what real signals deliver, when the breakeven cost sits near the modeled cost, or when the sample skips the stress years.</li>
+<li>A failed check is not proof of fraud. It tells you which question to ask next.</li>
+</ul>
+</blockquote>
+<p><strong>Level:</strong> Core · <strong>Read time:</strong> ~7 min · <strong>Last verified:</strong> 2026-11</p>
+<p>The full funding process is in <a href="../../02-strategies/how-quants-evaluate-a-strategy/">how quants evaluate a strategy</a>; the mechanics of each bias are in <a href="../../03-algorithms/c-validation-and-backtesting/backtest-pitfalls/">backtest pitfalls</a>. This page is the pocket version.</p>
+<pre class="mermaid"><code>flowchart TD
+    A["Claim: Sharpe S, return R, capacity C"] --&gt; B{"Net of costs,&lt;br/&gt;fees and borrow?"}
+    B --&gt;|"unclear"| X["Subtract turnover times cost"]
+    B --&gt;|"yes"| C{"Trial count known?"}
+    X --&gt; C
+    C --&gt;|"no"| Y["Assume many and compare S&lt;br/&gt;with the luck hurdle"]
+    C --&gt;|"yes"| D{"Implied IC plausible&lt;br/&gt;for the horizon?"}
+    Y --&gt; D
+    D --&gt;|"no"| Z["Hunt for look-ahead,&lt;br/&gt;survivorship or a hidden tail"]
+    D --&gt;|"yes"| E{"Counterparty named and&lt;br/&gt;capacity from an impact model?"}
+    E --&gt;|"no"| Z
+    E --&gt;|"yes"| F{"Live record and&lt;br/&gt;stress years covered?"}
+    F --&gt;|"no"| G["A hypothesis: shadow trade it"]
+    F --&gt;|"yes"| H["Credible: argue about size"]</code></pre>
+<h2 id="the-checklist">The checklist<a class="headerlink" href="#the-checklist" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Check</th>
+<th>Ask</th>
+<th>Red flag</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Gross or net</td>
+<td>Sharpe after spread, impact, fees, borrow and financing?</td>
+<td>Only gross shown, or "costs of 1 bp" at any size</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Sharpe vs horizon</td>
+<td>What IC does this Sharpe imply?</td>
+<td>Net Sharpe above 1.5 from a monthly book, or above 1 at $10B+ in factors</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Costs and <a href="../../09-reference/glossary/#turnover">turnover</a></td>
+<td>Breakeven cost versus modeled cost?</td>
+<td>Breakeven within 2× of modeled cost</td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="../../09-reference/glossary/#look-ahead-bias">Look-ahead</a></td>
+<td>Point-in-time data? Fill on the bar after the signal?</td>
+<td>Restated fundamentals, today's index members, same-bar fills</td>
+</tr>
+<tr>
+<td>5</td>
+<td><a href="../../09-reference/glossary/#survivorship-bias">Survivorship</a></td>
+<td>Delisted stocks and their final returns included?</td>
+<td>Universe built from today's constituents</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Multiple testing</td>
+<td>How many variants were tried?</td>
+<td>No trial log; t below 3; <a href="../../09-reference/glossary/#deflated-sharpe-ratio">DSR</a> below 0.95</td>
+</tr>
+<tr>
+<td>7</td>
+<td><a href="../../09-reference/glossary/#capacity">Capacity</a> vs AUM</td>
+<td>Net Sharpe at the target size, from an impact model?</td>
+<td>Capacity quoted without one</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Counterparty</td>
+<td>Who pays, and why do they accept it?</td>
+<td>"The model found it"</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Regime coverage</td>
+<td>2007–2009, March 2020, the 2022 rate shock?</td>
+<td>Sample starts after the last crisis</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Live vs backtest</td>
+<td>How long live, and does live track the backtest replayed on live dates?</td>
+<td>No live record, or live Sharpe far below backtest without explanation</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Leverage and tails</td>
+<td>Worst day, week and month? Skew? Gross leverage?</td>
+<td>Smooth returns from selling insurance; leverage quoted only on net</td>
+</tr>
+</tbody>
+</table>
+<p>The thresholds are our rules of thumb <code>[Estimate]</code>. Context: a new factor needs t &gt; 3 given how many have been tried (Harvey, Liu and Zhu 2016) <code>[Verified]</code>; published predictors lost 26% out of sample and 58% after publication (McLean and Pontiff 2016) <code>[Verified]</code>, and across 888 Quantopian algorithms backtest Sharpe explained under 2.5% of out-of-sample Sharpe <code>[Reported]</code>. CRSP-based studies that omit delisting returns miss losses Shumway (1997) imputes at −30% (NYSE/Amex) and −55% (Nasdaq) <code>[Verified]</code>. Realistic net Sharpe ranges by strategy are in the <a href="../../02-strategies/h-cross-cutting/strategy-comparison-matrix/">comparison matrix</a>: risk-premia books 0.3–0.7, diversified stat arb 1–3 <code>[Lore]</code>.</p>
+<h2 id="back-of-envelope-formulas">Back-of-envelope formulas<a class="headerlink" href="#back-of-envelope-formulas" title="Permanent link">&para;</a></h2>
+<p><strong>1. Noise in a Sharpe ratio.</strong> With <span class="arithmatex">\(T\)</span> years of data and annual Sharpe <span class="arithmatex">\(S\)</span> (Lo 2002, i.i.d. returns) <code>[Verified]</code>:</p>
+<div class="arithmatex">\[ SE(\hat S) \approx \sqrt{\frac{1 + S^2/2}{T}}, \qquad t \approx S\sqrt{T} \]</div>
+<p>A Sharpe of 1.0 over five years has a standard error of about 0.55 and a t of 2.2. Serial correlation and fat tails widen it.</p>
+<p><strong>2. Luck hurdle.</strong> The best of <span class="arithmatex">\(N\)</span> zero-skill strategies shows a Sharpe of about <span class="arithmatex">\(z_N/\sqrt{T}\)</span>, where <span class="arithmatex">\(z_N\)</span> is the expected maximum of <span class="arithmatex">\(N\)</span> standard normals: 2.5 for 100 trials, 2.9 for 300, 3.2 for 1,000 <code>[Estimate]</code>. The <a href="../../03-algorithms/c-validation-and-backtesting/overfitting-and-multiple-testing/">deflated Sharpe ratio</a> formalizes this and adds skew and kurtosis.</p>
+<p><strong>3. Fundamental Law.</strong> <span class="arithmatex">\(IR \approx TC \times IC \times \sqrt{BR}\)</span> (Grinold 1989; Clarke, de Silva and Thorley 2002) <code>[Verified]</code>. Invert it to get the <a href="../../09-reference/glossary/#information-coefficient-ic">IC</a> a claimed Sharpe requires: <span class="arithmatex">\(IC = IR / (TC\sqrt{BR})\)</span>. <a href="../../09-reference/glossary/#breadth">Breadth</a> counts independent bets, so correlated positions shrink it. See <a href="../../03-algorithms/a-data-and-signals/evaluating-signals/">evaluating signals</a>.</p>
+<p><strong>4. Breakeven cost.</strong> With gross alpha <span class="arithmatex">\(\alpha\)</span>, annual turnover <span class="arithmatex">\(\tau\)</span> and cost <span class="arithmatex">\(c\)</span> per dollar traded, net alpha is <span class="arithmatex">\(\alpha - \tau c\)</span> and breakeven cost is <span class="arithmatex">\(c^* = \alpha / \tau\)</span>. Most anomalies with under 50% monthly turnover survive costs; few faster ones do (Novy-Marx and Velikov 2016) <code>[Verified]</code>.</p>
+<p><strong>5. Square-root impact.</strong> Cost per share <span class="arithmatex">\(\approx Y \sigma \sqrt{Q/V}\)</span>, with <span class="arithmatex">\(Y\)</span> of order 1. Trading 5% of daily volume in a 2%-volatility stock costs roughly 15–30 bps of impact. Double the size and cost per share rises 41%. See <a href="../../03-algorithms/d-portfolio-construction/transaction-cost-and-impact-models/">transaction cost and impact models</a>.</p>
+<p>Two quick extras. The chance of a losing year at Sharpe <span class="arithmatex">\(S\)</span> is about <span class="arithmatex">\(\Phi(-S)\)</span>: 31% at 0.5, 16% at 1.0, 2% at 2.0 <code>[Estimate]</code>, so "never a down year" claims a high Sharpe. Leverage multiplies losses: Khandani and Lo's contrarian strategy lost 6.85% unlevered in three days of August 2007 <code>[Verified]</code>; at the 9:1 leverage it then needed, that is about 62% of equity <code>[Estimate]</code>.</p>
+<h2 id="worked-example-illustrative-pitch">Worked example (illustrative pitch)<a class="headerlink" href="#worked-example-illustrative-pitch" title="Permanent link">&para;</a></h2>
+<p>"Net Sharpe 2.5, 25% a year, monthly rebalance on 500 US large caps, $2B capacity, backtest 2010–2024, 300 variants tried."</p>
+<ol>
+<li><strong>Noise.</strong> <span class="arithmatex">\(t \approx 2.5 \times \sqrt{15} \approx 9.7\)</span>. Taken alone, overwhelming.</li>
+<li><strong>Luck.</strong> The best of 300 zero-skill variants would show about <span class="arithmatex">\(2.9 / \sqrt{15} \approx 0.74\)</span>. Luck does not explain 2.5.</li>
+<li><strong>Plausibility.</strong> Monthly bets on 500 names give at most <span class="arithmatex">\(BR = 6{,}000\)</span>. With a transfer coefficient of 0.5, the required IC is <span class="arithmatex">\(2.5 / (0.5 \times 77) \approx 0.065\)</span>; if correlation cuts effective breadth to 1,500, about 0.13. An IC near 0.05 on a broad monthly composite is usually called good <code>[Lore]</code>. The claim needs two to three times that, every month, after costs.</li>
+<li><strong>Regimes.</strong> 2010–2024 skips 2007–2009 and the 2007 quant unwind. Value's 2017–2020 drawdown is in sample; ask how the book survived it.</li>
+<li><strong>Verdict.</strong> Not luck, and probably not a real signal at that strength either. The likeliest culprits are look-ahead, survivorship or an unpriced tail. Ask for the point-in-time data lineage, a delisting-return check, the worst month and net Sharpe at $2B from an impact model.</li>
+</ol>
+<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../../03-algorithms/c-validation-and-backtesting/backtest-pitfalls/">Backtest pitfalls</a></li>
+<li><a href="../../03-algorithms/c-validation-and-backtesting/overfitting-and-multiple-testing/">Overfitting and multiple testing</a></li>
+<li><a href="../../03-algorithms/a-data-and-signals/evaluating-signals/">Evaluating signals</a></li>
+<li><a href="../../03-algorithms/d-portfolio-construction/transaction-cost-and-impact-models/">Transaction cost and impact models</a></li>
+<li><a href="../../03-algorithms/a-data-and-signals/point-in-time-data-and-cleaning/">Point-in-time data and cleaning</a></li>
+<li><a href="../../03-algorithms/g-live-trading/live-monitoring-and-pnl-attribution/">Live monitoring and P&amp;L attribution</a></li>
+<li><a href="../myths-vs-reality/">Myths vs reality</a> and <a href="../contested-debates/">contested debates</a></li>
+</ul>
+<h2 id="sources">Sources<a class="headerlink" href="#sources" title="Permanent link">&para;</a></h2>
+<ul>
+<li>[Verified] Lo, A. W. (2002). "The Statistics of Sharpe Ratios." <em>Financial Analysts Journal</em> 58(4), 36–52. <a href="https://doi.org/10.2469/faj.v58.n4.2453">https://doi.org/10.2469/faj.v58.n4.2453</a> (accessed 2026-11)</li>
+<li>[Verified] Bailey, D. H. &amp; López de Prado, M. (2014). "The Deflated Sharpe Ratio: Correcting for Selection Bias, Backtest Overfitting, and Non-Normality." <em>Journal of Portfolio Management</em> 40(5), 94–107. <a href="https://doi.org/10.3905/jpm.2014.40.5.094">https://doi.org/10.3905/jpm.2014.40.5.094</a> (accessed 2026-11)</li>
+<li>[Verified] Grinold, R. C. (1989). "The Fundamental Law of Active Management." <em>Journal of Portfolio Management</em> 15(3), 30–37. <a href="https://doi.org/10.3905/jpm.1989.409211">https://doi.org/10.3905/jpm.1989.409211</a> (accessed 2026-11)</li>
+<li>[Verified] Clarke, R., de Silva, H. &amp; Thorley, S. (2002). "Portfolio Constraints and the Fundamental Law of Active Management." <em>Financial Analysts Journal</em> 58(5), 48–66. <a href="https://doi.org/10.2469/faj.v58.n5.2468">https://doi.org/10.2469/faj.v58.n5.2468</a> (accessed 2026-11)</li>
+<li>[Verified] Novy-Marx, R. &amp; Velikov, M. (2016). "A Taxonomy of Anomalies and Their Trading Costs." <em>Review of Financial Studies</em> 29(1), 104–147. <a href="https://doi.org/10.1093/rfs/hhv063">https://doi.org/10.1093/rfs/hhv063</a> (accessed 2026-11)</li>
+<li>[Verified] Tóth, B., Lempérière, Y., Deremble, C., de Lataillade, J., Kockelkoren, J. &amp; Bouchaud, J.-P. (2011). "Anomalous Price Impact and the Critical Nature of Liquidity in Financial Markets." <em>Physical Review X</em> 1(2), 021006. <a href="https://doi.org/10.1103/PhysRevX.1.021006">https://doi.org/10.1103/PhysRevX.1.021006</a> (accessed 2026-11)</li>
+<li>[Verified] McLean, R. D. &amp; Pontiff, J. (2016). "Does Academic Research Destroy Stock Return Predictability?" <em>Journal of Finance</em> 71(1), 5–32. <a href="https://doi.org/10.1111/jofi.12365">https://doi.org/10.1111/jofi.12365</a> (accessed 2026-11)</li>
+<li>[Reported] Wiecki, T., Campbell, A., Lent, J. &amp; Stauth, J. (2016). "All That Glitters Is Not Gold: Comparing Backtest and Out-of-Sample Performance on a Large Cohort of Trading Algorithms." <em>Journal of Investing</em> 25(3), 69–80. <a href="https://doi.org/10.3905/joi.2016.25.3.069">https://doi.org/10.3905/joi.2016.25.3.069</a> (accessed 2026-11)</li>
+<li>[Verified] Shumway, T. (1997). "The Delisting Bias in CRSP Data." <em>Journal of Finance</em> 52(1), 327–340. <a href="https://doi.org/10.1111/j.1540-6261.1997.tb03818.x">https://doi.org/10.1111/j.1540-6261.1997.tb03818.x</a> (accessed 2026-11)</li>
+<li>[Verified] Harvey, C. R., Liu, Y. &amp; Zhu, H. (2016). "… and the Cross-Section of Expected Returns." <em>Review of Financial Studies</em> 29(1), 5–68. <a href="https://doi.org/10.1093/rfs/hhv059">https://doi.org/10.1093/rfs/hhv059</a> (accessed 2026-11)</li>
+<li>[Verified] Khandani, A. E. &amp; Lo, A. W. (2011). "What happened to the quants in August 2007? Evidence from factors and transactions data." <em>Journal of Financial Markets</em> 14(1), 1–46. <a href="https://doi.org/10.1016/j.finmar.2010.07.005">https://doi.org/10.1016/j.finmar.2010.07.005</a> (accessed 2026-11)</li>
+</ul>
 
 
 

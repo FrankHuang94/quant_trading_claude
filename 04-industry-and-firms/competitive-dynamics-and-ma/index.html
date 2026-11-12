@@ -3886,6 +3886,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Competitive dynamics and M&A
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -3895,6 +3906,79 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#moats" class="md-nav__link">
+    <span class="md-ellipsis">
+      Moats
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consolidation-and-notable-deals" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consolidation and notable deals
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#barriers-to-entry" class="md-nav__link">
+    <span class="md-ellipsis">
+      Barriers to entry
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#valuing-a-market-maker" class="md-nav__link">
+    <span class="md-ellipsis">
+      Valuing a market maker
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related pages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sources
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -5407,6 +5491,68 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#moats" class="md-nav__link">
+    <span class="md-ellipsis">
+      Moats
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consolidation-and-notable-deals" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consolidation and notable deals
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#barriers-to-entry" class="md-nav__link">
+    <span class="md-ellipsis">
+      Barriers to entry
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#valuing-a-market-maker" class="md-nav__link">
+    <span class="md-ellipsis">
+      Valuing a market maker
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related pages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sources
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -5424,11 +5570,302 @@
 
 
 <h1 id="competitive-dynamics-and-ma">Competitive dynamics and M&amp;A<a class="headerlink" href="#competitive-dynamics-and-ma" title="Permanent link">&para;</a></h1>
-<!-- STUB -->
-<div class="admonition note">
-<p class="admonition-title">Not yet written</p>
-<p>This page is scheduled for Phase 7 of the build. See <code>PLAN.md</code> in the repository.</p>
-</div>
+<blockquote>
+<p><strong>TL;DR</strong></p>
+<ul>
+<li>Moats compound: more flow gives more fill data, better prices and more flow. Speed is table stakes; the durable moats are flow data, retail and exchange franchises, balance sheet and risk systems.</li>
+<li>Consolidation follows the volatility cycle: quiet years pushed weaker firms into sales (GETCO–Knight 2013, Virtu–KCG 2017) <code>[Reported]</code>, and NYSE market-maker franchises concentrated.</li>
+<li>Buyers acquire flow, franchises and client lists, not algorithms. The largest private firms rarely sell; they raise minority equity or bonds instead.</li>
+<li>Value a market maker on through-the-cycle revenue per day against volatility and volume, then on operating leverage. Citadel Securities' 2022 funding round implied about 3× trailing revenue <code>[Estimate]</code>.</li>
+</ul>
+</blockquote>
+<p><strong>Level:</strong> Deep dive · <strong>Read time:</strong> ~8 min · <strong>Last verified:</strong> 2026-11</p>
+<h2 id="moats">Moats<a class="headerlink" href="#moats" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Moat</th>
+<th>Why it compounds</th>
+<th>Durability</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Speed</td>
+<td>wins latency races and avoids stale quotes</td>
+<td>low: every upgrade gets copied</td>
+<td>races cost global equity trading ~$5B a year, won by a few firms <code>[Verified]</code></td>
+</tr>
+<tr>
+<td>Proprietary flow data</td>
+<td>every fill and <a href="../../09-reference/glossary/#markout">markout</a> trains the next fair-value and toxicity model</td>
+<td>high: rivals cannot buy it</td>
+<td><code>[Lore]</code>; mechanism in <a href="../../03-algorithms/f-market-making-and-hft-algorithms/adverse-selection-and-markouts/">M5</a></td>
+</tr>
+<tr>
+<td>Retail flow contracts</td>
+<td>low-toxicity flow; scale lowers cost per order</td>
+<td>medium: brokers rebid, rules can change</td>
+<td>Citadel Securities and Virtu had over 70% of retail flow in 2019–2022 data <code>[Reported]</code></td>
+</tr>
+<tr>
+<td>Exchange franchises (<a href="../../09-reference/glossary/#designated-market-maker-dmm">DMM</a>, lead market maker)</td>
+<td>allocation privileges and fee benefits</td>
+<td>medium-high: few slots</td>
+<td>three firms ran ~90% of NYSE listings in early 2016 <code>[Reported]</code></td>
+</tr>
+<tr>
+<td>Balance sheet</td>
+<td>ETF creations, options inventory, risk capacity in stress</td>
+<td>high</td>
+<td>Jane Street members' equity ~$29.9B at end-2024 <code>[Reported]</code></td>
+</tr>
+<tr>
+<td>Talent</td>
+<td>pay pools a small entrant cannot match</td>
+<td>medium: people move after non-competes</td>
+<td>Jane Street's 2025 pay pool ~$9.38B <code>[Reported]</code></td>
+</tr>
+<tr>
+<td>Risk systems</td>
+<td>the firm survives its worst day</td>
+<td>invisible until it fails</td>
+<td>Knight lost over $460M in 2012 <code>[Verified]</code></td>
+</tr>
+</tbody>
+</table>
+<pre class="mermaid"><code>flowchart LR
+    flow["More order flow"] --&gt; data["More fills and&lt;br/&gt;markout data"]
+    data --&gt; model["Better fair values&lt;br/&gt;and toxicity models"]
+    model --&gt; quotes["Tighter quotes,&lt;br/&gt;more price improvement"]
+    quotes --&gt; flow
+    quotes --&gt; pnl["Higher P and L"]
+    pnl --&gt; inv["Pay, hardware,&lt;br/&gt;balance sheet"]
+    inv --&gt; model
+    pnl --&gt; pay["Ability to pay&lt;br/&gt;for order flow"]
+    pay --&gt; flow</code></pre>
+<h2 id="consolidation-and-notable-deals">Consolidation and notable deals<a class="headerlink" href="#consolidation-and-notable-deals" title="Permanent link">&para;</a></h2>
+<p>Three waves. Low volatility and the arms race cut US-equity HFT revenue from about $7.2B in 2009 to about $1.1B in 2016 <code>[Reported]</code>, and weaker firms sold. Banks left NYSE designated market making, which concentrated. In the 2020s the leaders grew organically, while brokers bought niche market makers and exchanges bought data and software.</p>
+<table>
+<thead>
+<tr>
+<th>Date</th>
+<th>Buyer</th>
+<th>Target</th>
+<th>Price</th>
+<th>What was bought</th>
+<th>Tag</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2012-12 agreed; KCG formed 2013</td>
+<td>GETCO</td>
+<td>Knight Capital</td>
+<td>~$1.4B</td>
+<td>retail flow franchise, after Knight's 2012 loss</td>
+<td><code>[Reported]</code></td>
+</tr>
+<tr>
+<td>2014</td>
+<td>IMC</td>
+<td>Goldman Sachs' NYSE DMM unit</td>
+<td>n/d</td>
+<td>DMM franchise</td>
+<td><code>[Reported]</code></td>
+</tr>
+<tr>
+<td>2016-01</td>
+<td>GTS</td>
+<td>Barclays' NYSE DMM unit</td>
+<td>n/d</td>
+<td>DMM franchise</td>
+<td><code>[Reported]</code></td>
+</tr>
+<tr>
+<td>2016 (closed May)</td>
+<td>Citadel Securities</td>
+<td>KCG's NYSE DMM unit, ~1,500 issues</td>
+<td>n/d</td>
+<td>largest NYSE DMM</td>
+<td><code>[Reported]</code></td>
+</tr>
+<tr>
+<td>2016-05</td>
+<td>Citadel Securities</td>
+<td>Citi's Automated Trading Desk equity assets</td>
+<td>n/d</td>
+<td>a bank exiting electronic market making</td>
+<td><code>[Reported]</code></td>
+</tr>
+<tr>
+<td>2017-04 agreed; closed 2017-07-20</td>
+<td>Virtu</td>
+<td>KCG</td>
+<td>$20.00/share, ~$1.4B cash, funded with $1.65B debt and $750M equity</td>
+<td>scale, retail flow</td>
+<td><code>[Verified]</code></td>
+</tr>
+<tr>
+<td>2017-08 agreed</td>
+<td>DRW</td>
+<td>RGM Advisors</td>
+<td>n/d</td>
+<td>ML-driven trading team</td>
+<td><code>[Reported]</code></td>
+</tr>
+<tr>
+<td>2018-11 agreed; closed 2019-03-01</td>
+<td>Virtu</td>
+<td>ITG</td>
+<td>$30.30/share, ~$1.0B cash</td>
+<td>agency execution, analytics, client list</td>
+<td><code>[Verified]</code></td>
+</tr>
+<tr>
+<td>2020-10 agreed; closed 2020-11-18</td>
+<td>Citadel Securities</td>
+<td>IMC's NYSE DMM unit, ~500 securities</td>
+<td>n/d</td>
+<td>DMM consolidation</td>
+<td><code>[Reported]</code></td>
+</tr>
+<tr>
+<td>2022-01</td>
+<td>Sequoia and Paradigm</td>
+<td>minority stake in Citadel Securities</td>
+<td>$1.15B at ~$22B valuation</td>
+<td>first outside equity</td>
+<td><code>[Reported]</code></td>
+</tr>
+<tr>
+<td>2026-02 agreed; closed 2026-08</td>
+<td>Marex</td>
+<td>Webb Traders, a European equity derivatives market maker</td>
+<td>n/d</td>
+<td>a broker adding principal market making</td>
+<td><code>[Reported]</code></td>
+</tr>
+<tr>
+<td>2015</td>
+<td>ICE</td>
+<td>Interactive Data</td>
+<td>$5.2B</td>
+<td>pricing and reference data</td>
+<td><code>[Reported]</code></td>
+</tr>
+<tr>
+<td>2021-01-29</td>
+<td>LSEG</td>
+<td>Refinitiv</td>
+<td>~$27B, all-share</td>
+<td>data and analytics</td>
+<td><code>[Reported]</code></td>
+</tr>
+<tr>
+<td>2023-11-01</td>
+<td>Nasdaq</td>
+<td>Adenza</td>
+<td>$10.5B headline; ~$10.0B at the closing share price</td>
+<td>risk and regulatory software</td>
+<td><code>[Verified]</code></td>
+</tr>
+</tbody>
+</table>
+<p><em>n/d: terms not disclosed or not found in public sources.</em></p>
+<p>A corp-dev reading of the table:</p>
+<ol>
+<li><strong>Flow and franchises transfer; code does not.</strong> Buyers paid for retail order flow, DMM books and client lists. Acquired technology is usually migrated onto the buyer's stack <code>[Lore]</code>.</li>
+<li><strong>Sellers sell at the cyclical bottom.</strong> Knight sold after an operational loss; KCG sold in low-volatility 2017 for a 12.7% premium to its prior close <code>[Reported]</code>.</li>
+<li><strong>The winners stay private.</strong> Citadel Securities took minority equity; Jane Street issues bonds. Listed comparables are few: Virtu and Flow Traders.</li>
+</ol>
+<h2 id="barriers-to-entry">Barriers to entry<a class="headerlink" href="#barriers-to-entry" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Regulation and capital:</strong> broker-dealer registration, net capital, and the <a href="../../09-reference/glossary/#market-access-rule">market access rule</a>'s pre-trade controls (<a href="../../06-risk-and-regulation/rules-that-shape-strategies/">rules that shape strategies</a>).</li>
+<li><strong>Fixed technology cost:</strong> colocation, direct feeds and hardware (<a href="../../05-infrastructure/colocation-networks-and-the-speed-of-light/">colocation and networks</a>).</li>
+<li><strong>Clearing margin:</strong> volatility spikes raise margin calls exactly when opportunity peaks.</li>
+<li><strong>Flow access:</strong> the top three firms pay up to ~90% of options PFOF <code>[Verified]</code>.</li>
+</ul>
+<p>Entry still happens in growing products: Optiver has stepped up competition with Citadel Securities and Susquehanna in US stock options <code>[Reported]</code>. Exit happens at the small end: from 2015 to 2021 the number of broker-dealers reporting options market-making revenue fell, mostly among small-capital firms <code>[Verified]</code>.</p>
+<h2 id="valuing-a-market-maker">Valuing a market maker<a class="headerlink" href="#valuing-a-market-maker" title="Permanent link">&para;</a></h2>
+<p>Treat revenue as a function of volatility and volume, not as a growth line. Virtu's adjusted net trading income ran $3.9M a day at an average VIX of 15.4 in 2019 and $9.0M at 29.3 in 2020 <code>[Verified]</code> (<a href="../economics-and-revenue-pools/">economics page</a>). That is about $0.37M a day per VIX point, but 2024 to 2025 implies about $0.68M, inflated by record volume <code>[Estimate]</code>. Then layer on operating leverage. Illustrative: $7.0M a day at VIX 15, $0.35M a day per VIX point, 252 days, costs of 30% of revenue plus $500M fixed.</p>
+<table>
+<thead>
+<tr>
+<th>Scenario (illustrative)</th>
+<th>VIX</th>
+<th>Revenue per day</th>
+<th>Annual net revenue</th>
+<th>Costs</th>
+<th>EBITDA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Calm</td>
+<td>15</td>
+<td>$7.0M</td>
+<td>$1.76B</td>
+<td>$1.03B</td>
+<td>$0.73B</td>
+</tr>
+<tr>
+<td>Normal</td>
+<td>19</td>
+<td>$8.4M</td>
+<td>$2.12B</td>
+<td>$1.14B</td>
+<td>$0.98B</td>
+</tr>
+<tr>
+<td>Stressed</td>
+<td>30</td>
+<td>$12.25M</td>
+<td>$3.09B</td>
+<td>$1.43B</td>
+<td>$1.66B</td>
+</tr>
+</tbody>
+</table>
+<p>VIX doubles from calm to stressed; EBITDA rises 2.3×. Value the normal row and treat stressed years as an option on volatility, not a run rate. Private marks are consistent with that discount: Citadel Securities' ~$22B valuation in January 2022 was about 3× its reported ~$7B of 2021 revenue <code>[Estimate]</code>.</p>
+<p>Diligence questions: revenue by product and top broker contract; losing days; risk limits; key people; regulatory exposure. The half-penny tick and lower access-fee cap are delayed to November 2027 <code>[Verified]</code>, and the SEC has proposed repealing the order-protection rule <code>[Reported]</code>. Both change per-share economics (<a href="../../01-market-structure/recent-changes/">recent changes</a>).</p>
+<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../economics-and-revenue-pools/">Economics and revenue pools</a></li>
+<li><a href="../taxonomy-of-quant-firms/">Taxonomy of quant firms</a></li>
+<li><a href="../../02-strategies/a-liquidity-provision/equity-market-making/">Equity market making</a></li>
+<li><a href="../../02-strategies/a-liquidity-provision/retail-flow-internalization/">Retail flow internalization</a></li>
+<li><a href="../../02-strategies/a-liquidity-provision/options-market-making/">Options market making</a></li>
+<li><a href="../../03-algorithms/f-market-making-and-hft-algorithms/adverse-selection-and-markouts/">Adverse selection and markouts</a></li>
+<li><a href="../../02-strategies/h-cross-cutting/strategy-failure-gallery/">Strategy failure gallery</a></li>
+</ul>
+<h2 id="sources">Sources<a class="headerlink" href="#sources" title="Permanent link">&para;</a></h2>
+<ul>
+<li>[Reported] Fox Business (2012-12). "Getco to buy Knight Capital in $1.4 billion deal." <a href="https://www.foxbusiness.com/markets/getco-to-buy-knight-capital-in-1-4-billion-deal">https://www.foxbusiness.com/markets/getco-to-buy-knight-capital-in-1-4-billion-deal</a> (accessed 2026-11)</li>
+<li>[Reported] Markets Media (2016-02). "Citadel Securities to become #1 designated market maker on NYSE" (KCG DMM unit; GTS and Barclays; three firms' share of listings). <a href="https://www.marketsmedia.com/citadel-securities-to-become-1-designated-market-maker-on-nyse">https://www.marketsmedia.com/citadel-securities-to-become-1-designated-market-maker-on-nyse</a> (accessed 2026-11)</li>
+<li>[Reported] Finance Magnates (2016). "KCG Exits NYSE Designated Market Making with Sale to Citadel Securities." <a href="https://www.financemagnates.com/institutional-forex/exchanges/kcg-exits-nyse-designated-market-making-with-sale-to-citadel-securities">https://www.financemagnates.com/institutional-forex/exchanges/kcg-exits-nyse-designated-market-making-with-sale-to-citadel-securities</a> (accessed 2026-11)</li>
+<li>[Reported] Citadel Securities (2016-05-16). "Citadel Securities Acquires Automated Trading Desk Assets from Citi." <a href="https://www.citadelsecurities.com/news-and-insights/citadel-securities-acquires-automated-trading-desk-assets-citi-2/">https://www.citadelsecurities.com/news-and-insights/citadel-securities-acquires-automated-trading-desk-assets-citi-2/</a> (accessed 2026-11)</li>
+<li>[Verified] Virtu Financial (2017-04-20). Press release on the KCG acquisition, Form 8-K exhibit 99. <em>SEC EDGAR</em>. <a href="https://www.sec.gov/Archives/edgar/data/0001592386/000110465917024722/a17-11616_1ex99d2.htm">https://www.sec.gov/Archives/edgar/data/0001592386/000110465917024722/a17-11616_1ex99d2.htm</a> (accessed 2026-11)</li>
+<li>[Reported] Bloomberg via BloombergQuint (2017-04-20). "Virtu Agrees to Buy Speed-Trading Rival KCG for $1.4 Billion" (financing and premium). <a href="https://www.bloombergquint.com/markets/2017/04/20/virtu-said-poised-to-announce-deal-to-acquire-trading-rival-kcg">https://www.bloombergquint.com/markets/2017/04/20/virtu-said-poised-to-announce-deal-to-acquire-trading-rival-kcg</a> (accessed 2026-11)</li>
+<li>[Verified] Virtu Financial, Inc. (2019-11). Form 10-Q for the quarter ended 2019-09-30 (KCG and ITG closing dates and terms). <em>SEC EDGAR</em>. <a href="https://www.sec.gov/Archives/edgar/data/1592386/000159238619000017/virtufinancial09-30x19.htm">https://www.sec.gov/Archives/edgar/data/1592386/000159238619000017/virtufinancial09-30x19.htm</a> (accessed 2026-11)</li>
+<li>[Reported] Hedgeweek (2017-08). "DRW to acquire RGM Advisors." <a href="https://www.hedgeweek.com/drw-acquire-rgm-advisors/">https://www.hedgeweek.com/drw-acquire-rgm-advisors/</a> (accessed 2026-11)</li>
+<li>[Reported] Financial Times, repost by Rosenblatt Securities (2018-01-02). "How high-frequency trading hit a speed bump" (Tabb Group revenue estimates; Teza and DRW deals). <a href="https://rblt.com/news/how-high-frequency-trading-hit-a-speed-bump">https://rblt.com/news/how-high-frequency-trading-hit-a-speed-bump</a> (accessed 2026-11)</li>
+<li>[Reported] Finance Magnates (2020-11). "Citadel Securities Acquires IMC's Designated Market Making Unit." <a href="https://www.financemagnates.com/institutional-forex/citadel-securities-acquires-imcs-designated-market-making-unit/">https://www.financemagnates.com/institutional-forex/citadel-securities-acquires-imcs-designated-market-making-unit/</a> (accessed 2026-11)</li>
+<li>[Reported] The TRADE (2022-01-11). "Citadel Securities receives $1.15 billion investment from Sequoia and Paradigm." <a href="https://www.thetradenews.com/citadel-securities-receives-1-15-billion-investment-from-sequoia-and-paradigm/">https://www.thetradenews.com/citadel-securities-receives-1-15-billion-investment-from-sequoia-and-paradigm/</a> (accessed 2026-11)</li>
+<li>[Reported] Bloomberg (2022-03-15). "Citadel Securities Opens Up After Record $7 Billion Windfall." <a href="https://www.bloomberg.com/news/articles/2022-03-15/citadel-securities-opens-up-after-record-7-billion-windfall">https://www.bloomberg.com/news/articles/2022-03-15/citadel-securities-opens-up-after-record-7-billion-windfall</a> (accessed 2026-11)</li>
+<li>[Reported] Marex Group (2026-02-06). "Marex Group plc to acquire equity derivatives market maker Webb Traders." <a href="https://www.marex.com/news/2026/02/marex-group-plc-to-acquire-equity-derivatives-market-maker-webb-traders/">https://www.marex.com/news/2026/02/marex-group-plc-to-acquire-equity-derivatives-market-maker-webb-traders/</a> (accessed 2026-11)</li>
+<li>[Reported] The TRADE (2026-08). "Marex completes acquisition of Webb Traders." <a href="https://www.thetradenews.com/marex-completes-acquisition-of-webb-traders/">https://www.thetradenews.com/marex-completes-acquisition-of-webb-traders/</a> (accessed 2026-11)</li>
+<li>[Reported] GlobalCapital (2015-12). "ICE completes $5.2bn Interactive Data buyout." <a href="https://www.globalcapital.com/article/28mssyp51jgqspwhj5i0a/derivatives/ice-completes-5-2bn-interactive-data-buyout">https://www.globalcapital.com/article/28mssyp51jgqspwhj5i0a/derivatives/ice-completes-5-2bn-interactive-data-buyout</a> (accessed 2026-11)</li>
+<li>[Reported] The TRADE (2021-01-29). "LSEG completes $27 billion Refinitiv acquisition." <a href="https://www.thetradenews.com/lseg-completes-27-billion-refinitiv-acquisition/">https://www.thetradenews.com/lseg-completes-27-billion-refinitiv-acquisition/</a> (accessed 2026-11)</li>
+<li>[Verified] Nasdaq, Inc. (2023-11-01). Form 8-K on completion of the Adenza acquisition (mirror). <a href="https://capedge.com/filing/1120193/0001193125-23-270374/NDAQ-8K">https://capedge.com/filing/1120193/0001193125-23-270374/NDAQ-8K</a> (accessed 2026-11)</li>
+<li>[Verified] Aquilina, M., Budish, E. &amp; O'Neill, P. (2022). "Quantifying the High-Frequency Trading 'Arms Race'." <em>Quarterly Journal of Economics</em> 137(1), 493–564. <a href="https://doi.org/10.1093/qje/qjab032">https://doi.org/10.1093/qje/qjab032</a> (accessed 2026-11)</li>
+<li>[Reported] NBER conference paper (2023), study of US retail wholesaler concentration using 2019–2022 data. <a href="https://conference.nber.org/conf_papers/f187847/f187847.pdf">https://conference.nber.org/conf_papers/f187847/f187847.pdf</a> (accessed 2026-11)</li>
+<li>[Verified] SEC Division of Trading and Markets (2026-04-09). "Roundtable on Options Market Structure: Supporting Data." <a href="https://www.sec.gov/files/roundtable-options-market-structure.pdf">https://www.sec.gov/files/roundtable-options-market-structure.pdf</a> (accessed 2026-11)</li>
+<li>[Reported] Bloomberg Government (2026-05). "Optiver Boosts Stock Option Competition for Citadel, Susquehanna." <a href="https://news.bgov.com/capital-markets/optiver-boosts-stock-option-competition-for-citadel-susquehanna">https://news.bgov.com/capital-markets/optiver-boosts-stock-option-competition-for-citadel-susquehanna</a> (accessed 2026-11)</li>
+<li>[Verified] SEC (2026-06-11). Temporary exemptive order delaying Regulation NMS tick-size and access-fee compliance, Release No. 34-105656. <a href="https://www.sec.gov/files/rules/exorders/2026/34-105656.pdf">https://www.sec.gov/files/rules/exorders/2026/34-105656.pdf</a> (accessed 2026-11)</li>
+<li>[Reported] Morrison Foerster (2026-06-12). "SEC proposes landmark rollback of core Regulation NMS provisions." <a href="https://www.mofo.com/resources/insights/260612-sec-proposes-landmark-rollback-of-core-regulation">https://www.mofo.com/resources/insights/260612-sec-proposes-landmark-rollback-of-core-regulation</a> (accessed 2026-11)</li>
+</ul>
 
 
 

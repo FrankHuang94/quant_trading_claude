@@ -3865,6 +3865,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Roles, teams and careers
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -3874,6 +3885,79 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-roles" class="md-nav__link">
+    <span class="md-ellipsis">
+      The roles
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#three-ways-to-organize" class="md-nav__link">
+    <span class="md-ellipsis">
+      Three ways to organize
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pay-what-is-public" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pay: what is public
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-this-in-conversation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using this in conversation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related pages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sources
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -5407,6 +5491,68 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-roles" class="md-nav__link">
+    <span class="md-ellipsis">
+      The roles
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#three-ways-to-organize" class="md-nav__link">
+    <span class="md-ellipsis">
+      Three ways to organize
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pay-what-is-public" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pay: what is public
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-this-in-conversation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using this in conversation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related pages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sources
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -5424,11 +5570,147 @@
 
 
 <h1 id="roles-teams-and-careers">Roles, teams and careers<a class="headerlink" href="#roles-teams-and-careers" title="Permanent link">&para;</a></h1>
-<!-- STUB -->
-<div class="admonition note">
-<p class="admonition-title">Not yet written</p>
-<p>This page is scheduled for Phase 7 of the build. See <code>PLAN.md</code> in the repository.</p>
-</div>
+<blockquote>
+<p><strong>TL;DR</strong></p>
+<ul>
+<li>Five core roles: the <strong>quant researcher</strong> (QR) finds and validates signals, the <strong>quant trader</strong> (QT) runs strategies live, the <strong>quant developer</strong> (QD) turns research into production code, the <strong>software engineer</strong> (SWE) builds shared infrastructure, and the <strong>portfolio manager</strong> (PM) owns capital and a P&amp;L. Titles vary by firm.</li>
+<li>Three ways to organize: market makers run product desks on shared technology; pod shops run PM-led teams with their own P&L; centralized funds run signal teams that feed one model.</li>
+<li>Pay structure follows the org chart. Few figures are public: Jane Street's 2025 pay pool was reportedly $9.38B <code>[Reported]</code>, and star pod PMs have been offered packages above $100M <code>[Reported]</code>.</li>
+<li>To place someone quickly, ask who owns the P&amp;L they work on.</li>
+</ul>
+</blockquote>
+<p><strong>Level:</strong> Core · <strong>Read time:</strong> ~6 min · <strong>Last verified:</strong> 2026-11</p>
+<h2 id="the-roles">The roles<a class="headerlink" href="#the-roles" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Owns</th>
+<th>Produces</th>
+<th>Judged by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Quant researcher (QR)</td>
+<td>hypotheses, signals, models</td>
+<td>backtests, <a href="../../09-reference/glossary/#alpha">alpha</a> signals, research notes</td>
+<td>out-of-sample <a href="../../03-algorithms/a-data-and-signals/evaluating-signals/">IC</a>, marginal contribution to the combined forecast, live P&amp;L</td>
+</tr>
+<tr>
+<td>Quant trader (QT)</td>
+<td>live strategies, parameters, limits, exceptions</td>
+<td>parameter changes, risk decisions, post-trade reviews</td>
+<td>P&amp;L, <a href="../../03-algorithms/f-market-making-and-hft-algorithms/adverse-selection-and-markouts/">markouts</a>, risk discipline</td>
+</tr>
+<tr>
+<td>Quant developer (QD)</td>
+<td>the team's code: simulators, feature pipelines, strategy logic</td>
+<td>research-to-production handoffs, <a href="../../03-algorithms/c-validation-and-backtesting/backtesting-engines/">backtesting engines</a></td>
+<td>correctness, speed of iteration</td>
+</tr>
+<tr>
+<td>Software engineer (SWE)</td>
+<td>shared systems: feed handlers, order gateways, FPGAs, data and compute platforms</td>
+<td>infrastructure every desk uses</td>
+<td>latency, uptime, throughput (<a href="../../05-infrastructure/trading-and-research-tech-stacks/">tech stacks</a>)</td>
+</tr>
+<tr>
+<td>Portfolio manager (PM)</td>
+<td>capital and a P&amp;L</td>
+<td>positions, risk, hiring</td>
+<td><a href="../../09-reference/glossary/#sharpe-ratio">Sharpe ratio</a>, drawdown against limits, capacity</td>
+</tr>
+</tbody>
+</table>
+<p>Around them sit risk managers, execution researchers, data engineers who source and clean datasets, and compliance. The lines blur in practice. A market maker's "trader" usually supervises automated systems and often writes code; a QR at a small firm also ships production code <code>[Lore]</code>.</p>
+<h2 id="three-ways-to-organize">Three ways to organize<a class="headerlink" href="#three-ways-to-organize" title="Permanent link">&para;</a></h2>
+<p><strong>Market maker.</strong> Teams are cut by product and region: US equities, ETFs, options, futures. Each desk mixes traders, researchers and desk developers. A central group owns exchange gateways, market data and <a href="../../03-algorithms/f-market-making-and-hft-algorithms/algorithmic-risk-controls/">pre-trade risk checks</a>. Strategies run as continuous automated loops (<a href="../../03-algorithms/f-market-making-and-hft-algorithms/anatomy-of-an-hft-trading-loop/">M1</a>); people tune parameters and handle exceptions such as halts, corporate actions and new listings. Desks depend on each other: the ETF desk needs the equity desk's <a href="../../03-algorithms/f-market-making-and-hft-algorithms/fair-value-and-microprice/">fair values</a>. That is one reason firm-wide bonus pools are common <code>[Lore]</code>.</p>
+<p><strong>Pod shop.</strong> A PM leads a small team, often a few QRs and a developer <code>[Lore]</code>, with its own signals, optimizer and P&amp;L. The platform supplies data, a risk model, execution and financing. Central risk allocates capital and enforces drawdown stops; Millennium reportedly halves a PM's capital after a 5% loss and is likely to part ways near 7.5% <code>[Reported]</code>. The PM is paid a share of the pod's own P&amp;L, commonly said to be 15–20% <code>[Lore]</code>, and pays the team from it.</p>
+<p><strong>Centralized quant fund.</strong> Research groups are cut by signal type or horizon. Their forecasts feed one <a href="../../03-algorithms/b-forecasting-models/alpha-combination-and-ensembling/">alpha combination</a> model, then a portfolio-construction team and an execution team. A core platform owns data and compute. Researchers often see only part of the model <code>[Lore]</code>. Credit is assigned by attribution, which pushes researchers toward signals uncorrelated with what the model already has.</p>
+<pre class="mermaid"><code>flowchart TB
+    subgraph MM["Market maker"]
+        direction TB
+        mmh["Shared tech and firm risk:&lt;br/&gt;gateways, feeds, risk checks"]
+        d1["Equities desk&lt;br/&gt;traders, QRs, desk devs"]
+        d2["ETF desk"]
+        d3["Options desk"]
+        mmh --- d1
+        mmh --- d2
+        mmh --- d3
+        d1 -.-&gt;|"fair values"| d2
+    end
+    subgraph POD["Pod shop"]
+        direction TB
+        cr["Central risk and&lt;br/&gt;capital allocation"]
+        p1["PM 1 with QRs and a QD"]
+        p2["PM 2 with QRs and a QD"]
+        plat["Platform: data, execution,&lt;br/&gt;financing"]
+        cr --&gt; p1
+        cr --&gt; p2
+        plat -.-&gt; p1
+        plat -.-&gt; p2
+    end
+    subgraph CEN["Centralized quant fund"]
+        direction TB
+        s1["Signal team A"] --&gt; comb["Combined forecast"]
+        s2["Signal team B"] --&gt; comb
+        comb --&gt; pc["Portfolio construction"]
+        pc --&gt; ex["Execution research"]
+        core["Data and compute platform"] -.-&gt; s1
+        core -.-&gt; s2
+    end</code></pre>
+<p>The trade-off between the last two models is old. Sharpe (1981) and van Binsbergen, Brandt and Koijen (2008) analyze what a firm loses by splitting a portfolio among independent managers <code>[Verified]</code>. Pods buy accountability and independent ideas; one book saves the costs of duplicated hedges and offsetting trades (<a href="../../02-strategies/h-cross-cutting/how-firms-combine-strategies/">how firms combine strategies</a>).</p>
+<h2 id="pay-what-is-public">Pay: what is public<a class="headerlink" href="#pay-what-is-public" title="Permanent link">&para;</a></h2>
+<p>Almost nothing is disclosed. The figures below are press reports from unnamed sources.</p>
+<table>
+<thead>
+<tr>
+<th>Firm type</th>
+<th>Structure</th>
+<th>Public data point</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Market maker</td>
+<td>discretionary bonus from a firm-wide pool <code>[Lore]</code></td>
+<td>Jane Street's 2025 pool was reportedly $9.38B, more than double 2024, about $2.68M per employee on roughly 3,500 staff <code>[Reported]</code>; that is about 24% of its reported revenue <code>[Estimate]</code></td>
+</tr>
+<tr>
+<td>Pod shop</td>
+<td>formula payout on own pod P&amp;L <code>[Lore]</code></td>
+<td>multi-managers have offered star PMs packages above $100M over several years (2025) <code>[Reported]</code>; Bloomberg reported $120M offers in 2023 <code>[Reported]</code></td>
+</tr>
+<tr>
+<td>Centralized fund</td>
+<td>discretionary, by attributed contribution <code>[Lore]</code></td>
+<td>not disclosed</td>
+</tr>
+</tbody>
+</table>
+<p>An average is not a typical salary: a few large bonuses dominate it. Structure shapes behavior. A shared pool rewards sharing models across desks. A pod payout rewards guarding ideas and hedging every factor, because the PM keeps a share of gains but not of losses (<a href="../../02-strategies/h-cross-cutting/how-firms-combine-strategies/">pod economics</a>). Attribution rewards orthogonal signals.</p>
+<h2 id="using-this-in-conversation">Using this in conversation<a class="headerlink" href="#using-this-in-conversation" title="Permanent link">&para;</a></h2>
+<p>"Who owns the P&amp;L you work on?" places a person in one question. A QR at a centralized fund may never see a dollar figure for their own signal. A pod PM knows theirs to the basis point. A market-making trader thinks in edge per share and <a href="../../09-reference/glossary/#markout">markouts</a>. More openers are in the <a href="../../07-conversation-playbook/questions-to-ask/">questions to ask</a> page.</p>
+<h2 id="related-pages">Related pages<a class="headerlink" href="#related-pages" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../taxonomy-of-quant-firms/">Taxonomy of quant firms</a></li>
+<li><a href="../../02-strategies/h-cross-cutting/how-firms-combine-strategies/">How firms combine strategies</a></li>
+<li><a href="../../03-algorithms/b-forecasting-models/alpha-combination-and-ensembling/">Alpha combination and ensembling</a></li>
+<li><a href="../../03-algorithms/f-market-making-and-hft-algorithms/anatomy-of-an-hft-trading-loop/">Anatomy of an HFT trading loop</a></li>
+<li><a href="../../05-infrastructure/trading-and-research-tech-stacks/">Trading and research tech stacks</a></li>
+<li><a href="../../07-conversation-playbook/how-to-talk-to-a-quant/">How to talk to a quant</a></li>
+</ul>
+<h2 id="sources">Sources<a class="headerlink" href="#sources" title="Permanent link">&para;</a></h2>
+<ul>
+<li>[Reported] Bloomberg Law (2026-05-01). "Jane Street's Pay Pool More Than Doubled to $9.4 Billion in 2025" (per-employee average from syndicated coverage of the same report). <a href="https://news.bloomberglaw.com/securities-law/jane-streets-pay-pool-more-than-doubled-to-9-4-billion-in-2025">https://news.bloomberglaw.com/securities-law/jane-streets-pay-pool-more-than-doubled-to-9-4-billion-in-2025</a> (accessed 2026-11)</li>
+<li>[Reported] Reuters via MarketScreener (2026-04-24). "Jane Street's $40 billion trading haul tops rivals, sources say." <a href="https://www.marketscreener.com/news/jane-street-s-40-billion-trading-haul-tops-rivals-sources-say-ce7f59dfdf8ff52d">https://www.marketscreener.com/news/jane-street-s-40-billion-trading-haul-tops-rivals-sources-say-ce7f59dfdf8ff52d</a> (accessed 2026-11)</li>
+<li>[Reported] Hedgeweek (2025-06). "Multi-manager hedge funds escalate talent war arms race with nine-figure pay packages" (citing the Wall Street Journal). <a href="https://www.hedgeweek.com/multi-manager-hedge-funds-escalate-talent-war-arms-race-with-nine-figure-pay-packages/">https://www.hedgeweek.com/multi-manager-hedge-funds-escalate-talent-war-arms-race-with-nine-figure-pay-packages/</a> (accessed 2026-11)</li>
+<li>[Reported] Advisor Perspectives, republishing Bloomberg (2023-06-02). "Hedge Funds at War for Top Traders Dangle $120 Million Payouts." <a href="https://www.advisorperspectives.com/articles/2023/06/02/hedge-fund-top-traders-dangle-120-million-payouts-bloomberg">https://www.advisorperspectives.com/articles/2023/06/02/hedge-fund-top-traders-dangle-120-million-payouts-bloomberg</a> (accessed 2026-11)</li>
+<li>[Reported] Business Insider via AOL (2024-10-02). "The strategy a $69 billion hedge fund uses to make sure it never loses money in the stock market" (citing the Wall Street Journal). <a href="https://www.aol.com/strategy-69-billion-hedge-fund-193733084.html">https://www.aol.com/strategy-69-billion-hedge-fund-193733084.html</a> (accessed 2026-11)</li>
+<li>[Verified] Sharpe, W. F. (1981). "Decentralized Investment Management." <em>Journal of Finance</em> 36(2), 217–234. <a href="https://doi.org/10.1111/j.1540-6261.1981.tb00436.x">https://doi.org/10.1111/j.1540-6261.1981.tb00436.x</a> (accessed 2026-11)</li>
+<li>[Verified] van Binsbergen, J. H., Brandt, M. W. &amp; Koijen, R. S. J. (2008). "Optimal Decentralized Investment Management." <em>Journal of Finance</em> 63(4), 1849–1895. <a href="https://doi.org/10.1111/j.1540-6261.2008.01376.x">https://doi.org/10.1111/j.1540-6261.2008.01376.x</a> (accessed 2026-11)</li>
+</ul>
 
 
 
