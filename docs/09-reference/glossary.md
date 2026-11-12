@@ -858,7 +858,7 @@ Conditions, written before launch, under which a strategy will be cut or shut do
 
 ### Kill switch
 
-An automated or manual control that immediately cancels a firm's or strategy's open orders and blocks new ones when a limit is breached: position, loss, message rate, or a mismatch between expected and actual positions. Knight Capital's August 2012 malfunction, which lost about \$460 million in roughly 45 minutes and led to SEC charges under the Market Access Rule, is the standard case for why it must exist `[Reported]`. **See:** [Algorithmic risk controls](../03-algorithms/f-market-making-and-hft-algorithms/algorithmic-risk-controls.md) · [Rules that shape strategies](../06-risk-and-regulation/rules-that-shape-strategies.md)
+An automated or manual control that immediately cancels a firm's or strategy's open orders and blocks new ones when a limit is breached: position, loss, message rate, or a mismatch between expected and actual positions. Knight Capital's August 2012 malfunction, which lost more than \$460 million in roughly 45 minutes and led to SEC charges under the Market Access Rule, is the standard case for why it must exist `[Verified]`. **See:** [Algorithmic risk controls](../03-algorithms/f-market-making-and-hft-algorithms/algorithmic-risk-controls.md) · [Rules that shape strategies](../06-risk-and-regulation/rules-that-shape-strategies.md)
 
 ### Knight Capital incident
 
@@ -966,7 +966,7 @@ The finding that low-volatility and low-beta stocks have earned risk-adjusted re
 
 ### Maker-taker
 
-The dominant US exchange pricing model: the venue pays a rebate to the order that adds (makes) liquidity and charges a fee to the order that removes (takes) it, keeping the difference. Top-tier rebates have run around $0.002-0.003 per share against take fees at the \$0.003 cap `[Reported]`, a meaningful fraction of a one-cent spread in tick-constrained stocks; the 10-mil cap adopted in 2024 would compress this range, but its compliance date is now November 2027 `[Verified]`. **See:** [Fees, rebates and ticks](../01-market-structure/fees-rebates-and-ticks.md) · [Fee- and microstructure-driven strategies](../02-strategies/b-speed-and-structural/fee-and-microstructure-driven-strategies.md)
+The dominant US exchange pricing model: the venue pays a rebate to the order that adds (makes) liquidity and charges a fee to the order that removes (takes) it, keeping the difference. Top-tier rebates have run around \$0.002-0.003 per share against take fees at the \$0.003 cap `[Reported]`, a meaningful fraction of a one-cent spread in tick-constrained stocks; the 10-mil cap adopted in 2024 would compress this range, but its compliance date is now November 2027 `[Verified]`. **See:** [Fees, rebates and ticks](../01-market-structure/fees-rebates-and-ticks.md) · [Fee- and microstructure-driven strategies](../02-strategies/b-speed-and-structural/fee-and-microstructure-driven-strategies.md)
 
 ### Managed futures
 
