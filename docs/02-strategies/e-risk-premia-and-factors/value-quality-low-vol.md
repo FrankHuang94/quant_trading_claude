@@ -185,7 +185,7 @@ timeline
 
 | Myth | Reality |
 |---|---|
-| Value is dead | Down 58% to 2020, then up 68% to 2022; contested, not settled |
+| Value is dead | Down 58% (Dec 2006–Sep 2020), then up 68% to 2022; contested, not settled |
 | Low risk means low return | Low-beta stocks have had similar returns to high-beta ones, hence BAB |
 | Quality is always defensive | QMJ fell 36% in 2023–2026 |
 
