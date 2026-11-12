@@ -2,7 +2,7 @@
 
 > **TL;DR**
 >
-> - 14 questions on module 09: glossary terms you should be able to define precisely, which book, paper, talk or blog to reach for, and the caveats that come with each source.
+> - 15 questions on module 09: glossary terms you should be able to define precisely, which book, paper, talk or blog to reach for, and the caveats that come with each source.
 > - The point is not memorizing citations. It is knowing where to look and what a source can and cannot prove.
 > - Difficulty: **basic** (you read the page), **informed** (you can apply it), **sharp** (you could defend the choice to a quant). Each answer links to the page that explains it.
 
