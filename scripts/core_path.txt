@@ -1,0 +1,17 @@
+# The Core Path: ~4 hours of reading (plus diagrams and labs), in order.
+# Rules (BUILD_SPEC §10): <= ~25k prose words; >= 60% from modules 02-03; no TODO(verify) on these pages.
+# Used by scripts/wordcount.py and presented in docs/00-start-here/learning-paths.md.
+00-start-here/the-big-picture.md
+01-market-structure/life-of-a-stock-order.md
+01-market-structure/the-limit-order-book.md
+02-strategies/index.md
+02-strategies/how-quants-evaluate-a-strategy.md
+03-algorithms/there-is-no-single-algorithm.md
+02-strategies/a-liquidity-provision/equity-market-making.md
+03-algorithms/f-market-making-and-hft-algorithms/quoting-and-inventory-control.md
+02-strategies/c-statistical-arbitrage/stat-arb-overview-and-history.md
+02-strategies/d-mid-frequency-alpha/cross-sectional-alpha-and-neutralization.md
+03-algorithms/a-data-and-signals/evaluating-signals.md
+03-algorithms/d-portfolio-construction/mean-variance-optimization.md
+03-algorithms/e-execution-algorithms/implementation-shortfall-and-almgren-chriss.md
+03-algorithms/h-end-to-end-walkthroughs/walkthrough-mid-frequency-stat-arb.md

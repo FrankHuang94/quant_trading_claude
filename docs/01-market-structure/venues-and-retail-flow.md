@@ -17,7 +17,7 @@
 | [ATSs](../09-reference/glossary.md#alternative-trading-system-ats) and [dark pools](../09-reference/glossary.md#dark-pool) | 33 NMS-stock ATSs `[Verified]` | Broker-run non-displayed books, block crossers, conditional-order venues | 18.7% of TRF volume, about 9.5% of the total `[Estimate]` (0.187 × 50.6%) |
 | Wholesalers and other dealers | 220+ other FINRA members traded off-exchange in Q1 2023 `[Verified]` | Principal trading against client flow: retail wholesalers, single-dealer platforms, block desks | 81.3% of TRF volume, about 41% of the total `[Estimate]` (0.813 × 50.6%) |
 
-Off-exchange (TRF) share rose 361 bps in 2025 to 50.6% `[Verified]`, so 2024 was about 47.0% `[Estimate]`. Liquidnet reports some swing back toward lit venues in 2026 on its own measure `[Reported]`. TODO(verify): 2026 year-to-date TRF share once full-year data are out.
+Off-exchange (TRF) share rose 361 bps in 2025 to 50.6% `[Verified]`, so 2024 was about 47.0% `[Estimate]`. Liquidnet reports some swing back toward lit venues in 2026 on its own measure `[Reported]`. Full-year 2026 TRF figures were not yet published at the build date (2026-11).
 
 The market is this fragmented because Regulation NMS (2005) obliges every venue to respect the best protected quote anywhere. That makes a new exchange instantly reachable, and fee competition does the rest (see [fees, rebates and ticks](fees-rebates-and-ticks.md)).
 

@@ -24,7 +24,7 @@ Only **[protected quotes](../09-reference/glossary.md#protected-quote)** count: 
 
 **Round lots changed on November 3, 2025.** The round lot is now 100 shares for stocks up to \$250, 40 shares from \$250.01 to \$1,000, 10 shares from \$1,000.01 to \$10,000, and 1 share above that `[Verified]`. Nasdaq estimated that over 200 stocks were affected `[Reported]`. Illustration: in a \$900 stock, the best 100-share quotes might be \$899.80 × \$900.20 while 40-share orders sit at \$899.95 × \$900.05, so the official NBBO narrows from 40 cents to 10.
 
-**Odd-lot data comes next.** The SIPs were scheduled to begin carrying each exchange's best odd-lot quote at or better than the NBBO, plus a consolidated best odd-lot order (BOLO), from late April and May 2026 `[Verified]`. TODO(verify): confirm the go-live happened as scheduled. Odd-lot quotes are not protected and can lock or cross the NBBO `[Verified]`. A January 2026 SEC exemptive order deferred odd-lot depth of book to May 2028 `[Verified]`.
+**Odd-lot data comes next.** The SIPs were scheduled to begin carrying each exchange's best odd-lot quote at or better than the NBBO, plus a consolidated best odd-lot order (BOLO), from late April and May 2026 `[Verified]`; the production cut-over was scheduled for 2026-04-27 (Nasdaq UTP vendor alert) `[Reported]`. Odd-lot quotes are not protected and can lock or cross the NBBO `[Verified]`. A January 2026 SEC exemptive order deferred odd-lot depth of book to May 2028 `[Verified]`.
 
 ## SIP vs direct feeds
 
@@ -86,7 +86,7 @@ The D.C. Circuit upheld it in 2022 `[Reported]`. Progress since:
 
 - The round-lot and odd-lot pieces were pulled forward by the September 2024 Regulation NMS amendments and are now live or scheduled `[Verified]`.
 - The consolidator half has stalled. A new consolidated-data (CT) Plan is meant to replace the three legacy plans. As of April 2026 its fee schedule was still in SEC proceedings, and the CTA, CQ and UTP plans still governed SIP data `[Verified]`.
-- TODO(verify): confirm that no competing consolidator has begun operating.
+- As of 2026-11 we found no public record of a competing consolidator operating under the 2020 Market Data Infrastructure rule `[Reported]`; check the SEC's Form CC filings for updates.
 
 ```mermaid
 timeline
@@ -117,6 +117,7 @@ timeline
 
 ## Sources
 
+- [Reported] Nasdaq Trader (2026-01-12). "UTP Vendor Alert: SIP odd-lot quotation dissemination, production launch 2026-04-27." UTP2026-2. <https://nasdaqtrader.com/TraderNews.aspx?id=UTP2026-2> (accessed 2026-11)
 - [Verified] Nasdaq Trader (2025-05-07). "UTP Trader News UTP2025-10: round lot changes" (price-tiered round lots). <https://www.nasdaqtrader.com/TraderNews.aspx?id=UTP2025-10> (accessed 2026-11)
 - [Verified] CTA Plan (2025). "CTA Round Lot Changes FAQ." <https://www.ctaplan.com/publicdocs/ctaplan/CTA_Round_Lot_Changes_FAQ.pdf> (accessed 2026-11)
 - [Reported] FlexTrade (2025-11-04). Note on the November 2025 round-lot implementation and tick-size delay. <https://flextrade.com/?p=16366> (accessed 2026-11)
